@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* Design tokens: every colour here comes from the "Foundations" board of the design. */
+@theme {
+  /* next/font registers Inter Variable as --font-inter-variable; the rest is the stack from the brief. */
+  --font-sans:
+    var(--font-inter-variable), "InterVariable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ink + dark surfaces */
+  --color-ink: #0a1022;
+  --color-night: #070b16;
+  --color-panel: #0d1324;
+  --color-raised: #121a2a;
+  --color-edge: #24304a;
+
+  /* brand blue */
+  --color-brand: #2e4fe3;
+  --color-brand-300: #8fa3ff;
+  --color-brand-200: #b9c8fb;
+  --color-brand-100: #dce4fc;
+  --color-brand-50: #eef2fe;
+  --color-brand-ice: #e0e7ff;
+
+  /* teal / mint */
+  --color-mint: #62dccb;
+  --color-teal: #087f73;
+  --color-teal-deep: #06665c;
+  --color-teal-50: #e7f6f3;
+  --color-teal-100: #c7e8e3;
+
+  /* light surfaces, lines, text */
+  --color-subtle: #f6f8fb;
+  --color-line: #e6eaf0;
+  --color-line-strong: #e1e6ee;
+  --color-line-soft: #eef1f5;
+  --color-field: #d5dbe5;
+  --color-muted: #4b5565;
+  --color-faint: #6b7280;
+  --color-prose: #334155;
+
+  /* text on dark */
+  --color-mist: #a3adc2;
+  --color-dim: #98a2b3;
+  --color-haze: #c9d2e3;
+  --color-steel: #7f8aa3;
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    /* Dark sections open and close every page, so overscroll matches them. */
+    background: var(--color-night);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-ink);
+    background: var(--color-night);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+}
+
+/* ---------- Page transitions (React <ViewTransition>, see components/PageTransition.tsx) ---------- */
+
+/* Clicks pass through to the live page while a transition runs. */
+::view-transition {
+  pointer-events: none;
+}
+
+/* The header is the anchor: it never moves while the page content changes. */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+
+/* Old page leaves quickly; the new one settles in a little slower. */
+::view-transition-old(.page-exit) {
+  animation: 160ms cubic-bezier(0.4, 0, 1, 1) both page-out;
+}
+::view-transition-new(.page-enter) {
+  animation: 360ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both page-in;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* A project thumbnail morphs into the case-study cover. */
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
