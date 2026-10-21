@@ -1764,7 +1764,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   className="inline-flex h-[48px] items-center gap-[8px] rounded-[12px] border border-line-strong bg-white px-[22px] text-[15px] font-semibold text-ink"
-                  href="/contact"
+                  href="/contact#book"
                 >
                   Book a 30-minute call
                 </Link>
@@ -1976,7 +1976,7 @@ export default function HomePage() {
             </Link>
             <Link
               className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white"
-              href="/contact"
+              href="/contact#book"
             >
               <svg
                 width="16"

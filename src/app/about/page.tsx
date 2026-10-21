@@ -24,7 +24,7 @@ export default function AboutPage() {
           titleAccent="on every project."
           lead="Ansari Studio is a software and automation studio run by Muhammad Wahab Ansari, a senior engineer in Lahore, Pakistan, who builds web products and business automations for founders and growing teams in the UK and US."
           primary="Book a 30-minute call"
-          primaryHref="/contact"
+          primaryHref="/contact#book"
           secondary="See our process"
           secondaryHref="/process"
           points=""
@@ -240,7 +240,7 @@ export default function AboutPage() {
         title="Let's talk about your project."
         text="You will speak with me directly — the person who scopes and builds it. You get a reply within one business day."
         cta="Book a 30-minute call"
-        ctaHref="/contact"
+        ctaHref="/contact#book"
       />
     </>
   );

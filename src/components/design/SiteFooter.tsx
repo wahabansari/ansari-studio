@@ -65,7 +65,7 @@ export function SiteFooter({
             {cta} <ArrowRight />
           </Link>
           <Link
-            href="/contact"
+            href="/contact#book"
             className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-white/[0.14] bg-white/[0.05] px-[24px] text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-white/[0.09]"
           >
             <Calendar />
