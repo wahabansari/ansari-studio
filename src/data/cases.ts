@@ -2,18 +2,20 @@
  * Case studies — selected project experience.
  * Every line describes work that was actually done. No invented metrics, no claimed
  * results we cannot stand behind: where a figure cannot be verified, it is not printed.
- * The "vapestore" slug is kept for the /work/vapestore URL, but the project's visible
- * name is VapePlanet and no screenshot file exists for it, so its thumb has no image.
+ * No screenshot file exists for Vapestore, so its thumb has no image and renders the
+ * branded fallback panel. Technology names are deliberately left out of every write-up:
+ * each one describes what changed for the client, not what it was built with.
  */
+/** Order of the Work grid; "Next project" on a case study follows it. */
 export const CASE_ORDER = [
   "sunhub",
   "verdira",
   "aussiemotor",
   "vapestore",
   "silcolabs",
+  "digestivecare",
   "cennetsol",
   "talhaestate",
-  "digestivecare",
   "selecthealth",
 ] as const;
 
@@ -21,6 +23,8 @@ export type CaseSlug = (typeof CASE_ORDER)[number];
 
 export interface CaseStudy {
   name: string;
+  /** Caption of the small project card used on Home and the service pages. */
+  card: { label: string; title: string };
   eyebrow: string;
   client: string;
   service: string;
@@ -49,9 +53,10 @@ export interface CaseStudy {
 export const CASES: Record<CaseSlug, CaseStudy> = {
   sunhub: {
     name: "Sunhub",
+    card: { label: "Sunhub · Solar marketplace, US", title: "Faster marketplace, without a rewrite" },
     eyebrow: "Performance & modernization · Solar marketplace",
     client: "Solar equipment marketplace, United States",
-    service: "Modernization & performance",
+    service: "Website & Web App Modernization",
     serviceHref: "/services/modernization",
     role: "Performance engineering, contributed to the product team",
     status: "Live in production",
@@ -85,35 +90,36 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   verdira: {
     name: "Verdira",
-    eyebrow: "Web application · Framer-to-Next.js migration",
+    card: { label: "Verdira · Practice partner, US", title: "From brochure site to secure client platform" },
+    eyebrow: "Web application · Website to client platform",
     client: "Ophthalmology practice partner, United States",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
-    role: "Framer-to-Next.js migration with secure client areas",
+    role: "Website migration with secure client areas",
     status: "Live in production",
     link: "https://verdira.com",
     linkLabel: "Visit verdira.com",
-    titleA: "From a Framer website",
+    titleA: "From a brochure website",
     titleB: "to a secure client platform.",
-    lead: "Verdira gives retiring ophthalmologists a permanent home for their practice. Its Framer website could not let clients sign in to private material.",
+    lead: "Verdira gives retiring ophthalmologists a permanent home for their practice. Its original website could not let clients sign in to private material.",
     short:
-      "We migrated Verdira from Framer to Next.js and added password-protected client areas — keeping the public pages fast and fully visible to search engines — then deployed it on Vercel and handed it over.",
+      "We moved Verdira from a website builder to a custom web application and added password-protected client areas — keeping the public pages fast and fully visible to search engines — then launched it and handed it over.",
     results: [
-      ["Migrated", "Framer site rebuilt as a Next.js application"],
+      ["Migrated", "Website rebuilt as a custom web application"],
       ["Protected", "Password-protected areas for private client material"],
-      ["Handed over", "Deployed on Vercel and handed to the client"],
+      ["Handed over", "Launched and handed to the client"],
     ],
     challenge:
-      "The Framer site was a static brochure: no accounts, no private areas. Verdira needed password-protected client material without slowing down — or hiding — the public pages that already brought in enquiries.",
+      "The original site was a static brochure: no accounts, no private areas. Verdira needed password-protected client material without slowing down — or hiding — the public pages that already brought in enquiries.",
     approach: [
-      "Rebuilt the site in Next.js, keeping the content and structure clients knew.",
-      "Kept the public pages static, cacheable and fully visible to search engines.",
-      "Separated private client areas at the routing level so they never leak into search results or caches.",
+      "Rebuilt the site as a custom application, keeping the content and structure clients knew.",
+      "Kept the public pages fast, cacheable and fully visible to search engines.",
+      "Separated private client areas so they never leak into search results or caches.",
       "Enforced access on the server — a hidden link alone never protects content.",
-      "Deployed on Vercel and handed over with the codebase ready to extend.",
+      "Launched and handed over with the codebase ready to extend.",
     ],
     outcome:
-      "The practice runs its own Next.js site on Vercel: clients sign in to protected areas, public pages stay fast and indexable, and new capabilities can land without another migration.",
+      "The practice runs its own site: clients sign in to protected areas, public pages stay fast and indexable, and new capabilities can land without another migration.",
     thumb: {
       image: "/work/verdira.webp",
       background: "linear-gradient(135deg,#0B1A17 0%,#16302B 60%,#24443D 100%)",
@@ -122,9 +128,10 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   aussiemotor: {
     name: "AussieMotor",
+    card: { label: "AussieMotor · Car marketplace", title: "A large marketplace moved to a modern platform" },
     eyebrow: "Frontend development · Automotive marketplace",
     client: "Automotive marketplace, Australia",
-    service: "Modernization & performance",
+    service: "Website & Web App Modernization",
     serviceHref: "/services/modernization",
     role: "End-to-end frontend development and maintenance, with the project's designer",
     status: "Live",
@@ -157,20 +164,24 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     },
   },
   vapestore: {
-    name: "VapePlanet",
+    name: "Vapestore",
+    card: {
+      label: "Vapestore · Online retail, UK",
+      title: "A complete online store, built for fast checkout",
+    },
     eyebrow: "E-commerce · Online retail, UK",
     client: "Online vape retailer, United Kingdom",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
     role: "Complete frontend and API integration",
-    status: "Delivered",
-    link: "",
-    linkLabel: "",
+    status: "Live",
+    link: "https://www.vapestore.co.uk",
+    linkLabel: "Visit vapestore.co.uk",
     titleA: "A complete online store,",
     titleB: "built for fast browsing and checkout.",
-    lead: "VapePlanet is a UK online shop for e-liquids, vape kits, pods and coils. Customers needed to browse a large catalog and pay comfortably on any device.",
+    lead: "Vapestore is a UK online shop for e-liquids, vape kits, pods and coils. Customers needed to browse a large catalog and pay comfortably on any device.",
     short:
-      "We built the complete frontend for VapePlanet's production UK store — catalog, multibuy offers, cart and payment workflow — integrated it with the store's APIs, and tuned it for phones, tablets and desktops.",
+      "We built the complete frontend for Vapestore's production UK store — catalog, multibuy offers, cart and payment workflow — integrated it with the store's APIs, and tuned it for phones, tablets and desktops.",
     results: [
       ["Complete", "Full storefront frontend, catalog to checkout"],
       ["Integrated", "Cart and payment workflow connected to the store's APIs"],
@@ -189,14 +200,15 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     thumb: {
       // No screenshot exists for this project; ProjectThumb renders the branded fallback.
       background: "linear-gradient(135deg,#0A0A0A 0%,#1A1A1A 55%,#2B3A0E 100%)",
-      alt: "VapePlanet online shop homepage on desktop and mobile",
+      alt: "Vapestore online shop",
     },
   },
   silcolabs: {
     name: "SilcoLabs",
+    card: { label: "SilcoLabs · Laboratory software", title: "Lab work in one clear application" },
     eyebrow: "SaaS web application · Laboratory operations",
     client: "Laboratory software company",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
     role: "Frontend engineer for the web application and website",
     status: "Live",
@@ -230,9 +242,10 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   cennetsol: {
     name: "Cennetsol",
+    card: { label: "Cennetsol · Software services", title: "A company website, built and kept current" },
     eyebrow: "Company website · Software services",
     client: "Software services company",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
     role: "Website build, SEO and ongoing management",
     status: "Delivered",
@@ -266,11 +279,12 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   talhaestate: {
     name: "Talha Estate",
-    eyebrow: "WordPress website · Real estate",
+    card: { label: "Talha Estate · Real estate", title: "A property website the team runs on its own" },
+    eyebrow: "Property website · Real estate",
     client: "Real-estate agency",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
-    role: "WordPress website, social media and handover",
+    role: "Website build, social media setup and handover",
     status: "Delivered",
     link: "",
     linkLabel: "",
@@ -278,16 +292,16 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     titleB: "the team runs on its own.",
     lead: "Talha Estate needed a modern website that presents listings clearly — and the ability to update properties and share them online without a developer.",
     short:
-      "We built the agency's property website on WordPress, set up its social media presence alongside it, and handed everything over with the team able to run both on its own.",
+      "We built the agency's property website, set up its social media presence alongside it, and handed everything over with the team able to run both on its own.",
     results: [
-      ["On WordPress", "A CMS the team can update without code"],
+      ["Editable", "A site the team can update without code"],
       ["Social-ready", "Social media set up alongside the site"],
       ["Handed over", "A clean handover with everything documented"],
     ],
     challenge:
       "Buyers compare many properties quickly, and listings go stale fast. The agency needed a site that is easy to browse, easy for staff to keep current, and backed by a visible social presence.",
     approach: [
-      "Built the property website on WordPress with structured, easy-to-scan listings.",
+      "Built the property website with structured, easy-to-scan listings.",
       "Set up custom fields so staff can add and edit properties themselves.",
       "Set up the agency's social media presence alongside the site.",
       "Handed over the site and social accounts with everything documented.",
@@ -302,11 +316,15 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   digestivecare: {
     name: "Digestive Care",
+    card: {
+      label: "Digestive Care · Healthcare, US",
+      title: "A healthcare website that helps patients book",
+    },
     eyebrow: "Healthcare website · Patient portal",
     client: "Gastroenterology practice, Florida, United States",
-    service: "Dashboards & portals",
+    service: "Dashboards & Client Portals",
     serviceHref: "/services/dashboards-portals",
-    role: "WordPress website with patient-portal integration",
+    role: "Website with patient-portal integration",
     status: "Live",
     link: "https://digestivecarepl.com",
     linkLabel: "Visit digestivecarepl.com",
@@ -314,7 +332,7 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     titleB: "that helps patients book with confidence.",
     lead: "Digestive Care serves patients in the Brandon and Tampa Bay area. Patients needed one trusted place to learn about procedures, book and reach their portal.",
     short:
-      "We built a responsive WordPress website for the practice and integrated its patient-portal solution, matched it to the practice's branding and shaped every page around the appointment-booking workflow.",
+      "We built a responsive website for the practice and integrated its patient-portal solution, matched it to the practice's branding and shaped every page around the appointment-booking workflow.",
     results: [
       ["Integrated", "Patient portal reachable from every page"],
       ["Bookable", "Pages built around the appointment workflow"],
@@ -323,7 +341,7 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     challenge:
       "Patients often arrive anxious and with questions about procedures. The website had to explain clearly and make booking the obvious next step.",
     approach: [
-      "Built the practice's website on WordPress.",
+      "Built the practice's responsive website.",
       "Integrated the practice's patient-portal solution and linked it prominently.",
       "Customized the theme to match the practice's branding.",
       "Set up reliable email delivery for patient messages.",
@@ -338,9 +356,10 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
   },
   selecthealth: {
     name: "Select & Health",
+    card: { label: "Select & Health · Healthcare platform", title: "Landing pages and a design system" },
     eyebrow: "Landing pages & design system · Healthcare platform",
     client: "Patient-facing healthcare platform",
-    service: "Product engineering",
+    service: "Product Engineering",
     serviceHref: "/services/product-engineering",
     role: "Landing-page and design-system design",
     status: "Handed over to development",

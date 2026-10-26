@@ -4,9 +4,8 @@ import { SiteFooter } from "@/components/design/SiteFooter";
 import { WorkGrid } from "@/components/work/WorkGrid";
 
 export const metadata: Metadata = {
-  title: { absolute: "Selected Project Experience | Ansari Product Engineering" },
-  description:
-    "Selected project experience across marketplaces, web applications, healthcare websites and design systems — with the problem, the approach and the honest outcome of each.",
+  title: "Our Work",
+  description: "Marketplaces, web apps, online stores and healthcare websites we have delivered.",
   alternates: { canonical: "/work" },
 };
 
@@ -18,15 +17,14 @@ export default function WorkPage() {
           active="work"
           parent=""
           crumb="Work"
-          eyebrow="Selected project experience"
-          title="Real projects, explained by"
-          titleAccent="the problem, the approach and the result."
-          lead="Selected project experience across marketplaces, web applications, healthcare websites and design systems — for clients in the United States, the United Kingdom and Australia. Every write-up describes work actually done."
+          eyebrow="Our work"
+          title="Work we have"
+          titleAccent="delivered."
+          lead="Marketplaces, web applications, online stores and healthcare websites for clients in the US, UK, Europe and Australia. Every write-up describes real work."
           primary="Discuss your project"
           primaryHref="/contact"
-          secondary="See how we work"
-          secondaryHref="/process"
-          points="Honest write-ups|US, UK and Australia|No invented results"
+          secondary=""
+          points=""
         />
         <section className="px-[24px] pt-[96px] pb-[112px]">
           <div className="mx-auto max-w-[1200px]">

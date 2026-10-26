@@ -79,9 +79,8 @@ export default function PrivacyPage() {
                 Who we are
               </h2>
               <p>
-                Ansari Product Engineering is a product engineering practice run by Muhammad Wahab Ansari in
-                Lahore, Pakistan. We are responsible for the personal information you share through this
-                website. You can reach us at{" "}
+                Ansari Product Engineering is a product engineering company. We are responsible for the
+                personal information you share through this website. You can reach us at{" "}
                 <a className="font-semibold text-brand" href="mailto:wahabansari.dev@gmail.com">
                   wahabansari.dev@gmail.com
                 </a>

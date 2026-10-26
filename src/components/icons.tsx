@@ -51,19 +51,39 @@ export const Calendar = (p: IconProps) => (
   </Svg>
 );
 
-export const Sun = (p: IconProps) => (
-  <Svg {...p}>
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2" />
-    <path d="M12 20v2" />
-    <path d="m4.93 4.93 1.41 1.41" />
-    <path d="m17.66 17.66 1.41 1.41" />
-    <path d="M2 12h2" />
-    <path d="M20 12h2" />
-    <path d="m6.34 17.66-1.41 1.41" />
-    <path d="m19.07 4.93-1.41 1.41" />
-  </Svg>
-);
+/** One icon per service, keyed by `Service.icon` in src/data/services.ts. */
+export const SERVICE_ICONS = {
+  code: (p: IconProps) => (
+    <Svg {...p}>
+      <path d="m16 18 6-6-6-6" />
+      <path d="m8 6-6 6 6 6" />
+    </Svg>
+  ),
+  refresh: (p: IconProps) => (
+    <Svg {...p}>
+      <path d="M3 12a9 9 0 1 0 9-9" />
+      <path d="M12 7v5l3 2" />
+    </Svg>
+  ),
+  layout: (p: IconProps) => (
+    <Svg {...p}>
+      <rect x="3" y="3" width="7" height="9" rx="1" />
+      <rect x="14" y="3" width="7" height="5" rx="1" />
+      <rect x="14" y="12" width="7" height="9" rx="1" />
+      <rect x="3" y="16" width="7" height="5" rx="1" />
+    </Svg>
+  ),
+  shield: (p: IconProps) => (
+    <Svg {...p}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </Svg>
+  ),
+  bolt: (p: IconProps) => (
+    <Svg {...p}>
+      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+    </Svg>
+  ),
+} as const;
 
 export const Menu = (p: IconProps) => (
   <Svg {...p}>

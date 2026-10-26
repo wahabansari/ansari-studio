@@ -89,10 +89,10 @@ export default function TermsPage() {
                 Our agreement
               </h2>
               <p>
-                These terms apply to every project and retainer with Ansari Product Engineering, run by
-                Muhammad Wahab Ansari in Lahore, Pakistan. Our terms are flexible: payment schedule, timelines,
-                support and notice periods are agreed with each client to fit their needs, and written into the
-                proposal before work starts. If the proposal and this page disagree, the proposal wins.
+                These terms apply to every project and ongoing development agreement with Ansari Product
+                Engineering. Our terms are flexible: payment schedule, timelines, support and notice periods
+                are agreed with each client to fit their needs, and written into the proposal before work
+                starts. If the proposal and this page disagree, the proposal wins.
               </p>
               <h2 id="scope">Scope and changes</h2>
               <p>
@@ -131,9 +131,9 @@ export default function TermsPage() {
               </p>
               <h2 id="ending">Ending a project</h2>
               <p>
-                Either side can end a project or retainer with written notice, under the notice period agreed
-                in the proposal. You pay for the work completed up to that point, and we hand over everything
-                built so far. Questions about these terms? Email{" "}
+                Either side can end a project or ongoing agreement with written notice, under the notice
+                period agreed in the proposal. You pay for the work completed up to that point, and we hand
+                over everything built so far. Questions about these terms? Email{" "}
                 <a className="font-semibold text-brand" href="mailto:wahabansari.dev@gmail.com">
                   wahabansari.dev@gmail.com
                 </a>

@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import { PageTransition } from "@/components/PageTransition";
 import { SiteHeader } from "@/components/SiteHeader";
 import { JsonLd, organizationJsonLd } from "@/lib/seo";
-import { SITE_NAME, SITE_URL, isPreviewDeployment } from "@/lib/site";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL, SLOGAN, isPreviewDeployment } from "@/lib/site";
 import "./globals.css";
 
 // Inter Variable (the design's only text face), self-hosted and preloaded by next/font.
@@ -30,11 +30,10 @@ const previewRobots = isPreviewDeployment() ? { index: false, follow: false } : 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Ansari Product Engineering | Build. Modernize. Integrate.",
+    default: `${SITE_NAME} | ${SLOGAN}`,
     template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Founder-led product engineering practice that builds web products, modernizes ageing software and automates repetitive workflows — with clear scopes and weekly demos.",
+  description: SITE_TAGLINE,
   applicationName: SITE_NAME,
   ...(previewRobots ? { robots: previewRobots } : {}),
   icons: {

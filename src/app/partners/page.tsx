@@ -3,9 +3,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "White-Label Development Partner for Agencies | Ansari Product Engineering" },
+  title: "White-Label Development Partner for Agencies",
   description:
-    "Overflow Next.js development and automation delivery for agencies. Senior engineering under your brand, clear communication, clean handover.",
+    "Overflow web development and workflow automation for agencies. Senior engineering under your brand, clear communication, clean handover.",
   alternates: { canonical: "/partners" },
 };
 
@@ -20,8 +20,8 @@ export default function PartnersPage() {
           eyebrow="For agencies"
           title="A reliable engineering partner"
           titleAccent="for agencies."
-          lead="Overflow web application development and automation delivery under your brand. Senior engineering, clear communication and a clean handover."
-          primary="Talk about a partnership"
+          lead="We deliver overflow web development and workflow automation under your brand — senior engineering, clear communication and a clean handover."
+          primary="Discuss your project"
           primaryHref="/contact"
           secondary=""
           points="White-label by default|NDA ready|Your process, your tools"
@@ -47,7 +47,7 @@ export default function PartnersPage() {
               <div className="rounded-[24px] border border-line bg-white p-[30px]">
                 <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Specialist builds</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A web application, a migration or an automation outside your core skills.
+                  A web application, a migration or a workflow automation outside your core skills.
                 </p>
                 <div className="mt-[18px] text-[14px] font-semibold text-teal-deep">
                   You get: a new service line, no new hire
@@ -56,7 +56,7 @@ export default function PartnersPage() {
               <div className="rounded-[24px] border border-line bg-white p-[30px]">
                 <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Rescue and refactor</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A project that slipped and needs a steady senior hand.
+                  A project that slipped and needs a steady senior team.
                 </p>
                 <div className="mt-[18px] text-[14px] font-semibold text-teal-deep">
                   You get: a project back on track
@@ -101,7 +101,7 @@ export default function PartnersPage() {
                 <span>
                   <span className="block text-[16px] font-[650]">Build in your repo and tools</span>
                   <span className="mt-[4px] block text-[14px] text-mist">
-                    Weekly updates to you, never directly to your client unless you ask.
+                    Weekly updates to you, never directly to your client unless you ask us to.
                   </span>
                 </span>
               </li>
@@ -120,8 +120,8 @@ export default function PartnersPage() {
       </main>
       <SiteFooter
         title="Need a partner you can rely on?"
-        text="Tell us about your agency and the kind of work you are turning away. You get a reply within one business day."
-        cta="Talk about a partnership"
+        text="Tell us about your agency and the work you are turning away. You get a reply within one business day."
+        cta="Discuss your project"
         ctaHref="/contact"
       />
     </>

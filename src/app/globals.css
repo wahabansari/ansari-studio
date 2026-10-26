@@ -44,17 +44,6 @@
   --color-dim: #98a2b3;
   --color-haze: #c9d2e3;
   --color-steel: #7f8aa3;
-
-  --animate-marquee: marquee 40s linear infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
 }
 
 @layer base {

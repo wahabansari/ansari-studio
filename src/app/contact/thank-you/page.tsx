@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/design/SiteFooter";
 // message was accepted server-side — so a "received" wording is accurate in that flow.
 // No reply-timeframe or confirmation-email promises are made here.
 export const metadata: Metadata = {
-  title: { absolute: "Thanks — Your Message Was Received | Ansari Product Engineering" },
+  title: "Thanks — Your Message Was Received",
   description:
     "Your message reached Ansari Product Engineering. Here is what happens next, and a few projects to look at while you wait.",
   alternates: { canonical: "/contact/thank-you" },
@@ -26,7 +26,7 @@ export default function ThankYouPage() {
           eyebrow="Message received"
           title="Thanks — your message"
           titleAccent="has been received."
-          lead="It is with the engineer who will answer it. While you wait, here is how we work and what we have built."
+          lead="While you wait, here is how we work and what we have built."
           primary="See how we work"
           primaryHref="/process"
           secondary="Back to home"
@@ -74,7 +74,7 @@ export default function ThankYouPage() {
       </main>
       <SiteFooter
         title="Know someone who needs this?"
-        text="Share Ansari Product Engineering with a founder or ops lead who is losing hours to manual work."
+        text="Share Ansari Product Engineering with anyone who is losing hours to manual work."
         cta="Back to home"
         ctaHref="/"
       />

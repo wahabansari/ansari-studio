@@ -4,12 +4,14 @@
  */
 
 export const SITE_NAME = "Ansari Product Engineering";
-/** Brand signature, used in the homepage intro and the footer (never as a mechanical ticker). */
+/** Brand signature, used in the footer (never as a mechanical ticker). */
 export const SLOGAN = "Build. Modernize. Integrate.";
-/** The founder is the only named engineer on the site; no team size is claimed anywhere. */
-export const FOUNDER_NAME = "Muhammad Wahab Ansari";
+/** The one-line description of the company, used in the footer and as the Organization description. */
+export const SITE_TAGLINE = "We build, modernize and integrate the software growing businesses run on.";
+/** Who we work with and where, stated the same way everywhere. */
+export const SERVICE_AREA = "Working with clients worldwide, mainly in the US, UK and Europe.";
+export const WORKING_HOURS = "Times overlap US, UK and European working hours";
 export const CONTACT_EMAIL = "wahabansari.dev@gmail.com";
-export const LINKEDIN_URL = "https://www.linkedin.com/in/wahabansari/";
 
 /**
  * The canonical origin, resolved once at build/render time.

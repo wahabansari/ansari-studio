@@ -1,9 +1,9 @@
-import { CONTACT_EMAIL, FOUNDER_NAME, LINKEDIN_URL, SITE_NAME, SITE_URL, absoluteUrl } from "./site";
+import { SERVICES } from "@/data/services";
+import { CONTACT_EMAIL, SITE_NAME, SITE_TAGLINE, SITE_URL, absoluteUrl } from "./site";
 
 /**
- * Structured data helpers. Only four schema types are used on the whole site —
- * Organization, Service, BreadcrumbList and Article/BlogPosting — all describing
- * things that are true. No FAQPage, no review or rating markup.
+ * Structured data helpers. Organization, Service, BreadcrumbList, FAQPage and BlogPosting —
+ * all describing things that are true and visible on the page. No review or rating markup.
  */
 
 /** Renders a JSON-LD document. Server component; safe to drop anywhere in the tree. */
@@ -17,26 +17,34 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-/** The business as schema.org sees it: a founder-led engineering practice with one public identity. */
+/** The business as schema.org sees it: one company, five services, clients worldwide. */
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "ProfessionalService",
     name: SITE_NAME,
     url: SITE_URL,
     email: CONTACT_EMAIL,
-    founder: {
-      "@type": "Person",
-      name: FOUNDER_NAME,
-      jobTitle: "Founder & engineer",
-      url: LINKEDIN_URL,
+    description: SITE_TAGLINE,
+    areaServed: [
+      { "@type": "Place", name: "Worldwide" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Place", name: "Europe" },
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services",
+      itemListElement: SERVICES.map((service) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: service.name, url: absoluteUrl(service.href) },
+      })),
     },
-    sameAs: [LINKEDIN_URL],
   };
 }
 
 export interface ServiceJsonLdInput {
-  /** Page H1/headline, e.g. "Product engineering". */
+  /** Service name, e.g. "Product Engineering". */
   name: string;
   /** One- or two-sentence summary mirroring the page's meta description. */
   description: string;
@@ -52,11 +60,25 @@ export function serviceJsonLd({ name, description, path }: ServiceJsonLdInput) {
     description,
     url: absoluteUrl(path),
     serviceType: name,
+    areaServed: "Worldwide",
     provider: {
       "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
     },
+  };
+}
+
+/** FAQPage markup. Pass exactly the questions and answers the page shows. */
+export function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   };
 }
 
@@ -88,6 +110,7 @@ export interface ArticleJsonLdInput {
 }
 
 export function articleJsonLd({ headline, description, datePublished, path }: ArticleJsonLdInput) {
+  const organization = { "@type": "Organization", name: SITE_NAME, url: SITE_URL };
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -97,15 +120,7 @@ export function articleJsonLd({ headline, description, datePublished, path }: Ar
     dateModified: datePublished,
     inLanguage: "en",
     mainEntityOfPage: absoluteUrl(path),
-    author: {
-      "@type": "Person",
-      name: FOUNDER_NAME,
-      url: LINKEDIN_URL,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
+    author: organization,
+    publisher: organization,
   };
 }

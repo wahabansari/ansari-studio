@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Calendar } from "@/components/icons";
-import { BOOKING_URL, BOOKING_URL_SHORT } from "@/lib/site";
+import { BOOKING_URL, BOOKING_URL_SHORT, WORKING_HOURS } from "@/lib/site";
 
 /**
  * "Prefer to talk?" card from the design. "Show calendar" loads the real Cal.com booking page inline
@@ -34,7 +34,7 @@ export function BookingCard() {
         <span className="text-[19px] font-[680] tracking-[-0.01em]">Prefer to talk?</span>
       </div>
       <p className="mt-[12px] text-[15px] leading-[1.6] text-mist">
-        Pick a 30-minute slot that suits you. Times overlap UK and US working hours.
+        Pick a 30-minute slot that suits you. {WORKING_HOURS}.
       </p>
 
       {open ? (

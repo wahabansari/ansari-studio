@@ -27,6 +27,9 @@ code-style labels.
 | Page transitions (`<ViewTransition>` keyed by pathname) | `src/components/PageTransition.tsx` |
 | Shared design components: `PageHero`, `SiteFooter`, `ProjectThumb`, `CaseStudy` | `src/components/design/` |
 | Case-study data (from the design) | `src/data/cases.ts` |
+| The five services (names, order, copy, FAQs) — used by menus, Home, hub, footer, chips, JSON-LD | `src/data/services.ts` |
+| Shared service-page template (all five `/services/*` pages are thin wrappers) | `src/components/design/ServicePage.tsx` |
+| Site constants (name, tagline, contact, booking links) | `src/lib/site.ts` |
 | Forms → `/api/contact`, `/api/audit` (Resend when configured) | `src/lib/forms.ts`, `src/lib/handle-form.ts` |
 
 Tokens: use the theme names (`text-ink`, `bg-night`, `text-mist`, `border-line`, `bg-brand`, `text-mint`, …), not raw hex,

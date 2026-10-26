@@ -8,9 +8,8 @@ import { ArrowRight } from "@/components/icons";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact Ansari Product Engineering — Discuss Your Project" },
-  description:
-    "Tell us what you need built, improved or connected. Book a 30-minute call or send a message, and you get a reply within one business day.",
+  title: "Contact Us",
+  description: "Tell us what you need. Reply within one business day.",
   alternates: { canonical: "/contact" },
 };
 
@@ -29,7 +28,7 @@ export default function ContactPage() {
           eyebrow="Contact"
           title="Tell us what you need to build,"
           titleAccent="improve or connect."
-          lead="Send a message or book a 30-minute call. You get a reply from the engineer who would build it, within one business day."
+          lead="Send a message or book a 30-minute call. You get a reply within one business day."
           primary="Book a 30-minute call"
           primaryHref="#book"
           secondary=""
@@ -81,7 +80,7 @@ export default function ContactPage() {
                 </label>
                 <select id="c-budget" name="engagement" className={field}>
                   <option>Fixed-scope project</option>
-                  <option>Monthly retainer</option>
+                  <option>Monthly development</option>
                   <option>Automation audit</option>
                   <option>Not sure yet</option>
                 </select>
@@ -165,10 +164,10 @@ export default function ContactPage() {
         </section>
       </main>
       <SiteFooter
-        title="Not ready to talk yet?"
-        text="Start with an automation audit and see where your team is losing time."
-        cta="Get an automation audit"
-        ctaHref="/automation-audit"
+        title="Prefer to talk it through?"
+        text="Book a 30-minute call, or send a message above. You get a reply within one business day."
+        cta="Discuss your project"
+        ctaHref="/contact"
       />
     </>
   );

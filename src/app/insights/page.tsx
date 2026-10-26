@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
+import { AUTHOR_LABEL, AuthorAvatar } from "@/components/design/AuthorBadge";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Automation & Next.js Insights | Ansari Product Engineering" },
-  description:
-    "Practical articles on business automation, building with Next.js and improving legacy software, written by an engineer who ships this work.",
+  title: "Insights",
+  description: "Practical guides on building, modernizing and automating business software.",
   alternates: { canonical: "/insights" },
 };
 
@@ -19,11 +19,11 @@ export default function InsightsPage() {
           parent=""
           crumb="Insights"
           eyebrow="Insights"
-          title="Practical notes on automation,"
-          titleAccent="engineering and modernization."
-          lead="Short, specific articles written by an engineer who builds this work. No fluff, just what works."
-          primary="Get an automation audit"
-          primaryHref="/automation-audit"
+          title="Insights on building, modernizing"
+          titleAccent="and automating software."
+          lead="Practical guides for founders and teams, from the engineers at Ansari Product Engineering."
+          primary="Discuss your project"
+          primaryHref="/contact"
           secondary=""
           points=""
         />
@@ -86,13 +86,8 @@ export default function InsightsPage() {
                   A step-by-step workflow that replies to every new enquiry and assigns the right owner.
                 </p>
                 <div className="mt-[24px] flex items-center gap-[12px] text-[14px] text-muted">
-                  <span
-                    className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-ink text-[12px] font-[650] text-white"
-                    aria-hidden="true"
-                  >
-                    WA
-                  </span>
-                  Muhammad Wahab Ansari · 7 min read
+                  <AuthorAvatar size={32} />
+                  {AUTHOR_LABEL} · 7 min read
                 </div>
               </div>
             </Link>

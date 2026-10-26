@@ -22,7 +22,7 @@ export interface PageHeroProps {
   primaryHref?: string;
   secondary?: string;
   secondaryHref?: string;
-  /** Pipe-separated list, e.g. "Clear scope|Weekly demos". */
+  /** Pipe-separated list, e.g. "Written scope|Weekly progress". */
   points?: string;
 }
 
@@ -30,16 +30,16 @@ export function PageHero({
   glow = "blue",
   parent = "Services",
   parentHref = "/services",
-  crumb = "Product engineering",
-  eyebrow = "Build · Product engineering",
-  title = "MVP and SaaS development with a",
-  titleAccent = "senior product engineer.",
-  lead = "Ship your MVP, SaaS feature or web app with clear scope, weekly demos and a clean handover.",
+  crumb = "Product Engineering",
+  eyebrow = "Product Engineering",
+  title = "Product engineering for",
+  titleAccent = "startups and growing businesses.",
+  lead = "We design and build web products, MVPs and new features with a written scope, weekly progress and a clean handover.",
   primary = "Discuss your project",
   primaryHref = "/contact",
   secondary = "See how we work",
   secondaryHref = "/process",
-  points = "Clear scope|Weekly demos|You own the code",
+  points = "Written scope|Weekly progress|You own the code",
 }: PageHeroProps) {
   const mint = glow === "mint";
   const pointList = points

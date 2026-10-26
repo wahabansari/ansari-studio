@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar } from "@/components/icons";
+import { SERVICES } from "@/data/services";
+import { SERVICE_AREA, SITE_NAME, SITE_TAGLINE, SLOGAN } from "@/lib/site";
 
 /** Dark closing call-to-action plus the site footer (design component "SiteFooter"). */
 export interface SiteFooterProps {
@@ -13,13 +15,7 @@ export interface SiteFooterProps {
 export const FOOTER_COLUMNS = [
   {
     title: "Services",
-    links: [
-      { label: "Automation & AI", href: "/services/automation-ai" },
-      { label: "Product engineering", href: "/services/product-engineering" },
-      { label: "Dashboards & portals", href: "/services/dashboards-portals" },
-      { label: "Modernization", href: "/services/modernization" },
-      { label: "Maintenance & retainer", href: "/services/maintenance-retainer" },
-    ],
+    links: SERVICES.map((service) => ({ label: service.name, href: service.href })),
   },
   {
     title: "Company",
@@ -79,18 +75,13 @@ export function SiteFooter({
           <div className="max-w-[320px] flex-[1_1_260px]">
             <Image
               src="/brand/ansari-pe-horizontal-color-dark.svg"
-              alt="Ansari Product Engineering"
+              alt={SITE_NAME}
               width={134}
               height={30}
               className="block h-[30px] w-auto"
             />
-            <p className="mt-[18px] text-[14px] leading-[1.6] text-mist">
-              We build new products, modernize ageing software and integrate the tools your business relies
-              on.
-            </p>
-            <p className="mt-[10px] text-[13px] text-dim">
-              Based in Pakistan, working with founders and teams in the UK, US and Australia.
-            </p>
+            <p className="mt-[18px] text-[14px] leading-[1.6] text-mist">{SITE_TAGLINE}</p>
+            <p className="mt-[10px] text-[13px] text-dim">{SERVICE_AREA}</p>
           </div>
           <div className="flex flex-wrap gap-x-[72px] gap-y-[40px]">
             {FOOTER_COLUMNS.map((column) => (
@@ -110,7 +101,9 @@ export function SiteFooter({
           </div>
         </div>
         <div className="mt-[56px] flex flex-wrap justify-between gap-[16px] border-t border-white/[0.08] pt-[24px] text-[13px] text-dim">
-          <span>© 2026 Ansari Product Engineering · Build. Modernize. Integrate.</span>
+          <span>
+            © 2026 {SITE_NAME} · {SLOGAN}
+          </span>
           <span className="flex gap-[24px]">
             <Link href="/privacy" className="hover:text-white">
               Privacy

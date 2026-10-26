@@ -1,26 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { SERVICES } from "@/data/services";
 
-const SERVICES = [
-  "Automation & AI",
-  "Product engineering",
-  "Dashboards & portals",
-  "Modernization",
-  "Maintenance",
-  "Not sure yet",
-];
+const NOT_SURE = "Not sure yet";
+const CHIPS = [...SERVICES.map((service) => service.name), NOT_SURE];
 
 /** "What do you need?" chips from the design. The choice is sent with the form as `service`.
  * No chip is pre-selected as a sales nudge — the neutral default is "Not sure yet". */
 export function ServiceChips() {
-  const [picked, setPicked] = useState("Not sure yet");
+  const [picked, setPicked] = useState(NOT_SURE);
   return (
     <fieldset className="mt-[24px]">
       <legend className="mb-[10px] text-[14px] font-semibold">What do you need?</legend>
       <input type="hidden" name="service" value={picked} />
       <div className="flex flex-wrap gap-[8px]">
-        {SERVICES.map((label) => {
+        {CHIPS.map((label) => {
           const on = picked === label;
           return (
             <button

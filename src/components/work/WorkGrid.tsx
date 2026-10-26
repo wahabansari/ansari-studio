@@ -32,8 +32,9 @@ const PROJECTS: {
     name: "Verdira",
     category: "Web application",
     region: "Practice partner · US",
-    headline: "from Framer to Next.js",
-    result: "A Framer site migrated to Next.js with password-protected client areas, handed over on Vercel.",
+    headline: "from website to client platform",
+    result:
+      "A brochure website rebuilt as a web application with password-protected client areas, then handed over.",
   },
   {
     slug: "aussiemotor",
@@ -47,7 +48,7 @@ const PROJECTS: {
   {
     slug: "vapestore",
     type: "market",
-    name: "VapePlanet",
+    name: "Vapestore",
     category: "E-commerce",
     region: "Online vape shop · UK",
     headline: "a complete online store",
@@ -69,7 +70,7 @@ const PROJECTS: {
     category: "Healthcare",
     region: "Gastroenterology · Florida, US",
     headline: "booking made easy",
-    result: "A WordPress website with an integrated patient-portal solution and booking flow.",
+    result: "A healthcare website with an integrated patient-portal solution and booking flow.",
   },
   {
     slug: "cennetsol",
@@ -87,7 +88,7 @@ const PROJECTS: {
     category: "Real estate",
     region: "Property agency",
     headline: "listings that are easy to browse",
-    result: "A WordPress property website with social media and a clean handover.",
+    result: "A property website with social media setup and a clean handover.",
   },
   {
     slug: "selecthealth",
@@ -101,11 +102,11 @@ const PROJECTS: {
 ];
 
 const TABS: [Filter, string][] = [
-  ["all", "All work"],
+  ["all", "All"],
   ["apps", "Web apps"],
   ["market", "Marketplaces & stores"],
   ["sites", "Websites"],
-  ["design", "Design systems"],
+  ["design", "Design"],
 ];
 
 export function WorkGrid() {

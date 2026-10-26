@@ -4,9 +4,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Automation Audit — Find What to Automate First | Ansari Product Engineering" },
+  title: "Free Automation Audit",
   description:
-    "A structured review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating — and what is not.",
+    "A free review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating — and what is not.",
   alternates: { canonical: "/automation-audit" },
 };
 
@@ -16,12 +16,13 @@ export default function AuditPage() {
       <main id="main">
         <PageHero
           active="none"
-          parent=""
+          parent="AI Integrations & Workflow Automation"
+          parentHref="/services/automation-ai"
           crumb="Automation audit"
-          eyebrow="Assessment"
+          eyebrow="Free automation audit"
           title="Find the hours your team loses to manual work"
           titleAccent="— before spending a cent."
-          lead="A structured review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating first — and what is not."
+          lead="A free review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating first — and what is not."
           primary="Request your audit"
           primaryHref="#audit-form"
           secondary=""
@@ -143,24 +144,6 @@ export default function AuditPage() {
                   </span>
                 </li>
               </ol>
-              <div className="mt-[40px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-                <div className="rounded-[18px] border border-teal-100 bg-teal-50 p-[22px]">
-                  <div className="text-[13px] font-semibold tracking-[0.04em] text-teal-deep uppercase">
-                    Great fit
-                  </div>
-                  <p className="mt-[8px] text-[15px] leading-[1.55]">
-                    Growing teams that use a CRM, forms and email every day.
-                  </p>
-                </div>
-                <div className="rounded-[18px] border border-line bg-subtle p-[22px]">
-                  <div className="text-[13px] font-semibold tracking-[0.04em] text-faint uppercase">
-                    Not a fit
-                  </div>
-                  <p className="mt-[8px] text-[15px] leading-[1.55] text-muted">
-                    Companies that need a full enterprise IT overhaul.
-                  </p>
-                </div>
-              </div>
             </div>
             <form
               className="sticky top-[24px] rounded-[28px] border border-line bg-white p-[32px] shadow-[0_40px_80px_-40px_rgba(10,16,34,0.35)]"
@@ -242,7 +225,7 @@ export default function AuditPage() {
                 </div>
               </div>
               <button
-                className="mt-[22px] h-[52px] w-full cursor-pointer rounded-[12px] border-0 bg-brand text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] [font:inherit] transition-colors duration-150 hover:bg-[#2643c9]"
+                className="mt-[22px] h-[52px] w-full cursor-pointer rounded-[12px] border-0 bg-brand text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 [font:inherit] hover:bg-[#2643c9]"
                 type="submit"
               >
                 Request my audit
@@ -259,7 +242,7 @@ export default function AuditPage() {
       </main>
       <SiteFooter
         title="Prefer to talk first?"
-        text="Book a 30-minute call and we will start the audit on the call."
+        text="Book a 30-minute call, or tell us about your project. You get a reply within one business day."
         cta="Discuss your project"
         ctaHref="/contact"
       />
