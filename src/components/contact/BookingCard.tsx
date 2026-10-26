@@ -50,7 +50,7 @@ export function BookingCard() {
             )}
             <iframe
               src={`${BOOKING_URL}?embed=true&theme=dark&layout=month_view`}
-              title="Book a 30-minute call with Ansari Studio"
+              title="Book a 30-minute call with Ansari Product Engineering"
               onLoad={() => setLoaded(true)}
               className="relative block h-[680px] w-full border-0"
             />

@@ -25,25 +25,25 @@ export default function NotFound() {
           </p>
           <div className="mt-[32px] flex flex-wrap justify-center gap-[12px]">
             <Link
-              className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)]"
+              className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
               href="/"
             >
               Back to home
             </Link>
             <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold"
+              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
               href="/services"
             >
               Services
             </Link>
             <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold"
+              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
               href="/work"
             >
               Work
             </Link>
             <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold"
+              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
               href="/contact"
             >
               Contact

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectThumb } from "@/components/design/ProjectThumb";
+import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Ansari Studio | Engineering & Automation for Growing Teams" },
+  title: { absolute: "Ansari Product Engineering | Web Products, Modernization & Automation" },
   description:
-    "Founder-led studio that builds web products, modernizes slow software and automates repetitive work with n8n and AI. Book a free automation audit.",
+    "Founder-led product engineering practice: we build web products, modernize ageing software and automate repetitive workflows — for founders and growing teams in the UK, US and Australia.",
   alternates: { canonical: "/" },
 };
 
@@ -26,13 +27,13 @@ export default function HomePage() {
           <div aria-hidden="true" className="h-[84px]" />
           <div className="relative z-[2] mx-auto max-w-[1200px] px-[24px] pt-[88px] text-center">
             <a
-              className="inline-flex items-center gap-[10px] rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)] py-[5px] pr-[14px] pl-[5px] text-[13px] font-medium text-haze"
+              className="inline-flex items-center gap-[10px] rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)] py-[5px] pr-[14px] pl-[5px] text-[13px] font-medium text-haze transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.08)] hover:text-white"
               href="#audit"
             >
               <span className="rounded-full bg-mint px-[10px] py-[3px] text-[12px] font-[650] text-[#05221F]">
-                Free
+                Automation audit
               </span>
-              Automation audit for our first clients
+              See what your team should automate first
               <svg
                 width="14"
                 height="14"
@@ -54,13 +55,13 @@ export default function HomePage() {
               <span className="text-brand-300">Run smarter businesses.</span>
             </h1>
             <p className="mx-auto mt-[28px] max-w-[640px] text-[19px] leading-[1.6] tracking-normal text-mist">
-              Ansari Studio is a founder-led software and automation studio. We build web products, modernize
-              slow software and automate repetitive work with AI — for founders and growing teams in the UK
-              and US.
+              Build. Modernize. Integrate. Ansari Product Engineering is a founder-led product engineering
+              practice: we build web products, modernize ageing software and automate repetitive workflows —
+              for founders and growing teams in the UK, US and Australia.
             </p>
             <div className="mt-[36px] flex flex-wrap justify-center gap-[12px]">
               <Link
-                className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)]"
+                className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
                 href="/contact"
               >
                 Discuss your project{" "}
@@ -80,10 +81,10 @@ export default function HomePage() {
                 </svg>
               </Link>
               <a
-                className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white"
+                className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
                 href="#audit"
               >
-                Get a free automation audit
+                Get an automation audit
               </a>
             </div>
             <div className="mt-[28px] flex flex-wrap justify-center gap-[24px] text-[14px] text-mist">
@@ -754,7 +755,7 @@ export default function HomePage() {
                 </h2>
               </div>
               <Link
-                className="inline-flex h-[44px] items-center gap-[8px] rounded-[12px] border border-line-strong px-[18px] text-[14px] font-semibold text-ink"
+                className="inline-flex h-[44px] items-center gap-[8px] rounded-[12px] border border-line-strong px-[18px] text-[14px] font-semibold text-ink transition-colors duration-150 hover:border-brand hover:text-brand"
                 href="/services"
               >
                 All services{" "}
@@ -915,7 +916,7 @@ export default function HomePage() {
               </Link>
               {/* Improve */}
               <Link
-                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-subtle p-[32px]"
+                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-white p-[32px] [transition:transform_.2s_ease,box-shadow_.2s_ease,border-color_.2s_ease] hover:border-brand-200 hover:[transform:translateY(-3px)] hover:shadow-[0_18px_40px_-20px_rgba(10,16,34,0.25)] motion-reduce:[transition:none] motion-reduce:hover:[transform:none]"
                 href="/services/modernization"
               >
                 <div>
@@ -934,10 +935,10 @@ export default function HomePage() {
                     <div>
                       <div className="text-[12px] font-semibold text-faint">Sunhub marketplace</div>
                       <div className="mt-[4px] text-[34px] leading-[1] font-[750] tracking-[-0.02em] text-ink">
-                        +30%
+                        Faster
                       </div>
                       <div className="mt-[4px] text-[12.5px] text-muted">
-                        faster, measured before vs after
+                        measured before vs after — no rewrite
                       </div>
                     </div>
                     <svg width="72" height="40" viewBox="0 0 72 40" aria-hidden="true">
@@ -1006,7 +1007,7 @@ export default function HomePage() {
               </Link>
               {/* Dashboards */}
               <Link
-                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-subtle p-[32px]"
+                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-white p-[32px] [transition:transform_.2s_ease,box-shadow_.2s_ease,border-color_.2s_ease] hover:border-brand-200 hover:[transform:translateY(-3px)] hover:shadow-[0_18px_40px_-20px_rgba(10,16,34,0.25)] motion-reduce:[transition:none] motion-reduce:hover:[transform:none]"
                 href="/services/dashboards-portals"
               >
                 <div>
@@ -1118,7 +1119,7 @@ export default function HomePage() {
               </Link>
               {/* Retainer */}
               <Link
-                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-subtle p-[32px]"
+                className="flex min-h-[360px] flex-col gap-[24px] rounded-[24px] border border-line bg-white p-[32px] [transition:transform_.2s_ease,box-shadow_.2s_ease,border-color_.2s_ease] hover:border-brand-200 hover:[transform:translateY(-3px)] hover:shadow-[0_18px_40px_-20px_rgba(10,16,34,0.25)] motion-reduce:[transition:none] motion-reduce:hover:[transform:none]"
                 href="/services/maintenance-retainer"
               >
                 <div>
@@ -1225,10 +1226,10 @@ export default function HomePage() {
                 </p>
               </div>
               <Link
-                className="inline-flex h-[44px] items-center gap-[8px] rounded-[12px] border border-line-strong px-[18px] text-[14px] font-semibold text-ink"
+                className="inline-flex h-[44px] items-center gap-[8px] rounded-[12px] border border-line-strong px-[18px] text-[14px] font-semibold text-ink transition-colors duration-150 hover:border-brand hover:text-brand"
                 href="/work"
               >
-                All case studies{" "}
+                Selected project experience{" "}
                 <svg
                   width="15"
                   height="15"
@@ -1246,17 +1247,21 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[24px]">
-              <Link className="flex flex-col gap-[18px]" href="/work/sunhub">
-                <ProjectThumb slug="sunhub" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/sunhub">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="sunhub" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Sunhub · Solar marketplace, US</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
-                    30% faster marketplace, without a rewrite
+                    Faster marketplace, without a rewrite
                   </h3>
                 </div>
               </Link>
-              <Link className="flex flex-col gap-[18px]" href="/work/verdira">
-                <ProjectThumb slug="verdira" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/verdira">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="verdira" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Verdira · Practice partner, US</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
@@ -1264,8 +1269,10 @@ export default function HomePage() {
                   </h3>
                 </div>
               </Link>
-              <Link className="flex flex-col gap-[18px]" href="/work/aussiemotor">
-                <ProjectThumb slug="aussiemotor" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/aussiemotor">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="aussiemotor" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">
                     AussieMotor · Car marketplace, Australia
@@ -1291,7 +1298,7 @@ export default function HomePage() {
                 </p>
               </div>
               <Link
-                className="inline-flex items-center gap-[8px] text-[15px] font-semibold text-brand"
+                className="inline-flex items-center gap-[8px] text-[15px] font-semibold text-brand underline-offset-4 hover:underline"
                 href="/process"
               >
                 See how we work{" "}
@@ -1490,19 +1497,19 @@ export default function HomePage() {
             />
             <div className="relative grid grid-cols-[repeat(2,minmax(0,1fr))] items-center gap-[56px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <div>
-                <div className="text-[14px] font-semibold text-brand-ice">Free automation audit</div>
+                <div className="text-[14px] font-semibold text-brand-ice">Automation audit</div>
                 <h2 className="mt-[14px] text-[length:clamp(32px,3.8vw,48px)] leading-[1.06] font-bold tracking-[-0.024em] text-white">
                   Find the hours your team loses to manual work.
                 </h2>
                 <p className="mt-[18px] max-w-[480px] text-[17px] leading-[1.6] text-brand-ice">
-                  A free 30-minute review of your tools and workflows. You leave with the three automations
-                  worth building first.
+                  A structured review of your tools and workflows. You get a written, prioritized shortlist
+                  of what is worth automating — and what is not.
                 </p>
                 <Link
-                  className="mt-[32px] inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-white px-[24px] text-[15px] font-semibold text-ink"
+                  className="mt-[32px] inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-white px-[24px] text-[15px] font-semibold text-ink transition-colors duration-150 hover:bg-brand-50"
                   href="/automation-audit"
                 >
-                  Request your free audit{" "}
+                  Request your audit{" "}
                   <svg
                     width="16"
                     height="16"
@@ -1564,9 +1571,9 @@ export default function HomePage() {
                       </svg>
                     </span>
                     <div>
-                      <div className="text-[16px] font-semibold">Your top 3 automations</div>
+                      <div className="text-[16px] font-semibold">A prioritized shortlist</div>
                       <div className="mt-[2px] text-[14px] text-muted">
-                        Ranked by how much manual work they remove.
+                        Ranked by the manual work they could take off your team.
                       </div>
                     </div>
                   </div>
@@ -1587,7 +1594,7 @@ export default function HomePage() {
                       </svg>
                     </span>
                     <div>
-                      <div className="text-[16px] font-semibold">Effort and payback estimate</div>
+                      <div className="text-[16px] font-semibold">What each option involves</div>
                       <div className="mt-[2px] text-[14px] text-muted">
                         So you can decide what to build first.
                       </div>
@@ -1595,7 +1602,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="mt-[24px] border-t border-t-line-soft pt-[18px] text-[13px] text-faint">
-                  30-minute call · Free for our first clients
+                  A structured review · No obligation to build
                 </div>
               </div>
             </div>
@@ -1614,13 +1621,13 @@ export default function HomePage() {
               />
               <div className="relative inline-flex items-center gap-[8px] self-start rounded-full border border-[rgba(98,220,203,0.25)] bg-[rgba(98,220,203,0.1)] px-[12px] py-[6px] text-[13px] font-semibold text-mint">
                 <span className="h-[6px] w-[6px] rounded-full bg-mint" />
-                Founder-led studio
+                Founder-led practice
               </div>
               <div className="relative flex flex-col items-center gap-[12px]">
                 <Image
                   className="block h-[240px] w-[240px] rounded-full object-cover shadow-[0_0_0_6px_rgba(255,255,255,0.08),0_0_0_14px_rgba(255,255,255,0.03),0_30px_60px_-20px_rgba(0,0,0,0.6)]"
                   src="/images/founder.webp"
-                  alt="Muhammad Wahab Ansari, founder of Ansari Studio"
+                  alt="Muhammad Wahab Ansari, founder of Ansari Product Engineering"
                   width={560}
                   height={560}
                   sizes="280px"
@@ -1632,7 +1639,7 @@ export default function HomePage() {
                   <div className="mt-[3px] text-[14px] text-mist">Founder · Senior full-stack engineer</div>
                 </div>
                 <a
-                  className="flex h-[40px] w-[40px] flex-none items-center justify-center rounded-[10px] border border-[rgba(255,255,255,0.14)] text-white"
+                  className="flex h-[40px] w-[40px] flex-none items-center justify-center rounded-[10px] border border-[rgba(255,255,255,0.14)] text-white transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
                   href="https://www.linkedin.com/in/wahabansari/"
                   target="_blank"
                   rel="noopener me"
@@ -1743,7 +1750,7 @@ export default function HomePage() {
               </ul>
               <div className="mt-[32px] flex flex-wrap gap-[12px]">
                 <Link
-                  className="inline-flex h-[48px] items-center gap-[8px] rounded-[12px] bg-ink px-[22px] text-[15px] font-semibold text-white"
+                  className="inline-flex h-[48px] items-center gap-[8px] rounded-[12px] bg-ink px-[22px] text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-[#121a33]"
                   href="/about"
                 >
                   Meet the founder{" "}
@@ -1763,7 +1770,7 @@ export default function HomePage() {
                   </svg>
                 </Link>
                 <Link
-                  className="inline-flex h-[48px] items-center gap-[8px] rounded-[12px] border border-line-strong bg-white px-[22px] text-[15px] font-semibold text-ink"
+                  className="inline-flex h-[48px] items-center gap-[8px] rounded-[12px] border border-line-strong bg-white px-[22px] text-[15px] font-semibold text-ink transition-colors duration-150 hover:border-brand hover:text-brand"
                   href="/contact#book"
                 >
                   Book a 30-minute call
@@ -1781,7 +1788,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-[16px] text-[17px] leading-[1.6] text-muted">
                 Straight answers. If yours is not here,{" "}
-                <Link className="font-semibold text-brand" href="/contact">
+                <Link className="font-semibold text-brand underline-offset-4 hover:underline" href="/contact">
                   ask us directly
                 </Link>
                 .
@@ -1790,7 +1797,7 @@ export default function HomePage() {
             <div className="border-t border-t-line-strong">
               <details className="group border-b border-b-line-strong py-[22px]" open>
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-[16px] text-[18px] font-[650] text-ink [&::-webkit-details-marker]:hidden">
-                  What does Ansari Studio do?
+                  What does Ansari Product Engineering do?
                   <span className="flex h-[32px] w-[32px] flex-none items-center justify-center rounded-full border border-line-strong bg-white [transition:transform_180ms_ease-out] group-open:[transform:rotate(45deg)]">
                     <svg
                       width="16"
@@ -1808,9 +1815,9 @@ export default function HomePage() {
                   </span>
                 </summary>
                 <p className="mt-[12px] text-[16px] leading-[1.7] text-muted">
-                  Ansari Studio is a founder-led software and automation studio. We build web applications,
-                  dashboards and client portals, modernize slow or ageing software, and automate repetitive
-                  business work with AI — for founders and growing teams in the UK and US.
+                  Ansari Product Engineering is a founder-led product engineering practice. We build web
+                  applications, dashboards and client portals, modernize slow or ageing software, and automate
+                  repetitive business work — for founders and growing teams in the UK, US and Australia.
                 </p>
               </details>
               <details className="group border-b border-b-line-strong py-[22px]">
@@ -1914,7 +1921,7 @@ export default function HomePage() {
               </details>
               <details className="group border-b border-b-line-strong py-[22px]">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-[16px] text-[18px] font-[650] text-ink [&::-webkit-details-marker]:hidden">
-                  What is the free automation audit?
+                  What is the automation audit?
                   <span className="flex h-[32px] w-[32px] flex-none items-center justify-center rounded-full border border-line-strong bg-white [transition:transform_180ms_ease-out] group-open:[transform:rotate(45deg)]">
                     <svg
                       width="16"
@@ -1932,123 +1939,20 @@ export default function HomePage() {
                   </span>
                 </summary>
                 <p className="mt-[12px] text-[16px] leading-[1.7] text-muted">
-                  A free 30-minute review of your tools and workflows, offered to our first clients. You
-                  receive a written list of the three automations worth building first, with an effort
-                  estimate for each.
+                  A structured review of your tools and workflows. You receive a written, prioritized list of
+                  what is worth automating first — and what is not worth automating.
                 </p>
               </details>
             </div>
           </div>
         </section>
       </main>
-      <section className="relative overflow-hidden bg-night px-[24px] pt-[128px] text-white">
-        <div
-          className="absolute bottom-[-360px] left-[50%] h-[720px] w-[1200px] [transform:translateX(-50%)] bg-[radial-gradient(closest-side,rgba(46,79,227,0.35),rgba(46,79,227,0))]"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-[820px] text-center">
-          <h2 className="text-[length:clamp(40px,5.6vw,72px)] leading-[1.0] font-bold tracking-[-0.03em] text-white">
-            Tell us what you need to build.
-          </h2>
-          <p className="mx-auto mt-[24px] max-w-[560px] text-[18px] leading-[1.6] text-mist">
-            Share what you want to build, improve or connect. You get a reply within one business day.
-          </p>
-          <div className="mt-[36px] flex flex-wrap justify-center gap-[12px]">
-            <Link
-              className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)]"
-              href="/contact"
-            >
-              Discuss your project{" "}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white"
-              href="/contact#book"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect width="18" height="18" x="3" y="4" rx="2" />
-                <path d="M16 2v4" />
-                <path d="M8 2v4" />
-                <path d="M3 10h18" />
-              </svg>
-              Book a 30-minute call
-            </Link>
-          </div>
-        </div>
-        <footer className="relative mx-auto mt-[128px] max-w-[1200px] border-t border-t-[rgba(255,255,255,0.08)] pt-[56px] pb-[32px]">
-          <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-[40px] max-[900px]:grid-cols-[1fr_1fr]">
-            <div>
-              <Image
-                className="block h-[24px] w-auto"
-                src="/brand/logo-white.svg"
-                alt="Ansari Studio"
-                width={142}
-                height={24}
-              />
-              <p className="mt-[18px] max-w-[300px] text-[14px] leading-[1.6] text-mist">
-                We help growing businesses build, improve and connect the software they rely on.
-              </p>
-            </div>
-            <div>
-              <div className="text-[13px] font-semibold text-white">Services</div>
-              <div className="mt-[16px] flex flex-col gap-[11px] text-[14px] text-mist">
-                <Link href="/services/automation-ai">Automation &amp; AI</Link>
-                <Link href="/services/product-engineering">Product engineering</Link>
-                <Link href="/services/dashboards-portals">Dashboards &amp; portals</Link>
-                <Link href="/services/modernization">Modernization</Link>
-                <Link href="/services/maintenance-retainer">Maintenance &amp; retainer</Link>
-              </div>
-            </div>
-            <div>
-              <div className="text-[13px] font-semibold text-white">Studio</div>
-              <div className="mt-[16px] flex flex-col gap-[11px] text-[14px] text-mist">
-                <Link href="/work">Work</Link>
-                <Link href="/process">Process</Link>
-                <Link href="/about">About</Link>
-                <Link href="/partners">Partners</Link>
-                <Link href="/insights">Insights</Link>
-              </div>
-            </div>
-            <div>
-              <div className="text-[13px] font-semibold text-white">Get started</div>
-              <div className="mt-[16px] flex flex-col gap-[11px] text-[14px] text-mist">
-                <Link href="/contact">Discuss your project</Link>
-                <Link href="/automation-audit">Free automation audit</Link>
-              </div>
-            </div>
-          </div>
-          <div className="mt-[56px] flex flex-wrap justify-between gap-[16px] border-t border-t-[rgba(255,255,255,0.08)] pt-[24px] text-[13px] text-dim">
-            <span>© 2026 Ansari Studio · Build. Improve. Connect.</span>
-            <span className="flex gap-[24px]">
-              <Link href="/privacy">Privacy</Link>
-              <Link href="/terms">Terms</Link>
-            </span>
-          </div>
-        </footer>
-      </section>
+      <SiteFooter
+        title="Tell us what you need to build."
+        text="Share what you want to build, improve or connect. You get a reply within one business day."
+        cta="Discuss your project"
+        ctaHref="/contact"
+      />
     </>
   );
 }

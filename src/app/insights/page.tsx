@@ -4,9 +4,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Automation & Next.js Insights | Ansari Studio" },
+  title: { absolute: "Automation & Next.js Insights | Ansari Product Engineering" },
   description:
-    "Practical articles on business automation, building with Next.js and improving legacy software, written by an engineer who ships it every week.",
+    "Practical articles on business automation, building with Next.js and improving legacy software, written by an engineer who ships this work.",
   alternates: { canonical: "/insights" },
 };
 
@@ -21,33 +21,16 @@ export default function InsightsPage() {
           eyebrow="Insights"
           title="Practical notes on automation,"
           titleAccent="engineering and modernization."
-          lead="Short, specific articles written by an engineer who builds this work every week. No fluff, just what works."
-          primary="Get a free automation audit"
+          lead="Short, specific articles written by an engineer who builds this work. No fluff, just what works."
+          primary="Get an automation audit"
           primaryHref="/automation-audit"
           secondary=""
           points=""
         />
         <section className="px-[24px] pt-[96px] pb-[112px]">
           <div className="mx-auto max-w-[1200px]">
-            <div className="flex flex-wrap gap-[8px]" role="group" aria-label="Topics">
-              <span className="rounded-full bg-ink px-[16px] py-[9px] text-[14px] font-semibold text-white">
-                All
-              </span>
-              <span className="rounded-full border border-line bg-subtle px-[16px] py-[9px] text-[14px] font-semibold text-muted">
-                Automation
-              </span>
-              <span className="rounded-full border border-line bg-subtle px-[16px] py-[9px] text-[14px] font-semibold text-muted">
-                Web apps
-              </span>
-              <span className="rounded-full border border-line bg-subtle px-[16px] py-[9px] text-[14px] font-semibold text-muted">
-                Modernization
-              </span>
-              <span className="rounded-full border border-line bg-subtle px-[16px] py-[9px] text-[14px] font-semibold text-muted">
-                Product
-              </span>
-            </div>
             <Link
-              className="mt-[32px] grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] overflow-hidden rounded-[28px] border border-line max-[900px]:grid-cols-[minmax(0,1fr)]"
+              className="grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] overflow-hidden rounded-[28px] border border-line transition-colors duration-150 hover:border-brand-200 max-[900px]:grid-cols-[minmax(0,1fr)]"
               href="/insights/automate-lead-follow-up"
             >
               <div className="relative flex min-h-[340px] items-center justify-center bg-ink bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[32px_32px] p-[32px]">
@@ -113,75 +96,20 @@ export default function InsightsPage() {
                 </div>
               </div>
             </Link>
-            <div className="mt-[20px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[20px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <Link
-                className="flex flex-col rounded-[24px] border border-line p-[28px]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="self-start rounded-full bg-teal-50 px-[10px] py-[4px] text-[12px] font-semibold text-teal-deep">
-                  Automation
-                </span>
-                <h3 className="mt-[18px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  Workflow automation platforms compared: cost, control and ownership
-                </h3>
-                <div className="mt-auto pt-[24px] text-[13px] text-faint">Guide · 6 min read</div>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] border border-line p-[28px]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="self-start rounded-full border border-line bg-subtle px-[10px] py-[4px] text-[12px] font-semibold text-muted">
-                  Modernization
-                </span>
-                <h3 className="mt-[18px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  Modernizing an ageing website without a full rewrite
-                </h3>
-                <div className="mt-auto pt-[24px] text-[13px] text-faint">Guide · 6 min read</div>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] border border-line p-[28px]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="self-start rounded-full bg-brand-50 px-[10px] py-[4px] text-[12px] font-semibold text-brand">
-                  Product
-                </span>
-                <h3 className="mt-[18px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  What an MVP scope document should contain
-                </h3>
-                <div className="mt-auto pt-[24px] text-[13px] text-faint">Guide · 6 min read</div>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] border border-line p-[28px]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="self-start rounded-full bg-brand-50 px-[10px] py-[4px] text-[12px] font-semibold text-brand">
-                  Web apps
-                </span>
-                <h3 className="mt-[18px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  How to make a slow website respond faster to every tap
-                </h3>
-                <div className="mt-auto pt-[24px] text-[13px] text-faint">Guide · 6 min read</div>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] border border-line p-[28px]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="self-start rounded-full bg-brand-50 px-[10px] py-[4px] text-[12px] font-semibold text-brand">
-                  Product
-                </span>
-                <h3 className="mt-[18px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  When a client portal beats email and spreadsheets
-                </h3>
-                <div className="mt-auto pt-[24px] text-[13px] text-faint">Guide · 6 min read</div>
-              </Link>
-              <div className="flex flex-col justify-center rounded-[24px] bg-ink p-[28px] text-white">
-                <h3 className="text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  Have a topic you want covered?
-                </h3>
-                <p className="mt-[8px] text-[14px] leading-[1.6] text-mist">
-                  Send a question and it may become the next article.
-                </p>
-                <Link className="mt-[20px] text-[15px] font-semibold text-brand-300" href="/contact">
+            <div className="mt-[20px] flex flex-col justify-center rounded-[24px] bg-ink p-[28px] text-white max-[900px]:mt-[16px]">
+              <div className="flex flex-wrap items-center justify-between gap-[16px]">
+                <div className="max-w-[560px]">
+                  <h3 className="text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
+                    Have a topic you want covered?
+                  </h3>
+                  <p className="mt-[8px] text-[14px] leading-[1.6] text-mist">
+                    Send a question and it may become the next article.
+                  </p>
+                </div>
+                <Link
+                  className="inline-flex h-[44px] items-center rounded-[12px] border border-edge bg-raised px-[20px] text-[15px] font-semibold text-brand-300 transition-colors duration-150 hover:border-[rgba(143,163,255,0.4)] hover:text-white"
+                  href="/contact"
+                >
                   Suggest a topic →
                 </Link>
               </div>

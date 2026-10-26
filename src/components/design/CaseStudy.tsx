@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 import { CASES, nextCase, type CaseSlug } from "@/data/cases";
+import { JsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { PageHero } from "./PageHero";
 import { ProjectThumb } from "./ProjectThumb";
 import { SiteFooter } from "./SiteFooter";
@@ -12,6 +13,13 @@ export function CaseStudy({ slug }: { slug: CaseSlug }) {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: p.name, path: `/work/${slug}` },
+        ])}
+      />
       <main id="main">
         <PageHero
           active="work"

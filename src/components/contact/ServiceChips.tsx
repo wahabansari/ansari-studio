@@ -11,9 +11,10 @@ const SERVICES = [
   "Not sure yet",
 ];
 
-/** "What do you need?" chips from the design. The choice is sent with the form as `service`. */
+/** "What do you need?" chips from the design. The choice is sent with the form as `service`.
+ * No chip is pre-selected as a sales nudge — the neutral default is "Not sure yet". */
 export function ServiceChips() {
-  const [picked, setPicked] = useState(SERVICES[0]);
+  const [picked, setPicked] = useState("Not sure yet");
   return (
     <fieldset className="mt-[24px]">
       <legend className="mb-[10px] text-[14px] font-semibold">What do you need?</legend>

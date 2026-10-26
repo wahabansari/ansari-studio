@@ -22,7 +22,7 @@ export const FOOTER_COLUMNS = [
     ],
   },
   {
-    title: "Studio",
+    title: "Company",
     links: [
       { label: "Work", href: "/work" },
       { label: "Process", href: "/process" },
@@ -35,7 +35,7 @@ export const FOOTER_COLUMNS = [
     title: "Get started",
     links: [
       { label: "Discuss your project", href: "/contact" },
-      { label: "Free automation audit", href: "/automation-audit" },
+      { label: "Automation audit", href: "/automation-audit" },
     ],
   },
 ];
@@ -78,16 +78,19 @@ export function SiteFooter({
         <div className="flex flex-wrap justify-between gap-x-[64px] gap-y-[40px]">
           <div className="max-w-[320px] flex-[1_1_260px]">
             <Image
-              src="/brand/logo-white.svg"
-              alt="Ansari Studio"
-              width={142}
-              height={24}
-              className="block h-[24px] w-auto"
+              src="/brand/ansari-pe-horizontal-color-dark.svg"
+              alt="Ansari Product Engineering"
+              width={134}
+              height={30}
+              className="block h-[30px] w-auto"
             />
             <p className="mt-[18px] text-[14px] leading-[1.6] text-mist">
-              We help growing businesses build, improve and connect the software they rely on.
+              We build new products, modernize ageing software and integrate the tools your business relies
+              on.
             </p>
-            <p className="mt-[10px] text-[13px] text-dim">Based in Pakistan, serving the UK and USA.</p>
+            <p className="mt-[10px] text-[13px] text-dim">
+              Based in Pakistan, working with founders and teams in the UK, US and Australia.
+            </p>
           </div>
           <div className="flex flex-wrap gap-x-[72px] gap-y-[40px]">
             {FOOTER_COLUMNS.map((column) => (
@@ -107,7 +110,7 @@ export function SiteFooter({
           </div>
         </div>
         <div className="mt-[56px] flex flex-wrap justify-between gap-[16px] border-t border-white/[0.08] pt-[24px] text-[13px] text-dim">
-          <span>© 2026 Ansari Studio · Build. Improve. Connect.</span>
+          <span>© 2026 Ansari Product Engineering · Build. Modernize. Integrate.</span>
           <span className="flex gap-[24px]">
             <Link href="/privacy" className="hover:text-white">
               Privacy

@@ -3,17 +3,34 @@ import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { ProjectThumb } from "@/components/design/ProjectThumb";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
+
+const SERVICE_DESCRIPTION =
+  "Ship your MVP, SaaS feature or web app with a senior product engineer. Written scope, weekly demos and a documented handover — you own the code.";
 
 export const metadata: Metadata = {
-  title: { absolute: "MVP & SaaS Development with Next.js | Ansari Studio" },
-  description:
-    "Ship your MVP, SaaS feature or web app with a senior Next.js engineer. Clear scope, weekly demos and a clean handover. Discuss your project.",
+  title: { absolute: "MVP, SaaS & Web App Development | Ansari Product Engineering" },
+  description: SERVICE_DESCRIPTION,
   alternates: { canonical: "/services/product-engineering" },
 };
 
 export default function ProductEngineeringPage() {
   return (
     <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Product engineering",
+          description: SERVICE_DESCRIPTION,
+          path: "/services/product-engineering",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Product engineering", path: "/services/product-engineering" },
+        ])}
+      />
       <main id="main">
         <PageHero
           active="services"
@@ -37,8 +54,8 @@ export default function ProductEngineeringPage() {
             </span>
             <p className="flex-[1_1_520px] text-[19px] leading-[1.6] font-medium text-ink">
               Product engineering is designing and building web applications, MVPs and new product features.
-              Ansari Studio delivers them with a written scope, a demo every week and a documented handover —
-              so you own a product your next hire can work on.
+              Ansari Product Engineering delivers them with a written scope, a demo every week and a
+              documented handover — so you own a product your next hire can work on.
             </p>
           </div>
         </section>
@@ -331,13 +348,15 @@ export default function ProductEngineeringPage() {
                   Products we have shipped
                 </h2>
               </div>
-              <Link className="text-[15px] font-semibold text-brand" href="/work">
-                All case studies →
+              <Link className="text-[15px] font-semibold text-brand underline-offset-4 hover:underline" href="/work">
+                Selected project experience →
               </Link>
             </div>
             <div className="mt-[40px] grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[24px]">
-              <Link className="flex flex-col gap-[18px]" href="/work/verdira">
-                <ProjectThumb slug="verdira" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/verdira">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="verdira" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Verdira · Practice partner, US</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
@@ -345,12 +364,14 @@ export default function ProductEngineeringPage() {
                   </h3>
                 </div>
               </Link>
-              <Link className="flex flex-col gap-[18px]" href="/work/vapestore">
-                <ProjectThumb slug="vapestore" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/vapestore">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="vapestore" />
+                </div>
                 <div>
-                  <div className="text-[13px] font-semibold text-faint">Vapestore · Online retail, UK</div>
+                  <div className="text-[13px] font-semibold text-faint">VapePlanet · Online retail, UK</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
-                    A complete online store, built by one engineer
+                    A complete online store, built for fast checkout
                   </h3>
                 </div>
               </Link>
@@ -366,7 +387,7 @@ export default function ProductEngineeringPage() {
               </h2>
               <p className="mt-[16px] text-[16px] leading-[1.6] text-muted">
                 Something else?{" "}
-                <Link className="font-semibold text-brand" href="/contact">
+                <Link className="font-semibold text-brand underline-offset-4 hover:underline" href="/contact">
                   Ask us directly.
                 </Link>
               </p>

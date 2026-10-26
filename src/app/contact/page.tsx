@@ -8,7 +8,7 @@ import { ArrowRight } from "@/components/icons";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact Ansari Studio — Book a Free Discovery Call" },
+  title: { absolute: "Contact Ansari Product Engineering — Discuss Your Project" },
   description:
     "Tell us what you need built, improved or connected. Book a 30-minute call or send a message, and you get a reply within one business day.",
   alternates: { canonical: "/contact" },
@@ -82,7 +82,7 @@ export default function ContactPage() {
                 <select id="c-budget" name="engagement" className={field}>
                   <option>Fixed-scope project</option>
                   <option>Monthly retainer</option>
-                  <option>Free automation audit</option>
+                  <option>Automation audit</option>
                   <option>Not sure yet</option>
                 </select>
               </div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 Send message <ArrowRight />
               </button>
               <p className="mt-[14px] text-[12px] leading-[1.5] text-faint">
-                Protected against spam. We use your details only to reply to you.{" "}
+                We use your details only to reply to you.{" "}
                 <Link href="/privacy" className="underline">
                   Privacy policy
                 </Link>
@@ -166,8 +166,8 @@ export default function ContactPage() {
       </main>
       <SiteFooter
         title="Not ready to talk yet?"
-        text="Start with a free automation audit and see where your team is losing time."
-        cta="Get a free automation audit"
+        text="Start with an automation audit and see where your team is losing time."
+        cta="Get an automation audit"
         ctaHref="/automation-audit"
       />
     </>

@@ -2,17 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { JsonLd, articleJsonLd } from "@/lib/seo";
+
+const ARTICLE_HEADLINE = "How to automate lead follow-up between your website, CRM and inbox";
+const ARTICLE_DESCRIPTION =
+  "A step-by-step workflow that replies to every new enquiry, creates the contact in your CRM and tells the right person, so no lead waits in an inbox.";
 
 export const metadata: Metadata = {
-  title: { absolute: "How to Automate Lead Follow-Up | Ansari Studio" },
-  description:
-    "A step-by-step workflow that replies to every new enquiry, creates the contact in your CRM and tells the right person, so no lead waits in an inbox.",
+  title: { absolute: "How to Automate Lead Follow-Up | Ansari Product Engineering" },
+  description: ARTICLE_DESCRIPTION,
   alternates: { canonical: "/insights/automate-lead-follow-up" },
 };
 
 export default function ArticlePage() {
   return (
     <>
+      <JsonLd
+        data={articleJsonLd({
+          headline: ARTICLE_HEADLINE,
+          description: ARTICLE_DESCRIPTION,
+          datePublished: "2026-10-20",
+          path: "/insights/automate-lead-follow-up",
+        })}
+      />
       <main id="main">
         <PageHero
           active="insights"
@@ -23,7 +35,7 @@ export default function ArticlePage() {
           title="How to automate lead follow-up"
           titleAccent="between your website, CRM and inbox."
           lead="A step-by-step workflow that replies to every new enquiry, creates the contact in your CRM and tells the right person — so no lead waits in an inbox."
-          primary="Get a free automation audit"
+          primary="Get an automation audit"
           primaryHref="/automation-audit"
           secondary=""
           points=""
@@ -164,30 +176,21 @@ export default function ArticlePage() {
                 <div>
                   <div className="text-[17px] font-[650]">Written by Muhammad Wahab Ansari</div>
                   <p className="mx-0 mt-[6px] mb-0 text-[15px] leading-[1.6] text-muted">
-                    Founder of Ansari Studio. Builds web products and business automations for founders and
-                    growing teams.
+                    Founder of Ansari Product Engineering. Builds web products and business automations for
+                    founders and growing teams.
                   </p>
-                  <Link className="mt-[10px] inline-block text-[14px] font-semibold text-brand" href="/about">
+                  <Link className="mt-[10px] inline-block text-[14px] font-semibold text-brand underline-offset-4 hover:underline" href="/about">
                     About the author →
                   </Link>
                 </div>
               </div>
-              <div className="mt-[40px] text-[13px] font-semibold tracking-[0.06em] text-faint uppercase">
-                Keep reading
-              </div>
-              <div className="mt-[14px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+              <div className="mt-[40px]">
                 <Link
-                  className="rounded-[18px] border border-line p-[22px]"
-                  href="/insights/automate-lead-follow-up"
+                  className="flex flex-col gap-[10px] rounded-[18px] bg-ink p-[22px] text-white"
+                  href="/services/automation-ai"
                 >
-                  <span className="text-[12px] font-semibold text-teal-deep">Automation</span>
-                  <span className="mt-[8px] block text-[17px] leading-[1.3] font-[650]">
-                    Workflow platforms compared
-                  </span>
-                </Link>
-                <Link className="rounded-[18px] bg-ink p-[22px] text-white" href="/services/automation-ai">
                   <span className="text-[12px] font-semibold text-mint">Service</span>
-                  <span className="mt-[8px] block text-[17px] leading-[1.3] font-[650]">
+                  <span className="block text-[17px] leading-[1.3] font-[650]">
                     Have us build this for you →
                   </span>
                 </Link>
@@ -198,8 +201,8 @@ export default function ArticlePage() {
       </main>
       <SiteFooter
         title="Want this running next week?"
-        text="We can build and test the workflow for you. Start with a free automation audit."
-        cta="Get a free automation audit"
+        text="We can build and test the workflow for you. Start with an automation audit."
+        cta="Get an automation audit"
         ctaHref="/automation-audit"
       />
     </>

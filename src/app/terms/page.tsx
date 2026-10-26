@@ -4,9 +4,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Website Terms of Service: Using This Site | Ansari Studio" },
+  title: { absolute: "Website Terms of Service: Using This Site | Ansari Product Engineering" },
   description:
-    "The terms for using the Ansari Studio website. Project work is covered by a separate written agreement signed before any engagement starts.",
+    "The terms for using the Ansari Product Engineering website. Project work is covered by a separate written agreement signed before any engagement starts.",
   alternates: { canonical: "/terms" },
 };
 
@@ -21,7 +21,7 @@ export default function TermsPage() {
           eyebrow="Legal"
           title="Terms of service"
           titleAccent=""
-          lead="Simple, flexible terms. The details are agreed with each client and written into the project proposal. Last updated 21 October 2026."
+          lead="Simple, flexible terms. The details are agreed with each client and written into the project proposal. Last updated 26 October 2026."
           primary="Ask a question about these terms"
           primaryHref="/contact"
           secondary=""
@@ -89,10 +89,10 @@ export default function TermsPage() {
                 Our agreement
               </h2>
               <p>
-                These terms apply to every project and retainer with Ansari Studio, run by Muhammad Wahab
-                Ansari in Lahore, Pakistan. Our terms are flexible: payment schedule, timelines, support and
-                notice periods are agreed with each client to fit their needs, and written into the proposal
-                before work starts. If the proposal and this page disagree, the proposal wins.
+                These terms apply to every project and retainer with Ansari Product Engineering, run by
+                Muhammad Wahab Ansari in Lahore, Pakistan. Our terms are flexible: payment schedule, timelines,
+                support and notice periods are agreed with each client to fit their needs, and written into the
+                proposal before work starts. If the proposal and this page disagree, the proposal wins.
               </p>
               <h2 id="scope">Scope and changes</h2>
               <p>

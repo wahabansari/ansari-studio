@@ -4,9 +4,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Privacy Policy: How We Handle Your Data | Ansari Studio" },
+  title: { absolute: "Privacy Policy: How We Handle Your Data | Ansari Product Engineering" },
   description:
-    "How Ansari Studio collects, uses and keeps the details you send through this website, which cookieless analytics we use, and how to reach us.",
+    "How Ansari Product Engineering collects, uses and keeps the details you send through this website, and how to reach us about them.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           eyebrow="Legal"
           title="Privacy policy"
           titleAccent=""
-          lead="How Ansari Studio collects, uses and protects the information you share through this website. Last updated 20 October 2026."
+          lead="How Ansari Product Engineering collects, uses and protects the information you share through this website. Last updated 26 October 2026."
           primary="Contact us about privacy"
           primaryHref="/contact"
           secondary=""
@@ -79,9 +79,9 @@ export default function PrivacyPage() {
                 Who we are
               </h2>
               <p>
-                Ansari Studio is a software and automation studio run by Muhammad Wahab Ansari in Lahore,
-                Pakistan. We are responsible for the personal information you share through this website. You
-                can reach us at{" "}
+                Ansari Product Engineering is a product engineering practice run by Muhammad Wahab Ansari in
+                Lahore, Pakistan. We are responsible for the personal information you share through this
+                website. You can reach us at{" "}
                 <a className="font-semibold text-brand" href="mailto:wahabansari.dev@gmail.com">
                   wahabansari.dev@gmail.com
                 </a>
@@ -98,8 +98,8 @@ export default function PrivacyPage() {
                   provide.
                 </li>
                 <li>
-                  Anonymous, cookie-free statistics about page visits. We do not use advertising or tracking
-                  cookies.
+                  We do not use advertising or tracking cookies, and this website does not ask visitors for
+                  information beyond the forms above.
                 </li>
               </ul>
               <h2 id="use">How we use it</h2>
@@ -109,15 +109,14 @@ export default function PrivacyPage() {
               </p>
               <h2 id="store">Where it is stored</h2>
               <p>
-                Form submissions are stored in our email inbox and our customer records system. Our website
-                and its analytics are served by a reputable cloud hosting provider. Each provider stores data
-                securely and only processes it on our instructions.
+                Form submissions are delivered to our email inbox. Our website is served by a reputable cloud
+                hosting provider, and your booking details are handled by the scheduling service you use to
+                book a call. Each provider stores data securely and only processes it on our instructions.
               </p>
               <h2 id="keep">How long we keep it</h2>
               <p>
-                Enquiries that do not become projects are deleted within 12 months. Information about clients
-                is kept for as long as we work together, and afterwards only as long as accounting or legal
-                rules require.
+                We keep enquiry details only for as long as they are useful — to handle your enquiry and any
+                work that follows from it — and we delete them when they are no longer needed.
               </p>
               <h2 id="rights">Your rights</h2>
               <p>
@@ -125,8 +124,8 @@ export default function PrivacyPage() {
                 <a className="font-semibold text-brand" href="mailto:wahabansari.dev@gmail.com">
                   wahabansari.dev@gmail.com
                 </a>{" "}
-                and we will respond within one month. If you are in the UK, you can also complain to the
-                Information Commissioner’s Office.
+                and we will act on your request as soon as we reasonably can. Depending on where you live, you
+                may also have the right to complain to your local data-protection authority.
               </p>
             </article>
           </div>

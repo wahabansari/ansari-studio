@@ -1,6 +1,9 @@
 /**
- * Case studies, copied from the design's "CaseStudy" and "ProjectThumb" components.
- * Every figure here is the client's own published result as written in the design.
+ * Case studies — selected project experience.
+ * Every line describes work that was actually done. No invented metrics, no claimed
+ * results we cannot stand behind: where a figure cannot be verified, it is not printed.
+ * The "vapestore" slug is kept for the /work/vapestore URL, but the project's visible
+ * name is VapePlanet and no screenshot file exists for it, so its thumb has no image.
  */
 export const CASE_ORDER = [
   "sunhub",
@@ -35,6 +38,8 @@ export interface CaseStudy {
   approach: string[];
   outcome: string;
   thumb: {
+    /** Screenshot file, when one exists. Projects without one render the branded fallback. */
+    image?: string;
     /** Backdrop behind the screenshot (shows while the image loads). */
     background: string;
     alt: string;
@@ -48,17 +53,17 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     client: "Solar equipment marketplace, United States",
     service: "Modernization & performance",
     serviceHref: "/services/modernization",
-    role: "Senior frontend engineer and performance owner",
+    role: "Performance engineering, contributed to the product team",
     status: "Live in production",
     link: "https://sunhub.com",
     linkLabel: "Visit sunhub.com",
-    titleA: "A solar marketplace made",
-    titleB: "30% faster — without a rewrite.",
+    titleA: "A live marketplace made",
+    titleB: "faster — without a rewrite.",
     lead: "Sunhub connects buyers and sellers of solar equipment across the United States. The live marketplace worked, but it was slow to load and slow to change.",
     short:
-      "We measured what was slowing Sunhub down, removed it in small, safe releases and made the live marketplace 30% faster on the same platform — with no downtime and no rewrite.",
+      "We measured what was slowing Sunhub down and removed it in small, safe releases — lighter builds, smarter loading, compressed images — on the same platform, with no downtime and no rewrite.",
     results: [
-      ["30%", "Measured performance improvement, before vs after"],
+      ["Faster", "Page loads measured and improved before vs after"],
       ["Zero", "Maintenance windows — every fix shipped live"],
       ["Leaner", "Smaller builds with unused code and assets removed"],
     ],
@@ -71,54 +76,57 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
       "Resized and compressed images to match how they are actually displayed.",
     ],
     outcome:
-      "Buyers get faster pages on every device, releases are lighter, and the team kept shipping features throughout. The 30% figure is an aggregate measured before and after the work.",
+      "Buyers get faster pages on every device, releases are lighter, and the team kept shipping features throughout the work.",
     thumb: {
+      image: "/work/sunhub.webp",
       background: "linear-gradient(135deg,#2A1206 0%,#5A1E08 55%,#8A3410 100%)",
       alt: "Sunhub solar marketplace homepage on desktop and mobile",
     },
   },
   verdira: {
     name: "Verdira",
-    eyebrow: "Web application · Healthcare practice partner",
+    eyebrow: "Web application · Framer-to-Next.js migration",
     client: "Ophthalmology practice partner, United States",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
-    role: "Application rebuild and secure client access",
+    role: "Framer-to-Next.js migration with secure client areas",
     status: "Live in production",
     link: "https://verdira.com",
     linkLabel: "Visit verdira.com",
-    titleA: "From brochure website",
+    titleA: "From a Framer website",
     titleB: "to a secure client platform.",
-    lead: "Verdira gives retiring ophthalmologists a permanent home for their practice. Its static website could not let clients sign in to private material.",
+    lead: "Verdira gives retiring ophthalmologists a permanent home for their practice. Its Framer website could not let clients sign in to private material.",
     short:
-      "We rebuilt Verdira’s static website as a web application with secure, password-protected client areas — while keeping the public pages fast and fully visible to search engines.",
+      "We migrated Verdira from Framer to Next.js and added password-protected client areas — keeping the public pages fast and fully visible to search engines — then deployed it on Vercel and handed it over.",
     results: [
-      ["Live", "Secure client areas running in production"],
-      ["Fast", "Public pages still static and search-friendly"],
-      ["Ready", "Codebase organized by feature for what comes next"],
+      ["Migrated", "Framer site rebuilt as a Next.js application"],
+      ["Protected", "Password-protected areas for private client material"],
+      ["Handed over", "Deployed on Vercel and handed to the client"],
     ],
     challenge:
-      "A static site has no idea who is visiting. Verdira needed private areas for clients without slowing down, or hiding, the public pages that already brought in enquiries.",
+      "The Framer site was a static brochure: no accounts, no private areas. Verdira needed password-protected client material without slowing down — or hiding — the public pages that already brought in enquiries.",
     approach: [
-      "Kept the public pages static, cacheable and indexable.",
+      "Rebuilt the site in Next.js, keeping the content and structure clients knew.",
+      "Kept the public pages static, cacheable and fully visible to search engines.",
       "Separated private client areas at the routing level so they never leak into search results or caches.",
       "Enforced access on the server — a hidden link alone never protects content.",
-      "Reorganized the code by feature so new capabilities land in one place.",
+      "Deployed on Vercel and handed over with the codebase ready to extend.",
     ],
     outcome:
-      "Clients now sign in to their own protected area, the public site is as fast as before, and the platform is ready for role-based access next.",
+      "The practice runs its own Next.js site on Vercel: clients sign in to protected areas, public pages stay fast and indexable, and new capabilities can land without another migration.",
     thumb: {
+      image: "/work/verdira.webp",
       background: "linear-gradient(135deg,#0B1A17 0%,#16302B 60%,#24443D 100%)",
       alt: "Verdira ophthalmology practice website homepage on desktop and mobile",
     },
   },
   aussiemotor: {
     name: "AussieMotor",
-    eyebrow: "Marketplace migration · Automotive",
+    eyebrow: "Frontend development · Automotive marketplace",
     client: "Automotive marketplace, Australia",
     service: "Modernization & performance",
     serviceHref: "/services/modernization",
-    role: "Migration team member — dashboards and reusable interface components",
+    role: "End-to-end frontend development and maintenance, with the project's designer",
     status: "Live",
     link: "https://aussiemotor.com.au",
     linkLabel: "Visit aussiemotor.com.au",
@@ -126,45 +134,46 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     titleB: "to a modern platform.",
     lead: "AussieMotor helps Australians buy and sell new and used cars, compare models and find dealers. Its old website platform was holding the product back.",
     short:
-      "As part of the migration team, we helped move a large car marketplace from a legacy website platform to a modern web application, building seller dashboards and a reusable component library.",
+      "We took end-to-end responsibility for the frontend — building the marketplace's screens and seller dashboards and keeping them maintained — in close collaboration with the project's designer, as the platform moved off its legacy stack.",
     results: [
-      ["Migrated", "Marketplace moved off the legacy platform"],
+      ["Front to back", "End-to-end frontend development and maintenance"],
       ["Dashboards", "Seller interfaces for managing listings"],
-      ["Reusable", "Shared component library for faster features"],
+      ["With design", "Built in collaboration with the project's designer"],
     ],
     challenge:
-      "A marketplace with search, listings, comparisons, dealers and seller accounts had outgrown a platform designed for simple websites.",
+      "A marketplace with search, listings, comparisons, dealers and seller accounts needs a frontend that stays consistent and fast while the platform underneath is being replaced.",
     approach: [
-      "Rebuilt key screens as reusable interface components.",
+      "Built and maintained the marketplace's frontend screens end to end.",
       "Built dashboard interfaces so sellers can manage their ads.",
+      "Worked with the project's designer to turn designs into accurate, reusable components.",
       "Kept search, filters and listings consistent across the new platform.",
-      "Worked within the wider migration plan and release schedule.",
     ],
     outcome:
-      "The marketplace runs on a modern platform with consistent components, so new features are faster to build and easier to maintain.",
+      "The marketplace runs on a modern platform with a frontend built and maintained end to end, so new features ship faster and stay consistent.",
     thumb: {
+      image: "/work/aussiemotor.webp",
       background: "linear-gradient(135deg,#0B1023 0%,#1A2558 60%,#3B5BF0 130%)",
       alt: "AussieMotor car marketplace homepage on desktop and mobile",
     },
   },
   vapestore: {
-    name: "Vapestore",
+    name: "VapePlanet",
     eyebrow: "E-commerce · Online retail, UK",
     client: "Online vape retailer, United Kingdom",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
-    role: "Sole frontend engineer",
-    status: "Live in production",
-    link: "https://www.vapestore.co.uk",
-    linkLabel: "Visit vapestore.co.uk",
+    role: "Complete frontend and API integration",
+    status: "Delivered",
+    link: "",
+    linkLabel: "",
     titleA: "A complete online store,",
-    titleB: "built front to back by one engineer.",
-    lead: "Vapestore is a UK online shop for e-liquids, vape kits, pods and coils, with free UK delivery over £20 and orders shipped seven days a week. Customers needed to browse a large catalog and pay comfortably on any device.",
+    titleB: "built for fast browsing and checkout.",
+    lead: "VapePlanet is a UK online shop for e-liquids, vape kits, pods and coils. Customers needed to browse a large catalog and pay comfortably on any device.",
     short:
-      "We independently built the full storefront for Vapestore, a production UK e-commerce shop: catalog, multibuy offers, cart and an integrated payment workflow, tuned for phones, tablets and desktops.",
+      "We built the complete frontend for VapePlanet's production UK store — catalog, multibuy offers, cart and payment workflow — integrated it with the store's APIs, and tuned it for phones, tablets and desktops.",
     results: [
-      ["End to end", "Storefront built by a single engineer"],
-      ["Integrated", "Payment workflow from cart to checkout"],
+      ["Complete", "Full storefront frontend, catalog to checkout"],
+      ["Integrated", "Cart and payment workflow connected to the store's APIs"],
       ["Every device", "Performance tuned for mobile and desktop"],
     ],
     challenge:
@@ -172,49 +181,51 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     approach: [
       "Built a clear catalog with category menus, brand filters and fast browsing.",
       "Made multibuy offers and delivery thresholds visible in the bag, so customers see savings before checkout.",
-      "Connected cart and checkout to the payment provider.",
+      "Connected cart and checkout to the payment provider through the store's APIs.",
       "Optimized images and loading for phones first, then tested across browsers and screen sizes.",
     ],
     outcome:
-      "Customers browse, add to bag and pay smoothly on any device, on a storefront the business keeps extending.",
+      "Customers browse, add to bag and pay smoothly on any device, on a complete storefront frontend built for the long run.",
     thumb: {
+      // No screenshot exists for this project; ProjectThumb renders the branded fallback.
       background: "linear-gradient(135deg,#0A0A0A 0%,#1A1A1A 55%,#2B3A0E 100%)",
-      alt: "Vapestore online shop homepage on desktop and mobile",
+      alt: "VapePlanet online shop homepage on desktop and mobile",
     },
   },
   silcolabs: {
     name: "SilcoLabs",
-    eyebrow: "SaaS web application · Clinical labs",
-    client: "Clinical lab software company",
+    eyebrow: "SaaS web application · Laboratory operations",
+    client: "Laboratory software company",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
     role: "Frontend engineer for the web application and website",
     status: "Live",
     link: "https://www.silcolabs.com",
     linkLabel: "Visit silcolabs.com",
-    titleA: "Clinical lab software",
+    titleA: "Laboratory software",
     titleB: "that labs can run their day on.",
-    lead: "SilcoLabs is lab management software for diagnostic labs and clinics. Labs needed one place to register patients, track tests and deliver reports without paperwork.",
+    lead: "SilcoLabs is lab management software for testing laboratories. Labs needed one place to track samples, run tests and deliver reports without paperwork.",
     short:
-      "We built the interface for SilcoLabs, a web application that lets diagnostic labs manage patients, track tests and deliver reports, along with the marketing website that explains it.",
+      "We built the interface for SilcoLabs, a web application that lets laboratories track samples and tests and deliver reports, along with the marketing website that explains it.",
     results: [
-      ["One place", "Patients, tests and reports in a single application"],
+      ["One place", "Samples, tests and reports in a single application"],
       ["Branded", "Report templates labs customize to their own identity"],
       ["Tracked", "Every test followed from sample to delivered report"],
     ],
     challenge:
-      "Lab staff work fast under pressure. Screens had to show what is pending, what is ready and what has been sent at a glance, and report templates had to fit each lab’s identity.",
+      "Lab staff work fast under pressure. Screens had to show what is pending, what is ready and what has been sent at a glance, and report templates had to fit each lab's identity.",
     approach: [
       "Designed dashboards around daily lab work: tests in progress, turnaround and reports sent.",
-      "Built patient profiles with history and quick re-ordering of tests.",
+      "Built sample and test views with history and quick re-ordering.",
       "Created customizable report templates with a live preview.",
       "Built the public website so labs understand the product and can get started.",
     ],
     outcome:
-      "Labs manage patients, tests and reports from one clear application, and patients receive their results faster.",
+      "Labs track samples, tests and reports from one clear application, instead of juggling spreadsheets and paperwork.",
     thumb: {
+      image: "/work/silcolabs.webp",
       background: "linear-gradient(135deg,#1B1846 0%,#312C85 60%,#4F62EE 120%)",
-      alt: "SilcoLabs clinical lab software homepage on desktop and mobile",
+      alt: "SilcoLabs laboratory software homepage on desktop and mobile",
     },
   },
   cennetsol: {
@@ -223,66 +234,68 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     client: "Software services company",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
-    role: "Website build with motion design",
+    role: "Website build, SEO and ongoing management",
     status: "Delivered",
     link: "",
     linkLabel: "",
     titleA: "A company website",
-    titleB: "with motion that tells the story.",
-    lead: "Cennetsol wanted a marketing website that explained its services clearly and felt modern from the first scroll.",
+    titleB: "built, found and kept current.",
+    lead: "Cennetsol wanted a marketing website that explained its services clearly and felt modern from the first scroll — and a team that keeps it working after launch.",
     short:
-      "We built a responsive company website with purposeful animation and clearly structured service sections, so visitors understand what the company does within seconds.",
+      "We built a responsive company website with purposeful animation and clearly structured service sections, then took on its SEO and ongoing management so it keeps improving after launch.",
     results: [
       ["Animated", "Motion that guides attention instead of distracting"],
-      ["Structured", "A clear section for every service"],
-      ["Responsive", "Consistent on phones, tablets and desktops"],
+      ["Found", "Search visibility managed as part of the engagement"],
+      ["Ongoing", "The site stays current under our management"],
     ],
     challenge:
-      "Service companies often sound alike. Cennetsol needed a website that stood out visually while staying easy to scan.",
+      "Service companies often sound alike. Cennetsol needed a website that stood out visually, stayed easy to scan, and did not fade from search after launch.",
     approach: [
       "Structured the content around services and the outcomes they deliver.",
       "Added scroll-based animation that reveals key messages in order.",
-      "Built every section to adapt cleanly to small screens.",
-      "Kept motion light so pages still load quickly.",
+      "Set up and manage SEO so the site stays visible in search.",
+      "Keep the site updated and improved as an ongoing engagement.",
     ],
     outcome:
-      "A modern, memorable website that presents the company’s services clearly and gives the team a solid base to grow on.",
+      "A modern, memorable website that presents the company's services clearly — and keeps improving under ongoing management.",
     thumb: {
+      image: "/work/cennetsol.webp",
       background: "#1C1917",
       alt: "Cennetsol software studio website homepage on desktop and mobile",
     },
   },
   talhaestate: {
     name: "Talha Estate",
-    eyebrow: "Website · Real estate",
+    eyebrow: "WordPress website · Real estate",
     client: "Real-estate agency",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
-    role: "Interface redesign and build",
+    role: "WordPress website, social media and handover",
     status: "Delivered",
     link: "",
     linkLabel: "",
     titleA: "A property website",
-    titleB: "that is easy to browse and update.",
-    lead: "Talha Estate needed a modern website that presents listings clearly and lets the team update properties without a developer.",
+    titleB: "the team runs on its own.",
+    lead: "Talha Estate needed a modern website that presents listings clearly — and the ability to update properties and share them online without a developer.",
     short:
-      "We designed and built a modern real-estate website with structured property cards, clean typography and simple listing management, plus reliable email delivery for enquiries.",
+      "We built the agency's property website on WordPress, set up its social media presence alongside it, and handed everything over with the team able to run both on its own.",
     results: [
-      ["Structured", "Property cards with the details buyers look for"],
-      ["Self-managed", "Staff update listings without code"],
-      ["Reliable", "Enquiry emails delivered every time"],
+      ["On WordPress", "A CMS the team can update without code"],
+      ["Social-ready", "Social media set up alongside the site"],
+      ["Handed over", "A clean handover with everything documented"],
     ],
     challenge:
-      "Buyers compare many properties quickly. Listings had to be consistent, easy to scan and easy for staff to keep current.",
+      "Buyers compare many properties quickly, and listings go stale fast. The agency needed a site that is easy to browse, easy for staff to keep current, and backed by a visible social presence.",
     approach: [
-      "Redesigned the interface with clear typography and generous spacing.",
-      "Built structured property cards with the key facts up front.",
-      "Set up custom listing fields so staff can add and edit properties.",
-      "Configured trusted email delivery for contact enquiries.",
+      "Built the property website on WordPress with structured, easy-to-scan listings.",
+      "Set up custom fields so staff can add and edit properties themselves.",
+      "Set up the agency's social media presence alongside the site.",
+      "Handed over the site and social accounts with everything documented.",
     ],
     outcome:
-      "Visitors find and compare properties faster, and the agency keeps its listings up to date on its own.",
+      "The agency runs its website and social media on its own, with a modern site that presents listings clearly.",
     thumb: {
+      image: "/work/talhaestate.webp",
       background: "#5B3A26",
       alt: "Talha Estate property listing website homepage on desktop and mobile",
     },
@@ -293,7 +306,7 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     client: "Gastroenterology practice, Florida, United States",
     service: "Dashboards & portals",
     serviceHref: "/services/dashboards-portals",
-    role: "Website design and build",
+    role: "WordPress website with patient-portal integration",
     status: "Live",
     link: "https://digestivecarepl.com",
     linkLabel: "Visit digestivecarepl.com",
@@ -301,58 +314,60 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     titleB: "that helps patients book with confidence.",
     lead: "Digestive Care serves patients in the Brandon and Tampa Bay area. Patients needed one trusted place to learn about procedures, book and reach their portal.",
     short:
-      "We built a responsive healthcare website with an integrated patient portal, matched it to the practice’s branding and shaped every page around the appointment-booking workflow.",
+      "We built a responsive WordPress website for the practice and integrated its patient-portal solution, matched it to the practice's branding and shaped every page around the appointment-booking workflow.",
     results: [
       ["Integrated", "Patient portal reachable from every page"],
       ["Bookable", "Pages built around the appointment workflow"],
-      ["On brand", "Theme customized to the practice’s identity"],
+      ["On brand", "Theme customized to the practice's identity"],
     ],
     challenge:
       "Patients often arrive anxious and with questions about procedures. The website had to explain clearly and make booking the obvious next step.",
     approach: [
-      "Organized services and patient education into clear sections.",
-      "Linked the patient portal and appointment booking prominently.",
-      "Customized the theme to match the practice’s branding.",
+      "Built the practice's website on WordPress.",
+      "Integrated the practice's patient-portal solution and linked it prominently.",
+      "Customized the theme to match the practice's branding.",
       "Set up reliable email delivery for patient messages.",
     ],
     outcome:
       "Patients can read about their procedure, book an appointment and open their portal from one trustworthy website.",
     thumb: {
+      image: "/work/digestivecare.webp",
       background: "linear-gradient(135deg,#0E1E3D 0%,#1F3B73 60%,#4A80D6 130%)",
       alt: "Digestive Care gastroenterology website homepage on desktop and mobile",
     },
   },
   selecthealth: {
     name: "Select & Health",
-    eyebrow: "Design system · Healthcare platform",
+    eyebrow: "Landing pages & design system · Healthcare platform",
     client: "Patient-facing healthcare platform",
     service: "Product engineering",
     serviceHref: "/services/product-engineering",
-    role: "Design system and UX audit",
+    role: "Landing-page and design-system design",
     status: "Handed over to development",
     link: "",
     linkLabel: "",
-    titleA: "A design system",
+    titleA: "Landing pages and a design system",
     titleB: "for a patient-facing health platform.",
-    lead: "Select & Health needed its platform to look and behave consistently — and to be quick for developers to build accurately.",
+    lead: "Select & Health needed its platform to present itself clearly — and to look and behave consistently as its developers build.",
     short:
-      "We designed a component-based design system for a patient-facing healthcare platform, focused on usability, accessibility and a fast, accurate handoff to developers.",
+      "We designed the platform's landing pages and a component-based design system, focused on usability and a fast, accurate handoff to the developers building from it.",
     results: [
-      ["Consistent", "One library of components and design tokens"],
-      ["Accessible", "Readable, usable patterns by default"],
+      ["Designed", "Landing pages and a shared component library"],
+      ["Consistent", "One set of tokens for color, type and spacing"],
       ["Faster handoff", "Developers build from a single source"],
     ],
     challenge:
-      "Inconsistent screens confuse patients and slow developers down. The platform needed shared rules for color, type and components.",
+      "Inconsistent screens confuse patients and slow developers down. The platform needed clear landing pages plus shared rules for color, type and components.",
     approach: [
-      "Audited existing screens for usability and consistency issues.",
+      "Designed landing pages that present the platform and its promise clearly.",
       "Defined tokens for color, typography and spacing.",
       "Designed reusable components for common patient tasks.",
       "Documented usage so developers could build exactly what was designed.",
     ],
     outcome:
-      "Designers and developers now work from one system, so new screens are consistent and accessible by default.",
+      "The platform's marketing pages and product screens now come from one design system, so everything stays consistent as development continues.",
     thumb: {
+      image: "/work/selecthealth.webp",
       background: "#2A2366",
       alt: "Select & Health patient platform homepage on desktop and mobile",
     },

@@ -3,17 +3,34 @@ import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { ProjectThumb } from "@/components/design/ProjectThumb";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
+
+const SERVICE_DESCRIPTION =
+  "Admin panels, client portals and internal tools built around how your team works — connected to your data, fast to load and easy to maintain.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Custom Dashboard & Client Portal Development | Ansari Studio" },
-  description:
-    "Admin panels, client portals and internal tools built around how your team works — connected to your data, fast to load and easy to maintain.",
+  title: { absolute: "Custom Dashboard & Client Portal Development | Ansari Product Engineering" },
+  description: SERVICE_DESCRIPTION,
   alternates: { canonical: "/services/dashboards-portals" },
 };
 
 export default function DashboardsPage() {
   return (
     <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Dashboards & portals",
+          description: SERVICE_DESCRIPTION,
+          path: "/services/dashboards-portals",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Dashboards & portals", path: "/services/dashboards-portals" },
+        ])}
+      />
       <main id="main">
         <PageHero
           active="services"
@@ -37,7 +54,8 @@ export default function DashboardsPage() {
             </span>
             <p className="flex-[1_1_520px] text-[19px] leading-[1.6] font-medium text-ink">
               A custom dashboard or client portal brings the data your team and clients need into one fast,
-              secure place. Ansari Studio designs it around the questions people ask every day and connects it
+              secure place. Ansari Product Engineering designs it around the questions people ask every day
+              and connects it
               to the systems you already use.
             </p>
           </div>
@@ -55,7 +73,7 @@ export default function DashboardsPage() {
                 <div className="flex flex-col gap-[4px] bg-ink px-[14px] py-[22px] text-[14px] text-mist max-[900px]:hidden!">
                   <div className="flex items-center gap-[10px] px-[8px] pb-[20px] font-[650] text-white">
                     <span className="h-[26px] w-[26px] rounded-[8px] bg-[linear-gradient(135deg,#2E4FE3,#62DCCB)]" />
-                    Northbeam Studio
+                    Northbeam
                   </div>
                   <div className="flex items-center gap-[10px] rounded-[9px] bg-[rgba(255,255,255,0.08)] px-[10px] py-[9px] font-semibold text-white">
                     <svg
@@ -596,7 +614,7 @@ export default function DashboardsPage() {
         </section>
         <section className="px-[24px] pt-[56px] pb-[112px]">
           <div className="mx-auto grid max-w-[1200px] grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-            <div className="rounded-[24px] border border-line bg-subtle p-[32px]">
+            <div className="rounded-[24px] border border-line bg-white p-[32px]">
               <h3 className="text-[22px] font-[680] tracking-[-0.016em]">Admin panels</h3>
               <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                 Manage users, content and orders without touching the database.
@@ -605,7 +623,7 @@ export default function DashboardsPage() {
                 You get: fewer support requests to developers
               </div>
             </div>
-            <div className="rounded-[24px] border border-line bg-subtle p-[32px]">
+            <div className="rounded-[24px] border border-line bg-white p-[32px]">
               <h3 className="text-[22px] font-[680] tracking-[-0.016em]">Client portals</h3>
               <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                 Clients see their projects, files and invoices in one place.
@@ -614,7 +632,7 @@ export default function DashboardsPage() {
                 You get: fewer status-update emails
               </div>
             </div>
-            <div className="rounded-[24px] border border-line bg-subtle p-[32px]">
+            <div className="rounded-[24px] border border-line bg-white p-[32px]">
               <h3 className="text-[22px] font-[680] tracking-[-0.016em]">Reporting dashboards</h3>
               <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                 The numbers you check every week, updated on their own.
@@ -623,7 +641,7 @@ export default function DashboardsPage() {
                 You get: decisions from current data
               </div>
             </div>
-            <div className="rounded-[24px] border border-line bg-subtle p-[32px]">
+            <div className="rounded-[24px] border border-line bg-white p-[32px]">
               <h3 className="text-[22px] font-[680] tracking-[-0.016em]">Lightweight ERP modules</h3>
               <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                 Inventory, scheduling or approvals built for how you actually work.
@@ -743,24 +761,28 @@ export default function DashboardsPage() {
                   Portals and platforms we have built
                 </h2>
               </div>
-              <Link className="text-[15px] font-semibold text-brand" href="/work">
-                All case studies →
+              <Link className="text-[15px] font-semibold text-brand underline-offset-4 hover:underline" href="/work">
+                Selected project experience →
               </Link>
             </div>
             <div className="mt-[40px] grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[24px]">
-              <Link className="flex flex-col gap-[18px]" href="/work/digestivecare">
-                <ProjectThumb slug="digestivecare" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/digestivecare">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="digestivecare" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">
                     Digestive Care · Healthcare, Florida US
                   </div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
-                    A website with an integrated patient portal
+                    WordPress website with an integrated patient portal
                   </h3>
                 </div>
               </Link>
-              <Link className="flex flex-col gap-[18px]" href="/work/verdira">
-                <ProjectThumb slug="verdira" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/verdira">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="verdira" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Verdira · Practice partner, US</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
@@ -780,7 +802,7 @@ export default function DashboardsPage() {
               </h2>
               <p className="mt-[16px] text-[16px] leading-[1.6] text-muted">
                 Something else?{" "}
-                <Link className="font-semibold text-brand" href="/contact">
+                <Link className="font-semibold text-brand underline-offset-4 hover:underline" href="/contact">
                   Ask us directly.
                 </Link>
               </p>

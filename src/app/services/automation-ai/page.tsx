@@ -1,17 +1,34 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { SiteFooter } from "@/components/design/SiteFooter";
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
+
+const SERVICE_DESCRIPTION =
+  "We design workflow automations that connect your CRM, forms and inbox so repetitive work runs on its own — and integrate AI where it genuinely helps.";
 
 export const metadata: Metadata = {
-  title: { absolute: "n8n Automation Agency for Growing Teams | Ansari Studio" },
-  description:
-    "We design n8n and AI workflows that connect your CRM, forms and inbox so follow-up happens on its own. Start with a free automation audit.",
+  title: { absolute: "n8n Automation & AI Workflow Integration | Ansari Product Engineering" },
+  description: SERVICE_DESCRIPTION,
   alternates: { canonical: "/services/automation-ai" },
 };
 
 export default function AutomationPage() {
   return (
     <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Automation & AI",
+          description: SERVICE_DESCRIPTION,
+          path: "/services/automation-ai",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Automation & AI", path: "/services/automation-ai" },
+        ])}
+      />
       <main id="main">
         <section className="relative overflow-hidden bg-night pb-[112px] text-white">
           <div
@@ -36,22 +53,22 @@ export default function AutomationPage() {
               </nav>
               <div className="mt-[28px] inline-flex items-center gap-[8px] rounded-full border border-[rgba(98,220,203,0.25)] bg-[rgba(98,220,203,0.1)] px-[12px] py-[5px] text-[13px] font-semibold text-mint">
                 <span className="h-[6px] w-[6px] rounded-full bg-mint" />
-                Connect · our lead service
+                Connect · Workflow automation
               </div>
               <h1 className="mt-[22px] text-[length:clamp(40px,5.2vw,68px)] leading-[1.02] font-bold tracking-[-0.028em] text-white">
                 Business process automation that gives your team{" "}
                 <span className="text-mint">hours back.</span>
               </h1>
               <p className="mt-[24px] max-w-[540px] text-[18px] leading-[1.6] text-mist">
-                We design AI-powered workflows that connect your CRM, forms and inbox, so repetitive work runs
-                on its own and follow-up stops slipping.
+                We design workflow automations that connect your CRM, forms and inbox, and we integrate AI
+                into the steps where it genuinely helps — with a person reviewing anything important.
               </p>
               <div className="mt-[36px] flex flex-wrap gap-[12px]">
                 <Link
-                  className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)]"
+                  className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
                   href="/automation-audit"
                 >
-                  Get a free automation audit{" "}
+                  Get an automation audit{" "}
                   <svg
                     width="16"
                     height="16"
@@ -68,7 +85,7 @@ export default function AutomationPage() {
                   </svg>
                 </Link>
                 <a
-                  className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white"
+                  className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[24px] text-[15px] font-semibold text-white transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
                   href="#how"
                 >
                   See how it works
@@ -185,7 +202,7 @@ export default function AutomationPage() {
               </p>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(4,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -209,7 +226,7 @@ export default function AutomationPage() {
                   The same details are typed into a form, a CRM and a spreadsheet.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -231,7 +248,7 @@ export default function AutomationPage() {
                   Enquiries wait in an inbox until someone remembers them.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -255,7 +272,7 @@ export default function AutomationPage() {
                   Someone exports data every week to build the same report.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -287,13 +304,13 @@ export default function AutomationPage() {
             <div className="max-w-[640px]">
               <div className="text-[14px] font-semibold text-brand">What we automate</div>
               <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em] text-ink">
-                Five workflows that pay back first.
+                Five workflows that take work off your team.
               </h2>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <div className="[grid-row:span_2] flex flex-col rounded-[24px] bg-ink p-[32px] text-white">
                 <div className="inline-flex self-start rounded-full bg-[rgba(98,220,203,0.12)] px-[11px] py-[5px] text-[12px] font-semibold text-mint">
-                  Most requested
+                  Common starting point
                 </div>
                 <h3 className="mt-[20px] text-[26px] leading-[1.15] font-[680] tracking-[-0.016em]">
                   Lead capture &amp; CRM sync
@@ -536,7 +553,7 @@ export default function AutomationPage() {
               </h2>
               <p className="mt-[16px] text-[16px] leading-[1.6] text-muted">
                 Something else?{" "}
-                <Link className="font-semibold text-brand" href="/contact">
+                <Link className="font-semibold text-brand underline-offset-4 hover:underline" href="/contact">
                   Ask us directly.
                 </Link>
               </p>
@@ -569,6 +586,32 @@ export default function AutomationPage() {
               </details>
               <details className="group border-b border-b-line py-[22px]">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-[16px] text-[17px] font-[650] [&::-webkit-details-marker]:hidden">
+                  What is the difference between workflow automation and AI integration?
+                  <span className="flex h-[32px] w-[32px] flex-none items-center justify-center rounded-full bg-subtle [transition:transform_180ms_ease-out] group-open:[transform:rotate(45deg)]">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                  </span>
+                </summary>
+                <p className="mt-[12px] text-[16px] leading-[1.7] text-muted">
+                  Workflow automation moves work between your tools along fixed, rule-based paths. AI
+                  integration adds judgement to a step — sorting, drafting or extracting information — either
+                  inside a product we build or inside one of those workflows. We use AI where it clearly helps
+                  a step, not everywhere, and a person reviews anything important.
+                </p>
+              </details>
+              <details className="group border-b border-b-line py-[22px]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-[16px] text-[17px] font-[650] [&::-webkit-details-marker]:hidden">
                   How much does an automation cost?
                   <span className="flex h-[32px] w-[32px] flex-none items-center justify-center rounded-full bg-subtle [transition:transform_180ms_ease-out] group-open:[transform:rotate(45deg)]">
                     <svg
@@ -587,7 +630,7 @@ export default function AutomationPage() {
                   </span>
                 </summary>
                 <p className="mt-[12px] text-[16px] leading-[1.7] text-muted">
-                  Each automation is quoted as a fixed price after the free audit, based on how many steps and
+                  Each automation is quoted as a fixed price after the audit, based on how many steps and
                   tools it involves. You see the price before anything is built.
                 </p>
               </details>
@@ -672,11 +715,11 @@ export default function AutomationPage() {
             <h2 className="text-[26px] font-bold tracking-[-0.016em]">Related services</h2>
             <div className="mt-[24px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <Link
-                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px]"
+                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px] transition-colors duration-150 hover:border-brand-200"
                 href="/automation-audit"
               >
                 <span className="flex items-center justify-between text-[17px] font-[650] tracking-[-0.01em]">
-                  Free automation audit
+                  Automation audit
                   <svg
                     width="18"
                     height="18"
@@ -693,11 +736,11 @@ export default function AutomationPage() {
                   </svg>
                 </span>
                 <span className="text-[14px] leading-[1.6] text-muted">
-                  A free 30-minute review that ends with the 3 automations worth building first.
+                  A structured review of your tools and workflows, ending in a prioritized shortlist.
                 </span>
               </Link>
               <Link
-                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px]"
+                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px] transition-colors duration-150 hover:border-brand-200"
                 href="/services/dashboards-portals"
               >
                 <span className="flex items-center justify-between text-[17px] font-[650] tracking-[-0.01em]">
@@ -722,7 +765,7 @@ export default function AutomationPage() {
                 </span>
               </Link>
               <Link
-                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px]"
+                className="flex flex-col gap-[10px] rounded-[20px] border border-line p-[26px] transition-colors duration-150 hover:border-brand-200"
                 href="/services/maintenance-retainer"
               >
                 <span className="flex items-center justify-between text-[17px] font-[650] tracking-[-0.01em]">
@@ -750,55 +793,12 @@ export default function AutomationPage() {
           </div>
         </section>
       </main>
-      <section className="relative overflow-hidden bg-night px-[24px] pt-[120px] text-white">
-        <div
-          className="absolute bottom-[-380px] left-[50%] h-[720px] w-[1200px] [transform:translateX(-50%)] bg-[radial-gradient(closest-side,rgba(98,220,203,0.22),rgba(98,220,203,0))]"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-[820px] text-center">
-          <h2 className="text-[length:clamp(40px,5.4vw,68px)] leading-[1.0] font-bold tracking-[-0.03em]">
-            Start with a free audit.
-          </h2>
-          <p className="mx-auto mt-[22px] max-w-[540px] text-[18px] leading-[1.6] text-mist">
-            Tell us how your team works today. We will show you where automation can take work off their
-            plate.
-          </p>
-          <Link
-            className="mt-[36px] inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)]"
-            href="/automation-audit"
-          >
-            Get a free automation audit{" "}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-        <footer className="relative mx-auto mt-[120px] flex max-w-[1200px] flex-wrap items-center justify-between gap-[16px] border-t border-t-[rgba(255,255,255,0.08)] py-[32px] text-[13px] text-dim">
-          <Image
-            className="block h-[22px] w-auto"
-            src="/brand/logo-white.svg"
-            alt="Ansari Studio"
-            width={130}
-            height={22}
-          />
-          <span>© 2026 Ansari Studio · Build. Improve. Connect.</span>
-          <span className="flex gap-[24px]">
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-          </span>
-        </footer>
-      </section>
+      <SiteFooter
+        title="Start with an automation audit."
+        text="Tell us how your team works today. We will show you where automation can take work off their plate."
+        cta="Get an automation audit"
+        ctaHref="/automation-audit"
+      />
     </>
   );
 }

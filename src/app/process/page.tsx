@@ -4,7 +4,7 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "How We Work: Scope, Build, Hand Over | Ansari Studio" },
+  title: { absolute: "How We Work: Scope, Build, Hand Over | Ansari Product Engineering" },
   description:
     "Discovery, a written scope, weekly demos and a documented handover. See our process and engagement models before you book a discovery call.",
   alternates: { canonical: "/process" },
@@ -24,13 +24,13 @@ export default function ProcessPage() {
           lead="Four steps, each ending with something you can see, check and keep. No surprises in the scope, the bill or the code."
           primary="Discuss your project"
           primaryHref="/contact"
-          secondary="Get a free automation audit"
+          secondary="Get an automation audit"
           secondaryHref="/automation-audit"
           points="Written scope|Weekly demos|Documented handover"
         />
         <section className="px-[24px] py-[112px]">
           <div className="mx-auto flex max-w-[1200px] flex-col gap-[16px]">
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-subtle p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">01</div>
               <div>
                 <h2 className="text-[30px] font-bold tracking-[-0.02em]">Discovery</h2>
@@ -48,7 +48,7 @@ export default function ProcessPage() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-subtle p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">02</div>
               <div>
                 <h2 className="text-[30px] font-bold tracking-[-0.02em]">Written scope</h2>
@@ -66,7 +66,7 @@ export default function ProcessPage() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-subtle p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
               <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">03</div>
               <div>
                 <h2 className="text-[30px] font-bold tracking-[-0.02em]">Build with weekly demos</h2>
@@ -115,15 +115,15 @@ export default function ProcessPage() {
                 <span className="self-start rounded-full bg-teal-50 px-[11px] py-[5px] text-[12px] font-semibold text-teal-deep">
                   Start here
                 </span>
-                <h3 className="mt-[18px] text-[24px] font-bold tracking-[-0.016em]">Free audit</h3>
+                <h3 className="mt-[18px] text-[24px] font-bold tracking-[-0.016em]">Automation audit</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A 30-minute review that ends with the three automations worth building first.
+                  A structured review of your tools and workflows, ending in a prioritized shortlist.
                 </p>
                 <div className="mt-[20px] text-[14px] text-ink">
                   <b className="font-[650]">Best for:</b> knowing where to start
                 </div>
                 <Link
-                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand"
+                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand underline-offset-4 hover:underline"
                   href="/automation-audit"
                 >
                   Request an audit →
@@ -140,7 +140,7 @@ export default function ProcessPage() {
                 <div className="mt-[20px] text-[14px] text-[#E2E8F2]">
                   <b className="font-[650]">Best for:</b> MVPs, migrations, new automations
                 </div>
-                <Link className="mt-auto pt-[24px] text-[15px] font-semibold text-brand-300" href="/contact">
+                <Link className="mt-auto pt-[24px] text-[15px] font-semibold text-brand-300 underline-offset-4 hover:underline" href="/contact">
                   Discuss a project →
                 </Link>
               </div>
@@ -156,7 +156,7 @@ export default function ProcessPage() {
                   <b className="font-[650]">Best for:</b> live products and automations
                 </div>
                 <Link
-                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand"
+                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand underline-offset-4 hover:underline"
                   href="/services/maintenance-retainer"
                 >
                   See the retainer →

@@ -28,7 +28,7 @@ export async function readSubmission(request: Request, form: Submission["form"])
 export async function deliver({ form, fields }: Submission): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL ?? "Ansari Studio <onboarding@resend.dev>";
+  const from = process.env.CONTACT_FROM_EMAIL ?? "Ansari Product Engineering <onboarding@resend.dev>";
   if (!apiKey || !to) return false;
 
   const subject = form === "audit" ? `Audit request from ${fields.name}` : `New enquiry from ${fields.name}`;

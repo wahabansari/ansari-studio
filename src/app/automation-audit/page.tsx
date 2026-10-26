@@ -4,9 +4,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "Free Automation Audit — Find Hours to Save | Ansari Studio" },
+  title: { absolute: "Automation Audit — Find What to Automate First | Ansari Product Engineering" },
   description:
-    "A free 30-minute review of your tools and workflows. You get a written list of the 3 automations worth building first, with effort estimates.",
+    "A structured review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating — and what is not.",
   alternates: { canonical: "/automation-audit" },
 };
 
@@ -17,15 +17,15 @@ export default function AuditPage() {
         <PageHero
           active="none"
           parent=""
-          crumb="Free automation audit"
-          eyebrow="Free for our first clients"
+          crumb="Automation audit"
+          eyebrow="Assessment"
           title="Find the hours your team loses to manual work"
-          titleAccent="— free."
-          lead="A 30-minute review of your tools and workflows. You get a written list of the three automations worth building first, with effort estimates."
+          titleAccent="— before spending a cent."
+          lead="A structured review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating first — and what is not."
           primary="Request your audit"
           primaryHref="#audit-form"
           secondary=""
-          points="30-minute call|Written report|No obligation to build"
+          points="Structured review|Written report|No obligation to build"
           glow="mint"
         />
         <section className="px-[24px] py-[112px]">
@@ -36,7 +36,7 @@ export default function AuditPage() {
                 A clear answer on what to automate first.
               </h2>
               <div className="mt-[36px] flex flex-col gap-[14px]">
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-subtle p-[22px]">
+                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
                   <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
                     <svg
                       width="17"
@@ -62,7 +62,7 @@ export default function AuditPage() {
                     </span>
                   </span>
                 </div>
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-subtle p-[22px]">
+                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
                   <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
                     <svg
                       width="17"
@@ -82,13 +82,13 @@ export default function AuditPage() {
                     </svg>
                   </span>
                   <span>
-                    <span className="block text-[17px] font-[650]">Your top 3 automations</span>
+                    <span className="block text-[17px] font-[650]">A prioritized shortlist</span>
                     <span className="mt-[2px] block text-[15px] text-muted">
-                      Ranked by how much manual work they remove.
+                      Ranked by the manual work they could take off your team.
                     </span>
                   </span>
                 </div>
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-subtle p-[22px]">
+                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
                   <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
                     <svg
                       width="17"
@@ -106,7 +106,7 @@ export default function AuditPage() {
                     </svg>
                   </span>
                   <span>
-                    <span className="block text-[17px] font-[650]">Effort and payback estimate</span>
+                    <span className="block text-[17px] font-[650]">What each option involves</span>
                     <span className="mt-[2px] block text-[15px] text-muted">
                       So you can decide what is worth building.
                     </span>
@@ -129,7 +129,7 @@ export default function AuditPage() {
                     2
                   </span>
                   <span className="text-[16px] leading-[1.5]">
-                    <b className="font-[650]">Talk for 30 minutes.</b>{" "}
+                    <b className="font-[650]">Talk it through.</b>{" "}
                     <span className="text-muted">We walk through how work moves today.</span>
                   </span>
                 </li>
@@ -168,7 +168,7 @@ export default function AuditPage() {
               method="post"
               action="/api/audit"
             >
-              <div className="text-[22px] font-bold tracking-[-0.016em]">Request your free audit</div>
+              <div className="text-[22px] font-bold tracking-[-0.016em]">Request your audit</div>
               <p className="mt-[6px] text-[14px] text-muted">
                 We reply within one business day to book your call.
               </p>
@@ -242,13 +242,13 @@ export default function AuditPage() {
                 </div>
               </div>
               <button
-                className="mt-[22px] h-[52px] w-full cursor-pointer rounded-[12px] border-0 bg-brand text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] [font:inherit]"
+                className="mt-[22px] h-[52px] w-full cursor-pointer rounded-[12px] border-0 bg-brand text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] [font:inherit] transition-colors duration-150 hover:bg-[#2643c9]"
                 type="submit"
               >
-                Request my free audit
+                Request my audit
               </button>
               <p className="mt-[14px] text-[12px] leading-[1.5] text-faint">
-                Protected against spam. We use your details only to reply to you.{" "}
+                We use your details only to reply to you.{" "}
                 <Link className="underline" href="/privacy">
                   Privacy policy
                 </Link>

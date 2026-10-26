@@ -5,9 +5,9 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "About Muhammad Wahab Ansari, Founder | Ansari Studio" },
+  title: { absolute: "About Muhammad Wahab Ansari, Founder | Ansari Product Engineering" },
   description:
-    "Senior full-stack engineer with 5+ years building React and Next.js products and n8n automations. Meet the founder behind Ansari Studio.",
+    "Senior full-stack engineer with 5+ years building React and Next.js products and workflow automations. Meet the founder behind Ansari Product Engineering.",
   alternates: { canonical: "/about" },
 };
 
@@ -19,10 +19,10 @@ export default function AboutPage() {
           active="about"
           parent=""
           crumb="About"
-          eyebrow="Founder-led studio"
-          title="A founder-led studio, with a senior engineer"
+          eyebrow="Founder-led practice"
+          title="A founder-led practice, with a senior engineer"
           titleAccent="on every project."
-          lead="Ansari Studio is a software and automation studio run by Muhammad Wahab Ansari, a senior engineer in Lahore, Pakistan, who builds web products and business automations for founders and growing teams in the UK and US."
+          lead="Ansari Product Engineering is run by Muhammad Wahab Ansari, a senior engineer in Lahore, Pakistan, who builds web products and business automations for founders and growing teams in the UK, US and Australia."
           primary="Book a 30-minute call"
           primaryHref="/contact#book"
           secondary="See our process"
@@ -48,7 +48,7 @@ export default function AboutPage() {
                 <Image
                   className="block aspect-[1] w-[280px] max-w-[80%] rounded-full object-cover shadow-[0_0_0_6px_rgba(255,255,255,0.08),0_0_0_14px_rgba(255,255,255,0.03),0_30px_60px_-20px_rgba(0,0,0,0.6)]"
                   src="/images/founder.webp"
-                  alt="Muhammad Wahab Ansari, founder of Ansari Studio"
+                  alt="Muhammad Wahab Ansari, founder of Ansari Product Engineering"
                   width={560}
                   height={560}
                   sizes="280px"
@@ -58,7 +58,7 @@ export default function AboutPage() {
                 <div className="text-[20px] font-[680] tracking-[-0.01em]">Muhammad Wahab Ansari</div>
                 <div className="mt-[4px] text-[14px] text-mist">Founder · Senior full-stack engineer</div>
                 <a
-                  className="mt-[16px] inline-flex h-[40px] items-center gap-[8px] rounded-[10px] border border-[rgba(255,255,255,0.14)] px-[14px] text-[14px] font-semibold"
+                  className="mt-[16px] inline-flex h-[40px] items-center gap-[8px] rounded-[10px] border border-[rgba(255,255,255,0.14)] px-[14px] text-[14px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
                   href="https://www.linkedin.com/in/wahabansari/"
                   target="_blank"
                   rel="noopener me"
@@ -82,7 +82,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div>
-              <div className="text-[14px] font-semibold text-brand">Why Ansari Studio</div>
+              <div className="text-[14px] font-semibold text-brand">Why Ansari Product Engineering</div>
               <h2 className="mt-[14px] text-[length:clamp(32px,4vw,48px)] leading-[1.06] font-bold tracking-[-0.026em]">
                 Good software should make a business more capable, not more complicated.
               </h2>
@@ -94,33 +94,35 @@ export default function AboutPage() {
               </p>
               <p className="mt-[16px] text-[18px] leading-[1.75] text-prose">
                 Again and again I saw businesses paying for software they could not change, or losing hours
-                every week to work a simple automation could do. I started Ansari Studio to fix that — with
-                clear scopes, honest timelines and engineering that lasts.
+                every week to work a simple automation could do. I started Ansari Product Engineering to fix
+                that — with clear scopes, honest timelines and engineering that lasts.
               </p>
               <p className="mt-[16px] text-[18px] leading-[1.75] text-prose">
-                When you work with Ansari Studio, you work with me directly. I scope your project, build it,
-                show you progress every week and hand it over properly.
+                When you work with Ansari Product Engineering, you work with me directly. I scope your
+                project, build it, show you progress every week and hand it over properly. When a project
+                needs deeper backend or database work, I bring in trusted specialists and coordinate that work
+                myself — so you still have one point of contact.
               </p>
               <div className="mt-[40px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-                <div className="rounded-[20px] border border-line bg-subtle p-[24px]">
+                <div className="rounded-[20px] border border-line bg-white p-[24px]">
                   <div className="text-[32px] font-bold tracking-[-0.024em]">5+ yrs</div>
                   <div className="mt-[4px] text-[15px] text-muted">
                     Building production web applications since 2020
                   </div>
                 </div>
-                <div className="rounded-[20px] border border-line bg-subtle p-[24px]">
-                  <div className="text-[32px] font-bold tracking-[-0.024em]">30%</div>
+                <div className="rounded-[20px] border border-line bg-white p-[24px]">
+                  <div className="text-[32px] font-bold tracking-[-0.024em]">Owned</div>
                   <div className="mt-[4px] text-[15px] text-muted">
-                    Measured performance gain on a live US marketplace
+                    You keep the code, documentation and accounts after every handover
                   </div>
                 </div>
-                <div className="rounded-[20px] border border-line bg-subtle p-[24px]">
-                  <div className="text-[32px] font-bold tracking-[-0.024em]">9</div>
+                <div className="rounded-[20px] border border-line bg-white p-[24px]">
+                  <div className="text-[32px] font-bold tracking-[-0.024em]">Direct</div>
                   <div className="mt-[4px] text-[15px] text-muted">
-                    Projects shipped for clients in the US, Australia and beyond
+                    You work with the founder — no account managers in between
                   </div>
                 </div>
-                <div className="rounded-[20px] border border-line bg-subtle p-[24px]">
+                <div className="rounded-[20px] border border-line bg-white p-[24px]">
                   <div className="text-[32px] font-bold tracking-[-0.024em]">UK · US</div>
                   <div className="mt-[4px] text-[15px] text-muted">
                     Working from Lahore, Pakistan, with overlapping hours
@@ -179,10 +181,10 @@ export default function AboutPage() {
             <div className="flex-[1_1_300px]">
               <div className="text-[14px] font-semibold text-brand">Background</div>
               <h2 className="mt-[14px] text-[length:clamp(32px,4vw,48px)] leading-[1.06] font-bold tracking-[-0.026em]">
-                Experience behind the studio.
+                Experience behind the work.
               </h2>
-              <Link className="mt-[20px] inline-block text-[15px] font-semibold text-brand" href="/work">
-                See the projects →
+              <Link className="mt-[20px] inline-block text-[15px] font-semibold text-brand underline-offset-4 hover:underline" href="/work">
+                Selected project experience →
               </Link>
             </div>
             <ol className="flex-[1.6_1_520px] list-none">
@@ -193,8 +195,8 @@ export default function AboutPage() {
                     Senior Frontend Engineer · Oxiliry
                   </span>
                   <span className="mt-[6px] block text-[16px] leading-[1.6] text-muted">
-                    Performance, platform and product work on production web applications, including a
-                    measured 30% performance gain on a live marketplace.
+                    Performance, platform and product work on production web applications, including making a
+                    live marketplace measurably faster without a rewrite.
                   </span>
                 </span>
               </li>

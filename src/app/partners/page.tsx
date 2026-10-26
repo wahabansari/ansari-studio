@@ -3,7 +3,7 @@ import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
 
 export const metadata: Metadata = {
-  title: { absolute: "White-Label Development Partner for Agencies | Ansari Studio" },
+  title: { absolute: "White-Label Development Partner for Agencies | Ansari Product Engineering" },
   description:
     "Overflow Next.js development and automation delivery for agencies. Senior engineering under your brand, clear communication, clean handover.",
   alternates: { canonical: "/partners" },
@@ -35,7 +35,7 @@ export default function PartnersPage() {
               </h2>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="rounded-[24px] border border-line bg-subtle p-[30px]">
+              <div className="rounded-[24px] border border-line bg-white p-[30px]">
                 <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Overflow development</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                   Your team is full and a client project cannot wait.
@@ -44,7 +44,7 @@ export default function PartnersPage() {
                   You get: delivery capacity on demand
                 </div>
               </div>
-              <div className="rounded-[24px] border border-line bg-subtle p-[30px]">
+              <div className="rounded-[24px] border border-line bg-white p-[30px]">
                 <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Specialist builds</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                   A web application, a migration or an automation outside your core skills.
@@ -53,7 +53,7 @@ export default function PartnersPage() {
                   You get: a new service line, no new hire
                 </div>
               </div>
-              <div className="rounded-[24px] border border-line bg-subtle p-[30px]">
+              <div className="rounded-[24px] border border-line bg-white p-[30px]">
                 <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Rescue and refactor</h3>
                 <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
                   A project that slipped and needs a steady senior hand.

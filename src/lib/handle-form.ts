@@ -26,10 +26,7 @@ export async function handleForm(request: Request, form: Submission["form"]) {
       // Local development: show the payload instead of sending it.
       console.info(`[${form} form] delivery not configured; submission:`, submission.fields);
     } else {
-      return plain(
-        `Online forms are not connected yet. Please email ${CONTACT_EMAIL} and we will reply within one business day.`,
-        503,
-      );
+      return plain(`Online forms are not connected yet. Please email ${CONTACT_EMAIL}.`, 503);
     }
   }
 

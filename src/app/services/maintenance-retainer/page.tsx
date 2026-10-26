@@ -3,17 +3,34 @@ import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { ProjectThumb } from "@/components/design/ProjectThumb";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
+
+const SERVICE_DESCRIPTION =
+  "Ongoing development, updates, monitoring and fixes from one senior engineer who knows your codebase. Predictable monthly hours and a clear report every month.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Website Maintenance & Development Retainer | Ansari Studio" },
-  description:
-    "Ongoing development, updates, monitoring and fixes from one senior engineer who knows your codebase. Predictable monthly hours, no surprises.",
+  title: { absolute: "Website Maintenance & Development Retainer | Ansari Product Engineering" },
+  description: SERVICE_DESCRIPTION,
   alternates: { canonical: "/services/maintenance-retainer" },
 };
 
 export default function MaintenancePage() {
   return (
     <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: "Maintenance & retainer",
+          description: SERVICE_DESCRIPTION,
+          path: "/services/maintenance-retainer",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Maintenance & retainer", path: "/services/maintenance-retainer" },
+        ])}
+      />
       <main id="main">
         <PageHero
           active="services"
@@ -52,7 +69,7 @@ export default function MaintenancePage() {
               </h2>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(4,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -73,7 +90,7 @@ export default function MaintenancePage() {
                   Dependencies and patches kept current.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -94,7 +111,7 @@ export default function MaintenancePage() {
                   Problems spotted before customers report them.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
                   <svg
                     width="19"
@@ -116,7 +133,7 @@ export default function MaintenancePage() {
                   Improvements shipped every month.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-line bg-subtle p-[26px]">
+              <div className="rounded-[20px] border border-line bg-white p-[26px]">
                 <span className="flex h-[40px] w-[40px] items-center justify-center rounded-[12px] border border-line-strong bg-white text-teal">
                   <svg
                     width="19"
@@ -294,13 +311,15 @@ export default function MaintenancePage() {
                   Long-term work we support
                 </h2>
               </div>
-              <Link className="text-[15px] font-semibold text-brand" href="/work">
-                All case studies →
+              <Link className="text-[15px] font-semibold text-brand underline-offset-4 hover:underline" href="/work">
+                Selected project experience →
               </Link>
             </div>
             <div className="mt-[40px] grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[24px]">
-              <Link className="flex flex-col gap-[18px]" href="/work/sunhub">
-                <ProjectThumb slug="sunhub" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/sunhub">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="sunhub" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Sunhub · Solar marketplace, US</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
@@ -308,8 +327,10 @@ export default function MaintenancePage() {
                   </h3>
                 </div>
               </Link>
-              <Link className="flex flex-col gap-[18px]" href="/work/talhaestate">
-                <ProjectThumb slug="talhaestate" />
+              <Link className="group flex flex-col gap-[18px]" href="/work/talhaestate">
+                <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
+                  <ProjectThumb slug="talhaestate" />
+                </div>
                 <div>
                   <div className="text-[13px] font-semibold text-faint">Talha Estate · Real estate</div>
                   <h3 className="mt-[8px] text-[21px] leading-[1.3] font-[680] tracking-[-0.01em]">
@@ -329,7 +350,7 @@ export default function MaintenancePage() {
               </h2>
               <p className="mt-[16px] text-[16px] leading-[1.6] text-muted">
                 Something else?{" "}
-                <Link className="font-semibold text-brand" href="/contact">
+                <Link className="font-semibold text-brand underline-offset-4 hover:underline" href="/contact">
                   Ask us directly.
                 </Link>
               </p>
