@@ -158,7 +158,7 @@ export const SERVICES: Service[] = [
       },
     ],
     steps: ["Measure and plan", "Fix and migrate in small releases", "Report before and after"],
-    proof: ["sunhub", "aussiemotor"],
+    proof: ["aussiemotor"],
     faq: [
       {
         q: "Do we need a full rewrite?",
@@ -270,7 +270,7 @@ export const SERVICES: Service[] = [
       { title: "A monthly report", text: "What shipped, what is next and what needs your decision." },
     ],
     steps: ["Agree the month's priorities", "Work through them, urgent first", "Report what shipped"],
-    proof: ["sunhub", "talhaestate"],
+    proof: ["talhaestate"],
     faq: [
       {
         q: "What is included?",

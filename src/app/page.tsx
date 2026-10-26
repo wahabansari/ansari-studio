@@ -155,9 +155,9 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-[48px] grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[24px]">
-              <CaseCard slug="sunhub" />
               <CaseCard slug="verdira" />
               <CaseCard slug="aussiemotor" />
+              <CaseCard slug="vapestore" />
             </div>
           </div>
         </section>

@@ -18,15 +18,6 @@ const PROJECTS: {
   result: string;
 }[] = [
   {
-    slug: "sunhub",
-    type: "apps",
-    name: "Sunhub",
-    category: "Performance",
-    region: "Solar marketplace · US",
-    headline: "made faster without a rewrite",
-    result: "Measured what slowed a live marketplace and fixed it in small, safe releases.",
-  },
-  {
     slug: "verdira",
     type: "apps",
     name: "Verdira",

@@ -8,7 +8,6 @@
  */
 /** Order of the Work grid; "Next project" on a case study follows it. */
 export const CASE_ORDER = [
-  "sunhub",
   "verdira",
   "aussiemotor",
   "vapestore",
@@ -20,6 +19,14 @@ export const CASE_ORDER = [
 ] as const;
 
 export type CaseSlug = (typeof CASE_ORDER)[number];
+
+/**
+ * Drafts: written up but not published. They are not in CASE_ORDER, so they get no page (the route
+ * 404s), no sitemap entry, no Work card and no link anywhere. To publish one, add its slug to
+ * CASE_ORDER (and a card to WorkGrid), and move its screenshot back into public/work/.
+ * Sunhub is held back; its screenshot lives in drafts/ so it is not served either.
+ */
+export type DraftCaseSlug = "sunhub";
 
 export interface CaseStudy {
   name: string;
@@ -50,7 +57,7 @@ export interface CaseStudy {
   };
 }
 
-export const CASES: Record<CaseSlug, CaseStudy> = {
+export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
   sunhub: {
     name: "Sunhub",
     card: { label: "Sunhub · Solar marketplace, US", title: "Faster marketplace, without a rewrite" },
@@ -83,7 +90,7 @@ export const CASES: Record<CaseSlug, CaseStudy> = {
     outcome:
       "Buyers get faster pages on every device, releases are lighter, and the team kept shipping features throughout the work.",
     thumb: {
-      image: "/work/sunhub.webp",
+      // Draft: screenshot kept in drafts/sunhub.webp (outside public/) until this case is published.
       background: "linear-gradient(135deg,#2A1206 0%,#5A1E08 55%,#8A3410 100%)",
       alt: "Sunhub solar marketplace homepage on desktop and mobile",
     },
