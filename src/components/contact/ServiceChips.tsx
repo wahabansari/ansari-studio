@@ -4,17 +4,15 @@ import { useState } from "react";
 import { SERVICES } from "@/data/services";
 
 const NOT_SURE = "Not sure yet";
-const CHIPS = [...SERVICES.map((service) => service.name), NOT_SURE];
+const CHIPS = [...SERVICES.map((s) => s.name), NOT_SURE];
 
-/** "What do you need?" chips from the design. The choice is sent with the form as `service`.
- * No chip is pre-selected as a sales nudge — the neutral default is "Not sure yet". */
 export function ServiceChips() {
   const [picked, setPicked] = useState(NOT_SURE);
   return (
-    <fieldset className="mt-[24px]">
-      <legend className="mb-[10px] text-[14px] font-semibold">What do you need?</legend>
+    <fieldset className="mt-6">
+      <legend className="mb-2.5 text-[13px] font-semibold">What do you need?</legend>
       <input type="hidden" name="service" value={picked} />
-      <div className="flex flex-wrap gap-[8px]">
+      <div className="flex flex-wrap gap-2">
         {CHIPS.map((label) => {
           const on = picked === label;
           return (
@@ -23,8 +21,10 @@ export function ServiceChips() {
               type="button"
               aria-pressed={on}
               onClick={() => setPicked(label)}
-              className={`inline-flex h-[38px] cursor-pointer items-center rounded-full border px-[14px] text-[14px] font-semibold transition-colors duration-150 ${
-                on ? "border-ink bg-ink text-white" : "border-field bg-white text-ink hover:border-ink"
+              className={`inline-flex h-9 cursor-pointer items-center rounded-full border px-3.5 text-[13px] font-semibold transition-colors duration-150 ${
+                on
+                  ? "border-brand bg-brand text-white"
+                  : "border-field bg-white text-ink hover:border-brand hover:text-brand"
               }`}
             >
               {label}

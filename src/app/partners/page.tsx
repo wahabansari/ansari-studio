@@ -1,13 +1,50 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "White-Label Development Partner for Agencies",
   description:
     "Overflow web development and workflow automation for agencies. Senior engineering under your brand, clear communication, clean handover.",
-  alternates: { canonical: "/partners" },
-};
+  path: "/partners",
+});
+
+const WHEN = [
+  {
+    title: "Overflow development",
+    text: "Your team is full and a client project cannot wait.",
+    outcome: "Delivery capacity on demand",
+  },
+  {
+    title: "Specialist builds",
+    text: "A web application, migration or workflow automation outside your core skills.",
+    outcome: "A new service line, no new hire",
+  },
+  {
+    title: "Rescue and refactor",
+    text: "A project that slipped and needs a steady senior team.",
+    outcome: "A project back on track",
+  },
+];
+
+const HOW = [
+  {
+    title: "Brief and NDA",
+    text: "You share the project; we sign before seeing details.",
+  },
+  {
+    title: "Scope and estimate",
+    text: "Written, so you can price it to your client.",
+  },
+  {
+    title: "Build in your repo and tools",
+    text: "Weekly updates to you, never directly to your client unless you ask.",
+  },
+  {
+    title: "Handover to your team",
+    text: "Documentation written for whoever supports it next.",
+  },
+];
 
 export default function PartnersPage() {
   return (
@@ -21,108 +58,75 @@ export default function PartnersPage() {
           title="A reliable engineering partner"
           titleAccent="for agencies."
           lead="We deliver overflow web development and workflow automation under your brand — senior engineering, clear communication and a clean handover."
-          primary="Discuss your project"
-          primaryHref="/contact"
-          secondary=""
+          primary="Book a discovery call"
+          primaryHref="/contact#book"
+          secondary="Discuss your project"
+          secondaryHref="/contact"
           points="White-label by default|NDA ready|Your process, your tools"
         />
-        <section className="px-[24px] py-[112px]">
+
+        {/* ── When agencies bring us in ────────────────────────────────── */}
+        <section className="px-6 py-24">
           <div className="mx-auto max-w-[1200px]">
-            <div className="max-w-[640px]">
-              <div className="text-[14px] font-semibold text-brand">When agencies bring us in</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
+            <div className="max-w-[580px]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                When agencies bring us in
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
                 Say yes to more work without hiring.
               </h2>
             </div>
-            <div className="mt-[48px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="rounded-[24px] border border-line bg-white p-[30px]">
-                <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Overflow development</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  Your team is full and a client project cannot wait.
-                </p>
-                <div className="mt-[18px] text-[14px] font-semibold text-teal-deep">
-                  You get: delivery capacity on demand
+
+            <div className="mt-12 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
+              {WHEN.map((item) => (
+                <div key={item.title} className="rounded-[20px] border border-line bg-white p-7">
+                  <h3 className="text-[19px] font-bold tracking-[-0.014em]">{item.title}</h3>
+                  <p className="mt-2.5 text-[14px] leading-[1.65] text-muted">{item.text}</p>
+                  <div className="mt-5 text-[13px] font-semibold text-teal-deep">
+                    You get: {item.outcome}
+                  </div>
                 </div>
-              </div>
-              <div className="rounded-[24px] border border-line bg-white p-[30px]">
-                <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Specialist builds</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A web application, a migration or a workflow automation outside your core skills.
-                </p>
-                <div className="mt-[18px] text-[14px] font-semibold text-teal-deep">
-                  You get: a new service line, no new hire
-                </div>
-              </div>
-              <div className="rounded-[24px] border border-line bg-white p-[30px]">
-                <h3 className="text-[21px] font-[680] tracking-[-0.012em]">Rescue and refactor</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A project that slipped and needs a steady senior team.
-                </p>
-                <div className="mt-[18px] text-[14px] font-semibold text-teal-deep">
-                  You get: a project back on track
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
-        <section className="bg-ink px-[24px] py-[112px] text-white">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-[repeat(2,minmax(0,1fr))] items-center gap-[56px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+
+        {/* ── How white-label works ────────────────────────────────────── */}
+        <section className="bg-ink px-6 py-24 text-white">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-2 items-start gap-14 max-[900px]:grid-cols-1">
             <div>
-              <div className="text-[14px] font-semibold text-mint">How white-label works</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-mint uppercase">
+                How white-label works
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
                 Your brand in front. Senior engineering behind it.
               </h2>
-              <p className="mt-[18px] max-w-[460px] text-[17px] leading-[1.6] text-mist">
+              <p className="mt-5 max-w-[440px] text-[16px] leading-[1.7] text-mist">
                 We work inside your process and your tools. Your client sees your agency; you see every
                 commit.
               </p>
             </div>
-            <ol className="flex list-none flex-col gap-[12px]">
-              <li className="flex gap-[16px] rounded-[16px] border border-edge bg-raised p-[20px]">
-                <span className="font-mono text-[13px] text-mint">01</span>
-                <span>
-                  <span className="block text-[16px] font-[650]">Brief and NDA</span>
-                  <span className="mt-[4px] block text-[14px] text-mist">
-                    You share the project; we sign before seeing details.
+
+            <ol className="flex flex-col gap-3">
+              {HOW.map((step, i) => (
+                <li key={step.title} className="flex gap-4 rounded-[18px] border border-edge bg-raised p-5">
+                  <span className="font-mono text-[12px] font-medium text-mint shrink-0 pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                </span>
-              </li>
-              <li className="flex gap-[16px] rounded-[16px] border border-edge bg-raised p-[20px]">
-                <span className="font-mono text-[13px] text-mint">02</span>
-                <span>
-                  <span className="block text-[16px] font-[650]">Scope and estimate</span>
-                  <span className="mt-[4px] block text-[14px] text-mist">
-                    Written, so you can price it to your client.
+                  <span>
+                    <span className="block text-[15px] font-bold">{step.title}</span>
+                    <span className="mt-1 block text-[13px] leading-[1.65] text-mist">{step.text}</span>
                   </span>
-                </span>
-              </li>
-              <li className="flex gap-[16px] rounded-[16px] border border-edge bg-raised p-[20px]">
-                <span className="font-mono text-[13px] text-mint">03</span>
-                <span>
-                  <span className="block text-[16px] font-[650]">Build in your repo and tools</span>
-                  <span className="mt-[4px] block text-[14px] text-mist">
-                    Weekly updates to you, never directly to your client unless you ask us to.
-                  </span>
-                </span>
-              </li>
-              <li className="flex gap-[16px] rounded-[16px] border border-edge bg-raised p-[20px]">
-                <span className="font-mono text-[13px] text-mint">04</span>
-                <span>
-                  <span className="block text-[16px] font-[650]">Handover to your team</span>
-                  <span className="mt-[4px] block text-[14px] text-mist">
-                    Documentation written for whoever supports it next.
-                  </span>
-                </span>
-              </li>
+                </li>
+              ))}
             </ol>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Need a partner you can rely on?"
         text="Tell us about your agency and the work you are turning away. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
       />
     </>
   );

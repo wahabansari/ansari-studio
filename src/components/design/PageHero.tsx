@@ -2,13 +2,10 @@ import Link from "next/link";
 import { ArrowRight, Check } from "@/components/icons";
 
 /**
- * Dark page opener used by every inner page (design component "PageHero").
- * The site header is rendered once in the layout and overlays the top 84px of this section.
- * Defaults match the design component, so omitted props behave as they do there;
- * pass an empty string to switch a part off (e.g. parent="" or points="").
+ * Dark page opener used by every inner page.
+ * The site header overlays the top 84px of this section.
  */
 export interface PageHeroProps {
-  /** Kept for parity with the design; the header works out the active item from the URL. */
   active?: string;
   glow?: "blue" | "mint" | string;
   parent?: string;
@@ -22,7 +19,7 @@ export interface PageHeroProps {
   primaryHref?: string;
   secondary?: string;
   secondaryHref?: string;
-  /** Pipe-separated list, e.g. "Written scope|Weekly progress". */
+  /** Pipe-separated list e.g. "Written scope|Weekly progress" */
   points?: string;
 }
 
@@ -35,104 +32,121 @@ export function PageHero({
   title = "Product engineering for",
   titleAccent = "startups and growing businesses.",
   lead = "We design and build web products, MVPs and new features with a written scope, weekly progress and a clean handover.",
-  primary = "Discuss your project",
-  primaryHref = "/contact",
-  secondary = "See how we work",
-  secondaryHref = "/process",
+  primary = "Book a discovery call",
+  primaryHref = "/contact#book",
+  secondary = "Discuss your project",
+  secondaryHref = "/contact",
   points = "Written scope|Weekly progress|You own the code",
 }: PageHeroProps) {
   const mint = glow === "mint";
   const pointList = points
     .split("|")
-    .map((point) => point.trim())
+    .map((p) => p.trim())
     .filter(Boolean);
 
   return (
-    <section className="relative overflow-hidden bg-night pb-[104px] text-white">
+    <section className="relative overflow-hidden bg-night pb-24 text-white">
+      {/* Grid texture */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_65%_70%_at_75%_10%,#000_30%,transparent_100%)] bg-size-[56px_56px]"
+        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px] [mask-image:radial-gradient(ellipse_70%_65%_at_70%_5%,#000_30%,transparent_100%)]"
       />
+      {/* Glow blob */}
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute top-[-300px] right-[-160px] h-[720px] w-[1100px] ${
+        className={`pointer-events-none absolute -top-72 -right-32 h-[700px] w-[1000px] ${
           mint
-            ? "bg-[radial-gradient(closest-side,rgba(98,220,203,0.22),rgba(0,0,0,0))]"
-            : "bg-[radial-gradient(closest-side,rgba(46,79,227,0.42),rgba(0,0,0,0))]"
+            ? "bg-[radial-gradient(closest-side,rgba(98,220,203,0.20),transparent)]"
+            : "bg-[radial-gradient(closest-side,rgba(46,79,227,0.38),transparent)]"
         }`}
       />
 
-      {/* space for the site header, which the layout renders on top */}
+      {/* Space for fixed header */}
       <div aria-hidden="true" className="h-[84px]" />
 
-      <div className="relative z-[2] mx-auto max-w-[1200px] px-[24px] pt-[64px]">
-        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-[8px] text-[13px] text-dim">
-          <Link href="/" className="hover:text-white">
-            Home
-          </Link>
-          <span aria-hidden="true">/</span>
-          {parent ? (
-            <>
-              <Link href={parentHref} className="hover:text-white">
-                {parent}
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pt-16 sm:pt-20">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-2 text-[13px] text-dim">
+            <li>
+              <Link href="/" className="transition-colors hover:text-white">
+                Home
               </Link>
-              <span aria-hidden="true">/</span>
-            </>
-          ) : null}
-          <span aria-current="page" className="text-white">
-            {crumb}
-          </span>
+            </li>
+            {parent ? (
+              <>
+                <li aria-hidden="true" className="select-none">/</li>
+                <li>
+                  <Link href={parentHref} className="transition-colors hover:text-white">
+                    {parent}
+                  </Link>
+                </li>
+              </>
+            ) : null}
+            <li aria-hidden="true" className="select-none">/</li>
+            <li>
+              <span aria-current="page" className="text-white/80">
+                {crumb}
+              </span>
+            </li>
+          </ol>
         </nav>
 
+        {/* Eyebrow badge */}
         <div
-          className={`mt-[28px] inline-flex items-center gap-[8px] rounded-full px-[12px] py-[5px] text-[13px] font-semibold ${
+          className={`mt-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[12px] font-semibold tracking-wide uppercase ${
             mint
-              ? "border border-[rgba(98,220,203,0.25)] bg-[rgba(98,220,203,0.1)] text-mint"
-              : "border border-[rgba(143,163,255,0.25)] bg-[rgba(143,163,255,0.1)] text-brand-200"
+              ? "border border-mint/20 bg-mint/10 text-mint"
+              : "border border-brand-300/20 bg-brand-300/10 text-brand-200"
           }`}
         >
-          <span className={`h-[6px] w-[6px] rounded-full ${mint ? "bg-mint" : "bg-brand-300"}`} />
+          <span className={`h-1.5 w-1.5 rounded-full ${mint ? "bg-mint" : "bg-brand-300"}`} />
           {eyebrow}
         </div>
 
-        <h1 className="mt-[22px] max-w-[900px] text-[length:clamp(40px,5.4vw,72px)] leading-[1.0] font-bold tracking-[-0.028em] text-white">
-          {title} <span className={mint ? "text-mint" : "text-brand-300"}>{titleAccent}</span>
+        {/* Heading */}
+        <h1 className="mt-5 max-w-[860px] text-[clamp(36px,5.2vw,68px)] font-bold leading-[1.05] tracking-[-0.03em] text-white">
+          {title}{" "}
+          <span className={mint ? "text-mint" : "text-brand-300"}>{titleAccent}</span>
         </h1>
-        <p className="mt-[24px] max-w-[620px] text-[19px] leading-[1.6] text-mist">{lead}</p>
 
-        <div className="mt-[36px] flex flex-wrap gap-[12px]">
+        {/* Lead */}
+        <p className="mt-5 max-w-[580px] text-[17px] leading-[1.7] text-mist sm:text-[18px]">{lead}</p>
+
+        {/* CTAs */}
+        <div className="mt-8 flex flex-wrap gap-3">
           <HeroLink
             href={primaryHref}
-            className="gap-[8px] bg-brand text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] hover:bg-[#2643c9]"
+            className="gap-2 bg-brand text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_28px_-8px_rgba(46,79,227,0.75)] hover:bg-[#2440c4]"
           >
-            {primary} <ArrowRight />
+            {primary} <ArrowRight size={15} />
           </HeroLink>
           {secondary ? (
             <HeroLink
               href={secondaryHref}
-              className="border border-white/[0.14] bg-white/[0.05] text-white hover:bg-white/[0.09]"
+              className="border border-white/[0.14] bg-white/[0.05] text-white hover:border-white/25 hover:bg-white/[0.09]"
             >
               {secondary}
             </HeroLink>
           ) : null}
         </div>
 
+        {/* Trust points */}
         {pointList.length > 0 ? (
-          <div className="mt-[28px] flex flex-wrap gap-[24px] text-[14px] text-mist">
+          <ul className="mt-6 flex flex-wrap gap-5 text-[13px] text-mist sm:text-[14px]">
             {pointList.map((point) => (
-              <span key={point} className="inline-flex items-center gap-[8px]">
-                <Check className="text-mint" />
+              <li key={point} className="inline-flex items-center gap-2">
+                <Check size={13} className="shrink-0 text-mint" />
                 {point}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : null}
       </div>
     </section>
   );
 }
 
-/** Internal routes use <Link>; anchors (#form) and external URLs stay plain links. */
 function HeroLink({
   href,
   className,
@@ -142,17 +156,16 @@ function HeroLink({
   className: string;
   children: React.ReactNode;
 }) {
-  const base = `inline-flex h-[50px] items-center rounded-[12px] px-[24px] text-[15px] font-semibold transition-colors duration-150 ${className}`;
-  if (href.startsWith("/")) {
+  const base = `inline-flex h-12 items-center rounded-xl px-6 text-[15px] font-semibold transition-colors duration-150 ${className}`;
+  if (href.startsWith("/") || href.startsWith("#")) {
     return (
       <Link href={href} className={base}>
         {children}
       </Link>
     );
   }
-  const external = /^https?:/.test(href);
   return (
-    <a href={href} className={base} {...(external ? { target: "_blank", rel: "noopener" } : {})}>
+    <a href={href} className={base} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );

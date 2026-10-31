@@ -1,104 +1,209 @@
-# Ansari Studio Website
+# Ansari Product Engineering — Website
 
-## Overview
+The marketing site for **Ansari Product Engineering**, a product engineering practice that modernizes existing software, automates business workflows and builds custom web products.
 
-A modern, production-ready marketing website for Ansari Studio built with **Next.js 16**, **React 19.3**, and **Tailwind CSS v4**. The site showcases the studio's services, portfolio case studies, process, and provides interactive forms for automation audits and general contact.
+Built with Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS v4.
 
-## Live Preview
+---
 
-The site is deployed and serves as the primary digital presence for Ansari Studio.
-
-## Tech Stack
-
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Cache Components)
-- **UI Library**: [React 19.3](https://react.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (theme-driven via CSS `@theme`)
-- **Language**: [TypeScript](https://www.typescriptlang.org/) (strict mode)
-- **Fonts**: [Inter Variable](https://rsms.me/inter/) (local), [JetBrains Mono](https://www.jetbrains.com/mono/) (Google Fonts)
-
-## Key Features
-
-- **Service Pages**: Dedicated pages for Product Engineering, Modernization, Automation & AI, Dashboards & Portals, and Maintenance & Retainer
-- **Portfolio/Work**: Case studies with detailed project pages, dynamic routing via `[slug]`
-- **Insights**: Blog-style content including lead follow-up automation guide
-- **Automation Audit**: Interactive audit form with API route handling
-- **Contact**: Contact form with service selection chips and Cal.com booking integration
-- **SEO**: Built-in `sitemap.ts`, `robots.ts`, and per-page metadata
-- **Animations**: View Transitions API with reduced-motion support
-- **Forms**: Server-side form handling with Resend integration (optional, gracefully degrades)
-- **Performance**: Static site generation where possible, optimized fonts and assets
-
-## Project Structure
-
-```
-src/
-├── app/              # Next.js App Router pages and API routes
-├── components/       # Reusable React components
-├── data/             # Static data (case studies, etc.)
-├── fonts/            # Local font files
-└── lib/              # Utilities, form handling, site config
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ or higher
-- npm (or yarn/pnpm)
-
-### Installation
+## Quick start
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Build
+### Scripts
 
-```bash
-npm run build
-npm run start
-```
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npx tsc --noEmit` | Type-check the project |
+| `npx prettier --write "src/**/*.{ts,tsx,css}"` | Format source files |
 
-### Linting & Formatting
+---
 
-```bash
-npm run lint
-npx tsc --noEmit
-npx prettier --write "src/**/*.{ts,tsx,css}"
-```
+## Typography
 
-## Environment Variables
+- **Inter Variable** is the primary (and currently only) text face, self-hosted via `next/font/local` from `src/fonts/InterVariable.woff2` (weight 100–900, `display: swap`, `--font-inter-variable`).
+- OpenType feature settings (`cv02`, `cv03`, `cv04`, `cv11`) are applied on `body` via `font-feature-settings`.
+- Label styles reuse the Inter stack via the `font-mono` utility token; no webfont other than Inter is loaded.
 
-For form functionality (contact/audit):
+---
+
+## Routes
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Positioning, problems, six services, work, process, FAQ |
+| `/services` | Service hub and comparison |
+| `/services/modernization` | Software & product modernization |
+| `/services/automation-ai` | AI & workflow automation |
+| `/services/product-engineering` | Custom software development |
+| `/services/dashboards-portals` | Dashboards & client portals |
+| `/services/api-integrations` | API & system integrations |
+| `/services/maintenance-retainer` | Maintenance & ongoing development |
+| `/automation-audit` | Scoped automation audit offer and form |
+| `/work` | Published case-study index |
+| `/work/[slug]` | Case study (published slugs only) |
+| `/insights` | Article index |
+| `/insights/[slug]` | Article |
+| `/process` | How an engagement runs |
+| `/about` | Company, founder and principles |
+| `/partners` | White-label partner pathway for agencies |
+| `/contact` | Contact form and Cal.com booking |
+| `/contact/thank-you` | Post-submission confirmation (`noindex`) |
+| `/privacy`, `/terms` | Legal pages |
+| `/api/contact`, `/api/audit` | Form POST handlers |
+| `/sitemap.xml`, `/robots.txt` | Generated SEO files |
+| `/opengraph-image`, `/twitter-image` | Generated 1200×630 social cards |
+
+Draft case studies are not in `CASE_ORDER`, so they receive no page, sitemap entry or navigation link. **Sunhub is intentionally unpublished.**
+
+---
+
+## Environment variables
+
+### Site URL
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `RESEND_API_KEY` | No | Resend API key for sending emails |
-| `CONTACT_TO_EMAIL` | No | Recipient email address |
-| `CONTACT_FROM_EMAIL` | No | Sender email (defaults to Resend onboarding email) |
+| `NEXT_PUBLIC_SITE_URL` | Recommended in production | Canonical origin, e.g. `https://example.com`. Falls back to Vercel's production/deployment URL, then `http://localhost:3000`. |
 
-If not configured, forms will log submissions in development and show a friendly message in production.
+Canonical URLs, Open Graph URLs, JSON-LD IDs, `sitemap.xml` and `robots.txt` all use this origin. Set it in production so they never point at localhost.
 
-## Design System
+### Forms (Resend)
 
-The site follows a strict design system defined in `src/app/globals.css` with theme tokens:
-- Colors: `ink`, `night`, `mist`, `line`, `brand`, `mint`, etc.
-- Typography: Inter Variable with custom features
-- Breakpoints: Custom `max-[900px]` responsive behavior
-- Motion: Respects `prefers-reduced-motion`
+| Variable | Required | Description |
+| --- | --- | --- |
+| `RESEND_API_KEY` | For live email delivery | Resend API key |
+| `CONTACT_TO_EMAIL` | For live email delivery | Recipient inbox |
+| `CONTACT_FROM_EMAIL` | No | Verified sender; defaults to Resend's onboarding address |
 
-## Contributing
+Without both `RESEND_API_KEY` and `CONTACT_TO_EMAIL`:
 
-This is the production website for Ansari Studio. For development guidelines, see `CLAUDE.md` and `AGENTS.md`.
+- Development logs the submission payload to the server console.
+- Production returns **503** with a direct email address. It never fakes success.
+
+Delivery failures return **502**. Validation failures return **400**. Honeypot submissions are accepted silently without sending. A best-effort in-memory limit allows a handful of submissions per IP per 10 minutes and returns **429** with `Retry-After`; use a shared store if hard guarantees are needed.
+
+### Analytics (consent-gated)
+
+| Variable | Description |
+| --- | --- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 measurement ID (`G-…`) |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID (`GTM-…`); takes precedence over direct GA4 |
+| `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity project ID |
+
+No analytics script renders when these are unset. When set, scripts load only after the visitor accepts analytics. Do Not Track always wins. The choice is stored under `ape-analytics-consent` in `localStorage`.
+
+Tracked events: `booking_click`, `contact_intent`, `audit_intent`, `case_study_open`, `contact_submit`, `audit_submit`, `lead_confirmation`.
+
+### Search Console
+
+| Variable | Description |
+| --- | --- |
+| `GOOGLE_SITE_VERIFICATION` | Optional Google Search Console verification token |
+
+---
+
+## Project structure
+
+```
+src/
+├── app/                 # Routes, metadata, sitemap, robots, social images
+│   ├── api/             # Form POST handlers
+│   ├── insights/        # Article index and dynamic article route
+│   ├── services/        # Six service pages
+│   └── work/            # Case-study index and dynamic case route
+├── components/
+│   ├── contact/         # Booking card and service chips
+│   ├── design/          # Page templates and shared design components
+│   └── work/            # Filterable work grid
+├── data/                # Services, articles and case studies
+├── fonts/               # Local font files
+└── lib/                 # Site config, forms, SEO and analytics helpers
+```
+
+### Content is file-driven
+
+- `src/data/services.ts` — the six services and all service-page copy.
+- `src/data/articles.ts` — typed article blocks and helpers.
+- `src/data/cases.ts` — case-study content and the published `CASE_ORDER`.
+
+Editing these files updates navigation, hub cards, service pages, sitemap, contact chips and structured data together.
+
+---
+
+## SEO
+
+- Per-page titles, descriptions and canonicals.
+- Generated `ProfessionalService`, `WebSite`, `Person`, `Service`, `BreadcrumbList`, `FAQPage` and `BlogPosting` JSON-LD.
+- Data-driven `sitemap.xml` and `robots.txt`.
+- Generated Open Graph and Twitter images.
+- Preview deployments and local development are `noindex, nofollow`.
+- `/contact/thank-you` is `noindex, follow`.
+
+See `docs/SEO-STRATEGY.md` for the full strategy.
+
+---
+
+## Accessibility
+
+- Skip link to `#main`.
+- One `<h1>` per page and logical heading order.
+- Visible focus states and keyboard-operable menus.
+- Mobile menu closes on Escape, traps focus and returns focus to its trigger.
+- Form fields have labels; required fields are marked.
+- Decorative icons and backgrounds are hidden from assistive technology.
+- Motion respects `prefers-reduced-motion`.
+- External new-tab links are labelled.
+
+---
+
+## Documentation
+
+| Document | Purpose |
+| --- | --- |
+| `docs/WEBSITE-AUDIT.md` | What was found before the rewrite |
+| `docs/IMPLEMENTATION-ROADMAP.md` | Phased plan used to deliver the work |
+| `docs/BUSINESS-POSITIONING.md` | Audience, offer, messaging and sales narrative |
+| `docs/SEO-STRATEGY.md` | Architecture, intent map, schema and measurement |
+| `docs/CONTENT-ROADMAP.md` | Editorial plan, briefs and case-study policy |
+| `docs/IMPLEMENTATION-REPORT.md` | What shipped, verification results and manual tasks |
+
+---
+
+## Deployment checklist
+
+1. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
+2. Configure form delivery (`RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`).
+3. Optionally add analytics IDs and Search Console verification.
+4. Deploy, then confirm:
+   - `/sitemap.xml` and `/robots.txt` use the production domain.
+   - Canonical and Open Graph URLs are correct.
+   - The OG image returns a 1200×630 PNG.
+   - Both forms return 503 (not false success) when delivery is unconfigured.
+   - No analytics request fires before consent.
+   - Unknown work and article slugs return 404.
+5. Submit the sitemap in Search Console.
+
+### Vercel deployment (recommended host)
+
+- Import the repository into Vercel; framework preset **Next.js**, build command `npm run build`.
+- Vercel sets `VERCEL_PROJECT_PRODUCTION_URL` and `VERCEL_ENV=production` automatically; the app prefers `NEXT_PUBLIC_SITE_URL` when set, then Vercel values, then localhost.
+- Set `NEXT_PUBLIC_SITE_URL` to the production domain (e.g. `https://www.yourdomain.com`) — canonicals, OG URLs, JSON-LD IDs and sitemap all resolve from it.
+- Set the Resend variables for live form delivery; without them production returns 503 (never fake success).
+- Preview deployments are automatically `noindex, nofollow` via `isPreviewDeployment()`; production stays indexable.
+- After first deploy: verify production canonicals/OG, sitemap submission, OG image, and analytics consent behavior on the production domain.
+
+---
 
 ## License
 
-Private - All rights reserved.
+Private — all rights reserved.

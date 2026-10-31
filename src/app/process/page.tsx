@@ -1,14 +1,76 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Our Process",
+export const metadata = pageMetadata({
+  title: "How We Work: Scope, Build and Handover",
   description:
-    "Discovery, a written scope, weekly progress and a documented handover — how a project runs with us.",
-  alternates: { canonical: "/process" },
-};
+    "Discovery, a written scope, weekly progress and a documented handover — how a software project runs with Ansari Product Engineering.",
+  path: "/process",
+});
+
+const STEPS = [
+  {
+    num: "01",
+    title: "Discovery",
+    body: "A call to understand the problem, the people involved and what success looks like. We ask about your tools, your customers and your deadlines.",
+    outcome: "A clear problem statement and success measures",
+  },
+  {
+    num: "02",
+    title: "Written scope",
+    body: "Deliverables, assumptions, exclusions, milestones and an estimate. Nothing is built until you have read and agreed it.",
+    outcome: "A fixed scope and estimate you can plan around",
+  },
+  {
+    num: "03",
+    title: "Build",
+    body: "Work happens in small steps. You get a review every week and a reply within one business day, so you can change direction early, when it is still cheap.",
+    outcome: "Working software to review every week",
+  },
+  {
+    num: "04",
+    title: "Handover",
+    body: "The code, accounts and documentation move to you, with a recorded walkthrough so your team can run it.",
+    outcome: "A product your team owns and can run",
+    dark: true,
+  },
+];
+
+const WAYS = [
+  {
+    badge: "Start here",
+    badgeColor: "bg-teal-50 text-teal-deep",
+    title: "Automation audit",
+    body: "A structured review of your tools and workflows, ending in a prioritized shortlist.",
+    best: "Knowing where to start",
+    href: "/automation-audit",
+    cta: "Request an audit →",
+    ctaColor: "text-brand",
+  },
+  {
+    badge: "Most projects",
+    badgeColor: "bg-brand-50 text-brand",
+    title: "Fixed-scope project",
+    body: "A defined outcome, a written scope and an agreed estimate.",
+    best: "MVPs, migrations, new workflows",
+    href: "/contact",
+    cta: "Discuss a project →",
+    ctaColor: "text-brand-300",
+    dark: true,
+  },
+  {
+    badge: "Ongoing",
+    badgeColor: "bg-brand-50 text-brand",
+    title: "Monthly development",
+    body: "Regular monthly work on updates, fixes and new features, with priorities you set.",
+    best: "Live products and workflows",
+    href: "/services/maintenance-retainer",
+    cta: "See ongoing development →",
+    ctaColor: "text-brand",
+  },
+];
 
 export default function ProcessPage() {
   return (
@@ -19,160 +81,126 @@ export default function ProcessPage() {
           parent=""
           crumb="Process"
           eyebrow="How we work"
-          title="How a project runs, from first call"
+          title="From first call"
           titleAccent="to handover."
           lead="Four steps, each ending with something you can see, check and keep. No surprises in the scope, the bill or the code."
-          primary="Discuss your project"
-          primaryHref="/contact"
-          secondary=""
+          primary="Book a discovery call"
+          primaryHref="/contact#book"
+          secondary="Discuss your project"
+          secondaryHref="/contact"
           points="Written scope|Weekly progress|Documented handover"
         />
-        <section className="px-[24px] py-[112px]">
-          <div className="mx-auto flex max-w-[1200px] flex-col gap-[16px]">
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">01</div>
-              <div>
-                <h2 className="text-[30px] font-bold tracking-[-0.02em]">Discovery</h2>
-                <p className="mt-[10px] text-[16px] leading-[1.6] text-muted">
-                  A call to understand the problem, the people involved and what success looks like. We ask
-                  about your tools, your customers and your deadlines.
-                </p>
-              </div>
-              <div className="rounded-[18px] border border-teal-100 bg-teal-50 p-[20px]">
-                <div className="text-[12px] font-semibold tracking-[0.06em] text-teal-deep uppercase">
-                  You get
+
+        {/* ── Steps ───────────────────────────────────────────────────── */}
+        <section className="px-6 py-24">
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-4">
+            {STEPS.map((step) => (
+              <div
+                key={step.num}
+                className={`grid grid-cols-[100px_1fr_0.9fr] items-center gap-10 rounded-[24px] p-10 max-[900px]:grid-cols-1 max-[480px]:p-7 ${
+                  step.dark ? "bg-ink text-white" : "border border-line bg-white"
+                }`}
+              >
+                {/* Step number */}
+                <div
+                  className={`font-mono text-[64px] font-bold leading-none tracking-[-0.04em] ${
+                    step.dark ? "text-mint" : "text-brand-100"
+                  }`}
+                  aria-hidden="true"
+                >
+                  {step.num}
                 </div>
-                <div className="mt-[6px] text-[17px] leading-[1.4] font-[650]">
-                  A clear problem statement and success measures
+
+                {/* Content */}
+                <div>
+                  <h2 className="text-[26px] font-bold tracking-[-0.02em]">{step.title}</h2>
+                  <p className={`mt-3 text-[15px] leading-[1.7] ${step.dark ? "text-mist" : "text-muted"}`}>
+                    {step.body}
+                  </p>
                 </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">02</div>
-              <div>
-                <h2 className="text-[30px] font-bold tracking-[-0.02em]">Written scope</h2>
-                <p className="mt-[10px] text-[16px] leading-[1.6] text-muted">
-                  Deliverables, assumptions, exclusions, milestones and an estimate. Nothing is built until
-                  you have read and agreed it.
-                </p>
-              </div>
-              <div className="rounded-[18px] border border-teal-100 bg-teal-50 p-[20px]">
-                <div className="text-[12px] font-semibold tracking-[0.06em] text-teal-deep uppercase">
-                  You get
-                </div>
-                <div className="mt-[6px] text-[17px] leading-[1.4] font-[650]">
-                  A fixed scope and estimate you can plan around
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] border border-line bg-white p-[36px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-brand">03</div>
-              <div>
-                <h2 className="text-[30px] font-bold tracking-[-0.02em]">Build</h2>
-                <p className="mt-[10px] text-[16px] leading-[1.6] text-muted">
-                  Work happens in small steps. You get a review every week and a reply within one business
-                  day, so you can change direction early, when it is still cheap.
-                </p>
-              </div>
-              <div className="rounded-[18px] border border-teal-100 bg-teal-50 p-[20px]">
-                <div className="text-[12px] font-semibold tracking-[0.06em] text-teal-deep uppercase">
-                  You get
-                </div>
-                <div className="mt-[6px] text-[17px] leading-[1.4] font-[650]">
-                  Working software to try every week
+
+                {/* You get */}
+                <div
+                  className={`rounded-[18px] p-5 ${
+                    step.dark
+                      ? "border border-mint/20 bg-mint/[0.08]"
+                      : "border border-teal-100 bg-teal-50"
+                  }`}
+                >
+                  <div
+                    className={`font-mono text-[11px] font-semibold tracking-widest uppercase ${
+                      step.dark ? "text-mint" : "text-teal-deep"
+                    }`}
+                  >
+                    You get
+                  </div>
+                  <div
+                    className={`mt-2 text-[16px] font-bold leading-[1.35] ${
+                      step.dark ? "text-white" : "text-ink"
+                    }`}
+                  >
+                    {step.outcome}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="grid grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)] items-center gap-[40px] rounded-[28px] bg-ink p-[36px] text-white max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="text-[72px] leading-[1] font-bold tracking-[-0.04em] text-mint">04</div>
-              <div>
-                <h2 className="text-[30px] font-bold tracking-[-0.02em]">Handover</h2>
-                <p className="mt-[10px] text-[16px] leading-[1.6] text-mist">
-                  The code, accounts and documentation move to you, with a recorded walkthrough so your team
-                  can run it.
-                </p>
-              </div>
-              <div className="rounded-[18px] border border-[rgba(98,220,203,0.25)] bg-[rgba(98,220,203,0.1)] p-[20px]">
-                <div className="text-[12px] font-semibold tracking-[0.06em] text-mint uppercase">You get</div>
-                <div className="mt-[6px] text-[17px] leading-[1.4] font-[650]">
-                  A product your team owns and can run
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
-        <section className="border-t border-b border-t-line-soft border-b-line-soft bg-subtle px-[24px] py-[112px]">
+
+        {/* ── Ways to work together ───────────────────────────────────── */}
+        <section className="border-y border-line-soft bg-subtle px-6 py-24">
           <div className="mx-auto max-w-[1200px]">
-            <div className="max-w-[640px]">
-              <div className="text-[14px] font-semibold text-brand">Ways to work together</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
+            <div className="max-w-[580px]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                Ways to work together
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
                 Pick the way that fits the work.
               </h2>
             </div>
-            <div className="mt-[48px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <div className="flex flex-col rounded-[24px] border border-line bg-white p-[32px]">
-                <span className="self-start rounded-full bg-teal-50 px-[11px] py-[5px] text-[12px] font-semibold text-teal-deep">
-                  Start here
-                </span>
-                <h3 className="mt-[18px] text-[24px] font-bold tracking-[-0.016em]">Automation audit</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  A structured review of your tools and workflows, ending in a prioritized shortlist.
-                </p>
-                <div className="mt-[20px] text-[14px] text-ink">
-                  <b className="font-[650]">Best for:</b> knowing where to start
-                </div>
-                <Link
-                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand underline-offset-4 hover:underline"
-                  href="/automation-audit"
+
+            <div className="mt-12 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
+              {WAYS.map((way) => (
+                <div
+                  key={way.title}
+                  className={`flex flex-col rounded-[20px] p-8 ${
+                    way.dark ? "bg-ink text-white" : "border border-line bg-white"
+                  }`}
                 >
-                  Request an audit →
-                </Link>
-              </div>
-              <div className="flex flex-col rounded-[24px] bg-ink p-[32px] text-white">
-                <span className="self-start rounded-full bg-[rgba(143,163,255,0.14)] px-[11px] py-[5px] text-[12px] font-semibold text-brand-200">
-                  Most projects
-                </span>
-                <h3 className="mt-[18px] text-[24px] font-bold tracking-[-0.016em]">Fixed-scope project</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-mist">
-                  A defined outcome, a written scope and an agreed estimate.
-                </p>
-                <div className="mt-[20px] text-[14px] text-[#E2E8F2]">
-                  <b className="font-[650]">Best for:</b> MVPs, migrations, new workflows
+                  <span
+                    className={`self-start rounded-full px-3 py-1 text-[11px] font-semibold ${
+                      way.dark
+                        ? "bg-white/10 text-brand-200"
+                        : way.badgeColor
+                    }`}
+                  >
+                    {way.badge}
+                  </span>
+                  <h3 className="mt-5 text-[22px] font-bold tracking-[-0.016em]">{way.title}</h3>
+                  <p className={`mt-2.5 text-[14px] leading-[1.65] ${way.dark ? "text-mist" : "text-muted"}`}>
+                    {way.body}
+                  </p>
+                  <div className={`mt-5 text-[13px] ${way.dark ? "text-haze" : "text-ink"}`}>
+                    <span className="font-semibold">Best for:</span> {way.best}
+                  </div>
+                  <Link
+                    href={way.href}
+                    className={`mt-auto pt-6 text-[14px] font-semibold underline-offset-4 hover:underline ${
+                      way.dark ? "text-brand-300" : "text-brand"
+                    }`}
+                  >
+                    {way.cta}
+                  </Link>
                 </div>
-                <Link
-                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand-300 underline-offset-4 hover:underline"
-                  href="/contact"
-                >
-                  Discuss a project →
-                </Link>
-              </div>
-              <div className="flex flex-col rounded-[24px] border border-line bg-white p-[32px]">
-                <span className="self-start rounded-full bg-brand-50 px-[11px] py-[5px] text-[12px] font-semibold text-brand">
-                  Ongoing
-                </span>
-                <h3 className="mt-[18px] text-[24px] font-bold tracking-[-0.016em]">Monthly development</h3>
-                <p className="mt-[8px] text-[15px] leading-[1.6] text-muted">
-                  Regular monthly work on updates, fixes and new features, with priorities you set.
-                </p>
-                <div className="mt-[20px] text-[14px] text-ink">
-                  <b className="font-[650]">Best for:</b> live products and workflows
-                </div>
-                <Link
-                  className="mt-auto pt-[24px] text-[15px] font-semibold text-brand underline-offset-4 hover:underline"
-                  href="/services/maintenance-retainer"
-                >
-                  See ongoing development →
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Ready for step one?"
         text="Tell us about your project. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
       />
     </>
   );

@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
-import { Check } from "@/components/icons";
+import { ArrowUpRight, Check } from "@/components/icons";
+import { pageMetadata } from "@/lib/metadata";
+import { JsonLd, personJsonLd } from "@/lib/seo";
+import { FOUNDER, SITE_NAME } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata = pageMetadata({
+  title: { absolute: "About Ansari Product Engineering" },
   description:
-    "A product engineering company helping growing businesses build, modernize and integrate software.",
-  alternates: { canonical: "/about" },
-};
+    "A product engineering company helping growing businesses build, modernize and integrate the software they run on. Meet the founder and how we work.",
+  path: "/about",
+});
 
 const BELIEFS = [
   { title: "Practical over flashy", text: "A real business outcome before any buzzword." },
@@ -32,13 +35,14 @@ const WAYS_OF_WORKING = [
   },
   {
     title: "Remote-first, overlapping your hours",
-    text: "Working times overlap US, UK and European business hours.",
+    text: "Working times overlap US, UK, European and Middle Eastern business hours.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personJsonLd()} />
       <main id="main">
         <PageHero
           active="about"
@@ -47,53 +51,103 @@ export default function AboutPage() {
           eyebrow="About us"
           title="We build software that makes businesses"
           titleAccent="more capable, not more complicated."
-          lead="Ansari Product Engineering is a product engineering company. We help startups and growing businesses build new products, modernize existing software and connect the tools they run on."
-          primary="Discuss your project"
-          primaryHref="/contact"
-          secondary=""
+          lead="Ansari Product Engineering helps startups and growing businesses build new products, modernize existing software and connect the tools they run on."
+          primary="Book a discovery call"
+          primaryHref="/contact#book"
+          secondary="Discuss your project"
+          secondaryHref="/contact"
           points=""
         />
 
-        <section className="bg-ink px-[24px] py-[112px] text-white">
+        {/* ── Founder card ────────────────────────────────────────────── */}
+        <section className="px-6 pt-20 pb-12">
           <div className="mx-auto max-w-[1200px]">
-            <div className="max-w-[640px]">
-              <div className="text-[14px] font-semibold text-mint">What we believe</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
+            <div className="grid grid-cols-[auto_1fr] items-start gap-8 rounded-[24px] border border-line bg-subtle p-8 max-[640px]:grid-cols-1 max-[480px]:p-6">
+              {/* Avatar */}
+              <div
+                className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-ink text-[28px] font-bold tracking-[-0.02em] text-mint"
+                aria-hidden="true"
+              >
+                WA
+              </div>
+              <div>
+                <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                  Who you work with
+                </div>
+                <h2 className="mt-2.5 text-[24px] font-bold tracking-[-0.018em]">
+                  {FOUNDER.name}
+                </h2>
+                <p className="mt-1 text-[14px] font-medium text-faint">
+                  {FOUNDER.role}, {SITE_NAME}
+                </p>
+                <p className="mt-4 max-w-[660px] text-[15px] leading-[1.75] text-prose">
+                  Muhammad works directly with clients on scoping, engineering and handover. The aim is
+                  simple: a clear written scope, visible weekly progress and a codebase you can hand to
+                  any good developer.
+                </p>
+                <Link
+                  className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand underline-offset-4 hover:underline"
+                  href={FOUNDER.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Connect on LinkedIn
+                  <ArrowUpRight size={14} />
+                  <span className="sr-only">(opens in a new tab)</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Beliefs ─────────────────────────────────────────────────── */}
+        <section className="bg-ink px-6 py-24 text-white">
+          <div className="mx-auto max-w-[1200px]">
+            <div className="max-w-[580px]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-mint uppercase">
+                What we believe
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
                 Four principles behind every project.
               </h2>
             </div>
-            <div className="mt-[48px] grid grid-cols-[repeat(4,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+            <div className="mt-12 grid grid-cols-4 gap-4 max-[900px]:grid-cols-2 max-[540px]:grid-cols-1">
               {BELIEFS.map((belief, i) => (
-                <div key={belief.title} className="rounded-[22px] border border-edge bg-raised p-[28px]">
-                  <span className="font-mono text-[13px] text-mint">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-[18px] text-[19px] font-[680] tracking-[-0.01em]">{belief.title}</h3>
-                  <p className="mt-[8px] text-[14px] leading-[1.6] text-mist">{belief.text}</p>
+                <div key={belief.title} className="rounded-[20px] border border-edge bg-raised p-7">
+                  <span className="font-mono text-[12px] font-medium text-mint">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 text-[17px] font-bold tracking-[-0.01em]">{belief.title}</h3>
+                  <p className="mt-2 text-[13px] leading-[1.65] text-mist">{belief.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="px-[24px] py-[112px]">
+        {/* ── Ways of working ─────────────────────────────────────────── */}
+        <section className="px-6 py-24">
           <div className="mx-auto max-w-[1200px]">
-            <div className="max-w-[640px]">
-              <div className="text-[14px] font-semibold text-brand">How we work with you</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
+            <div className="max-w-[580px]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                How we work with you
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
                 Simple to work with, easy to hand over.
               </h2>
             </div>
-            <div className="mt-[48px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+            <div className="mt-12 grid grid-cols-2 gap-4 max-[640px]:grid-cols-1">
               {WAYS_OF_WORKING.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-[16px] rounded-[24px] border border-line bg-subtle p-[28px]"
+                  className="flex items-start gap-4 rounded-[20px] border border-line bg-subtle p-7"
                 >
-                  <span className="flex h-[28px] w-[28px] flex-none items-center justify-center rounded-[8px] bg-teal-50 text-teal">
-                    <Check size={15} />
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal">
+                    <Check size={14} />
                   </span>
                   <span>
-                    <span className="block text-[19px] font-[680] tracking-[-0.01em]">{item.title}</span>
-                    <span className="mt-[6px] block text-[15px] leading-[1.6] text-muted">{item.text}</span>
+                    <span className="block text-[17px] font-bold tracking-[-0.01em]">{item.title}</span>
+                    <span className="mt-1.5 block text-[14px] leading-[1.65] text-muted">{item.text}</span>
                   </span>
                 </div>
               ))}
@@ -101,26 +155,28 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="border-t border-t-line-soft bg-subtle px-[24px] py-[112px]">
+        {/* ── Where we work ───────────────────────────────────────────── */}
+        <section className="border-t border-line-soft bg-subtle px-6 py-24">
           <div className="mx-auto max-w-[1200px]">
-            <div className="max-w-[720px]">
-              <div className="text-[14px] font-semibold text-brand">Where we work</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,50px)] leading-[1.05] font-bold tracking-[-0.026em]">
-                Worldwide, mainly the US, UK and Europe.
+            <div className="max-w-[680px]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                Where we work
+              </div>
+              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+                Worldwide, mainly the US, UK, Europe and the Middle East.
               </h2>
-              <p className="mt-[18px] text-[18px] leading-[1.7] text-prose">
-                We work with startups and growing businesses wherever they are, with most clients in the US,
-                the UK and Europe. Everything runs remotely, with working hours that overlap yours.
+              <p className="mt-5 text-[17px] leading-[1.75] text-prose">
+                We work with startups and growing businesses wherever they are, with most clients in the
+                US, the UK, Europe and the Middle East. Everything runs remotely, with working hours that overlap yours.
               </p>
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Have a project in mind?"
         text="Tell us what you need. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
       />
     </>
   );

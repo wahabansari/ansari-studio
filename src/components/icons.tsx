@@ -83,6 +83,14 @@ export const SERVICE_ICONS = {
       <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
     </Svg>
   ),
+  plug: (p: IconProps) => (
+    <Svg {...p}>
+      <path d="M12 22v-5" />
+      <path d="M9 8V2" />
+      <path d="M15 8V2" />
+      <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z" />
+    </Svg>
+  ),
 } as const;
 
 export const Menu = (p: IconProps) => (

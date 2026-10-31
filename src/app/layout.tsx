@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@/components/Analytics";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import { PageTransition } from "@/components/PageTransition";
 import { SiteHeader } from "@/components/SiteHeader";
-import { JsonLd, organizationJsonLd } from "@/lib/seo";
+import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SLOGAN, isPreviewDeployment } from "@/lib/site";
 import "./globals.css";
 
@@ -13,14 +14,6 @@ const interVariable = localFont({
   weight: "100 900",
   style: "normal",
   variable: "--font-inter-variable",
-  display: "swap",
-});
-
-// JetBrains Mono for the design's small code-style labels.
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -46,6 +39,9 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US" },
   twitter: { card: "summary_large_image" },
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -58,10 +54,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${interVariable.variable} ${jetbrainsMono.variable}`}
+      className={interVariable.variable}
     >
       <body>
         <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
         <a
           href="#main"
           className="fixed top-[12px] left-[12px] z-50 -translate-y-[200%] rounded-[10px] bg-brand px-[16px] py-[10px] text-[14px] font-semibold text-white focus:translate-y-0"
@@ -72,6 +69,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <PageTransition>
           <div className="bg-white text-ink">{children}</div>
         </PageTransition>
+        <ConsentBanner />
+        <Analytics />
       </body>
     </html>
   );

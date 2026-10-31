@@ -44,6 +44,8 @@ export interface CaseStudy {
   titleB: string;
   lead: string;
   short: string;
+  /** Search/social description, kept under ~160 characters. */
+  metaDescription: string;
   results: [value: string, label: string][];
   challenge: string;
   approach: string[];
@@ -74,6 +76,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Sunhub connects buyers and sellers of solar equipment across the United States. The live marketplace worked, but it was slow to load and slow to change.",
     short:
       "We measured what was slowing Sunhub down and removed it in small, safe releases — lighter builds, smarter loading, compressed images — on the same platform, with no downtime and no rewrite.",
+    metaDescription:
+      "Performance work on a live solar marketplace: lighter builds, smarter loading and compressed images, shipped without downtime or a rewrite.",
     results: [
       ["Faster", "Page loads measured and improved before vs after"],
       ["Zero", "Maintenance windows — every fix shipped live"],
@@ -111,6 +115,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Verdira gives retiring ophthalmologists a permanent home for their practice. Its original website could not let clients sign in to private material.",
     short:
       "We moved Verdira from a website builder to a custom web application and added password-protected client areas — keeping the public pages fast and fully visible to search engines — then launched it and handed it over.",
+    metaDescription:
+      "Verdira moved from a website builder to a custom web application with secure client areas, while public pages stay fast and visible to search.",
     results: [
       ["Migrated", "Website rebuilt as a custom web application"],
       ["Protected", "Password-protected areas for private client material"],
@@ -149,6 +155,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "AussieMotor helps Australians buy and sell new and used cars, compare models and find dealers. Its old website platform was holding the product back.",
     short:
       "We took end-to-end responsibility for the frontend — building the marketplace's screens and seller dashboards and keeping them maintained — in close collaboration with the project's designer, as the platform moved off its legacy stack.",
+    metaDescription:
+      "End-to-end frontend development for AussieMotor's car marketplace: marketplace screens and seller dashboards, built with the project's designer.",
     results: [
       ["Front to back", "End-to-end frontend development and maintenance"],
       ["Dashboards", "Seller interfaces for managing listings"],
@@ -189,6 +197,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Vapestore is a UK online shop for e-liquids, vape kits, pods and coils. Customers needed to browse a large catalog and pay comfortably on any device.",
     short:
       "We built the complete frontend for Vapestore's production UK store — catalog, multibuy offers, cart and payment workflow — integrated it with the store's APIs, and tuned it for phones, tablets and desktops.",
+    metaDescription:
+      "A complete storefront frontend for Vapestore's UK shop: catalog, multibuy offers, cart and payment, tuned for phones, tablets and desktops.",
     results: [
       ["Complete", "Full storefront frontend, catalog to checkout"],
       ["Integrated", "Cart and payment workflow connected to the store's APIs"],
@@ -226,6 +236,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "SilcoLabs is lab management software for testing laboratories. Labs needed one place to track samples, run tests and deliver reports without paperwork.",
     short:
       "We built the interface for SilcoLabs, a web application that lets laboratories track samples and tests and deliver reports, along with the marketing website that explains it.",
+    metaDescription:
+      "The interface for SilcoLabs, a lab application for tracking samples, tests and reports, plus the marketing website that explains it.",
     results: [
       ["One place", "Samples, tests and reports in a single application"],
       ["Branded", "Report templates labs customize to their own identity"],
@@ -263,6 +275,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Cennetsol wanted a marketing website that explained its services clearly and felt modern from the first scroll — and a team that keeps it working after launch.",
     short:
       "We built a responsive company website with purposeful animation and clearly structured service sections, then took on its SEO and ongoing management so it keeps improving after launch.",
+    metaDescription:
+      "A responsive company website with purposeful animation and clear service sections, plus ongoing SEO and management after launch.",
     results: [
       ["Animated", "Motion that guides attention instead of distracting"],
       ["Found", "Search visibility managed as part of the engagement"],
@@ -300,6 +314,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Talha Estate needed a modern website that presents listings clearly — and the ability to update properties and share them online without a developer.",
     short:
       "We built the agency's property website, set up its social media presence alongside it, and handed everything over with the team able to run both on its own.",
+    metaDescription:
+      "A property website the agency updates without code, with its social media set up alongside it and a documented handover.",
     results: [
       ["Editable", "A site the team can update without code"],
       ["Social-ready", "Social media set up alongside the site"],
@@ -340,6 +356,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Digestive Care serves patients in the Brandon and Tampa Bay area. Patients needed one trusted place to learn about procedures, book and reach their portal.",
     short:
       "We built a responsive website for the practice and integrated its patient-portal solution, matched it to the practice's branding and shaped every page around the appointment-booking workflow.",
+    metaDescription:
+      "A responsive website for Digestive Care with its patient portal integrated, branded to the practice and built around appointment booking.",
     results: [
       ["Integrated", "Patient portal reachable from every page"],
       ["Bookable", "Pages built around the appointment workflow"],
@@ -377,6 +395,8 @@ export const CASES: Record<CaseSlug | DraftCaseSlug, CaseStudy> = {
     lead: "Select & Health needed its platform to present itself clearly — and to look and behave consistently as its developers build.",
     short:
       "We designed the platform's landing pages and a component-based design system, focused on usability and a fast, accurate handoff to the developers building from it.",
+    metaDescription:
+      "Landing pages and a component-based design system for a patient-facing health platform, documented for a fast, accurate developer handoff.",
     results: [
       ["Designed", "Landing pages and a shared component library"],
       ["Consistent", "One set of tokens for color, type and spacing"],

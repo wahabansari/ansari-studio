@@ -1,31 +1,57 @@
 import type { MetadataRoute } from "next";
+import { ARTICLES, articleHref } from "@/data/articles";
 import { CASE_ORDER } from "@/data/cases";
+import { SERVICES } from "@/data/services";
 import { SITE_URL } from "@/lib/site";
 
-// Priorities follow docs/blueprint section 2. Noindex pages (thank-you, 404) and /api are left out.
-const PAGES: [path: string, priority: number][] = [
-  ["/", 1.0],
-  ["/services", 0.9],
-  ["/services/automation-ai", 0.9],
-  ["/services/product-engineering", 0.9],
-  ["/services/dashboards-portals", 0.8],
-  ["/services/modernization", 0.8],
-  ["/services/maintenance-retainer", 0.7],
-  ["/automation-audit", 0.9],
-  ["/work", 0.8],
-  ["/process", 0.6],
-  ["/about", 0.6],
-  ["/partners", 0.5],
-  ["/insights", 0.7],
-  ["/insights/automate-lead-follow-up", 0.6],
-  ["/contact", 0.8],
-  ["/privacy", 0.2],
-  ["/terms", 0.2],
+const url = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
+
+/**
+ * Static pages plus every service, published case study and article.
+ * Noindex pages (thank-you, 404) and /api are deliberately left out.
+ */
+const STATIC_PAGES: { path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }[] = [
+  { path: "/", priority: 1.0, changeFrequency: "monthly" },
+  { path: "/services", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/automation-audit", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/work", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/insights", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/process", priority: 0.6, changeFrequency: "yearly" },
+  { path: "/about", priority: 0.6, changeFrequency: "yearly" },
+  { path: "/partners", priority: 0.5, changeFrequency: "yearly" },
+  { path: "/contact", priority: 0.8, changeFrequency: "yearly" },
+  { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
+  { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const servicePages = SERVICES.map((service) => ({
+    url: url(service.href),
+    priority: service.slug === "modernization" || service.slug === "automation-ai" ? 0.9 : 0.8,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const casePages = CASE_ORDER.map((slug) => ({
+    url: url(`/work/${slug}`),
+    priority: 0.7,
+    changeFrequency: "yearly" as const,
+  }));
+
+  const articlePages = ARTICLES.map((article) => ({
+    url: url(articleHref(article.slug)),
+    lastModified: new Date(`${article.dateModified}T00:00:00Z`),
+    priority: 0.6,
+    changeFrequency: "yearly" as const,
+  }));
+
   return [
-    ...PAGES.map(([path, priority]) => ({ url: `${SITE_URL}${path === "/" ? "" : path}`, priority })),
-    ...CASE_ORDER.map((slug) => ({ url: `${SITE_URL}/work/${slug}`, priority: 0.7 })),
+    ...STATIC_PAGES.map((page) => ({
+      url: url(page.path),
+      priority: page.priority,
+      changeFrequency: page.changeFrequency,
+    })),
+    ...servicePages,
+    ...casePages,
+    ...articlePages,
   ];
 }

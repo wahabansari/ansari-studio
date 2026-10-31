@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SITE_NAME } from "@/lib/site";
+import { FOUNDER, SITE_NAME } from "@/lib/site";
 
 /** Round avatar showing the company symbol, used wherever an Insights article shows its author. */
 export function AuthorAvatar({ size }: { size: number }) {
@@ -19,4 +19,5 @@ export function AuthorAvatar({ size }: { size: number }) {
   );
 }
 
-export const AUTHOR_LABEL = `Founder, ${SITE_NAME}`;
+export const AUTHOR_NAME = FOUNDER.name;
+export const AUTHOR_LABEL = `${FOUNDER.name}, ${FOUNDER.role}, ${SITE_NAME}`;

@@ -1,21 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 import { SERVICES } from "@/data/services";
 import { SERVICE_AREA, SITE_NAME, SITE_TAGLINE, SLOGAN } from "@/lib/site";
 
-/** Dark closing call-to-action plus the site footer (design component "SiteFooter"). */
 export interface SiteFooterProps {
   title?: string;
   text?: string;
   cta?: string;
   ctaHref?: string;
+  secondary?: string;
+  secondaryHref?: string;
 }
 
 export const FOOTER_COLUMNS = [
   {
     title: "Services",
-    links: SERVICES.map((service) => ({ label: service.name, href: service.href })),
+    links: SERVICES.map((s) => ({ label: s.name, href: s.href })),
   },
   {
     title: "Company",
@@ -39,58 +40,76 @@ export const FOOTER_COLUMNS = [
 export function SiteFooter({
   title = "Tell us what you need to build.",
   text = "Share what you want to build, improve or connect. You get a reply within one business day.",
-  cta = "Discuss your project",
-  ctaHref = "/contact",
+  cta = "Book a discovery call",
+  ctaHref = "/contact#book",
+  secondary = "Discuss your project",
+  secondaryHref = "/contact",
 }: SiteFooterProps) {
   return (
-    <section className="relative overflow-hidden bg-night px-[24px] pt-[120px] text-white">
+    <section className="relative overflow-hidden bg-night px-6 pt-28 text-white">
+      {/* Radial glow — contained so it never overflows on narrow viewports */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-380px] left-1/2 h-[720px] w-[1200px] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(46,79,227,0.35),rgba(46,79,227,0))]"
+        className="pointer-events-none absolute bottom-[-320px] left-1/2 h-[600px] w-full max-w-[900px] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(46,79,227,0.30),transparent)]"
       />
-      <div className="relative mx-auto max-w-[820px] text-center">
-        <h2 className="text-[length:clamp(38px,5.2vw,68px)] leading-[1.0] font-bold tracking-[-0.03em] text-white">
+
+      {/* CTA block */}
+      <div className="relative mx-auto max-w-[760px] text-center">
+        <h2 className="text-[clamp(34px,5vw,62px)] font-bold leading-[1.06] tracking-[-0.03em]">
           {title}
         </h2>
-        <p className="mx-auto mt-[22px] max-w-[560px] text-[18px] leading-[1.6] text-mist">{text}</p>
-        <div className="mt-[36px] flex flex-wrap justify-center gap-[12px]">
+        <p className="mx-auto mt-5 max-w-[520px] text-[17px] leading-[1.7] text-mist">{text}</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link
             href={ctaHref}
-            className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
+            className="inline-flex h-12 items-center gap-2 rounded-xl bg-brand px-6 text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_28px_-8px_rgba(46,79,227,0.75)] transition-colors duration-150 hover:bg-[#2440c4]"
           >
-            {cta} <ArrowRight />
+            {cta} <ArrowRight size={15} />
           </Link>
-          <Link
-            href="/contact#book"
-            className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] border border-white/[0.14] bg-white/[0.05] px-[24px] text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-white/[0.09]"
-          >
-            <Calendar />
-            Book a 30-minute call
-          </Link>
+          {secondary ? (
+            <Link
+              href={secondaryHref}
+              className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/[0.14] bg-white/[0.05] px-6 text-[15px] font-semibold text-white transition-colors duration-150 hover:border-white/25 hover:bg-white/[0.09]"
+            >
+              {secondary}
+            </Link>
+          ) : null}
         </div>
       </div>
 
-      <footer className="relative mx-auto mt-[120px] max-w-[1200px] border-t border-white/[0.08] pt-[56px] pb-[32px]">
-        <div className="flex flex-wrap justify-between gap-x-[64px] gap-y-[40px]">
-          <div className="max-w-[320px] flex-[1_1_260px]">
+      {/* Footer links */}
+      <footer
+        className="relative mx-auto mt-24 max-w-[1200px] border-t border-white/[0.07] pt-14 pb-8"
+        aria-label="Site footer"
+      >
+        <div className="flex flex-wrap justify-between gap-x-16 gap-y-10">
+          {/* Brand column */}
+          <div className="max-w-[300px] flex-[1_1_240px]">
             <Image
               src="/brand/ansari-pe-horizontal-color-dark.svg"
               alt={SITE_NAME}
-              width={134}
-              height={30}
-              className="block h-[30px] w-auto"
+              width={130}
+              height={29}
+              className="h-[29px] w-auto"
             />
-            <p className="mt-[18px] text-[14px] leading-[1.6] text-mist">{SITE_TAGLINE}</p>
-            <p className="mt-[10px] text-[13px] text-dim">{SERVICE_AREA}</p>
+            <p className="mt-4 text-[14px] leading-[1.65] text-mist">{SITE_TAGLINE}</p>
+            <p className="mt-2.5 text-[13px] text-dim">{SERVICE_AREA}</p>
           </div>
-          <div className="flex flex-wrap gap-x-[72px] gap-y-[40px]">
-            {FOOTER_COLUMNS.map((column) => (
-              <div key={column.title}>
-                <div className="text-[13px] font-semibold text-white">{column.title}</div>
-                <ul className="mt-[16px] flex flex-col gap-[11px] text-[14px] text-mist">
-                  {column.links.map((link) => (
+
+          {/* Nav columns */}
+          <div className="flex flex-wrap gap-x-16 gap-y-10">
+            {FOOTER_COLUMNS.map((col) => (
+              <div key={col.title}>
+                <div className="text-[12px] font-semibold tracking-widest text-white/70 uppercase">
+                  {col.title}
+                </div>
+                <ul className="mt-4 flex flex-col gap-2.5 text-[14px] text-mist">
+                  {col.links.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="transition-colors duration-150 hover:text-white">
+                      <Link
+                        href={link.href}
+                        className="transition-colors duration-150 hover:text-white"
+                      >
                         {link.label}
                       </Link>
                     </li>
@@ -100,18 +119,20 @@ export function SiteFooter({
             ))}
           </div>
         </div>
-        <div className="mt-[56px] flex flex-wrap justify-between gap-[16px] border-t border-white/[0.08] pt-[24px] text-[13px] text-dim">
+
+        {/* Bottom bar */}
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-white/[0.07] pt-6 text-[13px] text-dim">
           <span>
             © 2026 {SITE_NAME} · {SLOGAN}
           </span>
-          <span className="flex gap-[24px]">
-            <Link href="/privacy" className="hover:text-white">
+          <nav aria-label="Legal links" className="flex gap-6">
+            <Link href="/privacy" className="transition-colors hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-white">
+            <Link href="/terms" className="transition-colors hover:text-white">
               Terms
             </Link>
-          </span>
+          </nav>
         </div>
       </footer>
     </section>

@@ -7,13 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { Close, Menu } from "@/components/icons";
 import { MAIN_NAV, SITE_NAME, isActive } from "@/lib/site";
 
-/**
- * The whole header is one floating capsule: logo on the left, menu in the middle, call to action on the right.
- * It is fixed to the top, so navigation is always reachable, and it becomes a little more solid once the
- * visitor scrolls. It lives in the root layout, so it stays still during page transitions
- * (view-transition-name: site-header). Below 900px the menu collapses into a button inside the same capsule.
- * Page heroes reserve 84px at the top for it.
- */
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -21,7 +14,6 @@ export function SiteHeader() {
   const panelRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Close the menu when the route changes.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
@@ -29,7 +21,7 @@ export function SiteHeader() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,15 +29,33 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
+    const panel = panelRef.current;
+    panel?.querySelector<HTMLElement>("a[href], button:not([disabled])")?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
         setOpen(false);
         buttonRef.current?.focus();
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     };
-    const onClick = (event: MouseEvent) => {
-      const target = event.target as Node;
-      if (!panelRef.current?.contains(target) && !buttonRef.current?.contains(target)) setOpen(false);
+    const onClick = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (!panelRef.current?.contains(t) && !buttonRef.current?.contains(t)) setOpen(false);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("click", onClick);
@@ -56,29 +66,39 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-40 px-[16px] pt-[12px] [view-transition-name:site-header]">
+    <header
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 px-4 pt-3 [view-transition-name:site-header]"
+      role="banner"
+    >
       <div className="relative mx-auto max-w-[1200px]">
+        {/* Capsule bar */}
         <div
-          className={`pointer-events-auto grid h-[64px] grid-cols-[1fr_auto_1fr] items-center gap-[12px] rounded-full border py-[8px] pr-[10px] pl-[24px] backdrop-blur-xl [transition:background-color_.25s_ease,border-color_.25s_ease,box-shadow_.25s_ease] motion-reduce:[transition:none] max-[900px]:grid-cols-[1fr_auto] max-[480px]:pl-[18px] ${
+          className={`pointer-events-auto grid h-[64px] grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border px-6 pr-2.5 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 motion-reduce:transition-none max-lg:grid-cols-[1fr_auto] max-[480px]:px-4 ${
             scrolled
-              ? "border-white/[0.14] bg-night/[0.96] shadow-[0_18px_48px_-18px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.06)]"
-              : "border-white/[0.1] bg-night/60 shadow-[0_12px_40px_-20px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)]"
+              ? "border-white/[0.14] bg-night/95 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.06)]"
+              : "border-white/[0.08] bg-night/60 shadow-[0_10px_32px_-16px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04)]"
           }`}
         >
-          <Link href="/" aria-label={`${SITE_NAME} home`} className="flex items-center justify-self-start">
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label={`${SITE_NAME} — home`}
+            className="flex items-center justify-self-start"
+          >
             <Image
               src="/brand/ansari-pe-horizontal-color-dark.svg"
               alt={SITE_NAME}
-              width={152}
-              height={34}
+              width={148}
+              height={33}
               priority
-              className="block h-[34px] w-auto max-[480px]:h-[30px]"
+              className="h-[33px] w-auto max-[480px]:h-[28px]"
             />
           </Link>
 
+          {/* Desktop nav */}
           <nav
-            aria-label="Main"
-            className="flex items-center gap-[4px] text-[14px] font-medium text-mist max-[900px]:hidden"
+            aria-label="Main navigation"
+            className="flex items-center gap-0.5 text-[14px] font-medium text-mist max-lg:hidden"
           >
             {MAIN_NAV.map((item) => {
               const current = isActive(pathname, item.href);
@@ -87,7 +107,11 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   aria-current={current ? "page" : undefined}
-                  className={`rounded-full px-[14px] py-[8px] transition-colors duration-150 hover:text-white ${current ? "bg-white/[0.1] text-white" : "hover:bg-white/[0.05]"}`}
+                  className={`rounded-xl px-3.5 py-2 transition-colors duration-150 hover:text-white ${
+                    current
+                      ? "bg-white/[0.10] font-semibold text-white"
+                      : "hover:bg-white/[0.05]"
+                  }`}
                 >
                   {item.label}
                 </Link>
@@ -95,12 +119,13 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="flex items-center gap-[8px] justify-self-end">
+          {/* Right: CTA + hamburger */}
+          <div className="flex items-center gap-2 justify-self-end">
             <Link
-              href="/contact"
-              className="inline-flex h-[44px] items-center rounded-full bg-white px-[20px] text-[14px] font-semibold text-night transition-colors duration-150 hover:bg-brand-50 max-[640px]:hidden"
+              href="/contact#book"
+              className="inline-flex h-10 items-center rounded-xl bg-white px-5 text-[13px] font-semibold text-night transition-colors duration-150 hover:bg-brand-50 max-[640px]:hidden"
             >
-              Discuss your project
+              Book a call
             </Link>
             <button
               ref={buttonRef}
@@ -108,21 +133,24 @@ export function SiteHeader() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((value) => !value)}
-              className="hidden h-[44px] w-[44px] cursor-pointer items-center justify-center rounded-full border border-white/10 text-white transition-colors duration-150 hover:border-white/[0.28] hover:bg-white/[0.09] max-[900px]:flex"
+              onClick={() => setOpen((v) => !v)}
+              className="hidden h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-white/10 text-white transition-colors duration-150 hover:border-white/25 hover:bg-white/[0.08] max-lg:flex"
             >
-              {open ? <Close size={18} /> : <Menu size={18} />}
+              {open ? <Close size={17} /> : <Menu size={17} />}
             </button>
           </div>
         </div>
 
+        {/* Mobile drawer */}
         {open && (
           <div
             ref={panelRef}
             id="mobile-menu"
-            className="pointer-events-auto absolute inset-x-0 top-[calc(100%+8px)] rounded-[28px] border border-edge bg-panel p-[10px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)] motion-safe:animate-[menu-in_180ms_ease-out]"
+            role="dialog"
+            aria-label="Navigation menu"
+            className="pointer-events-auto absolute inset-x-0 top-[calc(100%+8px)] rounded-2xl border border-edge bg-panel p-2.5 shadow-[0_28px_56px_-16px_rgba(0,0,0,0.75)] motion-safe:animate-[menu-in_200ms_ease-out]"
           >
-            <nav aria-label="Mobile" className="flex flex-col">
+            <nav aria-label="Mobile navigation" className="flex flex-col gap-0.5">
               {MAIN_NAV.map((item) => {
                 const current = isActive(pathname, item.href);
                 return (
@@ -130,19 +158,25 @@ export function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     aria-current={current ? "page" : undefined}
-                    className={`rounded-full px-[18px] py-[12px] text-[16px] font-medium transition-colors duration-150 ${current ? "bg-white/[0.08] text-white" : "text-haze hover:bg-white/[0.06] hover:text-white"}`}
+                    className={`rounded-xl px-4 py-3 text-[15px] font-medium transition-colors duration-150 ${
+                      current
+                        ? "bg-white/[0.08] font-semibold text-white"
+                        : "text-haze hover:bg-white/[0.06] hover:text-white"
+                    }`}
                   >
                     {item.label}
                   </Link>
                 );
               })}
             </nav>
-            <Link
-              href="/contact"
-              className="mt-[8px] flex h-[48px] items-center justify-center rounded-full bg-white text-[15px] font-semibold text-night transition-colors duration-150 hover:bg-brand-50"
-            >
-              Discuss your project
-            </Link>
+            <div className="mt-2 border-t border-white/[0.06] pt-2">
+              <Link
+                href="/contact#book"
+                className="flex h-12 items-center justify-center rounded-xl bg-brand text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-[#2440c4]"
+              >
+                Book a discovery call
+              </Link>
+            </div>
           </div>
         )}
       </div>

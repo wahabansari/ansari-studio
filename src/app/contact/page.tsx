@@ -1,21 +1,39 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { BookingCard } from "@/components/contact/BookingCard";
-import { ServiceChips } from "@/components/contact/ServiceChips";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
-import { ArrowRight } from "@/components/icons";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { Check } from "@/components/icons";
+import { pageMetadata } from "@/lib/metadata";
+import { CONTACT_EMAIL, FOUNDER } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Tell us what you need. Reply within one business day.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata = pageMetadata({
+  title: { absolute: "Contact Ansari Product Engineering" },
+  description:
+    "Tell us what you need to build, improve or connect. Book a discovery call or send a message; you get a reply within one business day.",
+  path: "/contact",
+});
 
-const field =
-  "box-border h-[48px] w-full rounded-[12px] border border-field bg-white px-[14px] text-[15px] text-ink focus:border-brand focus:outline-2 focus:outline-offset-2 focus:outline-brand";
-const label = "mb-[6px] block text-[14px] font-semibold";
+const NEXT_STEPS = [
+  {
+    title: "Reply within one business day",
+    text: "You will hear back from the engineer, not a sales team.",
+  },
+  {
+    title: "30-minute discovery call",
+    text: "A focused conversation about the problem, your tools and what success looks like.",
+  },
+  {
+    title: "Written scope and estimate",
+    text: "Clear deliverables and a price, agreed before any work starts.",
+  },
+];
+
+const REASSURANCES = [
+  "No sales sequence or follow-up pressure",
+  "NDA available before you share sensitive details",
+  "No obligation after the discovery call",
+  "You own all code and accounts at handover",
+];
 
 export default function ContactPage() {
   return (
@@ -25,149 +43,127 @@ export default function ContactPage() {
           active="none"
           parent=""
           crumb="Contact"
-          eyebrow="Contact"
+          eyebrow="Get in touch"
           title="Tell us what you need to build,"
           titleAccent="improve or connect."
-          lead="Send a message or book a 30-minute call. You get a reply within one business day."
-          primary="Book a 30-minute call"
+          lead="Send a message or book a 30-minute discovery call. You get a reply within one business day."
+          primary="Book a discovery call"
           primaryHref="#book"
-          secondary=""
-          points=""
+          secondary="Send a message"
+          secondaryHref="#message"
+          points="Reply within one business day|No sales sequence|NDA on request"
         />
 
-        <section className="bg-[linear-gradient(180deg,#070B16_0,#070B16_120px,#FFFFFF_120px)] px-[24px] pb-[112px]">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] items-start gap-[24px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-            <form
-              method="post"
-              action="/api/contact"
-              className="rounded-[28px] border border-line bg-white p-[36px] shadow-[0_40px_80px_-40px_rgba(10,16,34,0.35)] max-[480px]:p-[24px]"
-            >
-              <div className="text-[24px] font-bold tracking-[-0.016em]">Send a message</div>
-              <ServiceChips />
-              <div className="mt-[20px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-                <div>
-                  <label htmlFor="c-name" className={label}>
-                    Name
-                  </label>
-                  <input
-                    id="c-name"
-                    name="name"
-                    className={field}
-                    type="text"
-                    placeholder="Your name"
-                    autoComplete="name"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="c-email" className={label}>
-                    Work email
-                  </label>
-                  <input
-                    id="c-email"
-                    name="email"
-                    className={field}
-                    type="email"
-                    placeholder="you@company.com"
-                    autoComplete="email"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="mt-[16px]">
-                <label htmlFor="c-budget" className={label}>
-                  How would you like to work?
-                </label>
-                <select id="c-budget" name="engagement" className={field}>
-                  <option>Fixed-scope project</option>
-                  <option>Monthly development</option>
-                  <option>Automation audit</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div className="mt-[16px]">
-                <label htmlFor="c-msg" className={label}>
-                  What are you trying to achieve?
-                </label>
-                <textarea
-                  id="c-msg"
-                  name="message"
-                  className={`${field} h-[132px] resize-y py-[12px]`}
-                  placeholder="The problem, who it affects and any deadline"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="mt-[22px] inline-flex h-[52px] cursor-pointer items-center gap-[8px] rounded-[12px] bg-brand px-[26px] text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
-              >
-                Send message <ArrowRight />
-              </button>
-              <p className="mt-[14px] text-[12px] leading-[1.5] text-faint">
-                We use your details only to reply to you.{" "}
-                <Link href="/privacy" className="underline">
-                  Privacy policy
-                </Link>
-              </p>
-            </form>
+        {/* ── Main layout ────────────────────────────────────────────────── */}
+        <section className="bg-[linear-gradient(180deg,#070B16_0,#070B16_80px,#f6f8fb_80px)] px-6 pb-24">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-[1.1fr_0.9fr] items-start gap-6 max-[900px]:grid-cols-1">
 
-            <div className="flex flex-col gap-[16px]">
+            {/* Left: reactive contact form */}
+            <ContactForm />
+
+            {/* Right: booking + trust */}
+            <div className="flex flex-col gap-4">
+
+              {/* Booking card */}
               <BookingCard />
-              <div className="flex items-center gap-[14px] rounded-[24px] border border-line bg-subtle p-[24px]">
-                <span className="flex h-[40px] w-[40px] flex-none items-center justify-center rounded-[12px] border border-line-strong bg-white text-brand">
+
+              {/* Direct email */}
+              <div className="flex items-center gap-4 rounded-[20px] border border-line bg-white p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-line-strong bg-white text-brand">
                   <svg
-                    width="19"
-                    height="19"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+                    width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                    strokeLinejoin="round" aria-hidden="true"
                   >
                     <rect width="20" height="16" x="2" y="4" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-[13px] text-faint">Email directly</span>
+                  <span className="block text-[11px] font-semibold tracking-widest text-faint uppercase">
+                    Email directly
+                  </span>
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-[16px] font-[650] break-all hover:text-brand"
+                    className="break-all text-[15px] font-bold text-ink transition-colors hover:text-brand"
                   >
                     {CONTACT_EMAIL}
                   </a>
                 </span>
               </div>
-              <div className="rounded-[24px] border border-line p-[24px]">
-                <div className="text-[13px] font-semibold tracking-[0.05em] text-faint uppercase">
+
+              {/* What happens next */}
+              <div className="rounded-[20px] border border-line bg-white p-6">
+                <div className="font-mono text-[11px] font-semibold tracking-widest text-brand uppercase">
                   What happens next
                 </div>
-                <ol className="mt-[16px] flex flex-col gap-[14px] text-[15px]">
-                  {[
-                    "A reply within one business day",
-                    "A 30-minute discovery call",
-                    "A written scope and estimate",
-                  ].map((step, i) => (
-                    <li key={step} className="flex gap-[12px]">
-                      <span className="flex h-[24px] w-[24px] flex-none items-center justify-center rounded-full bg-brand text-[12px] font-[650] text-white">
+                <ol className="mt-4 flex flex-col gap-5">
+                  {NEXT_STEPS.map((step, i) => (
+                    <li key={step.title} className="flex gap-3">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand text-[11px] font-bold text-white">
                         {i + 1}
                       </span>
-                      {step}
+                      <span>
+                        <span className="block text-[14px] font-semibold leading-[1.3]">
+                          {step.title}
+                        </span>
+                        <span className="mt-0.5 block text-[13px] leading-[1.55] text-muted">
+                          {step.text}
+                        </span>
+                      </span>
                     </li>
                   ))}
                 </ol>
               </div>
+
+              {/* Reassurances */}
+              <div className="rounded-[20px] border border-line-soft bg-subtle p-5">
+                <div className="font-mono text-[11px] font-semibold tracking-widest text-faint uppercase">
+                  Good to know
+                </div>
+                <ul className="mt-3 flex flex-col gap-2">
+                  {REASSURANCES.map((r) => (
+                    <li key={r} className="flex items-start gap-2 text-[13px] leading-[1.5] text-muted">
+                      <Check size={13} className="mt-[2px] shrink-0 text-teal" />
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* LinkedIn */}
+              <a
+                href={FOUNDER.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-[20px] border border-line bg-white p-4 transition-colors hover:border-brand-200"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0A66C2]/10 text-[#0A66C2]">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-[13px] font-semibold text-ink">
+                    {FOUNDER.name}
+                  </span>
+                  <span className="text-[12px] text-muted">
+                    Connect on LinkedIn
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </span>
+                </span>
+              </a>
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Prefer to talk it through?"
-        text="Book a 30-minute call, or send a message above. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
+        text="Book a discovery call, or send a message above. You get a reply within one business day."
+        secondary=""
       />
     </>
   );

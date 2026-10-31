@@ -1,54 +1,64 @@
 @import "tailwindcss";
 
-/* Design tokens: every colour here comes from the "Foundations" board of the design. */
+/* ─── Design tokens ────────────────────────────────────────────────────────── */
 @theme {
-  /* next/font registers Inter Variable as --font-inter-variable; the rest is the stack from the brief. */
+  /* Typography — Inter Variable is the design's only text face. */
   --font-sans:
     var(--font-inter-variable), "InterVariable", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-inter-variable), "InterVariable", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  /* ink + dark surfaces */
-  --color-ink: #0a1022;
+  /* Dark surfaces */
+  --color-ink:   #0a1022;
   --color-night: #070b16;
   --color-panel: #0d1324;
-  --color-raised: #121a2a;
-  --color-edge: #24304a;
+  --color-raised:#121a2a;
+  --color-edge:  #24304a;
 
-  /* brand blue */
-  --color-brand: #2e4fe3;
+  /* Brand blue */
+  --color-brand:     #2e4fe3;
+  --color-brand-600: #2440c4;
   --color-brand-300: #8fa3ff;
   --color-brand-200: #b9c8fb;
   --color-brand-100: #dce4fc;
-  --color-brand-50: #eef2fe;
+  --color-brand-50:  #eef2fe;
   --color-brand-ice: #e0e7ff;
 
-  /* teal / mint */
-  --color-mint: #62dccb;
-  --color-teal: #087f73;
+  /* Teal / mint accent */
+  --color-mint:      #62dccb;
+  --color-teal:      #087f73;
   --color-teal-deep: #06665c;
-  --color-teal-50: #e7f6f3;
-  --color-teal-100: #c7e8e3;
+  --color-teal-50:   #e7f6f3;
+  --color-teal-100:  #c7e8e3;
 
-  /* light surfaces, lines, text */
-  --color-subtle: #f6f8fb;
-  --color-line: #e6eaf0;
-  --color-line-strong: #e1e6ee;
-  --color-line-soft: #eef1f5;
-  --color-field: #d5dbe5;
-  --color-muted: #4b5565;
-  --color-faint: #6b7280;
-  --color-prose: #334155;
+  /* Light surfaces & text */
+  --color-subtle:     #f6f8fb;
+  --color-line:       #e6eaf0;
+  --color-line-strong:#e1e6ee;
+  --color-line-soft:  #eef1f5;
+  --color-field:      #d5dbe5;
+  --color-muted:      #4b5565;
+  --color-faint:      #6b7280;
+  --color-prose:      #334155;
 
-  /* text on dark */
-  --color-mist: #a3adc2;
-  --color-dim: #98a2b3;
-  --color-haze: #c9d2e3;
+  /* Text on dark backgrounds */
+  --color-mist:  #a3adc2;
+  --color-dim:   #98a2b3;
+  --color-haze:  #c9d2e3;
   --color-steel: #7f8aa3;
+
+  /* Spacing scale (used as named utilities in components) */
+  --spacing-section: 7rem;   /* 112px — major vertical section rhythm */
+  --spacing-section-sm: 5rem;/* 80px  — tighter sections */
+
+  /* Border-radius scale */
+  --radius-card: 1.25rem;    /* 20px — standard card */
+  --radius-card-lg: 1.75rem; /* 28px — larger card / panel */
+  --radius-pill: 9999px;     /* pill / badge */
 }
 
+/* ─── Base layer ────────────────────────────────────────────────────────────── */
 @layer base {
   html {
-    /* Dark sections open and close every page, so overscroll matches them. */
     background: var(--color-night);
   }
 
@@ -60,6 +70,7 @@
     -moz-osx-font-smoothing: grayscale;
     color: var(--color-ink);
     background: var(--color-night);
+    line-height: 1.6;
   }
 
   a {
@@ -67,20 +78,27 @@
     text-decoration: none;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
   summary {
     list-style: none;
     cursor: pointer;
   }
-
   summary::-webkit-details-marker {
     display: none;
   }
 
+  /* Accessible focus ring — brand colour, offset so it clears the element */
   :focus-visible {
     outline: 2px solid var(--color-brand);
-    outline-offset: 2px;
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 
+  /* Respect motion preferences for scroll */
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
@@ -88,33 +106,102 @@
   }
 }
 
-@keyframes menu-in {
-  from {
-    opacity: 0;
-    transform: translateY(-6px) scale(0.98);
+/* ─── Utility components ────────────────────────────────────────────────────── */
+@layer components {
+  /* Section container — consistent max-width + horizontal padding */
+  .section-inner {
+    @apply mx-auto w-full max-w-[1200px] px-6;
+  }
+
+  /* Eyebrow label above section headings */
+  .eyebrow {
+    @apply font-mono text-sm font-semibold tracking-widest text-brand uppercase;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex h-[50px] items-center gap-2 rounded-xl bg-brand px-6 text-[15px] font-semibold text-white
+           shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_24px_-8px_rgba(46,79,227,0.7)]
+           transition-colors duration-150 hover:bg-brand-600 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+  }
+
+  /* Ghost / secondary CTA button */
+  .btn-ghost {
+    @apply inline-flex h-[50px] items-center gap-2 rounded-xl border border-white/[0.14] bg-white/[0.05] px-6 text-[15px] font-semibold text-white
+           transition-colors duration-150 hover:border-white/25 hover:bg-white/[0.09];
+  }
+
+  /* Outline button for light backgrounds */
+  .btn-outline {
+    @apply inline-flex h-[44px] items-center gap-2 rounded-xl border border-line-strong bg-white px-[18px] text-[14px] font-semibold text-ink
+           transition-colors duration-150 hover:border-brand hover:text-brand;
+  }
+
+  /* Standard card surface */
+  .card {
+    @apply rounded-[20px] border border-line bg-white;
+  }
+
+  /* Dark card surface */
+  .card-dark {
+    @apply rounded-[20px] border border-edge bg-raised;
+  }
+
+  /* Form field */
+  .field {
+    @apply box-border h-[48px] w-full rounded-xl border border-field bg-white px-4 text-[15px] text-ink
+           transition-colors duration-150
+           focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+  }
+
+  /* Prose for legal pages (privacy, terms) */
+  .prose-custom h2 {
+    @apply mt-11 text-[22px] font-bold leading-[1.2] tracking-[-0.016em] text-ink first:mt-0;
+  }
+  .prose-custom p {
+    @apply mt-3 text-[16px] leading-[1.8] text-prose;
+  }
+  .prose-custom ul {
+    @apply mt-3 space-y-2 pl-5;
+  }
+  .prose-custom ul li {
+    @apply relative pl-3 text-[16px] leading-[1.8] text-prose;
+  }
+  .prose-custom ul li::before {
+    content: '';
+    @apply absolute left-0 top-[0.65em] h-1.5 w-1.5 rounded-full bg-brand;
+  }
+  .prose-custom a {
+    @apply font-semibold text-brand underline-offset-4 hover:underline;
   }
 }
 
-/* ---------- Page transitions (React <ViewTransition>, see components/PageTransition.tsx) ---------- */
+/* ─── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+}
 
-/* Clicks pass through to the live page while a transition runs. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ─── Page transitions ──────────────────────────────────────────────────────── */
 ::view-transition {
   pointer-events: none;
 }
-
-/* The header is the anchor: it never moves while the page content changes. */
 ::view-transition-group(site-header) {
   animation: none;
   z-index: 100;
 }
-::view-transition-old(site-header) {
-  display: none;
-}
-::view-transition-new(site-header) {
-  animation: none;
-}
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
 
-/* Old page leaves quickly; the new one settles in a little slower. */
 ::view-transition-old(.page-exit) {
   animation: 160ms cubic-bezier(0.4, 0, 1, 1) both page-out;
 }
@@ -123,19 +210,12 @@
 }
 
 @keyframes page-out {
-  to {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
+  to { opacity: 0; transform: translateY(-6px); }
 }
 @keyframes page-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
+  from { opacity: 0; transform: translateY(12px); }
 }
 
-/* A project thumbnail morphs into the case-study cover. */
 ::view-transition-group(.morph) {
   animation-duration: 420ms;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);

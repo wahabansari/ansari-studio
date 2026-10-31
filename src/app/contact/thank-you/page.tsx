@@ -1,22 +1,46 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { BookingCard } from "@/components/contact/BookingCard";
+import { LeadConfirmation } from "@/components/LeadConfirmation";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { pageMetadata } from "@/lib/metadata";
 
-// The contact form POSTs to /api/contact, which redirects here (303) only after the
-// message was accepted server-side — so a "received" wording is accurate in that flow.
-// No reply-timeframe or confirmation-email promises are made here.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Thanks — Your Message Was Received",
   description:
     "Your message reached Ansari Product Engineering. Here is what happens next, and a few projects to look at while you wait.",
-  alternates: { canonical: "/contact/thank-you" },
-  robots: { index: false, follow: true },
-};
+  path: "/contact/thank-you",
+  noindex: true,
+});
+
+const LINKS = [
+  {
+    label: "Process",
+    href: "/process",
+    title: "What happens on the discovery call",
+    cta: "Read →",
+    dark: false,
+  },
+  {
+    label: "Work",
+    href: "/work",
+    title: "Selected project experience",
+    cta: "Browse →",
+    dark: false,
+  },
+  {
+    label: "Insights",
+    href: "/insights/automate-lead-follow-up",
+    title: "How to automate lead follow-up between your website, CRM and inbox",
+    cta: "Read →",
+    dark: true,
+  },
+];
 
 export default function ThankYouPage() {
   return (
     <>
+      <LeadConfirmation />
       <main id="main">
         <PageHero
           active="none"
@@ -34,49 +58,58 @@ export default function ThankYouPage() {
           points=""
           glow="mint"
         />
-        <section className="px-[24px] pt-[96px] pb-[112px]">
+
+        {/* ── Next step: book a call ─────────────────────────────────── */}
+        <section className="px-6 pt-4 pb-24">
           <div className="mx-auto max-w-[1200px]">
-            <h2 className="text-[28px] font-bold tracking-[-0.016em]">While you wait</h2>
-            <div className="mt-[24px] grid grid-cols-[repeat(3,minmax(0,1fr))] gap-[16px] max-[900px]:grid-cols-[minmax(0,1fr)]">
-              <Link
-                className="flex flex-col rounded-[24px] border border-line bg-subtle p-[28px] transition-colors duration-150 hover:border-brand-200"
-                href="/process"
-              >
-                <span className="text-[13px] font-semibold text-brand">Process</span>
-                <span className="mt-[10px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  What happens on the discovery call
-                </span>
-                <span className="mt-auto pt-[24px] text-[14px] font-semibold text-brand">Read →</span>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] border border-line bg-subtle p-[28px] transition-colors duration-150 hover:border-brand-200"
-                href="/work"
-              >
-                <span className="text-[13px] font-semibold text-brand">Work</span>
-                <span className="mt-[10px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  Selected project experience
-                </span>
-                <span className="mt-auto pt-[24px] text-[14px] font-semibold text-brand">Browse →</span>
-              </Link>
-              <Link
-                className="flex flex-col rounded-[24px] bg-ink p-[28px] text-white transition-colors duration-150 hover:bg-[#121a33]"
-                href="/insights/automate-lead-follow-up"
-              >
-                <span className="text-[13px] font-semibold text-mint">Insights</span>
-                <span className="mt-[10px] text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                  How to automate lead follow-up between your website, CRM and inbox
-                </span>
-                <span className="mt-auto pt-[24px] text-[14px] font-semibold text-brand-300">Read →</span>
-              </Link>
+            <BookingCard />
+          </div>
+        </section>
+
+        <section className="px-6 pb-24">
+          <div className="mx-auto max-w-[1200px]">
+            <h2 className="text-[26px] font-bold tracking-[-0.018em]">While you wait</h2>
+            <div className="mt-6 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
+              {LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex flex-col rounded-[20px] p-7 transition-colors duration-150 ${
+                    item.dark
+                      ? "bg-ink text-white hover:bg-[#121a33]"
+                      : "border border-line bg-subtle hover:border-brand-200"
+                  }`}
+                >
+                  <span
+                    className={`font-mono text-[11px] font-semibold tracking-widest uppercase ${
+                      item.dark ? "text-mint" : "text-brand"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                  <span className="mt-3 text-[18px] font-bold leading-[1.3] tracking-[-0.012em]">
+                    {item.title}
+                  </span>
+                  <span
+                    className={`mt-auto pt-6 text-[13px] font-semibold ${
+                      item.dark ? "text-brand-300" : "text-brand"
+                    }`}
+                  >
+                    {item.cta}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Know someone who needs this?"
         text="Share Ansari Product Engineering with anyone who is losing hours to manual work."
         cta="Back to home"
         ctaHref="/"
+        secondary=""
       />
     </>
   );

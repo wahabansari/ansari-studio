@@ -1,14 +1,61 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { AuditForm } from "@/components/contact/AuditForm";
 import { PageHero } from "@/components/design/PageHero";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { Check } from "@/components/icons";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Free Automation Audit",
+export const metadata = pageMetadata({
+  title: "Automation Audit for Business Workflows",
   description:
-    "A free review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating — and what is not.",
-  alternates: { canonical: "/automation-audit" },
-};
+    "A scoped review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating — and what is not.",
+  path: "/automation-audit",
+});
+
+const DELIVERABLES = [
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4M16 13H8M16 17H8" />
+      </svg>
+    ),
+    title: "A written report",
+    text: "Where time is being lost across your tools today, in plain language.",
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3" />
+      </svg>
+    ),
+    title: "A prioritized shortlist",
+    text: "Each item ranked by how much manual work it removes and how complex it is to build.",
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
+      </svg>
+    ),
+    title: "What each option involves",
+    text: "Enough detail to decide what is worth building — whether you build with us or not.",
+  },
+];
+
+const STEPS = [
+  { b: "Fill in the form.", t: "Tell us the task that takes the most time." },
+  { b: "We align on scope and price.", t: "You get a written quote before any work starts." },
+  { b: "We review your tools and workflows.", t: "A call to walk through how work moves today." },
+  { b: "You get your report.", t: "Act on it however you like — no obligation to continue." },
+];
+
+const TRUST = [
+  "Fixed price, agreed in writing before we start",
+  "No obligation to build with us afterwards",
+  "Report is yours to keep and use",
+  "Reply within one business day",
+];
 
 export default function AuditPage() {
   return (
@@ -19,232 +66,102 @@ export default function AuditPage() {
           parent="AI Integrations & Workflow Automation"
           parentHref="/services/automation-ai"
           crumb="Automation audit"
-          eyebrow="Free automation audit"
+          eyebrow="Automation audit"
           title="Find the hours your team loses to manual work"
-          titleAccent="— before spending a cent."
-          lead="A free review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating first — and what is not."
-          primary="Request your audit"
+          titleAccent="— before you build anything."
+          lead="A scoped review of your tools and workflows. You get a written, prioritized shortlist of what is worth automating first — and what is not."
+          primary="Request an audit"
           primaryHref="#audit-form"
-          secondary=""
-          points="Structured review|Written report|No obligation to build"
+          secondary="Learn how it works"
+          secondaryHref="#how-it-works"
+          points="Written report|Prioritized shortlist|No obligation to build"
           glow="mint"
         />
-        <section className="px-[24px] py-[112px]">
-          <div className="mx-auto grid max-w-[1200px] grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] items-start gap-[56px] max-[900px]:grid-cols-[minmax(0,1fr)]">
+
+        <section className="px-6 py-24">
+          <div className="mx-auto grid max-w-[1200px] grid-cols-[1fr_0.85fr] items-start gap-14 max-[900px]:grid-cols-1">
+
+            {/* ── Left: deliverables + process ────────────────────────── */}
             <div>
-              <div className="text-[14px] font-semibold text-brand">What you get</div>
-              <h2 className="mt-[14px] text-[length:clamp(32px,4vw,48px)] leading-[1.05] font-bold tracking-[-0.026em]">
+              <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                What you get
+              </div>
+              <h2 className="mt-3 text-[clamp(24px,3vw,38px)] font-bold leading-[1.12] tracking-[-0.024em]">
                 A clear answer on what to automate first.
               </h2>
-              <div className="mt-[36px] flex flex-col gap-[14px]">
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
-                  <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-                      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                      <path d="M16 13H8" />
-                      <path d="M16 17H8" />
-                    </svg>
-                  </span>
-                  <span>
-                    <span className="block text-[17px] font-[650]">A written report</span>
-                    <span className="mt-[2px] block text-[15px] text-muted">
-                      Where time is lost across your tools today.
+
+              {/* Deliverables */}
+              <div className="mt-8 flex flex-col gap-3">
+                {DELIVERABLES.map((item) => (
+                  <div key={item.title} className="flex gap-4 rounded-[18px] border border-line bg-white p-5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal">
+                      {item.icon}
                     </span>
-                  </span>
-                </div>
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
-                  <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-                      <path d="M18 17V9" />
-                      <path d="M13 17V5" />
-                      <path d="M8 17v-3" />
-                    </svg>
-                  </span>
-                  <span>
-                    <span className="block text-[17px] font-[650]">A prioritized shortlist</span>
-                    <span className="mt-[2px] block text-[15px] text-muted">
-                      Ranked by the manual work they could take off your team.
+                    <span>
+                      <span className="block text-[15px] font-bold">{item.title}</span>
+                      <span className="mt-1 block text-[13px] leading-[1.65] text-muted">{item.text}</span>
                     </span>
-                  </span>
-                </div>
-                <div className="flex gap-[16px] rounded-[20px] border border-line bg-white p-[22px]">
-                  <span className="flex h-[36px] w-[36px] flex-none items-center justify-center rounded-[10px] bg-teal-50 text-teal">
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 6v6l4 2" />
-                    </svg>
-                  </span>
-                  <span>
-                    <span className="block text-[17px] font-[650]">What each option involves</span>
-                    <span className="mt-[2px] block text-[15px] text-muted">
-                      So you can decide what is worth building.
-                    </span>
-                  </span>
-                </div>
+                  </div>
+                ))}
               </div>
-              <h3 className="mt-[48px] text-[22px] font-[680] tracking-[-0.012em]">How it works</h3>
-              <ol className="mt-[18px] flex list-none flex-col gap-[16px]">
-                <li className="flex items-start gap-[14px]">
-                  <span className="flex h-[28px] w-[28px] flex-none items-center justify-center rounded-full bg-brand text-[13px] font-[650] text-white">
-                    1
-                  </span>
-                  <span className="text-[16px] leading-[1.5]">
-                    <b className="font-[650]">Send the form.</b>{" "}
-                    <span className="text-muted">Tell us which tools your team uses.</span>
-                  </span>
-                </li>
-                <li className="flex items-start gap-[14px]">
-                  <span className="flex h-[28px] w-[28px] flex-none items-center justify-center rounded-full bg-brand text-[13px] font-[650] text-white">
-                    2
-                  </span>
-                  <span className="text-[16px] leading-[1.5]">
-                    <b className="font-[650]">Talk it through.</b>{" "}
-                    <span className="text-muted">We walk through how work moves today.</span>
-                  </span>
-                </li>
-                <li className="flex items-start gap-[14px]">
-                  <span className="flex h-[28px] w-[28px] flex-none items-center justify-center rounded-full bg-brand text-[13px] font-[650] text-white">
-                    3
-                  </span>
-                  <span className="text-[16px] leading-[1.5]">
-                    <b className="font-[650]">Get your report.</b>{" "}
-                    <span className="text-muted">Keep it, whether or not you work with us.</span>
-                  </span>
-                </li>
-              </ol>
-            </div>
-            <form
-              className="sticky top-[24px] rounded-[28px] border border-line bg-white p-[32px] shadow-[0_40px_80px_-40px_rgba(10,16,34,0.35)]"
-              id="audit-form"
-              method="post"
-              action="/api/audit"
-            >
-              <div className="text-[22px] font-bold tracking-[-0.016em]">Request your audit</div>
-              <p className="mt-[6px] text-[14px] text-muted">
-                We reply within one business day to book your call.
-              </p>
-              <div className="mt-[24px] flex flex-col gap-[16px]">
-                <div>
-                  <label className="mb-[6px] block text-[14px] font-semibold" htmlFor="a-name">
-                    Name
-                  </label>
-                  <input
-                    className="h-[48px] w-full rounded-[12px] border border-field bg-white px-[14px] text-[15px] text-ink [font:inherit] focus:border-brand focus:[outline:2px_solid_#2E4FE3] focus:outline-offset-[2px]"
-                    id="a-name"
-                    name="name"
-                    required
-                    type="text"
-                    placeholder="Your name"
-                    autoComplete="name"
-                  />
+
+              {/* Trust signals */}
+              <div className="mt-6 rounded-[18px] border border-teal-100 bg-teal-50 p-5">
+                <div className="font-mono text-[11px] font-semibold tracking-widest text-teal-deep uppercase">
+                  How this works
                 </div>
-                <div>
-                  <label className="mb-[6px] block text-[14px] font-semibold" htmlFor="a-email">
-                    Work email
-                  </label>
-                  <input
-                    className="h-[48px] w-full rounded-[12px] border border-field bg-white px-[14px] text-[15px] text-ink [font:inherit] focus:border-brand focus:[outline:2px_solid_#2E4FE3] focus:outline-offset-[2px]"
-                    id="a-email"
-                    name="email"
-                    required
-                    type="email"
-                    placeholder="you@company.com"
-                    autoComplete="email"
-                  />
-                </div>
-                <div>
-                  <label className="mb-[6px] block text-[14px] font-semibold" htmlFor="a-company">
-                    Company website
-                  </label>
-                  <input
-                    className="h-[48px] w-full rounded-[12px] border border-field bg-white px-[14px] text-[15px] text-ink [font:inherit] focus:border-brand focus:[outline:2px_solid_#2E4FE3] focus:outline-offset-[2px]"
-                    id="a-company"
-                    name="website"
-                    type="url"
-                    placeholder="https://"
-                  />
-                </div>
-                <div>
-                  <label className="mb-[6px] block text-[14px] font-semibold" htmlFor="a-size">
-                    Team size
-                  </label>
-                  <select
-                    className="h-[48px] w-full rounded-[12px] border border-field bg-white px-[14px] text-[15px] text-ink [font:inherit] focus:border-brand focus:[outline:2px_solid_#2E4FE3] focus:outline-offset-[2px]"
-                    id="a-size"
-                    name="team_size"
-                  >
-                    <option>1–5</option>
-                    <option>6–20</option>
-                    <option>21–50</option>
-                    <option>50+</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-[6px] block text-[14px] font-semibold" htmlFor="a-tools">
-                    Which task eats the most time?
-                  </label>
-                  <textarea
-                    className="h-[112px] w-full resize-y rounded-[12px] border border-field bg-white px-[14px] py-[12px] text-[15px] text-ink [font:inherit] focus:border-brand focus:[outline:2px_solid_#2E4FE3] focus:outline-offset-[2px]"
-                    id="a-tools"
-                    name="task"
-                    required
-                    placeholder="For example: copying enquiries into our CRM"
-                  />
-                </div>
+                <ul className="mt-3 flex flex-col gap-2">
+                  {TRUST.map((t) => (
+                    <li key={t} className="flex items-start gap-2 text-[13px] leading-[1.5] text-teal-deep">
+                      <Check size={13} className="mt-[1px] shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <button
-                className="mt-[22px] h-[52px] w-full cursor-pointer rounded-[12px] border-0 bg-brand text-[16px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 [font:inherit] hover:bg-[#2643c9]"
-                type="submit"
+
+              {/* Steps */}
+              <h3
+                id="how-it-works"
+                className="mt-12 scroll-mt-24 text-[19px] font-bold tracking-[-0.014em]"
               >
-                Request my audit
-              </button>
-              <p className="mt-[14px] text-[12px] leading-[1.5] text-faint">
-                We use your details only to reply to you.{" "}
-                <Link className="underline" href="/privacy">
-                  Privacy policy
-                </Link>
-              </p>
-            </form>
+                How it works
+              </h3>
+              <ol className="mt-5 flex flex-col gap-4">
+                {STEPS.map((step, i) => (
+                  <li key={step.b} className="flex items-start gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-[12px] font-bold text-white">
+                      {i + 1}
+                    </span>
+                    <span className="text-[15px] leading-[1.55]">
+                      <b className="font-bold">{step.b}</b>{" "}
+                      <span className="text-muted">{step.t}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Not sure nudge */}
+              <div className="mt-10 rounded-[18px] border border-line bg-subtle p-5 text-[14px] leading-[1.65] text-muted">
+                Not sure the audit is the right starting point?{" "}
+                <Link href="/contact" className="font-semibold text-brand underline-offset-4 hover:underline">
+                  Send us a message
+                </Link>{" "}
+                instead — we will point you to the right place.
+              </div>
+            </div>
+
+            {/* ── Right: reactive form ─────────────────────────────────── */}
+            <div className="lg:sticky lg:top-6">
+              <AuditForm />
+            </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Prefer to talk first?"
-        text="Book a 30-minute call, or tell us about your project. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
+        text="Book a discovery call instead. You get a reply within one business day."
       />
     </>
   );

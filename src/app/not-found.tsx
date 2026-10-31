@@ -2,55 +2,61 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <>
-      <main id="main" className="relative flex min-h-[900px] flex-col overflow-hidden bg-night text-white">
+    <main
+      id="main"
+      className="relative flex min-h-[900px] flex-col overflow-hidden bg-night text-white"
+    >
+      {/* Grid texture */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:52px_52px] [mask-image:radial-gradient(ellipse_65%_60%_at_50%_45%,#000_30%,transparent_100%)]"
+      />
+      {/* Glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-[40%] h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(closest-side,rgba(46,79,227,0.36),transparent)]"
+      />
+
+      <div aria-hidden="true" className="h-[84px]" />
+
+      <div className="relative flex flex-1 flex-col items-center justify-center px-6 pt-10 pb-24 text-center">
+        {/* Large 404 */}
         <div
-          className="absolute top-0 right-0 bottom-0 left-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_45%,#000_30%,transparent_100%)] bg-size-[56px_56px]"
+          className="text-[clamp(100px,18vw,210px)] font-extrabold leading-[0.9] tracking-[-0.045em] text-white/10 select-none"
           aria-hidden="true"
-        />
-        <div
-          className="absolute top-[40%] left-[50%] h-[640px] w-[1000px] [transform:translate(-50%,-50%)] bg-[radial-gradient(closest-side,rgba(46,79,227,0.38),rgba(46,79,227,0))]"
-          aria-hidden="true"
-        />
-        <div aria-hidden="true" className="h-[84px]" />
-        <main className="relative flex flex-1 flex-col items-center justify-center px-[24px] pt-[40px] pb-[96px] text-center">
-          <div className="text-[length:clamp(120px,18vw,220px)] leading-[0.9] font-extrabold tracking-[-0.045em] text-white">
-            4<span className="text-mint">0</span>4
-          </div>
-          <h1 className="mt-[24px] text-[length:clamp(28px,3.4vw,44px)] leading-[1.1] font-bold tracking-[-0.024em]">
-            This page is not connected to anything.
-          </h1>
-          <p className="mt-[14px] max-w-[460px] text-[18px] leading-[1.6] text-mist">
-            The link may be old or mistyped. These will get you back on track.
-          </p>
-          <div className="mt-[32px] flex flex-wrap justify-center gap-[12px]">
+        >
+          4<span className="text-mint/30">0</span>4
+        </div>
+
+        <h1 className="mt-6 text-[clamp(26px,3.2vw,42px)] font-bold leading-[1.12] tracking-[-0.024em]">
+          This page is not connected to anything.
+        </h1>
+        <p className="mt-4 max-w-[440px] text-[17px] leading-[1.7] text-mist">
+          The link may be old or mistyped. These will get you back on track.
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/"
+            className="inline-flex h-12 items-center gap-2 rounded-xl bg-brand px-6 text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_28px_-8px_rgba(46,79,227,0.75)] transition-colors duration-150 hover:bg-[#2440c4]"
+          >
+            Back to home
+          </Link>
+          {[
+            { label: "Services", href: "/services" },
+            { label: "Work", href: "/work" },
+            { label: "Contact", href: "/contact" },
+          ].map((link) => (
             <Link
-              className="inline-flex h-[50px] items-center gap-[8px] rounded-[12px] bg-brand px-[24px] text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_10px_30px_-10px_rgba(46,79,227,0.8)] transition-colors duration-150 hover:bg-[#2643c9]"
-              href="/"
+              key={link.href}
+              href={link.href}
+              className="inline-flex h-12 items-center rounded-xl border border-white/[0.14] bg-white/[0.05] px-5 text-[15px] font-semibold transition-colors duration-150 hover:border-white/25 hover:bg-white/[0.09]"
             >
-              Back to home
+              {link.label}
             </Link>
-            <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
-              href="/services"
-            >
-              Services
-            </Link>
-            <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
-              href="/work"
-            >
-              Work
-            </Link>
-            <Link
-              className="inline-flex h-[50px] items-center rounded-[12px] border border-[rgba(255,255,255,0.14)] bg-[rgba(255,255,255,0.05)] px-[22px] text-[15px] font-semibold transition-colors duration-150 hover:border-[rgba(255,255,255,0.28)] hover:bg-[rgba(255,255,255,0.09)]"
-              href="/contact"
-            >
-              Contact
-            </Link>
-          </div>
-        </main>
-      </main>
-    </>
+          ))}
+        </div>
+      </div>
+    </main>
   );
 }

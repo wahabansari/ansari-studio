@@ -1,122 +1,135 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { ARTICLES_NEWEST_FIRST, articleHref, formatArticleDate } from "@/data/articles";
+import { ArticleCard } from "@/components/design/ArticleCard";
+import { AUTHOR_NAME, AuthorAvatar } from "@/components/design/AuthorBadge";
 import { PageHero } from "@/components/design/PageHero";
-import { AUTHOR_LABEL, AuthorAvatar } from "@/components/design/AuthorBadge";
 import { SiteFooter } from "@/components/design/SiteFooter";
+import { ArrowRight } from "@/components/icons";
+import { JsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Insights",
-  description: "Practical guides on building, modernizing and automating business software.",
-  alternates: { canonical: "/insights" },
-};
+export const metadata = pageMetadata({
+  title: "Insights on Modernization, Automation and Custom Software",
+  description:
+    "Practical guides on modernizing software, automating manual work and building business applications — written by the engineer who does the work.",
+  path: "/insights",
+});
 
 export default function InsightsPage() {
+  const [featured, ...rest] = ARTICLES_NEWEST_FIRST;
+
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/insights" },
+        ])}
+      />
       <main id="main">
         <PageHero
           active="insights"
           parent=""
           crumb="Insights"
           eyebrow="Insights"
-          title="Insights on building, modernizing"
+          title="Practical guides on building, modernizing"
           titleAccent="and automating software."
-          lead="Practical guides for founders and teams, from the engineers at Ansari Product Engineering."
-          primary="Discuss your project"
-          primaryHref="/contact"
-          secondary=""
+          lead="No trend pieces and no invented statistics. Each guide describes work we actually do, in the order we do it."
+          primary="Book a discovery call"
+          primaryHref="/contact#book"
+          secondary="Discuss your project"
+          secondaryHref="/contact"
           points=""
         />
-        <section className="px-[24px] pt-[96px] pb-[112px]">
+
+        <section className="px-6 pt-20 pb-24">
           <div className="mx-auto max-w-[1200px]">
+
+            {/* Header row */}
+            <div className="flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
+                  Latest
+                </div>
+                <h2 className="mt-3 text-[clamp(26px,3.2vw,40px)] font-bold leading-[1.1] tracking-[-0.024em]">
+                  Start here.
+                </h2>
+              </div>
+              <span className="text-[13px] text-faint">
+                {ARTICLES_NEWEST_FIRST.length} guides · Updated{" "}
+                {formatArticleDate(ARTICLES_NEWEST_FIRST[0].dateModified)}
+              </span>
+            </div>
+
+            {/* Featured article */}
             <Link
-              className="grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] overflow-hidden rounded-[28px] border border-line transition-colors duration-150 hover:border-brand-200 max-[900px]:grid-cols-[minmax(0,1fr)]"
-              href="/insights/automate-lead-follow-up"
+              href={articleHref(featured.slug)}
+              className="mt-8 grid grid-cols-[1.05fr_0.95fr] overflow-hidden rounded-[24px] border border-line transition-all duration-200 hover:border-brand-200 hover:shadow-[0_16px_40px_-16px_rgba(10,16,34,0.16)] max-[900px]:grid-cols-1"
             >
-              <div className="relative flex min-h-[340px] items-center justify-center bg-ink bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[32px_32px] p-[32px]">
-                <div className="flex flex-wrap items-center justify-center gap-[10px]" aria-hidden="true">
-                  <span className="rounded-[12px] border border-edge bg-raised px-[16px] py-[12px] text-[14px] font-semibold text-white">
-                    New lead
-                  </span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#3B4A6B"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                  <span className="rounded-[12px] border border-brand bg-raised px-[16px] py-[12px] text-[14px] font-semibold text-white shadow-[0_0_0_4px_rgba(46,79,227,0.18)]">
-                    Workflow
-                  </span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#3B4A6B"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                  <span className="rounded-[12px] border border-[rgba(98,220,203,0.3)] bg-[rgba(98,220,203,0.12)] px-[16px] py-[12px] text-[14px] font-semibold text-mint">
-                    Follow-up sent
-                  </span>
+              {/* Dark panel */}
+              <div className="relative flex min-h-[340px] flex-col justify-end bg-ink bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] p-9 max-[480px]:p-6">
+                <div className="font-mono text-[11px] font-semibold tracking-widest text-mint uppercase">
+                  Featured guide
+                </div>
+                <div className="mt-4 text-[clamp(24px,2.8vw,36px)] font-bold leading-[1.12] tracking-[-0.022em] text-white">
+                  {featured.headline}{" "}
+                  <span className="text-brand-300">{featured.accent}</span>
+                </div>
+                <div className="mt-5 flex items-center gap-3 text-[13px] text-mist">
+                  <AuthorAvatar size={28} />
+                  {AUTHOR_NAME} · {featured.readMinutes} min read
                 </div>
               </div>
-              <div className="flex flex-col justify-center bg-white p-[40px]">
-                <div className="flex items-center gap-[10px] text-[13px] text-faint">
-                  <span className="rounded-full bg-teal-50 px-[10px] py-[4px] font-semibold text-teal-deep">
-                    Automation
+
+              {/* White panel */}
+              <div className="flex flex-col justify-center bg-white p-9 max-[480px]:p-6">
+                <div className="flex flex-wrap items-center gap-2.5 text-[12px]">
+                  <span className="rounded-full bg-teal-50 px-3 py-1 font-semibold text-teal-deep">
+                    {featured.category}
                   </span>
-                  <span>Featured</span>
+                  <span className="text-faint">{formatArticleDate(featured.datePublished)}</span>
                 </div>
-                <h2 className="mt-[18px] text-[length:clamp(26px,3vw,36px)] leading-[1.12] font-bold tracking-[-0.02em]">
-                  How to automate lead follow-up between your website, CRM and inbox
-                </h2>
-                <p className="mt-[12px] text-[16px] leading-[1.6] text-muted">
-                  A step-by-step workflow that replies to every new enquiry and assigns the right owner.
-                </p>
-                <div className="mt-[24px] flex items-center gap-[12px] text-[14px] text-muted">
-                  <AuthorAvatar size={32} />
-                  {AUTHOR_LABEL} · 7 min read
-                </div>
+                <h3 className="mt-5 text-[clamp(22px,2.6vw,32px)] font-bold leading-[1.18] tracking-[-0.018em]">
+                  {featured.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-[1.7] text-muted">{featured.description}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand">
+                  Read the guide <ArrowRight size={14} />
+                </span>
               </div>
             </Link>
-            <div className="mt-[20px] flex flex-col justify-center rounded-[24px] bg-ink p-[28px] text-white max-[900px]:mt-[16px]">
-              <div className="flex flex-wrap items-center justify-between gap-[16px]">
-                <div className="max-w-[560px]">
-                  <h3 className="text-[20px] leading-[1.25] font-[680] tracking-[-0.012em]">
-                    Have a topic you want covered?
-                  </h3>
-                  <p className="mt-[8px] text-[14px] leading-[1.6] text-mist">
-                    Send a question and it may become the next article.
-                  </p>
-                </div>
-                <Link
-                  className="inline-flex h-[44px] items-center rounded-[12px] border border-edge bg-raised px-[20px] text-[15px] font-semibold text-brand-300 transition-colors duration-150 hover:border-[rgba(143,163,255,0.4)] hover:text-white"
-                  href="/contact"
-                >
-                  Suggest a topic →
-                </Link>
+
+            {/* Rest of articles */}
+            <div className="mt-5 grid grid-cols-3 gap-5 max-[900px]:grid-cols-1 max-[1100px]:grid-cols-2">
+              {rest.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+
+            {/* Suggest a topic */}
+            <div className="mt-5 flex items-center justify-between gap-5 rounded-[20px] bg-ink px-7 py-6 text-white max-[600px]:flex-col max-[600px]:items-start">
+              <div>
+                <h2 className="text-[18px] font-bold tracking-[-0.012em]">
+                  Have a topic you want covered?
+                </h2>
+                <p className="mt-1 text-[13px] leading-[1.6] text-mist">
+                  Send a question and it may become the next article.
+                </p>
               </div>
+              <Link
+                href="/contact"
+                className="shrink-0 inline-flex h-10 items-center rounded-xl border border-edge bg-raised px-5 text-[14px] font-semibold text-brand-300 transition-colors duration-150 hover:border-white/20 hover:text-white"
+              >
+                Suggest a topic →
+              </Link>
             </div>
           </div>
         </section>
       </main>
+
       <SiteFooter
         title="Rather talk it through?"
         text="Tell us what you are trying to build, improve or connect. You get a reply within one business day."
-        cta="Discuss your project"
-        ctaHref="/contact"
       />
     </>
   );
