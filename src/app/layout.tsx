@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Analytics } from "@/components/Analytics";
+import { Analytics as CustomAnalytics } from "@/components/Analytics";
+import { Analytics } from "@vercel/analytics/next";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { PageTransition } from "@/components/PageTransition";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="bg-white text-ink">{children}</div>
         </PageTransition>
         <ConsentBanner />
+        <CustomAnalytics />
         <Analytics />
       </body>
     </html>
