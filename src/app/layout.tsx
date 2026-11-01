@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics } from "@/components/Analytics";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { PageTransition } from "@/components/PageTransition";
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="bg-white text-ink">{children}</div>
         </PageTransition>
         <ConsentBanner />
+        <VercelAnalytics />
         <Analytics />
       </body>
     </html>
