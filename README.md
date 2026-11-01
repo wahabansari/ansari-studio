@@ -30,9 +30,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Typography
 
-- **Google Sans** is the primary (and currently only) text face, loaded via `next/font/google` (`Google_Sans`, weights 400/500/700, `--font-google-sans`, `display: swap`).
+- **Inter** is the primary (and currently only) text face, loaded via `next/font/google` (`Inter`, weights 100–900, `--font-inter`, `display: swap`).
 - OpenType feature settings (`cv02`, `cv03`, `cv04`, `cv11`) are applied on `body` via `font-feature-settings`.
-- Label styles reuse the Google Sans stack via the `font-mono` utility token; no webfont other than Google Sans is loaded.
+- Label styles reuse the Inter stack via the `font-mono` utility token; no webfont other than Inter is loaded.
 
 ---
 

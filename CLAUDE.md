@@ -14,7 +14,7 @@ Never invent copy, metrics, clients, testimonials, certifications or reviews.
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components), React 19.3, TypeScript strict, **Tailwind CSS v4 only** (no CSS-in-JS, no UI kit). Fonts: Google Sans via `next/font/google` (`Google_Sans`, weights 400/500/700) with `font-feature-settings: "cv02", "cv03", "cv04", "cv11"` on `body`; Google Sans is the only text face (the `font-mono` token resolves to the Google Sans stack).
+Next.js 16 (App Router, Cache Components), React 19.3, TypeScript strict, **Tailwind CSS v4 only** (no CSS-in-JS, no UI kit). Fonts: Inter via `next/font/google` (`Inter`, weights 100–900, `--font-inter`) with the Tailwind-style default font stack; Inter is the only text face (the `font-mono` token resolves to the Inter stack).
 
 ## Where things are
 

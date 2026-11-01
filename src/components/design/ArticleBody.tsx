@@ -1,6 +1,6 @@
 import type { ArticleBlock } from "@/data/articles";
 
-/** Renders typed article blocks with consistent Inter Variable-based typography. */
+/** Renders typed article blocks with consistent Inter-based typography. */
 export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
   return (
     <div>

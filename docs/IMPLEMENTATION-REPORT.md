@@ -93,9 +93,9 @@ The shared `ServicePage` template now renders, per service:
 
 ### Typography
 
-- **Reverted to Google Sans**, the design's text face, per owner request. Loaded via `next/font/google` (`Google_Sans`, weights 400/500/700, `--font-google-sans`, `display: swap`).
+- **Reverted to Inter**, the design's text face, per owner request. Loaded via `next/font/google` (`Inter`, weights 100–900, `--font-inter`, `display: swap`).
 - OpenType feature settings (`cv02`, `cv03`, `cv04`, `cv11`) restored on `body` in `src/app/globals.css`.
-- JetBrains Mono removed; the `--font-mono` token now resolves to the Google Sans stack, so Google Sans is the only text face on the site.
+- JetBrains Mono removed; the `--font-mono` token now resolves to the Inter stack, so Inter is the only text face on the site.
 
 ### SEO
 
@@ -158,10 +158,10 @@ Started with `npx next start -p 3104` and crawled all key routes plus generated 
 
 ### Typography verification
 
-- Reverted to **Google Sans** per owner request: loaded via `next/font/google` (`Google_Sans`, weights 400/500/700, `--font-google-sans`, `display: swap`).
-- `src/app/globals.css` uses `var(--font-dm-sans)` in the `--font-sans` stack with OpenType feature settings `"cv02", "cv03", "cv04", "cv11"` and `font-optical-sizing: auto`.
-- JetBrains Mono removed; the `--font-mono` token now resolves to the Google Sans stack, so Google Sans is the only text face on the site.
-- Smoke crawl confirmed rendered pages reference the Google Sans font and contain no Poppins, Inter, DM Sans or JetBrains Mono references.
+- Reverted to **Inter** per owner request: loaded via `next/font/google` (`Inter`, weights 100–900, `--font-inter`, `display: swap`).
+- `src/app/globals.css` uses `var(--font-inter)` in the `--font-sans` stack with OpenType feature settings `"cv02", "cv03", "cv04", "cv11"` and `font-optical-sizing: auto`.
+- JetBrains Mono removed; the `--font-mono` token now resolves to the Inter stack, so Inter is the only text face on the site.
+- Smoke crawl confirmed rendered pages reference the Inter font and contain no Poppins, Google Sans, DM Sans or JetBrains Mono references.
 
 ### SEO checks
 
