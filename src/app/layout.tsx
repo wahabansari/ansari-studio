@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans } from "next/font/google";
+import { Google_Sans } from "next/font/google";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics } from "@/components/Analytics";
 import { ConsentBanner } from "@/components/ConsentBanner";
@@ -9,11 +9,11 @@ import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SLOGAN, isPreviewDeployment } from "@/lib/site";
 import "./globals.css";
 
-// DM Sans — primary typeface for all headings, body copy and UI text.
-const dmSans = DM_Sans({
+// Google Sans — primary typeface for all headings, body copy and UI text.
+const googleSans = Google_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  variable: "--font-dm-sans",
+  variable: "--font-google-sans",
   display: "swap",
 });
 
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={dmSans.variable}
+      className={googleSans.variable}
     >
       <body>
         <JsonLd data={organizationJsonLd()} />
