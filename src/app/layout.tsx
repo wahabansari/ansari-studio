@@ -20,6 +20,9 @@ const inter = Inter({
 // Preview deployments (and local dev) are never indexed; production pages stay indexable.
 const previewRobots = isPreviewDeployment() ? { index: false, follow: false } : undefined;
 
+const googleSiteVerification =
+  process.env.GOOGLE_SITE_VERIFICATION?.trim() || "T8_DkVEVl9u0RlU-zH6YWRQpyfT1GSUxbDXRxtI-lHQ";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -39,8 +42,8 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US" },
   twitter: { card: "summary_large_image" },
-  ...(process.env.GOOGLE_SITE_VERIFICATION
-    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+  ...(googleSiteVerification
+    ? { verification: { google: googleSiteVerification } }
     : {}),
 };
 
