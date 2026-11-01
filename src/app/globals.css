@@ -2,10 +2,10 @@
 
 /* ─── Design tokens ────────────────────────────────────────────────────────── */
 @theme {
-  /* Typography — Inter Variable is the design's only text face. */
+  /* Typography — DM Sans is the design's primary text face. */
   --font-sans:
-    var(--font-inter-variable), "InterVariable", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-inter-variable), "InterVariable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* Dark surfaces */
   --color-ink:   #0a1022;

@@ -14,7 +14,7 @@ Never invent copy, metrics, clients, testimonials, certifications or reviews.
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components), React 19.3, TypeScript strict, **Tailwind CSS v4 only** (no CSS-in-JS, no UI kit). Fonts: Inter Variable via `next/font/local` (`src/fonts/InterVariable.woff2`) with `font-feature-settings: "cv02", "cv03", "cv04", "cv11"` on `body`; Inter is the only text face (the `font-mono` token resolves to the Inter stack).
+Next.js 16 (App Router, Cache Components), React 19.3, TypeScript strict, **Tailwind CSS v4 only** (no CSS-in-JS, no UI kit). Fonts: DM Sans via `next/font/google` (`DM_Sans`, weights 400/500/700) with `font-feature-settings: "cv02", "cv03", "cv04", "cv11"` on `body`; DM Sans is the only text face (the `font-mono` token resolves to the DM Sans stack).
 
 ## Where things are
 

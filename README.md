@@ -30,9 +30,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Typography
 
-- **Inter Variable** is the primary (and currently only) text face, self-hosted via `next/font/local` from `src/fonts/InterVariable.woff2` (weight 100–900, `display: swap`, `--font-inter-variable`).
+- **DM Sans** is the primary (and currently only) text face, loaded via `next/font/google` (`DM_Sans`, weights 400/500/700, `display: swap`, `--font-dm-sans`).
 - OpenType feature settings (`cv02`, `cv03`, `cv04`, `cv11`) are applied on `body` via `font-feature-settings`.
-- Label styles reuse the Inter stack via the `font-mono` utility token; no webfont other than Inter is loaded.
+- Label styles reuse the DM Sans stack via the `font-mono` utility token; no webfont other than DM Sans is loaded.
 
 ---
 

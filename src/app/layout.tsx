@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { PageTransition } from "@/components/PageTransition";
@@ -8,12 +8,11 @@ import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SLOGAN, isPreviewDeployment } from "@/lib/site";
 import "./globals.css";
 
-// Inter Variable (the design's only text face), self-hosted and preloaded by next/font.
-const interVariable = localFont({
-  src: "../fonts/InterVariable.woff2",
-  weight: "100 900",
-  style: "normal",
-  variable: "--font-inter-variable",
+// DM Sans — primary typeface for all headings, body copy and UI text.
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
@@ -54,7 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={interVariable.variable}
+      className={dmSans.variable}
     >
       <body>
         <JsonLd data={organizationJsonLd()} />
