@@ -46,7 +46,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Who it is for
               </div>
-              <h2 className="mt-4 max-w-[520px] text-[clamp(26px,3.2vw,40px)] font-bold leading-[1.12] tracking-[-0.024em]">
+              <h2 className="mt-4 max-w-[520px] text-[clamp(26px,3.2vw,40px)] font-semibold leading-[1.12] tracking-[-0.024em]">
                 {service.audience.lead}
               </h2>
               <ul className="mt-7 flex flex-col gap-3">
