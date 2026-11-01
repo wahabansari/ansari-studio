@@ -9,7 +9,8 @@
 export const ANALYTICS_CONSENT_KEY = "ape-analytics-consent";
 export const ANALYTICS_CONSENT_EVENT = "ape:consent-change";
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-WE01MBCQLW";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID?.trim();
 export const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID?.trim();
 
