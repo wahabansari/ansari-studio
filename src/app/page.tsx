@@ -218,7 +218,7 @@ export default function HomePage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 The problems we solve
               </div>
-              <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-bold leading-[1.06] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(26px,3.6vw,44px)] font-semibold leading-[1.06] tracking-[-0.026em]">
                 Most projects start with one of these.
               </h2>
             </div>
@@ -262,7 +262,7 @@ export default function HomePage() {
                 <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                   Services
                 </div>
-                <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-bold leading-[1.06] tracking-[-0.026em]">
+                <h2 className="mt-4 text-[clamp(26px,3.6vw,44px)] font-semibold leading-[1.06] tracking-[-0.026em]">
                   Six ways we make your business more capable.
                 </h2>
               </div>
@@ -314,7 +314,7 @@ export default function HomePage() {
                 <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                   Recent work
                 </div>
-                <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-bold leading-[1.06] tracking-[-0.026em]">
+                <h2 className="mt-4 text-[clamp(26px,3.6vw,44px)] font-semibold leading-[1.06] tracking-[-0.026em]">
                   Work we have delivered.
                 </h2>
               </div>
@@ -340,7 +340,7 @@ export default function HomePage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Why Ansari Product Engineering
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.6vw,44px)] font-bold leading-[1.1] tracking-[-0.024em]">
+              <h2 className="mt-4 text-[clamp(25px,3.3vw,40px)] font-semibold leading-[1.1] tracking-[-0.024em]">
                 Software that makes your business more capable, not more complicated.
               </h2>
               <p className="mt-4 text-[16px] leading-[1.75] text-muted">
@@ -371,7 +371,7 @@ export default function HomePage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Who we work with
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.08] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.08] tracking-[-0.026em]">
                 Teams with a real operational problem.
               </h2>
               <p className="mt-4 text-[16px] leading-[1.7] text-muted">
@@ -398,7 +398,7 @@ export default function HomePage() {
                 <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                   Process
                 </div>
-                <h2 className="mt-4 text-[clamp(30px,4vw,50px)] font-bold leading-[1.06] tracking-[-0.026em]">
+                <h2 className="mt-4 text-[clamp(26px,3.6vw,44px)] font-semibold leading-[1.06] tracking-[-0.026em]">
                   A clear process, from first call to handover.
                 </h2>
               </div>
@@ -432,7 +432,7 @@ export default function HomePage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Technologies and capabilities
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.08] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.08] tracking-[-0.026em]">
                 The right tool for the problem.
               </h2>
               <p className="mt-4 text-[16px] leading-[1.7] text-muted">

@@ -86,7 +86,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
         {/* ── 2. Problems ────────────────────────────────────────────── */}
         <section className="px-6 pt-14 pb-24">
           <div className="mx-auto max-w-[1200px]">
-            <h2 className="max-w-[680px] text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.08] tracking-[-0.026em]">
+            <h2 className="max-w-[680px] text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.08] tracking-[-0.026em]">
               Does this sound familiar?
             </h2>
             <div className="mt-12 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
@@ -144,7 +144,7 @@ export function ServicePage({ slug }: { slug: ServiceSlug }) {
             <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
               How it works
             </div>
-            <h2 className="mt-4 max-w-[680px] text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.08] tracking-[-0.026em]">
+            <h2 className="mt-4 max-w-[680px] text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.08] tracking-[-0.026em]">
               Three steps, each ending with something you can see.
             </h2>
             <ol className="mt-12 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">

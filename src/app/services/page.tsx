@@ -54,7 +54,7 @@ export default function ServicesPage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Six services
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.026em]">
                 Modernize what you have. Build what you need.
               </h2>
               <p className="mt-4 text-[16px] leading-[1.7] text-muted">
@@ -133,7 +133,7 @@ export default function ServicesPage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 A quick guide
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.026em]">
                 Which service do I need?
               </h2>
             </div>

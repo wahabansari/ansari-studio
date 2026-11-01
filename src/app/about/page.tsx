@@ -107,7 +107,7 @@ export default function AboutPage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-mint uppercase">
                 What we believe
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.026em]">
                 Four principles behind every project.
               </h2>
             </div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 How we work with you
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.026em]">
                 Simple to work with, easy to hand over.
               </h2>
             </div>
@@ -162,7 +162,7 @@ export default function AboutPage() {
               <div className="font-mono text-[12px] font-semibold tracking-widest text-brand uppercase">
                 Where we work
               </div>
-              <h2 className="mt-4 text-[clamp(28px,3.8vw,46px)] font-bold leading-[1.1] tracking-[-0.026em]">
+              <h2 className="mt-4 text-[clamp(25px,3.4vw,42px)] font-semibold leading-[1.1] tracking-[-0.026em]">
                 Worldwide, mainly the US, UK, Europe and the Middle East.
               </h2>
               <p className="mt-5 text-[17px] leading-[1.75] text-prose">
