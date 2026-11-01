@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="mx-auto mt-6 max-w-[960px] text-[clamp(40px,6vw,82px)] font-bold leading-[1.0] tracking-[-0.032em] text-white">
+            <h1 className="mx-auto mt-6 max-w-[960px] text-[clamp(32px,5vw,64px)] font-extrabold leading-[1.0] tracking-[-0.028em] text-white">
               Upgrade your software.
               <br />
               <span className="text-brand-300">Automate your operations.</span>

@@ -105,7 +105,7 @@ export function PageHero({
         </div>
 
         {/* Heading */}
-        <h1 className="mt-5 max-w-[860px] text-[clamp(36px,5.2vw,68px)] font-bold leading-[1.05] tracking-[-0.03em] text-white">
+        <h1 className="mt-5 max-w-[860px] text-[clamp(32px,4.6vw,60px)] font-extrabold leading-[1.05] tracking-[-0.025em] text-white">
           {title}{" "}
           <span className={mint ? "text-mint" : "text-brand-300"}>{titleAccent}</span>
         </h1>
