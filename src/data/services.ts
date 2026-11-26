@@ -4,11 +4,7 @@
  * Page copy lives in `src/content/*.tsx`.
  */
 export type ServiceSlug =
-  | "product-engineering"
-  | "modernization"
-  | "dashboards-portals"
-  | "maintenance-retainer"
-  | "automation-ai";
+  "product-engineering" | "modernization" | "dashboards-portals" | "maintenance-retainer" | "automation-ai";
 
 export interface Service {
   slug: ServiceSlug;
@@ -31,47 +27,46 @@ export const SERVICES: readonly Service[] = [
     summary: "MVPs, products and features",
     metaTitle: "MVP, SaaS & Web App Development",
     metaDescription:
-      "We design and build web products, MVPs and new features with a written scope, weekly progress and a clean handover.",
+      "We design and build MVPs, SaaS products and custom web apps with a written scope, weekly progress and a clean handover. Built with React and Next.js.",
   },
   {
     slug: "modernization",
     href: "/services/modernization",
     name: "Website & Web App Modernization",
     summary: "Faster, easier-to-change software",
-    metaTitle: "Website & Web App Modernization",
+    metaTitle: "Website Redesign & Modernization",
     metaDescription:
-      "We make slow, ageing software faster and easier to change. Measured first, then improved in small, safe steps while your site stays live.",
+      "Slow or outdated website? We redesign and modernize it in safe steps while it stays live: faster pages, better search visibility, easier updates.",
   },
   {
     slug: "dashboards-portals",
     href: "/services/dashboards-portals",
     name: "Dashboards & Client Portals",
     summary: "Admin panels and client portals",
-    metaTitle: "Custom Dashboards & Client Portals",
+    metaTitle: "Client Portals & Custom Dashboards",
     metaDescription:
-      "We bring the data your team and clients need into one fast, secure place, connected to the systems you already use.",
+      "Replace spreadsheets and email threads with a client portal or dashboard your team and customers can actually use. Built, secured and handed over.",
   },
   {
     slug: "maintenance-retainer",
     href: "/services/maintenance-retainer",
     name: "Maintenance & Ongoing Development",
     summary: "Updates, fixes, monthly report",
-    metaTitle: "Website Maintenance & Ongoing Development",
+    metaTitle: "Website & Web App Maintenance",
     metaDescription:
-      "Updates, fixes, monitoring and small improvements every month, with priorities you set and a clear monthly report.",
+      "Monthly updates, security patches, monitoring and bug fixes for your website or web app, with a plain-English monthly report.",
   },
   {
     slug: "automation-ai",
     href: "/services/automation-ai",
     name: "AI Integrations & Workflow Automation",
     summary: "Workflows, and AI where it helps",
-    metaTitle: "AI Integrations & Workflow Automation",
+    metaTitle: "Business & Workflow Automation",
     metaDescription:
-      "We connect your forms, CRM, inbox and other tools so routine work happens on its own, and add AI only where it clearly helps.",
+      "We automate repetitive work such as lead follow-up and enquiry handling. AI only where it helps, and a person approves what matters.",
   },
 ];
 
-export const SERVICE_BY_SLUG = Object.fromEntries(SERVICES.map((service) => [service.slug, service])) as Record<
-  ServiceSlug,
-  Service
->;
+export const SERVICE_BY_SLUG = Object.fromEntries(
+  SERVICES.map((service) => [service.slug, service]),
+) as Record<ServiceSlug, Service>;

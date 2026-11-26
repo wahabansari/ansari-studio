@@ -470,3 +470,119 @@
 .prb .big {
   flex: none;
 }
+
+/* ---------- sticky header: pinned, glass backdrop and slimmer once the page scrolls ---------- */
+.hd {
+  position: fixed;
+  transition: height 0.3s var(--e);
+}
+.hd .in {
+  transition: height 0.3s var(--e);
+}
+.hd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(7, 8, 13, 0.84);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transition: opacity 0.3s var(--e);
+  pointer-events: none;
+}
+.hd.stuck::before {
+  opacity: 1;
+}
+.hd.stuck,
+.hd.stuck .in {
+  height: 64px;
+}
+.hd:has(.dd:hover)::before,
+.hd:has(.dd:focus-within)::before {
+  opacity: 0;
+}
+
+/* Cards with a bleed illustration: pin the art to the bottom so every card in a row lines up. */
+.mb > .cell > .bleed {
+  margin-top: auto;
+}
+
+/* ---------- modern card grids: separate, rounded cards with breathing room ---------- */
+.mb {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  gap: 18px;
+}
+.mb > .cell {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 14px 34px -22px rgba(11, 16, 32, 0.16);
+  transition:
+    transform 0.35s var(--e),
+    box-shadow 0.35s var(--e),
+    border-color 0.3s,
+    background 0.3s;
+}
+.mb > a.cell:hover {
+  transform: translateY(-4px);
+  border-color: #d5d9fb;
+  box-shadow:
+    0 1px 2px rgba(11, 16, 32, 0.04),
+    0 24px 48px -24px rgba(79, 70, 229, 0.34);
+}
+.mb > .cell.dk {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.mb > .prb,
+.mb > .dr {
+  background: linear-gradient(135deg, #ffffff 40%, #f5f6ff);
+}
+.mb > .prb:hover,
+.mb > .dr:hover {
+  border-color: #d5d9fb;
+}
+@media (max-width: 900px) {
+  .mb {
+    gap: 14px;
+  }
+}
+
+/* Space between a card's link and the illustration pinned under it. */
+.cell:has(> .bleed) > .more {
+  margin-bottom: 26px;
+}
+
+/* ---------- project cards (home, work, service proof): same look as the service cards ---------- */
+.wk .gl {
+  display: none;
+}
+.wk .meta {
+  margin-top: 0;
+  padding: 16px 0 22px;
+}
+.wkm {
+  margin: auto -28px -26px;
+  width: calc(100% + 56px);
+}
+.wkm .thumb {
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+.wkm.wide .thumb {
+  aspect-ratio: 21 / 8;
+}
+.wkm .thumb img {
+  transition: transform 0.6s var(--e);
+}
+a.wk:hover .wkm .thumb img {
+  transform: scale(1.04);
+}
+.wk.dk .pill {
+  background: rgba(255, 255, 255, 0.07);
+}

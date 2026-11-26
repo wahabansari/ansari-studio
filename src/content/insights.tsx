@@ -22,10 +22,11 @@ export function InsightsContent() {
               Insights
             </Up>
             <Up className="h1" as="h1" k={1}>
-              Insights on building, modernizing and automating software.
+              Insights
             </Up>
             <Up className="lead" as="p" k={2}>
-              Practical guides for founders and teams, from the engineers at Ansari Product Engineering.
+              Plain-English guides on automating lead follow-up, modernizing software, dashboards and reducing
+              manual work.
             </Up>
           </div>
         </div>

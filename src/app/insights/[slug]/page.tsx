@@ -16,7 +16,7 @@ import {
 } from "@/data/articles";
 import { SERVICE_BY_SLUG } from "@/data/services";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
-import { FOUNDER } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
 
 export function generateStaticParams() {
   return ARTICLES.map((article) => ({ slug: article.slug }));
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: path,
       publishedTime: article.datePublished,
       modifiedTime: article.dateModified,
-      authors: [FOUNDER.name],
+      authors: [SITE_NAME],
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: article.title }],
     },
     twitter: {
@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     <LogoMark variant="dark" />
                   </span>
                   <span className="by">
-                    <b>{FOUNDER.name}</b>
+                    <b>{SITE_NAME}</b>
                     Published {formatArticleDate(article.datePublished)}
                   </span>
                 </div>
@@ -136,6 +136,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     See how this service works <ArrowIcon />
                   </span>
                 </Link>
+                <p className="sm" style={{ marginTop: 18 }}>
+                  Not sure where to start?{" "}
+                  <Link href="/automation-audit" style={{ color: "var(--ind2)", fontWeight: 600 }}>
+                    Request a free automation audit
+                  </Link>
+                  .
+                </p>
               </article>
             </div>
           </div>
@@ -169,7 +176,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </section>
         )}
 
-        <CtaBand title="Want help applying this?" text="Tell us what you are trying to fix. You get a reply within one business day." />
+        <CtaBand
+          title="Want help applying this?"
+          text="Tell us what you are trying to fix. You get a reply within one business day."
+        />
       </main>
     </>
   );

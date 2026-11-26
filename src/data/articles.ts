@@ -46,11 +46,11 @@ export interface Article {
 export const ARTICLES: Article[] = [
   {
     slug: "automate-lead-follow-up",
-    title: "How to automate lead follow-up between your website, CRM and inbox",
+    title: "How to Automate Lead Follow-Up Without Losing the Personal Touch",
     headline: "How to automate lead follow-up",
-    accent: "between your website, CRM and inbox.",
+    accent: "without losing the personal touch.",
     description:
-      "A step-by-step workflow that replies to every new enquiry, creates the contact in your CRM and tells the right person, so no lead waits in an inbox.",
+      "A practical guide to faster lead replies using automation, with a person approving what matters.",
     category: "Automation",
     readMinutes: 8,
     datePublished: "2026-10-20",
@@ -145,11 +145,11 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "signs-your-business-needs-software-modernization",
-    title: "Seven signs your business has outgrown its software",
-    headline: "Seven signs your business",
-    accent: "has outgrown its software.",
+    title: "7 Signs Your Business Software Needs Modernizing",
+    headline: "7 signs your business software",
+    accent: "needs modernizing.",
     description:
-      "Slow pages, fragile releases and tools nobody wants to touch are symptoms. Here is how to tell whether you need modernization, targeted fixes or a rewrite.",
+      "Slow pages, long change times and hard-to-hire skills: how to tell it is time, and what to do first.",
     category: "Modernization",
     readMinutes: 9,
     datePublished: "2026-10-24",
@@ -163,7 +163,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "Modernization is not the same as a rewrite. The useful question is not \"is our software old?\" but \"which parts are costing us money or opportunity, and what is the smallest change that fixes them?\"",
+        text: 'Modernization is not the same as a rewrite. The useful question is not "is our software old?" but "which parts are costing us money or opportunity, and what is the smallest change that fixes them?"',
       },
       { type: "h2", text: "1. Small changes take weeks", id: "small-changes" },
       {
@@ -229,20 +229,16 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "upgrade-existing-saas-product-without-rewrite",
-    title: "How to upgrade an existing SaaS product without a rewrite",
+    title: "How to Upgrade an Existing SaaS Product Without a Rewrite",
     headline: "How to upgrade an existing SaaS product",
     accent: "without a rewrite.",
-    description:
-      "A practical sequence for improving a live SaaS product: measure, isolate the worst parts, upgrade in slices and keep shipping while you do it.",
+    description: "Improve a live product step by step, without freezing features or risking downtime.",
     category: "Product",
     readMinutes: 9,
     datePublished: "2026-10-26",
     dateModified: "2026-10-26",
     service: "modernization",
-    related: [
-      "signs-your-business-needs-software-modernization",
-      "when-to-upgrade-nextjs-application",
-    ],
+    related: ["signs-your-business-needs-software-modernization", "when-to-upgrade-nextjs-application"],
     blocks: [
       {
         type: "p",
@@ -279,7 +275,7 @@ export const ARTICLES: Article[] = [
       {
         type: "callout",
         title: "One measurable target at a time",
-        text: "Choose a single journey, such as sign-up or the main dashboard, and define what better means. \"Faster\" is not a target; \"the dashboard is usable on a mid-range phone\" is.",
+        text: 'Choose a single journey, such as sign-up or the main dashboard, and define what better means. "Faster" is not a target; "the dashboard is usable on a mid-range phone" is.',
       },
       { type: "h2", text: "Use a strangler approach", id: "strangler" },
       {
@@ -319,11 +315,10 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "custom-dashboard-vs-spreadsheet-reporting",
-    title: "Custom dashboard or spreadsheet? How to choose your reporting",
-    headline: "Custom dashboard or spreadsheet?",
-    accent: "How to choose your reporting.",
-    description:
-      "Spreadsheets are not the enemy. Here is when they are the right tool, when they become a risk, and what a custom dashboard should replace.",
+    title: "Custom Dashboard vs Spreadsheet Reporting: Which Fits?",
+    headline: "Custom dashboard vs spreadsheet reporting:",
+    accent: "which fits?",
+    description: "When spreadsheets stop working and what a custom dashboard changes for your team.",
     category: "Data",
     readMinutes: 7,
     datePublished: "2026-10-28",
@@ -395,17 +390,16 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "The right question is not \"dashboard or spreadsheet?\" It is \"which decisions need a shared, reliable view, and what is the lightest tool that provides it?\"",
+        text: 'The right question is not "dashboard or spreadsheet?" It is "which decisions need a shared, reliable view, and what is the lightest tool that provides it?"',
       },
     ],
   },
   {
     slug: "when-to-upgrade-nextjs-application",
-    title: "When should you upgrade your Next.js application?",
-    headline: "When should you upgrade",
-    accent: "your Next.js application?",
-    description:
-      "A practical way to decide whether to upgrade Next.js now, wait, or modernize a specific area first — including how to plan the work without stopping the product.",
+    title: "When to Upgrade Your Next.js Application",
+    headline: "When to upgrade",
+    accent: "your Next.js application.",
+    description: "Signs it is time to upgrade Next.js, and how to do it safely.",
     category: "Engineering",
     readMinutes: 8,
     datePublished: "2026-10-29",
@@ -491,11 +485,10 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "reduce-manual-work-in-business-operations",
-    title: "How to reduce manual work in business operations",
+    title: "How to Reduce Manual Work in Business Operations",
     headline: "How to reduce manual work",
     accent: "in business operations.",
-    description:
-      "A repeatable method for finding, ranking and automating repetitive admin work without disrupting the processes your team depends on.",
+    description: "Find the repetitive tasks costing your team hours, and which to automate first.",
     category: "Operations",
     readMinutes: 8,
     datePublished: "2026-10-30",
@@ -510,7 +503,7 @@ export const ARTICLES: Article[] = [
       { type: "h2", text: "1. List the work, not the tools", id: "list" },
       {
         type: "p",
-        text: "Start with the tasks people actually perform during a normal week: copying enquiries into the CRM, checking a payment, preparing a report, chasing a missing document, updating a client. Write each one as a verb and a result. \"Update the CRM\" is too vague; \"create a contact from each website enquiry\" is testable.",
+        text: 'Start with the tasks people actually perform during a normal week: copying enquiries into the CRM, checking a payment, preparing a report, chasing a missing document, updating a client. Write each one as a verb and a result. "Update the CRM" is too vague; "create a contact from each website enquiry" is testable.',
       },
       { type: "h2", text: "2. Measure frequency and cost", id: "measure" },
       {

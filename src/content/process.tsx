@@ -28,7 +28,7 @@ export function ProcessContent() {
                 Process
               </Up>
               <Up className="h1" as="h1" k={1}>
-                How a project runs, from first call to handover.
+                A clear process, from first call to handover.
               </Up>
               <Up className="lead" as="p" k={2}>
                 Four clear steps, so you always know what happens next.

@@ -2,8 +2,9 @@ import type { MetadataRoute } from "next";
 import { ARTICLES, articleHref } from "@/data/articles";
 import { CASE_ORDER } from "@/data/cases";
 import { SERVICES } from "@/data/services";
-import { SITE_URL } from "@/lib/site";
+import { SITE_LAST_UPDATED, SITE_URL } from "@/lib/site";
 
+const PAGE_DATE = new Date(`${SITE_LAST_UPDATED}T00:00:00Z`);
 const url = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 /**
@@ -26,12 +27,14 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: "weekly" 
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = SERVICES.map((service) => ({
     url: url(service.href),
+    lastModified: PAGE_DATE,
     priority: service.slug === "modernization" || service.slug === "automation-ai" ? 0.9 : 0.8,
     changeFrequency: "monthly" as const,
   }));
 
   const casePages = CASE_ORDER.map((slug) => ({
     url: url(`/work/${slug}`),
+    lastModified: PAGE_DATE,
     priority: 0.7,
     changeFrequency: "yearly" as const,
   }));
@@ -46,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...STATIC_PAGES.map((page) => ({
       url: url(page.path),
+      lastModified: PAGE_DATE,
       priority: page.priority,
       changeFrequency: page.changeFrequency,
     })),

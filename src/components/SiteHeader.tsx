@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -40,6 +40,11 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openedAt, setOpenedAt] = useState(pathname);
+  const [stuck, setStuck] = useState(false);
+
+  // The header stays pinned; once the page scrolls it gains a dark glass backdrop and slims down.
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setStuck(y > 24));
 
   // Close the mobile menu when the route changes (state adjusted during render, no effect needed).
   if (open && openedAt !== pathname) {
@@ -54,7 +59,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="hd">
+    <header className={stuck ? "hd stuck" : "hd"}>
       <div className="in">
         <Link className="logo" href="/" aria-label="Ansari Product Engineering home">
           <LogoMark variant="light" className="lgl" />

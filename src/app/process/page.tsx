@@ -2,9 +2,9 @@ import { ProcessContent } from "@/content/process";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "How We Work: Scope, Build and Handover",
+  title: { absolute: "How We Work: Written Scope, Weekly Progress | Ansari Product Engineering" },
   description:
-    "Discovery, a written scope, weekly progress and a documented handover: how a software project runs with Ansari Product Engineering.",
+    "Discovery, written scope, weekly builds and a clean handover. See how we run a software project from first call to handover.",
   path: "/process",
 });
 

@@ -1,3 +1,6 @@
+import { ProjectCards } from "@/components/work/ProjectCard";
+import { FaqList } from "@/components/FaqList";
+import { FAQS } from "@/data/faqs";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { DashboardsArt1 } from "@/content/art/DashboardsArt1";
@@ -24,11 +27,11 @@ export function DashboardsContent() {
                 {"Dashboards & Client Portals"}
               </Up>
               <Up className="h1" as="h1" k={1}>
-                Dashboards and client portals your team will actually use.
+                One secure place for the data your team and clients need.
               </Up>
               <Up className="lead" as="p" k={2}>
-                We bring the data your team and clients need into one fast, secure place, connected to the
-                systems you already use.
+                We connect the systems you already use, so nobody chases status updates or rebuilds the same
+                report.
               </Up>
               <Up className="row" k={3}>
                 <Link className="btn btn-p" href="/contact">
@@ -131,7 +134,7 @@ export function DashboardsContent() {
                   <path d="M172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76ZM230,128A102,102,0,1,1,128,26,102.12,102.12,0,0,1,230,128Zm-12,0a90,90,0,1,0-90,90A90.1,90.1,0,0,0,218,128Z" />
                 </g>
               </svg>
-              <h3>Internal tools for approvals, scheduling or stock</h3>
+              <h3>Internal tools for approvals, scheduling or inventory</h3>
               <span className="n">04</span>
             </div>
           </Reveal>
@@ -148,12 +151,12 @@ export function DashboardsContent() {
           <Reveal className="mb">
             <div className="cell stc c4">
               <span className="big">01</span>
-              <h3>List the questions each role asks</h3>
+              <h3>Map the questions each user role needs answered</h3>
               <i className="bar" />
             </div>
             <div className="cell stc c4">
               <span className="big">02</span>
-              <h3>Connect the data</h3>
+              <h3>Connect the data sources</h3>
               <i className="bar" />
             </div>
             <div className="cell stc c4">
@@ -173,38 +176,7 @@ export function DashboardsContent() {
               <p className="lead">Real projects delivered for clients.</p>
             </div>
           </Reveal>
-          <Reveal className="mb">
-            <a className="cell wk c6" href="#">
-              <div className="top">
-                <span className="fig">{" Web apps"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Verdira</h3>
-              <p>A web application designed, built and handed over end to end.</p>
-              <div className="meta">
-                <span className="pill">Product Engineering</span>
-              </div>
-            </a>
-            <a className="cell wk c6" href="#">
-              <div className="top">
-                <span className="fig">{" Websites"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Digestive Care</h3>
-              <p>Healthcare website that explains services clearly to patients.</p>
-              <div className="meta">
-                <span className="pill">{"Dashboards & Client Portals"}</span>
-              </div>
-            </a>
-          </Reveal>
+          <ProjectCards names={["Verdira", "Digestive Care"]} />
         </div>
       </section>
       <section className="sec">
@@ -222,35 +194,7 @@ export function DashboardsContent() {
               </Link>
             </div>
             <div className="cell c8 fqc">
-              <div className="faq">
-                <details>
-                  <summary>What is a client portal?</summary>
-                  <p>
-                    A client portal is a private area where your clients sign in to see their own information,
-                    such as project status, documents or invoices, without emailing your team.
-                  </p>
-                </details>
-                <details>
-                  <summary>Can it connect to our existing data?</summary>
-                  <p>
-                    Yes. We connect to the systems and files you already use, so you do not have to enter data
-                    twice.
-                  </p>
-                </details>
-                <details>
-                  <summary>Can you redesign the dashboard we have?</summary>
-                  <p>
-                    Yes. We can rebuild or improve an existing dashboard so it is faster and easier to use.
-                  </p>
-                </details>
-                <details>
-                  <summary>Is client data secure?</summary>
-                  <p>
-                    Each person only sees what they are allowed to see, and we agree access rules with you
-                    before we build.
-                  </p>
-                </details>
-              </div>
+              <FaqList items={FAQS["dashboards-portals"]} />
             </div>
           </Reveal>
         </div>
@@ -276,6 +220,9 @@ export function DashboardsContent() {
             </Link>
             <Link className="btn btn-d" href="/contact#book">
               Book a 30-minute call
+            </Link>
+            <Link className="btn btn-d" href="/automation-audit">
+              Free automation audit
             </Link>
           </div>
         </Reveal>

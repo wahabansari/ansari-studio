@@ -1,3 +1,6 @@
+import { ProjectCards } from "@/components/work/ProjectCard";
+import { FaqList } from "@/components/FaqList";
+import { FAQS } from "@/data/faqs";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { ModernizationArt1 } from "@/content/art/ModernizationArt1";
@@ -24,11 +27,10 @@ export function ModernizationContent() {
                 {"Website & Web App Modernization"}
               </Up>
               <Up className="h1" as="h1" k={1}>
-                Modernize your website or web app without stopping the business.
+                Make your slow, ageing website faster and easier to change.
               </Up>
               <Up className="lead" as="p" k={2}>
-                We make slow, ageing software faster and easier to change — measured first, then improved in
-                small, safe steps while your site stays live.
+                We measure first, then improve in small, safe steps while your site stays live.
               </Up>
               <Up className="row" k={3}>
                 <Link className="btn btn-p" href="/contact">
@@ -158,7 +160,7 @@ export function ModernizationContent() {
             </div>
             <div className="cell stc c4">
               <span className="big">03</span>
-              <h3>Report before and after</h3>
+              <h3>Report before and after results</h3>
               <i className="bar" />
             </div>
           </Reveal>
@@ -173,38 +175,7 @@ export function ModernizationContent() {
               <p className="lead">Real projects delivered for clients.</p>
             </div>
           </Reveal>
-          <Reveal className="mb">
-            <a className="cell wk c6" href="https://sunhub.com" target="_blank" rel="noopener">
-              <div className="top">
-                <span className="fig">{" Marketplaces & stores"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Sunhub</h3>
-              <p>Solar equipment marketplace for business buyers and sellers.</p>
-              <div className="meta">
-                <span className="pill">{"Website & Web App Modernization"}</span>
-              </div>
-            </a>
-            <a className="cell wk c6" href="#">
-              <div className="top">
-                <span className="fig">{" Marketplaces & stores"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>AussieMotor</h3>
-              <p>Automotive website for a client in Australia.</p>
-              <div className="meta">
-                <span className="pill">{"Website & Web App Modernization"}</span>
-              </div>
-            </a>
-          </Reveal>
+          <ProjectCards names={["Sunhub", "AussieMotor"]} />
         </div>
       </section>
       <section className="sec">
@@ -222,33 +193,7 @@ export function ModernizationContent() {
               </Link>
             </div>
             <div className="cell c8 fqc">
-              <div className="faq">
-                <details>
-                  <summary>Do we need a full rewrite?</summary>
-                  <p>
-                    Usually not. Most of the time we improve what you have in small steps, which costs less
-                    and carries less risk than starting again.
-                  </p>
-                </details>
-                <details>
-                  <summary>Will the site go offline?</summary>
-                  <p>No. Work happens in small releases, so your site stays live while it improves.</p>
-                </details>
-                <details>
-                  <summary>How do you prove the improvement?</summary>
-                  <p>
-                    We measure before we start and again when we finish, then give you a short report that
-                    compares the two.
-                  </p>
-                </details>
-                <details>
-                  <summary>How long does it take?</summary>
-                  <p>
-                    It depends on the size of the software. After the first review we give you a written plan
-                    with a timeline you can plan around.
-                  </p>
-                </details>
-              </div>
+              <FaqList items={FAQS["modernization"]} />
             </div>
           </Reveal>
         </div>

@@ -1,3 +1,5 @@
+import { FaqList } from "@/components/FaqList";
+import { FAQS } from "@/data/faqs";
 import Link from "next/link";
 import { Reveal, RevealLink, Up } from "@/components/motion";
 import { AutomationArt1 } from "@/content/art/AutomationArt1";
@@ -24,11 +26,11 @@ export function AutomationContent() {
                 {"AI Integrations & Workflow Automation"}
               </Up>
               <Up className="h1" as="h1" k={1}>
-                AI integrations and workflow automation that give your team hours back.
+                Stop copy-pasting between tools. Automate the repetitive work.
               </Up>
               <Up className="lead" as="p" k={2}>
-                We connect your forms, CRM, inbox and other tools so routine work happens on its own — and add
-                AI only to the steps where it clearly helps, with a person reviewing anything important.
+                We connect your forms, CRM and inbox so routine tasks run on their own. AI is used only where
+                it helps, and a person reviews anything important.
               </Up>
               <Up className="row" k={3}>
                 <Link className="btn btn-p" href="/contact">
@@ -148,17 +150,17 @@ export function AutomationContent() {
           <Reveal className="mb">
             <div className="cell stc c4">
               <span className="big">01</span>
-              <h3>Map how the work moves today</h3>
+              <h3>Map the current workflow</h3>
               <i className="bar" />
             </div>
             <div className="cell stc c4">
               <span className="big">02</span>
-              <h3>Build and test the workflow</h3>
+              <h3>Build and test the automation</h3>
               <i className="bar" />
             </div>
             <div className="cell stc c4">
               <span className="big">03</span>
-              <h3>Hand over with documentation and optional upkeep</h3>
+              <h3>Hand over documentation, with optional ongoing support</h3>
               <i className="bar" />
             </div>
           </Reveal>
@@ -207,30 +209,7 @@ export function AutomationContent() {
               </Link>
             </div>
             <div className="cell c8 fqc">
-              <div className="faq">
-                <details>
-                  <summary>What can you automate?</summary>
-                  <p>
-                    Most repetitive work that follows clear rules: capturing leads, updating your CRM, sending
-                    replies and follow-ups, and building regular reports.
-                  </p>
-                </details>
-                <details>
-                  <summary>Do we need to change our tools?</summary>
-                  <p>No. We connect the tools you already use.</p>
-                </details>
-                <details>
-                  <summary>Who owns the workflows and data?</summary>
-                  <p>You do. Workflows, documentation and data stay with you.</p>
-                </details>
-                <details>
-                  <summary>Is our data safe?</summary>
-                  <p>
-                    We only connect what is needed, agree access with you first, and keep a person in the loop
-                    for anything important.
-                  </p>
-                </details>
-              </div>
+              <FaqList items={FAQS["automation-ai"]} />
             </div>
           </Reveal>
         </div>
@@ -256,6 +235,9 @@ export function AutomationContent() {
             </Link>
             <Link className="btn btn-d" href="/contact#book">
               Book a 30-minute call
+            </Link>
+            <Link className="btn btn-d" href="/automation-audit">
+              Free automation audit
             </Link>
           </div>
         </Reveal>

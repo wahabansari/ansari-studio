@@ -2,9 +2,9 @@ import { AutomationAuditContent } from "@/content/automation-audit";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Free Automation Audit for Business Workflows",
+  title: { absolute: "Free Business Automation Audit | Ansari Product Engineering" },
   description:
-    "A free review of your routine work, with a clear list of what to automate first. The starting point for AI integrations and workflow automation.",
+    "Find out which repetitive tasks to automate first. A short review of your workflows and a clear plan in plain English.",
   path: "/automation-audit",
 });
 

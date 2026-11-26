@@ -1,4 +1,4 @@
-/** Projects shown in the Work grid, in display order. Case-study pages exist for the ones with a slug. */
+/** Projects shown on the Work page, in display order. Case-study pages exist for the ones with a slug. */
 export type ProjectKind = "web" | "mkt" | "site" | "des";
 
 export interface Project {
@@ -12,19 +12,93 @@ export interface Project {
   external?: boolean;
 }
 
-export const PROJECT_FILTERS = ["All", "Web apps", "Marketplaces & stores", "Websites", "Design"] as const;
+/** Filters for client work. Concept designs are a separate group and never mixed in. */
+export const PROJECT_FILTERS = ["All", "Web apps", "Marketplaces & stores", "Websites"] as const;
+export const CONCEPT_CATEGORY = "Concept designs";
 
 export const PROJECTS: readonly Project[] = [
-  { name: "Sunhub", kind: "mkt", category: "Marketplaces & stores", line: "Solar equipment marketplace for business buyers and sellers.", service: "Website & Web App Modernization", href: "https://sunhub.com", external: true },
-  { name: "Verdira", kind: "web", category: "Web apps", line: "A web application designed, built and handed over end to end.", service: "Product Engineering", href: "/work/verdira" },
-  { name: "AussieMotor", kind: "mkt", category: "Marketplaces & stores", line: "Automotive website for a client in Australia.", service: "Website & Web App Modernization", href: "/work/aussiemotor" },
-  { name: "Digestive Care", kind: "site", category: "Websites", line: "Healthcare website that explains services clearly to patients.", service: "Dashboards & Client Portals", href: "/work/digestivecare" },
-  { name: "Vapestore", kind: "mkt", category: "Marketplaces & stores", line: "Online store for a client in the United Kingdom.", service: "Product Engineering", href: "/work/vapestore" },
-  { name: "SilcoLabs", kind: "site", category: "Websites", line: "Company website built to be easy to update.", service: "Product Engineering", href: "/work/silcolabs" },
-  { name: "Cennetsol", kind: "des", category: "Design", line: "Concept: homepage for a software agency.", service: "Product Engineering", href: "/work/cennetsol" },
-  { name: "Talha Estate", kind: "des", category: "Design", line: "Concept: property listing website.", service: "Maintenance & Ongoing Development", href: "/work/talhaestate" },
-  { name: "Select & Health", kind: "des", category: "Design", line: "Concept: website for a health services brand.", service: "Product Engineering", href: "/work/selecthealth" },
+  {
+    name: "Sunhub",
+    kind: "mkt",
+    category: "Marketplaces & stores",
+    line: "Solar equipment marketplace for business buyers and sellers.",
+    service: "Website & Web App Modernization",
+    href: "https://sunhub.com",
+    external: true,
+  },
+  {
+    name: "Verdira",
+    kind: "web",
+    category: "Web apps",
+    line: "A web application built and handed over end to end.",
+    service: "Product Engineering",
+    href: "/work/verdira",
+  },
+  {
+    name: "AussieMotor",
+    kind: "mkt",
+    category: "Marketplaces & stores",
+    line: "Automotive website for an Australian client.",
+    service: "Website & Web App Modernization",
+    href: "/work/aussiemotor",
+  },
+  {
+    name: "Digestive Care",
+    kind: "site",
+    category: "Websites",
+    line: "Healthcare website that explains services to patients.",
+    service: "Dashboards & Client Portals",
+    href: "/work/digestivecare",
+  },
+  {
+    name: "Vapestore",
+    kind: "mkt",
+    category: "Marketplaces & stores",
+    line: "Online store for a UK client.",
+    service: "Product Engineering",
+    href: "/work/vapestore",
+  },
+  {
+    name: "SilcoLabs",
+    kind: "site",
+    category: "Websites",
+    line: "Company website designed to be easy to update.",
+    service: "Product Engineering",
+    href: "/work/silcolabs",
+  },
+  {
+    name: "Cennetsol",
+    kind: "des",
+    category: CONCEPT_CATEGORY,
+    line: "Concept design: homepage for a software agency.",
+    service: "Concept",
+    href: "/work/cennetsol",
+  },
+  {
+    name: "Talha Estate",
+    kind: "des",
+    category: CONCEPT_CATEGORY,
+    line: "Concept design: property listings website.",
+    service: "Concept",
+    href: "/work/talhaestate",
+  },
+  {
+    name: "Select & Health",
+    kind: "des",
+    category: CONCEPT_CATEGORY,
+    line: "Concept design: website for a health services brand.",
+    service: "Concept",
+    href: "/work/selecthealth",
+  },
 ];
+
+export const CLIENT_PROJECTS = PROJECTS.filter((project) => project.kind !== "des");
+export const CONCEPT_PROJECTS = PROJECTS.filter((project) => project.kind === "des");
+
+/** Number of cards in a category, calculated from the cards themselves so it can never drift. */
+export function countByCategory(category: string): number {
+  return PROJECTS.filter((project) => project.category === category).length;
+}
 
 /** Balanced rows: threes, with the remainder split evenly (1 -> full, 2 -> halves, 4 -> 2x2). */
 export function gridSpans(count: number): string[] {

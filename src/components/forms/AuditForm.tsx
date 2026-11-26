@@ -49,6 +49,19 @@ export function AuditForm() {
           disabled={isSending}
         />
       </div>
+      <div className="fld">
+        <label htmlFor="a-website">Company website</label>
+        <input
+          id="a-website"
+          name="website"
+          type="text"
+          inputMode="url"
+          placeholder="example.com"
+          autoComplete="url"
+          maxLength={300}
+          disabled={isSending}
+        />
+      </div>
 
       {/* Honeypot: hidden from people, filled in by bots. */}
       <div className="hp" aria-hidden="true">
@@ -76,6 +89,7 @@ export function AuditForm() {
           {isSending ? "Sending…" : "Request your audit"} <ArrowIcon />
         </button>
       </div>
+      <p className="sm">No commitment.</p>
     </form>
   );
 }

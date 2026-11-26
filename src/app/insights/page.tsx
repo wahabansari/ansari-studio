@@ -3,16 +3,21 @@ import { pageMetadata } from "@/lib/metadata";
 import { JsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Insights on Modernization, Automation and Custom Software",
+  title: { absolute: "Insights: Software, Automation & Modernization | Ansari Product Engineering" },
   description:
-    "Practical guides on modernizing software, automating manual work and building business applications, written by the engineer who does the work.",
+    "Plain-English guides on automating lead follow-up, modernizing software, dashboards and reducing manual work.",
   path: "/insights",
 });
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }])} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/insights" },
+        ])}
+      />
       <main id="main">
         <InsightsContent />
       </main>

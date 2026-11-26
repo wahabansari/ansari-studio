@@ -32,8 +32,8 @@ export function ServicesContent() {
                 Services that build, modernize and integrate your software.
               </Up>
               <Up className="lead" as="p" k={2}>
-                Five services, each matched to a clear business need. Not sure which fits? Tell us the problem
-                and we will recommend where to start.
+                Five services, each matched to a clear business need. Not sure which you need? We will tell
+                you where to start.
               </Up>
             </div>
             <Up className="hdark" k={3} style={{ padding: "6px" }}>
@@ -247,7 +247,7 @@ export function ServicesContent() {
         </div>
         <Reveal className="wrap">
           <h2 className="h2">Not sure where to start?</h2>
-          <p className="lead">Tell us what is slowing you down.</p>
+          <p className="lead">Discuss your project and we will point you to the right service.</p>
           <div className="row">
             <Link className="btn btn-w" href="/contact">
               {"Discuss your project "}

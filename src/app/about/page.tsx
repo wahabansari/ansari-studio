@@ -1,21 +1,17 @@
 import { AboutContent } from "@/content/about";
 import { pageMetadata } from "@/lib/metadata";
-import { JsonLd, personJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: { absolute: "About Ansari Product Engineering" },
+  title: { absolute: "About Ansari Product Engineering | Software for Growing Businesses" },
   description:
-    "A product engineering company helping growing businesses build, modernize and integrate the software they run on. Meet the founder and how we work.",
+    "A remote-first product engineering company building, modernizing and connecting software for growing businesses in the US, UK and Europe.",
   path: "/about",
 });
 
 export default function Page() {
   return (
-    <>
-      <JsonLd data={personJsonLd()} />
-      <main id="main">
-        <AboutContent />
-      </main>
-    </>
+    <main id="main">
+      <AboutContent />
+    </main>
   );
 }

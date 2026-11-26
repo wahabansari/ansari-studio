@@ -1,12 +1,13 @@
+import { ProjectCards } from "@/components/work/ProjectCard";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { HomeArt1 } from "@/content/art/HomeArt1";
-import { HomeArt2 } from "@/content/art/HomeArt2";
-import { HomeArt3 } from "@/content/art/HomeArt3";
-import { HomeArt4 } from "@/content/art/HomeArt4";
-import { HomeArt5 } from "@/content/art/HomeArt5";
-import { HomeArt6 } from "@/content/art/HomeArt6";
+import { ServicesArt2 } from "@/content/art/ServicesArt2";
+import { ServicesArt3 } from "@/content/art/ServicesArt3";
+import { ServicesArt4 } from "@/content/art/ServicesArt4";
+import { ServicesArt5 } from "@/content/art/ServicesArt5";
+import { ServicesArt6 } from "@/content/art/ServicesArt6";
 
 export function HomeContent() {
   return (
@@ -29,13 +30,12 @@ export function HomeContent() {
                 Product engineering for growing businesses
               </Up>
               <Up className="h1" as="h1" k={1}>
-                {"Build better products. "}
-                <em>Run smarter businesses.</em>
+                {"Web apps and automation "}
+                <em>that take work off your plate.</em>
               </Up>
               <Up className="lead" as="p" k={2}>
-                Ansari Product Engineering builds web products, modernizes ageing software and connects the
-                tools your business runs on — for startups and growing companies worldwide, mainly in the US,
-                UK and Europe.
+                We build new products, speed up slow websites and automate repetitive tasks. You get a written
+                scope, weekly progress you can see, and a clean handover.
               </Up>
               <Up className="row" k={3}>
                 <Link className="btn btn-p" href="/contact">
@@ -44,8 +44,8 @@ export function HomeContent() {
                     <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                   </svg>
                 </Link>
-                <Link className="btn btn-g" href="/work">
-                  See our work
+                <Link className="btn btn-g" href="/automation-audit">
+                  Free automation audit
                 </Link>
               </Up>
               <Up className="pts" k={4}>
@@ -318,6 +318,34 @@ export function HomeContent() {
         <div className="wrap">
           <Reveal className="head">
             <div>
+              <span className="eyebrow">Problems we fix</span>
+              <h2 className="h2">Sound familiar?</h2>
+            </div>
+          </Reveal>
+          <Reveal className="mb">
+            <div className="cell prb c6">
+              <span className="big">01</span>
+              <h3>Your website is slow and every small change takes weeks.</h3>
+            </div>
+            <div className="cell prb c6">
+              <span className="big">02</span>
+              <h3>Your team copies data between spreadsheets, inboxes and tools all day.</h3>
+            </div>
+            <div className="cell prb c6">
+              <span className="big">03</span>
+              <h3>You have a product idea but no team to build it.</h3>
+            </div>
+            <div className="cell prb c6">
+              <span className="big">04</span>
+              <h3>Your live product has no developer looking after it.</h3>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+      <section className="sec">
+        <div className="wrap">
+          <Reveal className="head">
+            <div>
               <span className="eyebrow">Services</span>
               <h2 className="h2">What we do</h2>
               <p className="lead">Five services, each matched to a clear business need.</p>
@@ -327,72 +355,72 @@ export function HomeContent() {
             <Link className="cell c4" href="/services/product-engineering">
               <span className="fig">01</span>
               <h3>Product Engineering</h3>
-              <p>New web products, MVPs and features — planned clearly and built to last.</p>
+              <p>New products, MVPs and features, built and handed over.</p>
               <span className="more">
-                {"Learn more "}
+                {"View service "}
                 <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                   <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                 </svg>
               </span>
               <div className="bleed">
-                <HomeArt2 />
+                <ServicesArt2 />
               </div>
             </Link>
             <Link className="cell c4" href="/services/modernization">
               <span className="fig">02</span>
               <h3>{"Website & Web App Modernization"}</h3>
-              <p>Faster, easier-to-change software, moved to a modern platform in safe steps.</p>
+              <p>Faster, easier to change, while it stays live.</p>
               <span className="more">
-                {"Learn more "}
+                {"View service "}
                 <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                   <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                 </svg>
               </span>
               <div className="bleed">
-                <HomeArt3 />
+                <ServicesArt3 />
               </div>
             </Link>
             <Link className="cell c4" href="/services/dashboards-portals">
               <span className="fig">03</span>
               <h3>{"Dashboards & Client Portals"}</h3>
-              <p>One place for your team and clients to see and act on their data.</p>
+              <p>One place for the numbers your team and clients need.</p>
               <span className="more">
-                {"Learn more "}
+                {"View service "}
                 <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                   <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                 </svg>
               </span>
               <div className="bleed">
-                <HomeArt4 />
+                <ServicesArt4 />
               </div>
             </Link>
             <Link className="cell c6 row" href="/services/maintenance-retainer">
               <div className="tx">
                 <span className="fig">04</span>
                 <h3>{"Maintenance & Ongoing Development"}</h3>
-                <p>Updates, fixes and improvements every month from a team that knows your code.</p>
+                <p>Updates, security, monitoring and a monthly report.</p>
                 <span className="more">
-                  {"Learn more "}
+                  {"View service "}
                   <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                     <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                   </svg>
                 </span>
               </div>
-              <HomeArt5 />
+              <ServicesArt5 />
             </Link>
             <Link className="cell c6 row dk" href="/services/automation-ai">
               <div className="tx">
                 <span className="fig">05</span>
                 <h3>{"AI Integrations & Workflow Automation"}</h3>
-                <p>Repetitive work handled automatically, with AI added only where it helps.</p>
+                <p>Less repetitive work. AI only where it helps, a person approves what matters.</p>
                 <span className="more">
-                  {"Learn more "}
+                  {"View service "}
                   <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                     <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
                   </svg>
                 </span>
               </div>
-              <HomeArt6 />
+              <ServicesArt6 />
             </Link>
           </Reveal>
         </div>
@@ -402,7 +430,7 @@ export function HomeContent() {
           <Reveal className="head r">
             <div>
               <span className="eyebrow">Selected work</span>
-              <h2 className="h2">Work we have delivered</h2>
+              <h2 className="h2">Recent work</h2>
             </div>
             <Link className="btn btn-g btn-s" href="/work">
               {"See all work "}
@@ -411,83 +439,7 @@ export function HomeContent() {
               </svg>
             </Link>
           </Reveal>
-          <Reveal className="mb">
-            <a className="cell wk c7 dk" href="https://sunhub.com" target="_blank" rel="noopener">
-              <div className="top">
-                <span className="fig">{"01 Marketplaces & stores"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Sunhub</h3>
-              <p>Solar equipment marketplace for business buyers and sellers.</p>
-              <div className="meta">
-                <span className="pill">{"Website & Web App Modernization"}</span>
-              </div>
-            </a>
-            <a className="cell wk c5" href="#">
-              <div className="top">
-                <span className="fig">02 Web apps</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Verdira</h3>
-              <p>A web application designed, built and handed over end to end.</p>
-              <div className="meta">
-                <span className="pill">Product Engineering</span>
-              </div>
-            </a>
-            <a className="cell wk c4" href="#">
-              <div className="top">
-                <span className="fig">{"03 Marketplaces & stores"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>AussieMotor</h3>
-              <p>Automotive website for a client in Australia.</p>
-              <div className="meta">
-                <span className="pill">{"Website & Web App Modernization"}</span>
-              </div>
-            </a>
-            <a className="cell wk c4" href="#">
-              <div className="top">
-                <span className="fig">04 Websites</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Digestive Care</h3>
-              <p>Healthcare website that explains services clearly to patients.</p>
-              <div className="meta">
-                <span className="pill">{"Dashboards & Client Portals"}</span>
-              </div>
-            </a>
-            <a className="cell wk c4" href="#">
-              <div className="top">
-                <span className="fig">{"05 Marketplaces & stores"}</span>
-                <span className="go">
-                  <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                    <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
-                  </svg>
-                </span>
-              </div>
-              <h3>Vapestore</h3>
-              <p>Online store for a client in the United Kingdom.</p>
-              <div className="meta">
-                <span className="pill">Product Engineering</span>
-              </div>
-            </a>
-          </Reveal>
+          <ProjectCards names={["Sunhub", "Verdira", "AussieMotor", "Digestive Care", "Vapestore"]} />
         </div>
       </section>
       <section className="sec">
@@ -495,29 +447,29 @@ export function HomeContent() {
           <Reveal className="head">
             <div>
               <span className="eyebrow">How we work</span>
-              <h2 className="h2">A clear process, from first call to handover.</h2>
+              <h2 className="h2">A simple process, in writing.</h2>
             </div>
           </Reveal>
           <Reveal className="tl" style={{ "--n": "4" } as CSSProperties}>
             <div className="st">
               <small>01</small>
               <h3 className="h3">Discovery</h3>
-              <p>We understand the problem and what success looks like.</p>
+              <p>We learn the problem and what success looks like.</p>
             </div>
             <div className="st">
               <small>02</small>
               <h3 className="h3">Written scope</h3>
-              <p>Deliverables, timeline and price agreed before we build.</p>
+              <p>Deliverables, timeline and price agreed up front.</p>
             </div>
             <div className="st">
               <small>03</small>
               <h3 className="h3">Build</h3>
-              <p>Working software to review every week.</p>
+              <p>Working software shown every week.</p>
             </div>
             <div className="st">
               <small>04</small>
               <h3 className="h3">Handover</h3>
-              <p>Code, accounts and documentation in your hands.</p>
+              <p>Code, accounts and documentation are yours.</p>
             </div>
           </Reveal>
         </div>
@@ -526,36 +478,12 @@ export function HomeContent() {
         <div className="wrap">
           <Reveal className="head">
             <div>
-              <span className="eyebrow">Why us</span>
-              <h2 className="h2">Why Ansari Product Engineering</h2>
+              <span className="eyebrow">Why teams choose us</span>
+              <h2 className="h2">Why teams choose us</h2>
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
-                <g fill="#22D3EE" fillOpacity=".42">
-                  <path d="M192,96a64,64,0,1,1-64-64A64,64,0,0,1,192,96Z" />
-                </g>
-                <g fill="#4F46E5">
-                  <path d="M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z" />
-                </g>
-              </svg>
-              <h3>Senior engineering</h3>
-              <p>Experienced engineers on every project, with specialists brought in when needed.</p>
-            </div>
-            <div className="cell c4">
-              <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
-                <g fill="#22D3EE" fillOpacity=".42">
-                  <path d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z" />
-                </g>
-                <g fill="#4F46E5">
-                  <path d="M138,128a10,10,0,1,1-10-10A10,10,0,0,1,138,128ZM84,118a10,10,0,1,0,10,10A10,10,0,0,0,84,118Zm88,0a10,10,0,1,0,10,10A10,10,0,0,0,172,118Zm58,10A102,102,0,0,1,79.31,217.65L44.44,229.27a14,14,0,0,1-17.71-17.71l11.62-34.87A102,102,0,1,1,230,128Zm-12,0A90,90,0,1,0,50.08,173.06a6,6,0,0,1,.5,4.91L38.12,215.35a2,2,0,0,0,2.53,2.53L78,205.42a6.2,6.2,0,0,1,1.9-.31,6.09,6.09,0,0,1,3,.81A90,90,0,0,0,218,128Z" />
-                </g>
-              </svg>
-              <h3>Clear communication</h3>
-              <p>A reply within one business day and working hours that overlap the US, UK and Europe.</p>
-            </div>
-            <div className="cell c4">
+            <div className="cell c3">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z" />
@@ -564,8 +492,40 @@ export function HomeContent() {
                   <path d="M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z" />
                 </g>
               </svg>
-              <h3>Built to last</h3>
-              <p>Clean, documented work that any good engineer can pick up.</p>
+              <h3>Written scope before work starts.</h3>
+            </div>
+            <div className="cell c3">
+              <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
+                <g fill="#22D3EE" fillOpacity=".42">
+                  <path d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z" />
+                </g>
+                <g fill="#4F46E5">
+                  <path d="M138,128a10,10,0,1,1-10-10A10,10,0,0,1,138,128ZM84,118a10,10,0,1,0,10,10A10,10,0,0,0,84,118Zm88,0a10,10,0,1,0,10,10A10,10,0,0,0,172,118Zm58,10A102,102,0,0,1,79.31,217.65L44.44,229.27a14,14,0,0,1-17.71-17.71l11.62-34.87A102,102,0,1,1,230,128Zm-12,0A90,90,0,1,0,50.08,173.06a6,6,0,0,1,.5,4.91L38.12,215.35a2,2,0,0,0,2.53,2.53L78,205.42a6.2,6.2,0,0,1,1.9-.31,6.09,6.09,0,0,1,3,.81A90,90,0,0,0,218,128Z" />
+                </g>
+              </svg>
+              <h3>A reply within one business day.</h3>
+            </div>
+            <div className="cell c3">
+              <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
+                <g fill="#22D3EE" fillOpacity=".42">
+                  <path d="M192,96a64,64,0,1,1-64-64A64,64,0,0,1,192,96Z" />
+                </g>
+                <g fill="#4F46E5">
+                  <path d="M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z" />
+                </g>
+              </svg>
+              <h3>You own all code and documentation.</h3>
+            </div>
+            <div className="cell c3">
+              <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
+                <g fill="#22D3EE" fillOpacity=".42">
+                  <path d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z" />
+                </g>
+                <g fill="#4F46E5">
+                  <path d="M138,128a10,10,0,1,1-10-10A10,10,0,0,1,138,128ZM84,118a10,10,0,1,0,10,10A10,10,0,0,0,84,118Zm88,0a10,10,0,1,0,10,10A10,10,0,0,0,172,118Zm58,10A102,102,0,0,1,79.31,217.65L44.44,229.27a14,14,0,0,1-17.71-17.71l11.62-34.87A102,102,0,1,1,230,128Zm-12,0A90,90,0,1,0,50.08,173.06a6,6,0,0,1,.5,4.91L38.12,215.35a2,2,0,0,0,2.53,2.53L78,205.42a6.2,6.2,0,0,1,1.9-.31,6.09,6.09,0,0,1,3,.81A90,90,0,0,0,218,128Z" />
+                </g>
+              </svg>
+              <h3>Hours that overlap US, UK and European working days.</h3>
             </div>
           </Reveal>
         </div>
@@ -580,11 +540,11 @@ export function HomeContent() {
           <div className="gr" />
         </div>
         <Reveal className="wrap">
-          <h2 className="h2">Have a product to build or improve?</h2>
-          <p className="lead">Tell us what you need. You get a reply within one business day.</p>
+          <h2 className="h2">Not sure where to start?</h2>
+          <p className="lead">Request a free automation audit or book a 30-minute call.</p>
           <div className="row">
-            <Link className="btn btn-w" href="/contact">
-              {"Discuss your project "}
+            <Link className="btn btn-w" href="/automation-audit">
+              {"Free automation audit "}
               <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
                 <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
               </svg>

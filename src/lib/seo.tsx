@@ -1,21 +1,13 @@
 import { SERVICES } from "@/data/services";
-import {
-  CONTACT_EMAIL,
-  FOUNDER,
-  SITE_NAME,
-  SITE_TAGLINE,
-  SITE_URL,
-  absoluteUrl,
-} from "./site";
+import { CONTACT_EMAIL, SITE_NAME, SITE_TAGLINE, SITE_URL, absoluteUrl } from "./site";
 
 /**
- * Structured data helpers. Organization, WebSite, Service, BreadcrumbList, FAQPage, Person and
+ * Structured data helpers. Organization, WebSite, Service, BreadcrumbList, FAQPage and
  * BlogPosting — all describing things that are true and visible on the page. No review or rating markup.
  */
 
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const PERSON_ID = `${SITE_URL}/about#founder`;
 const LOGO_URL = absoluteUrl("/brand/ansari-pe-symbol-color-dark.svg");
 
 /** Renders a JSON-LD document. Server component; safe to drop anywhere in the tree. */
@@ -45,14 +37,6 @@ export function organizationJsonLd() {
       url: LOGO_URL,
     },
     image: LOGO_URL,
-    founder: {
-      "@type": "Person",
-      "@id": PERSON_ID,
-      name: FOUNDER.name,
-      url: absoluteUrl("/about"),
-      sameAs: [FOUNDER.linkedin],
-    },
-    sameAs: [FOUNDER.linkedin],
     areaServed: [
       { "@type": "Place", name: "Worldwide" },
       { "@type": "Country", name: "United States" },
@@ -82,20 +66,6 @@ export function websiteJsonLd() {
     description: SITE_TAGLINE,
     inLanguage: "en",
     publisher: { "@id": ORGANIZATION_ID },
-  };
-}
-
-/** The founder, as a Person. Only facts supported by the repository are included. */
-export function personJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": PERSON_ID,
-    name: FOUNDER.name,
-    jobTitle: FOUNDER.role,
-    url: absoluteUrl("/about"),
-    sameAs: [FOUNDER.linkedin],
-    worksFor: { "@type": "Organization", "@id": ORGANIZATION_ID, name: SITE_NAME },
   };
 }
 
@@ -188,13 +158,7 @@ export function articleJsonLd({
     inLanguage: "en",
     mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(path) },
     image: absoluteUrl(image),
-    author: {
-      "@type": "Person",
-      "@id": PERSON_ID,
-      name: FOUNDER.name,
-      url: absoluteUrl("/about"),
-      sameAs: [FOUNDER.linkedin],
-    },
+    author: { "@type": "Organization", "@id": ORGANIZATION_ID, name: SITE_NAME, url: SITE_URL },
     publisher: {
       "@type": "Organization",
       "@id": ORGANIZATION_ID,

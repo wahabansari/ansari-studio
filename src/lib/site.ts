@@ -7,23 +7,16 @@ export const SITE_NAME = "Ansari Product Engineering";
 /** Brand signature, used in the footer (never as a mechanical ticker). */
 export const SLOGAN = "Build. Modernize. Integrate.";
 /** The one-line description of the company, used in the footer and as the Organization description. */
-export const SITE_TAGLINE = "We build, modernize and integrate the software growing businesses run on.";
+export const SITE_TAGLINE =
+  "We build, modernize and integrate software for growing businesses, mainly in the US, UK and Europe.";
 /** Who we work with and where, stated the same way everywhere. */
 export const SERVICE_AREA = "Working with clients worldwide, mainly in the US, UK and Europe.";
 export const WORKING_HOURS = "Times overlap US, UK and European working hours";
 /** Shown in the footer. Update once a year; reading the clock at render time would make pages dynamic. */
 export const COPYRIGHT_YEAR = 2026;
+/** Date the site copy was last revised (ISO). Used as lastmod for pages without their own date. */
+export const SITE_LAST_UPDATED = "2026-11-26";
 export const CONTACT_EMAIL = "wahabansari.dev@gmail.com";
-
-/**
- * The only founder identity verified in this repository (REBRAND-REPORT.md).
- * Do not add a photo, credentials or biography beyond what can be supported.
- */
-export const FOUNDER = {
-  name: "Muhammad Wahab Ansari",
-  role: "Founder",
-  linkedin: "https://www.linkedin.com/in/wahabansari/",
-} as const;
 
 /**
  * The canonical origin, resolved once at build/render time.

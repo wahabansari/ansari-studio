@@ -2,9 +2,9 @@ import { PartnersContent } from "@/content/partners";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "White-Label Development Partner for Agencies",
+  title: { absolute: "White-Label Development for Agencies | Ansari Product Engineering" },
   description:
-    "Overflow web development and workflow automation for agencies. Senior engineering under your brand, clear communication, clean handover.",
+    "Senior engineering under your brand, clear communication, clean handover. White-label web development for agencies and studios.",
   path: "/partners",
 });
 

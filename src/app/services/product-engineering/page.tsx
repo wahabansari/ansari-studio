@@ -1,7 +1,8 @@
 import { ProductEngineeringContent } from "@/content/product-engineering";
+import { FAQS } from "@/data/faqs";
 import { SERVICE_BY_SLUG } from "@/data/services";
 import { pageMetadata } from "@/lib/metadata";
-import { JsonLd, breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
+import { JsonLd, breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/seo";
 
 const service = SERVICE_BY_SLUG["product-engineering"];
 
@@ -14,7 +15,9 @@ export const metadata = pageMetadata({
 export default function Page() {
   return (
     <>
-      <JsonLd data={serviceJsonLd({ name: service.name, description: service.metaDescription, path: service.href })} />
+      <JsonLd
+        data={serviceJsonLd({ name: service.name, description: service.metaDescription, path: service.href })}
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -22,6 +25,7 @@ export default function Page() {
           { name: service.name, path: service.href },
         ])}
       />
+      <JsonLd data={faqJsonLd([...FAQS["product-engineering"]])} />
       <main id="main">
         <ProductEngineeringContent />
       </main>

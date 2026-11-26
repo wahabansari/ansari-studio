@@ -24,12 +24,11 @@ export function AutomationAuditContent() {
                 Free automation audit
               </Up>
               <Up className="h1" as="h1" k={1}>
-                Find out what your team could stop doing by hand.
+                Find out what to automate first. Free.
               </Up>
               <Up className="lead" as="p" k={2}>
-                {
-                  "A free review of your routine work, with a clear list of what to automate first. It is the starting point for AI Integrations & Workflow Automation."
-                }
+                A short review of how work moves through your business, and a written list of what to automate
+                first. No commitment.
               </Up>
             </div>
             <Up className="hdark" k={3} style={{ padding: "6px" }}>
@@ -94,15 +93,15 @@ export function AutomationAuditContent() {
           <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
             <div className="st">
               <small>01</small>
-              <h3 className="h3">Tell us about your tools and routine work</h3>
+              <h3 className="h3">Tell us your tools and routine work</h3>
             </div>
             <div className="st">
               <small>02</small>
-              <h3 className="h3">We review how the work moves</h3>
+              <h3 className="h3">We review how work moves</h3>
             </div>
             <div className="st">
               <small>03</small>
-              <h3 className="h3">You get the written audit</h3>
+              <h3 className="h3">You receive the written audit</h3>
             </div>
           </Reveal>
         </div>

@@ -17,7 +17,12 @@ export const metadata = pageMetadata({
 const LINKS = [
   { label: "Process", href: "/process", title: "What happens after you reach out", dark: false },
   { label: "Work", href: "/work", title: "Work we have delivered", dark: false },
-  { label: "Insights", href: "/insights/automate-lead-follow-up", title: "How to automate lead follow-up between your website, CRM and inbox", dark: true },
+  {
+    label: "Insights",
+    href: "/insights/automate-lead-follow-up",
+    title: "How to automate lead follow-up between your website, CRM and inbox",
+    dark: true,
+  },
 ] as const;
 
 export default function ThankYouPage() {
@@ -30,10 +35,10 @@ export default function ThankYouPage() {
           eyebrow="Message received"
           title={
             <>
-              Thanks, your message <em>has been received.</em>
+              Thanks. <em>We will reply within one business day.</em>
             </>
           }
-          lead="You get a reply within one business day. While you wait, here is how we work and what we have built."
+          lead="While you wait, here is how we work and what we have built."
           actions={
             <>
               <Link className="btn btn-p" href="/process">

@@ -66,7 +66,7 @@ export function ContactForm() {
         </div>
       </fieldset>
       <div className="fld">
-        <label htmlFor="c-message">Tell us about your project</label>
+        <label htmlFor="c-message">Project description</label>
         <textarea
           id="c-message"
           name="message"

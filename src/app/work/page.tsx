@@ -2,9 +2,9 @@ import { WorkContent } from "@/content/work";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Software and Web Development Case Studies",
+  title: { absolute: "Selected Work: Web Apps, Marketplaces & Websites | Ansari Product Engineering" },
   description:
-    "Real projects we have delivered: marketplaces, web applications, online stores and healthcare websites for clients in the US, UK, Europe and Australia.",
+    "Marketplaces, web apps, online stores and healthcare websites built for clients in the US, UK, Europe and Australia.",
   path: "/work",
 });
 

@@ -24,10 +24,10 @@ export function PartnersContent() {
                 Partners
               </Up>
               <Up className="h1" as="h1" k={1}>
-                A development team for agencies and studios.
+                White-label development for agencies and studios.
               </Up>
               <Up className="lead" as="p" k={2}>
-                We work behind the scenes with agencies that need senior engineering, without hiring.
+                You bring the client and the brief. We build it, under your brand.
               </Up>
             </div>
             <Up className="hdark" k={3} style={{ padding: "6px" }}>

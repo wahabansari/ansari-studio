@@ -274,20 +274,6 @@ export function AboutContent() {
               <div className="lr">
                 <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                   <g fill="#22D3EE" fillOpacity=".42">
-                    <path d="M192,96a64,64,0,1,1-64-64A64,64,0,0,1,192,96Z" />
-                  </g>
-                  <g fill="#4F46E5">
-                    <path d="M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z" />
-                  </g>
-                </svg>
-                <div>
-                  <h3>Senior engineers on every project</h3>
-                  <p>With trusted specialists brought in for deeper work when needed.</p>
-                </div>
-              </div>
-              <div className="lr">
-                <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
-                  <g fill="#22D3EE" fillOpacity=".42">
                     <path d="M200,152l-40,40L96,176,40,136,72.68,70.63,128,56l55.32,14.63L183.6,72H144L98.34,116.29a8,8,0,0,0,1.38,12.42C117.23,139.9,141,139.13,160,120Z" />
                   </g>
                   <g fill="#4F46E5">

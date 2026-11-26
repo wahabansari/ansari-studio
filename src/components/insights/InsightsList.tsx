@@ -60,7 +60,7 @@ export function InsightsList() {
                 <span className="logo" style={{ gap: "0" }}>
                   <LogoMark variant="dark" />
                 </span>
-                <span className="sm">Founder, Ansari Product Engineering</span>
+                <span className="sm">Ansari Product Engineering</span>
               </div>
               <span className="more">
                 Read guide <ArrowIcon />
