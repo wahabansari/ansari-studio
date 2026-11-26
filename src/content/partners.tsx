@@ -66,7 +66,7 @@ export function PartnersContent() {
                   <path d="M229.18,173a6,6,0,0,1-2.16,8.2l-96,56a6,6,0,0,1-6,0l-96-56a6,6,0,0,1,6-10.36l93,54.23,93-54.23A6,6,0,0,1,229.18,173ZM221,122.82l-93,54.23L35,122.82a6,6,0,0,0-6,10.36l96,56a6,6,0,0,0,6,0l96-56a6,6,0,0,0-6-10.36ZM26,80a6,6,0,0,1,3-5.18l96-56a6,6,0,0,1,6,0l96,56a6,6,0,0,1,0,10.36l-96,56a6,6,0,0,1-6,0l-96-56A6,6,0,0,1,26,80Zm17.91,0L128,129.05,212.09,80,128,31Z" />
                 </g>
               </svg>
-              <h3>A client needs other skills</h3>
+              <h3>A client needs skills you do not have</h3>
               <p>Work outside your usual skills, delivered under your brand.</p>
             </div>
             <div className="cell c4">
@@ -78,7 +78,7 @@ export function PartnersContent() {
                   <path d="M222,48V96a6,6,0,0,1-6,6H168a6,6,0,0,1,0-12h33.52L183.47,72a81.51,81.51,0,0,0-57.53-24h-.46A81.5,81.5,0,0,0,68.19,71.28a6,6,0,1,1-8.38-8.58,93.38,93.38,0,0,1,65.67-26.76H126a93.45,93.45,0,0,1,66,27.53l18,18V48a6,6,0,0,1,12,0ZM187.81,184.72a81.5,81.5,0,0,1-57.29,23.34h-.46a81.51,81.51,0,0,1-57.53-24L54.48,166H88a6,6,0,0,0,0-12H40a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V174.48l18,18.05a93.45,93.45,0,0,0,66,27.53h.52a93.38,93.38,0,0,0,65.67-26.76,6,6,0,1,0-8.38-8.58Z" />
                 </g>
               </svg>
-              <h3>You want a steady team</h3>
+              <h3>You want a steady, ongoing development team</h3>
               <p>A reliable team for ongoing development.</p>
             </div>
           </Reveal>
@@ -99,15 +99,15 @@ export function PartnersContent() {
             </div>
             <div className="st">
               <small>02</small>
-              <h3 className="h3">We scope it in writing</h3>
+              <h3 className="h3">Get a written scope</h3>
             </div>
             <div className="st">
               <small>03</small>
-              <h3 className="h3">We build, under your brand</h3>
+              <h3 className="h3">We build under your brand</h3>
             </div>
             <div className="st">
               <small>04</small>
-              <h3 className="h3">We hand over to you</h3>
+              <h3 className="h3">Hand over to you</h3>
             </div>
           </Reveal>
         </div>

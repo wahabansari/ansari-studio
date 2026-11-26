@@ -121,3 +121,17 @@ export function gridSpans(count: number): string[] {
   }
   return spans;
 }
+
+const TYPE_BY_KIND: Record<ProjectKind, string> = {
+  web: "Web App",
+  mkt: "Marketplace",
+  site: "Website",
+  des: "Concept Design",
+};
+
+/** "[Type]" in the case-study title template: "[Project]: [Type] Case Study". */
+export function caseTypeLabel(slug: string): string {
+  const project = PROJECTS.find((item) => item.href === `/work/${slug}`);
+  if (!project) return "Project";
+  return project.name === "Vapestore" ? "Online Store" : TYPE_BY_KIND[project.kind];
+}

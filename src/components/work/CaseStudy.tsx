@@ -24,11 +24,7 @@ export function CaseStudy({ slug }: { slug: CaseSlug }) {
         <PageHero
           crumbs={[{ label: "Work", href: "/work" }, { label: project.name }]}
           eyebrow={project.eyebrow}
-          title={
-            <>
-              {project.titleA} <em>{project.titleB}</em>
-            </>
-          }
+          title={project.name}
           lead={project.lead}
           actions={
             <>
@@ -108,15 +104,15 @@ export function CaseStudy({ slug }: { slug: CaseSlug }) {
         <section className="sec t">
           <div className="wrap">
             <Reveal className="doc wide">
-              <h2>What was the challenge?</h2>
+              <h2>The problem</h2>
               <p>{project.challenge}</p>
-              <h2>How did we solve it?</h2>
+              <h2>What we did</h2>
               <ol className="steps">
                 {project.approach.map((step) => (
                   <li key={step}>{step}</li>
                 ))}
               </ol>
-              <h2>What changed for the business?</h2>
+              <h2>Result</h2>
               <p>{project.outcome}</p>
             </Reveal>
           </div>

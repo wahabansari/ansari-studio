@@ -63,10 +63,7 @@ export function ProcessContent() {
             <div className="cell sx c4">
               <span className="lbl">Step 1 of 4</span>
               <h3>Discovery</h3>
-              <p>
-                We understand the problem, the people who use it and what success looks like before anything
-                is built.
-              </p>
+              <p>The problem, who uses it, what success looks like.</p>
               <div className="out">
                 <svg className="i" viewBox="0 0 256 256" aria-hidden="true">
                   <g fill="#22D3EE" fillOpacity=".42">
@@ -96,7 +93,7 @@ export function ProcessContent() {
             <div className="cell sx c4">
               <span className="lbl">Step 2 of 4</span>
               <h3>Written scope</h3>
-              <p>Deliverables, timeline and price are agreed in writing, so there are no surprises later.</p>
+              <p>Deliverables, timeline and price in writing.</p>
               <div className="out">
                 <svg className="i" viewBox="0 0 256 256" aria-hidden="true">
                   <g fill="#22D3EE" fillOpacity=".42">
@@ -126,9 +123,7 @@ export function ProcessContent() {
             <div className="cell sx c4">
               <span className="lbl">Step 3 of 4</span>
               <h3>Build</h3>
-              <p>
-                We build in small steps and show you working software every week, so you can steer as we go.
-              </p>
+              <p>Small steps, working software shown weekly.</p>
               <div className="out">
                 <svg className="i" viewBox="0 0 256 256" aria-hidden="true">
                   <g fill="#22D3EE" fillOpacity=".42">
@@ -158,9 +153,7 @@ export function ProcessContent() {
             <div className="cell sx c4">
               <span className="lbl">Step 4 of 4</span>
               <h3>Handover</h3>
-              <p>
-                Code, accounts and documentation move to you, with a walkthrough so your team can carry on.
-              </p>
+              <p>Code, accounts and documentation, with a walkthrough.</p>
               <div className="out">
                 <svg className="i" viewBox="0 0 256 256" aria-hidden="true">
                   <g fill="#22D3EE" fillOpacity=".42">
@@ -188,10 +181,7 @@ export function ProcessContent() {
                 <h3 style={{ fontSize: "1.25rem", letterSpacing: "-.03em" }}>
                   Every week, something to review.
                 </h3>
-                <p>
-                  We plan the week, build in small steps and show you working software, so there are no
-                  surprises at the end.
-                </p>
+                <p>Plan, build, test, review with you.</p>
               </div>
               <ProcessArt6 />
             </div>
@@ -228,7 +218,7 @@ export function ProcessContent() {
                   <path d="M44.08,51.37A6,6,0,0,0,42,55.9V224a6,6,0,0,0,12,0V178.78c28.08-22.79,51.88-11,79.34,2.57,16.12,8,33.49,16.58,52,16.58,13.57,0,27.76-4.6,42.56-17.42A6,6,0,0,0,230,176V55.9a6,6,0,0,0-9.93-4.54c-29,25.12-53.28,13.09-81.41-.84C110.77,36.71,79,21.16,44.08,51.37ZM218,173.17c-28.08,22.8-51.88,11-79.34-2.58C113.4,158.08,85.09,144.07,54,164V58.72c28.08-22.8,51.88-11,79.34,2.56C158.6,73.79,186.91,87.8,218,67.91Z" />
                 </g>
               </svg>
-              <h3>No surprises on scope</h3>
+              <h3>Scope in writing before work starts</h3>
               <p>Deliverables, timeline and price are agreed in writing before work starts.</p>
             </div>
             <div>
@@ -240,7 +230,7 @@ export function ProcessContent() {
                   <path d="M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z" />
                 </g>
               </svg>
-              <h3>You own what we build</h3>
+              <h3>You own everything delivered</h3>
               <p>Code, documentation and accounts are handed over to you.</p>
             </div>
           </Reveal>
@@ -300,7 +290,7 @@ export function ProcessContent() {
                   <path d="M213.84,118.63a6,6,0,0,0-3.73-4.25L150.88,92.17l15-75a6,6,0,0,0-10.27-5.27l-112,120a6,6,0,0,0,2.28,9.71l59.23,22.21-15,75a6,6,0,0,0,3.14,6.52A6.07,6.07,0,0,0,96,246a6,6,0,0,0,4.39-1.91l112-120A6,6,0,0,0,213.84,118.63ZM106,220.46l11.85-59.28a6,6,0,0,0-3.77-6.8l-55.6-20.85,91.46-98L138.12,94.82a6,6,0,0,0,3.77,6.8l55.6,20.85Z" />
                 </g>
               </svg>
-              <h3>Automation audit</h3>
+              <h3>Free automation audit</h3>
               <p>A free review of where automation could save your team time.</p>
               <span className="more">
                 {"Get your audit "}

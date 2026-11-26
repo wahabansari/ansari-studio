@@ -295,7 +295,7 @@ export function AboutContent() {
                   </g>
                 </svg>
                 <div>
-                  <h3>You own everything</h3>
+                  <h3>You own all code and documentation</h3>
                   <p>Code, documentation and accounts are handed over to you.</p>
                 </div>
               </div>
@@ -309,8 +309,8 @@ export function AboutContent() {
                   </g>
                 </svg>
                 <div>
-                  <h3>Remote-first, overlapping hours</h3>
-                  <p>Working hours that overlap the US, UK and Europe.</p>
+                  <h3>Remote-first</h3>
+                  <p>Hours that overlap US, UK and European teams.</p>
                 </div>
               </div>
             </Reveal>

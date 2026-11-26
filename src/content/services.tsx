@@ -159,7 +159,7 @@ export function ServicesContent() {
                   </g>
                 </svg>
                 <div>
-                  <small>Existing software is slow or hard to change</small>
+                  <small>Software is slow or hard to change</small>
                   <b>{"Website & Web App Modernization"}</b>
                 </div>
                 <span className="go2">
@@ -197,7 +197,7 @@ export function ServicesContent() {
                   </g>
                 </svg>
                 <div>
-                  <small>Live product with no in-house developer</small>
+                  <small>Live product, no in-house developer</small>
                   <b>{"Maintenance & Ongoing Development"}</b>
                 </div>
                 <span className="go2">
@@ -216,7 +216,7 @@ export function ServicesContent() {
                   </g>
                 </svg>
                 <div>
-                  <small>Team loses hours to copy-paste and manual follow-ups</small>
+                  <small>Team loses hours to copy-paste and follow-ups</small>
                   <b>{"AI Integrations & Workflow Automation"}</b>
                 </div>
                 <span className="go2">

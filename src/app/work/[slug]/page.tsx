@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseStudy } from "@/components/work/CaseStudy";
 import { CASE_ORDER, CASES, isCaseSlug } from "@/data/cases";
+import { caseTypeLabel } from "@/data/projects";
 import { pageMetadata } from "@/lib/metadata";
 
 // Every case study is prerendered (generateStaticParams). Navigation waits for that page instead of
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   if (!isCaseSlug(slug)) notFound();
   const p = CASES[slug];
   return pageMetadata({
-    title: `${p.name} case study`,
+    title: `${p.name}: ${caseTypeLabel(slug)} Case Study`,
     description: p.metaDescription,
     path: `/work/${slug}`,
   });

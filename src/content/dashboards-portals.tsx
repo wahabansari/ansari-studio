@@ -64,15 +64,15 @@ export function DashboardsContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">01</span>
-              <h3>Numbers live in five spreadsheets</h3>
+              <h3>Data scattered across spreadsheets</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">02</span>
-              <h3>Clients email your team for every status update</h3>
+              <h3>Clients emailing for status</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">03</span>
-              <h3>Your current admin panel is slow and nobody likes it</h3>
+              <h3>Slow admin panels staff dislike</h3>
             </div>
           </Reveal>
         </div>

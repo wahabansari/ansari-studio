@@ -64,15 +64,15 @@ export function ProductEngineeringContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">01</span>
-              <h3>You have an idea but no team to build it</h3>
+              <h3>An idea but no team to build it</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">02</span>
-              <h3>Your product roadmap is stuck waiting for developers</h3>
+              <h3>A roadmap stalled waiting for developers</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">03</span>
-              <h3>Past projects ran over time and budget</h3>
+              <h3>Past projects that ran over time and budget</h3>
             </div>
           </Reveal>
         </div>

@@ -63,15 +63,15 @@ export function AutomationContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">01</span>
-              <h3>Details are copied between tools by hand</h3>
+              <h3>Copying data between tools</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">02</span>
-              <h3>Enquiries wait in an inbox</h3>
+              <h3>Enquiries sitting unanswered</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">03</span>
-              <h3>Someone builds the same report every week</h3>
+              <h3>The same report built every week</h3>
             </div>
           </Reveal>
         </div>
@@ -97,7 +97,7 @@ export function AutomationContent() {
                   <path d="M164.25,91.75a6,6,0,0,1,0,8.49l-64,64a6,6,0,0,1-8.49-8.48l64-64A6,6,0,0,1,164.25,91.75ZM214.2,41.8a54.07,54.07,0,0,0-76.38,0L107.75,71.85a6,6,0,0,0,8.49,8.49l30.07-30.06a42,42,0,0,1,59.41,59.41l-30.08,30.07a6,6,0,1,0,8.49,8.49l30.07-30.07A54,54,0,0,0,214.2,41.8ZM139.76,175.64l-30.07,30.08a42,42,0,0,1-59.41-59.41l30.06-30.07a6,6,0,0,0-8.49-8.49l-30,30.07a54,54,0,0,0,76.38,76.39l30.07-30.08a6,6,0,0,0-8.49-8.49Z" />
                 </g>
               </svg>
-              <h3>Lead capture and CRM updates</h3>
+              <h3>Lead capture that updates your CRM</h3>
               <span className="n">01</span>
             </div>
             <div className="cell dr c7">

@@ -63,7 +63,7 @@ export function ModernizationContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">01</span>
-              <h3>Pages are slow and customers notice</h3>
+              <h3>Slow pages customers notice</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">02</span>
@@ -71,7 +71,7 @@ export function ModernizationContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">03</span>
-              <h3>It is hard to find developers for the old system</h3>
+              <h3>Hard to find developers for the old system</h3>
             </div>
           </Reveal>
         </div>
@@ -109,7 +109,7 @@ export function ModernizationContent() {
                   <path d="M213.84,118.63a6,6,0,0,0-3.73-4.25L150.88,92.17l15-75a6,6,0,0,0-10.27-5.27l-112,120a6,6,0,0,0,2.28,9.71l59.23,22.21-15,75a6,6,0,0,0,3.14,6.52A6.07,6.07,0,0,0,96,246a6,6,0,0,0,4.39-1.91l112-120A6,6,0,0,0,213.84,118.63ZM106,220.46l11.85-59.28a6,6,0,0,0-3.77-6.8l-55.6-20.85,91.46-98L138.12,94.82a6,6,0,0,0,3.77,6.8l55.6,20.85Z" />
                 </g>
               </svg>
-              <h3>Performance fixes you can measure</h3>
+              <h3>Measurable performance fixes</h3>
               <span className="n">02</span>
             </div>
             <div className="cell dr c7">
@@ -121,7 +121,7 @@ export function ModernizationContent() {
                   <path d="M222,48V96a6,6,0,0,1-6,6H168a6,6,0,0,1,0-12h33.52L183.47,72a81.51,81.51,0,0,0-57.53-24h-.46A81.5,81.5,0,0,0,68.19,71.28a6,6,0,1,1-8.38-8.58,93.38,93.38,0,0,1,65.67-26.76H126a93.45,93.45,0,0,1,66,27.53l18,18V48a6,6,0,0,1,12,0ZM187.81,184.72a81.5,81.5,0,0,1-57.29,23.34h-.46a81.51,81.51,0,0,1-57.53-24L54.48,166H88a6,6,0,0,0,0-12H40a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V174.48l18,18.05a93.45,93.45,0,0,0,66,27.53h.52a93.38,93.38,0,0,0,65.67-26.76,6,6,0,1,0-8.38-8.58Z" />
                 </g>
               </svg>
-              <h3>Step-by-step move to a modern platform</h3>
+              <h3>A step-by-step move to a modern platform</h3>
               <span className="n">03</span>
             </div>
             <div className="cell dr c7">

@@ -64,15 +64,15 @@ export function MaintenanceContent() {
             </div>
             <div className="cell prb c7">
               <span className="big">01</span>
-              <h3>You have a live product but no in-house developer</h3>
+              <h3>No in-house developer</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">02</span>
-              <h3>Every new freelancer has to learn your code again</h3>
+              <h3>Freelancers relearning the code each time</h3>
             </div>
             <div className="cell prb c7">
               <span className="big">03</span>
-              <h3>Updates and security patches keep slipping</h3>
+              <h3>Updates and security patches that keep slipping</h3>
             </div>
           </Reveal>
         </div>
