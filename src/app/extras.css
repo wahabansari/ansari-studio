@@ -414,3 +414,25 @@
 .consent .row {
   margin-top: 16px;
 }
+
+/* ---------- darker hero (overrides the bright indigo wash; animations unchanged) ---------- */
+.hbg.dk2 {
+  background: linear-gradient(135deg, #090a26, #141243 55%, #0c1236);
+}
+.sg {
+  background: linear-gradient(135deg, #0d0f3d, #1f1666);
+}
+.sg i {
+  opacity: 0.55;
+}
+.sg::after {
+  background: linear-gradient(90deg, rgba(7, 8, 13, 0.78), rgba(7, 8, 13, 0.4) 55%, rgba(7, 8, 13, 0.18));
+}
+.hero .hbg.dk2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(7, 8, 13, 0.35), transparent 40%, rgba(7, 8, 13, 0.45));
+}
