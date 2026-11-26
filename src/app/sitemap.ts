@@ -20,7 +20,6 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: "weekly" 
   { path: "/about", priority: 0.6, changeFrequency: "yearly" },
   { path: "/partners", priority: 0.5, changeFrequency: "yearly" },
   { path: "/contact", priority: 0.8, changeFrequency: "yearly" },
-  { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
 ];
 

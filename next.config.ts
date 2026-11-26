@@ -1,16 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
+  async redirects() {
+    return [
+      // The design folds API integrations into the automation service and privacy into the terms page.
+      { source: "/services/api-integrations", destination: "/services/automation-ai", permanent: true },
+      { source: "/privacy", destination: "/terms#privacy", permanent: true },
+    ];
   },
 };
 

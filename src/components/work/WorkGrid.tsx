@@ -1,168 +1,89 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { startTransition, useState, ViewTransition } from "react";
-import { ProjectThumb } from "@/components/design/ProjectThumb";
-import { ArrowUpRight } from "@/components/icons";
+import { useState } from "react";
+import { EASE } from "@/components/motion";
+import { PROJECT_FILTERS, PROJECTS, gridSpans, type Project } from "@/data/projects";
+import { ARROW, ICONS } from "./WorkIcons";
 
-type Filter = "all" | "apps" | "market" | "sites" | "design";
+const MotionLink = motion.create(Link);
 
-/** Cards and filter tabs from the design's Work page. */
-const PROJECTS: {
-  slug: string;
-  type: Exclude<Filter, "all">;
-  name: string;
-  category: string;
-  region: string;
-  headline: string;
-  result: string;
-}[] = [
-  {
-    slug: "verdira",
-    type: "apps",
-    name: "Verdira",
-    category: "Web application",
-    region: "Practice partner · US",
-    headline: "from website to client platform",
-    result:
-      "A brochure website rebuilt as a web application with password-protected client areas, then handed over.",
-  },
-  {
-    slug: "aussiemotor",
-    type: "market",
-    name: "AussieMotor",
-    category: "Frontend",
-    region: "Car marketplace · Australia",
-    headline: "moved to a modern platform",
-    result: "End-to-end frontend development and maintenance, in collaboration with the project's designer.",
-  },
-  {
-    slug: "vapestore",
-    type: "market",
-    name: "Vapestore",
-    category: "E-commerce",
-    region: "Online vape shop · UK",
-    headline: "a complete online store",
-    result: "Complete storefront frontend and API integration for a production UK e-commerce shop.",
-  },
-  {
-    slug: "silcolabs",
-    type: "apps",
-    name: "SilcoLabs",
-    category: "SaaS",
-    region: "Laboratory software",
-    headline: "lab work in one place",
-    result: "Samples, test tracking and branded reports in one web application.",
-  },
-  {
-    slug: "digestivecare",
-    type: "sites",
-    name: "Digestive Care",
-    category: "Healthcare",
-    region: "Gastroenterology · Florida, US",
-    headline: "booking made easy",
-    result: "A healthcare website with an integrated patient-portal solution and booking flow.",
-  },
-  {
-    slug: "cennetsol",
-    type: "sites",
-    name: "Cennetsol",
-    category: "Company website",
-    region: "Software services",
-    headline: "built, found and kept current",
-    result: "A responsive company website with SEO and ongoing management.",
-  },
-  {
-    slug: "talhaestate",
-    type: "sites",
-    name: "Talha Estate",
-    category: "Real estate",
-    region: "Property agency",
-    headline: "listings that are easy to browse",
-    result: "A property website with social media setup and a clean handover.",
-  },
-  {
-    slug: "selecthealth",
-    type: "design",
-    name: "Select & Health",
-    category: "Design",
-    region: "Healthcare platform",
-    headline: "one consistent system",
-    result: "Landing pages and a design system for a patient-facing health platform.",
-  },
-];
+const CARD_MOTION = {
+  layout: true,
+  initial: { opacity: 0, scale: 0.96 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.96 },
+  transition: { duration: 0.45, ease: EASE },
+} as const;
 
-const TABS: [Filter, string][] = [
-  ["all", "All"],
-  ["apps", "Web apps"],
-  ["market", "Marketplaces & stores"],
-  ["sites", "Websites"],
-  ["design", "Design"],
-];
-
-export function WorkGrid() {
-  const [filter, setFilter] = useState<Filter>("all");
-  const cards = PROJECTS.filter((project) => filter === "all" || project.type === filter);
-
+function CardBody({ project }: { project: Project }) {
   return (
     <>
-      <div className="flex flex-wrap items-center justify-between gap-[20px]">
-        <div
-          role="group"
-          aria-label="Filter projects"
-          className="inline-flex flex-wrap gap-[6px] rounded-full border border-line bg-subtle p-[6px] max-[640px]:rounded-[22px]"
-        >
-          {TABS.map(([key, label]) => (
-            <button
-              key={key}
-              type="button"
-              aria-pressed={filter === key}
-              // A transition, so the cards animate in and out with <ViewTransition>.
-              onClick={() => startTransition(() => setFilter(key))}
-              className={`h-[38px] cursor-pointer rounded-full px-[16px] text-[14px] font-semibold transition-colors duration-150 ${
-                filter === key ? "bg-ink text-white" : "bg-transparent text-muted hover:text-ink"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        <span role="status" className="text-[14px] text-faint">
-          {cards.length} {cards.length === 1 ? "project" : "projects"}
-        </span>
+      <div className="top">
+        <span className="fig">{project.category}</span>
+        <span className="go">{ARROW}</span>
       </div>
-
-      <div className="mt-[40px] grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[24px] max-[860px]:grid-cols-[minmax(0,1fr)]">
-        {cards.map((card) => (
-          <ViewTransition key={card.slug}>
-            <Link href={`/work/${card.slug}`} className="group flex flex-col gap-[20px]">
-              <div className="transition-transform duration-300 ease-out group-hover:-translate-y-[3px] motion-reduce:transform-none">
-                <ProjectThumb slug={card.slug} morph sizes="(max-width: 860px) 100vw, 588px" />
-              </div>
-              <div className="flex items-start justify-between gap-[16px]">
-                <div>
-                  <div className="flex flex-wrap items-center gap-[8px] text-[13px] text-faint">
-                    <span className="rounded-full bg-brand-50 px-[10px] py-[4px] font-semibold text-brand">
-                      {card.category}
-                    </span>
-                    {card.region}
-                  </div>
-                  <h2 className="mt-[12px] text-[24px] leading-[1.25] font-bold tracking-[-0.012em]">
-                    {card.name} — {card.headline}
-                  </h2>
-                  <p className="mt-[8px] text-[16px] leading-[1.6] text-muted">{card.result}</p>
-                </div>
-                <span
-                  aria-hidden="true"
-                  className="flex h-[48px] w-[48px] flex-none items-center justify-center rounded-full border border-line-strong text-brand transition-colors duration-150 group-hover:border-brand group-hover:bg-brand group-hover:text-white"
-                >
-                  <ArrowUpRight size={20} />
-                </span>
-              </div>
-            </Link>
-          </ViewTransition>
-        ))}
+      <span className="gl">{ICONS[project.kind]}</span>
+      <h3>{project.name}</h3>
+      <p>{project.line}</p>
+      <div className="meta">
+        <span className="pill">{project.service}</span>
       </div>
     </>
+  );
+}
+
+export function WorkGrid() {
+  const [filter, setFilter] = useState<(typeof PROJECT_FILTERS)[number]>("All");
+  const items = PROJECTS.filter((project) => filter === "All" || project.category === filter);
+  const spans = gridSpans(items.length);
+
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="tools">
+          <div className="seg" role="group" aria-label="Filter projects">
+            {PROJECT_FILTERS.map((name) => (
+              <button
+                key={name}
+                type="button"
+                className={`chipf${name === filter ? " on" : ""}`}
+                aria-pressed={name === filter}
+                onClick={() => setFilter(name)}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+          <span className="cnt" aria-live="polite">
+            {items.length} {items.length === 1 ? "project" : "projects"}
+          </span>
+        </div>
+        <motion.div className="mb" layout>
+          <AnimatePresence mode="popLayout" initial={false}>
+            {items.map((project, index) => {
+              const className = `cell wk ${spans[index]} k-${project.kind}`;
+              return project.external ? (
+                <motion.a
+                  key={project.name}
+                  className={className}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...CARD_MOTION}
+                >
+                  <CardBody project={project} />
+                </motion.a>
+              ) : (
+                <MotionLink key={project.name} className={className} href={project.href} {...CARD_MOTION}>
+                  <CardBody project={project} />
+                </MotionLink>
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
   );
 }

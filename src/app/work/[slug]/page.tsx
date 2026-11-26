@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CaseStudy } from "@/components/design/CaseStudy";
+import { CaseStudy } from "@/components/work/CaseStudy";
 import { CASE_ORDER, CASES, isCaseSlug } from "@/data/cases";
 import { pageMetadata } from "@/lib/metadata";
 

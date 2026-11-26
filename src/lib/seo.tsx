@@ -29,7 +29,7 @@ export function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
-/** The business as schema.org sees it: one company, six services, clients worldwide. */
+/** The business as schema.org sees it: one company, five services, clients worldwide. */
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",

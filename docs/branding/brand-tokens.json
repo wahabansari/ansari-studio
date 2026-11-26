@@ -1,0 +1,76 @@
+{
+  "name": "Ansari Product Engineering",
+  "slogan": "Build. Modernize. Integrate.",
+  "source": "src/app/site.css, src/app/extras.css, src/components/motion.tsx",
+  "colors": {
+    "core": {
+      "ink": "#0B1020",
+      "night": "#07080D",
+      "indigo": "#6366F1",
+      "indigoDeep": "#4F46E5",
+      "violet": "#8B5CF6",
+      "cyan": "#22D3EE",
+      "indigoTint": "#EEF0FF",
+      "textMuted": "#4A5168",
+      "textMuted2": "#5E667B",
+      "line": "#E6E8F0",
+      "soft": "#F7F8FC",
+      "white": "#FFFFFF"
+    },
+    "onDark": {
+      "text": "#F4F5FA",
+      "nav": "#E6E9F5",
+      "lead": "#B0B5CB",
+      "muted": "#A4A9C0",
+      "eyebrow": "#A5B4FC",
+      "cyanLight": "#67E8F9",
+      "violetLight": "#C4B5FD",
+      "panel": "#14163A",
+      "banner": "#0F1226"
+    },
+    "feedback": {
+      "errorText": "#B91C1C",
+      "errorBorder": "#FECACA",
+      "errorFill": "#FEF2F2"
+    },
+    "gradients": {
+      "cta": "linear-gradient(135deg, #4F46E5, #6D4DF0)",
+      "ctaOnDark": "linear-gradient(135deg, #6366F1, #8B5CF6)",
+      "progress": "linear-gradient(90deg, #6366F1, #8B5CF6, #22D3EE)",
+      "headlineAccent": "linear-gradient(100deg, #67E8F9, #A5B4FC 55%, #C4B5FD)"
+    }
+  },
+  "typography": {
+    "family": "Inter (variable 100-900) via next/font/google, variable --font-inter",
+    "fallback": "system-ui, -apple-system, 'Segoe UI', sans-serif",
+    "features": ["cv02", "cv03", "cv04", "cv11"],
+    "body": { "size": "15px", "lineHeight": 1.6, "weight": 450 },
+    "h1": { "size": "clamp(1.9rem, 3.5vw, 3rem)", "weight": 640, "tracking": "-0.038em", "lineHeight": 1.08 },
+    "h2": { "size": "clamp(1.35rem, 2.1vw, 1.85rem)", "weight": 640, "tracking": "-0.03em", "lineHeight": 1.15 },
+    "h3": { "size": "1rem", "weight": 620, "tracking": "-0.018em", "lineHeight": 1.3 },
+    "eyebrow": { "size": ".72rem", "weight": 620, "tracking": "0.12em", "case": "uppercase" }
+  },
+  "layout": {
+    "contentMaxWidth": "1160px",
+    "sectionPadding": "72px",
+    "bentoRadius": "22px",
+    "inputRadius": "12px",
+    "buttonRadius": "999px",
+    "breakpoints": ["980px", "900px", "560px"]
+  },
+  "motion": {
+    "library": "framer-motion",
+    "easing": [0.2, 0.7, 0.2, 1],
+    "heroEntrance": { "duration": 0.9, "y": 18, "stepDelay": 0.09 },
+    "scrollReveal": { "duration": 0.75, "y": 24, "once": true },
+    "pageTransition": { "duration": 0.6, "y": 12 },
+    "reducedMotion": "respected (MotionConfig reducedMotion=user + CSS media query)"
+  },
+  "logo": {
+    "pack": "docs/branding/logo-pack",
+    "component": "src/components/brand.tsx",
+    "onLight": { "slabs": "#0B1020", "crossbar": "#6366F1" },
+    "onDark": { "slabs": "#FFFFFF", "crossbar": "#A5B4FC" },
+    "minWidthPx": 120
+  }
+}

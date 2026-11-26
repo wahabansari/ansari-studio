@@ -3,13 +3,14 @@ import { Inter } from "next/font/google";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics } from "@/components/Analytics";
 import { ConsentBanner } from "@/components/ConsentBanner";
-import { PageTransition } from "@/components/PageTransition";
+import { MotionProvider, ScrollProgress } from "@/components/motion";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, SLOGAN, isPreviewDeployment } from "@/lib/site";
 import "./globals.css";
 
-// Inter — default typeface for all headings, body copy and UI text.
+// Inter: the only typeface, for headings, body copy and UI text.
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -42,37 +43,34 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US" },
   twitter: { card: "summary_large_image" },
-  ...(googleSiteVerification
-    ? { verification: { google: googleSiteVerification } }
-    : {}),
+  ...(googleSiteVerification ? { verification: { google: googleSiteVerification } } : {}),
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070B16",
+  themeColor: "#07080D",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={inter.variable}
-    >
+    <html lang="en" data-scroll-behavior="smooth" className={inter.variable}>
       <body>
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
-        <a
-          href="#main"
-          className="fixed top-[12px] left-[12px] z-50 -translate-y-[200%] rounded-[10px] bg-brand px-[16px] py-[10px] text-[14px] font-semibold text-white focus:translate-y-0"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <PageTransition>
-          <div className="bg-white text-ink">{children}</div>
-        </PageTransition>
-        <ConsentBanner />
+        <MotionProvider>
+          <div className="site">
+            <a href="#main" className="skip">
+              Skip to content
+            </a>
+            <ScrollProgress />
+            <div className="shell">
+              <SiteHeader />
+              {children}
+            </div>
+            <SiteFooter />
+          </div>
+          <ConsentBanner />
+        </MotionProvider>
         <VercelAnalytics />
         <Analytics />
       </body>

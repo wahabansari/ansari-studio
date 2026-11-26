@@ -9,8 +9,10 @@ export const SLOGAN = "Build. Modernize. Integrate.";
 /** The one-line description of the company, used in the footer and as the Organization description. */
 export const SITE_TAGLINE = "We build, modernize and integrate the software growing businesses run on.";
 /** Who we work with and where, stated the same way everywhere. */
-export const SERVICE_AREA = "Working with clients worldwide, mainly in the US, UK, Europe and the Middle East.";
-export const WORKING_HOURS = "Times overlap US, UK, European and Middle Eastern working hours";
+export const SERVICE_AREA = "Working with clients worldwide, mainly in the US, UK and Europe.";
+export const WORKING_HOURS = "Times overlap US, UK and European working hours";
+/** Shown in the footer. Update once a year; reading the clock at render time would make pages dynamic. */
+export const COPYRIGHT_YEAR = 2026;
 export const CONTACT_EMAIL = "wahabansari.dev@gmail.com";
 
 /**

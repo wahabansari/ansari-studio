@@ -97,7 +97,6 @@ export async function readSubmission(request: Request, form: Submission["form"])
   }
 
   if (form === "audit") {
-    if (!fields.company) errors.push("Enter your company name.");
     if (fields.task.length < 10) {
       errors.push("Tell us which task takes the most time (at least 10 characters).");
     }

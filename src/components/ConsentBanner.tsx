@@ -1,7 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
+import { EASE } from "@/components/motion";
 import {
   ANALYTICS_CONSENT_EVENT,
   analyticsConfigured,
@@ -36,42 +38,29 @@ function getServerSnapshot() {
 
 export function ConsentBanner() {
   const visible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-
   if (!visible) return null;
 
-  const choose = (choice: "granted" | "denied") => {
-    writeConsent(choice);
-  };
-
   return (
-    <section
+    <motion.section
+      className="consent"
       aria-label="Analytics consent"
       aria-live="polite"
-      className="fixed inset-x-[16px] bottom-[16px] z-50 mx-auto max-w-[620px] rounded-[20px] border border-edge bg-panel p-[22px] text-white shadow-[0_24px_60px_-20px_rgba(0,0,0,0.8)]"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: EASE }}
     >
-      <p className="text-[14px] leading-[1.6] text-haze">
-        We use optional analytics to understand which pages help visitors. Nothing loads until you
-        choose, and Do Not Track is always respected.{" "}
-        <Link href="/privacy" className="font-semibold text-brand-300 underline underline-offset-4">
-          Privacy policy
-        </Link>
+      <p>
+        We use optional analytics to understand which pages help visitors. Nothing loads until you choose, and
+        Do Not Track is always respected. <Link href="/terms#privacy">Privacy policy</Link>
       </p>
-      <div className="mt-[16px] flex flex-wrap gap-[8px]">
-        <button
-          type="button"
-          onClick={() => choose("granted")}
-          className="inline-flex h-[40px] cursor-pointer items-center rounded-[10px] bg-white px-[18px] text-[14px] font-semibold text-night transition-colors duration-150 hover:bg-brand-50"
-        >
+      <div className="row">
+        <button type="button" className="btn btn-w btn-s" onClick={() => writeConsent("granted")}>
           Accept analytics
         </button>
-        <button
-          type="button"
-          onClick={() => choose("denied")}
-          className="inline-flex h-[40px] cursor-pointer items-center rounded-[10px] border border-edge px-[18px] text-[14px] font-semibold text-white transition-colors duration-150 hover:bg-white/[0.06]"
-        >
+        <button type="button" className="btn btn-d btn-s" onClick={() => writeConsent("denied")}>
           Essential only
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 }

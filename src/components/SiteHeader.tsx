@@ -1,185 +1,211 @@
 "use client";
 
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { Close, Menu } from "@/components/icons";
-import { MAIN_NAV, SITE_NAME, isActive } from "@/lib/site";
+import { useEffect, useState } from "react";
+import { ArrowIcon, LogoMark } from "@/components/brand";
+import { EASE } from "@/components/motion";
+import { SERVICE_BY_SLUG, type ServiceSlug } from "@/data/services";
+
+const TOP_LINKS = [
+  { href: "/work", label: "Work" },
+  { href: "/process", label: "Process" },
+  { href: "/about", label: "About" },
+  { href: "/insights", label: "Insights" },
+] as const;
+
+const MEGA_COLUMNS: { title: string; services: ServiceSlug[] }[] = [
+  { title: "Build", services: ["product-engineering", "modernization"] },
+  { title: "Connect", services: ["dashboards-portals", "automation-ai"] },
+  { title: "Run", services: ["maintenance-retainer"] },
+];
+
+const GET_STARTED = [
+  { href: "/contact", title: "Discuss your project", text: "Tell us what you need" },
+  { href: "/automation-audit", title: "Free automation audit", text: "Find what to automate first" },
+  { href: "/process", title: "How we work", text: "Four clear steps" },
+] as const;
+
+const MOBILE_LINKS = [
+  { href: "/services", label: "Services" },
+  ...TOP_LINKS,
+  { href: "/partners", label: "Partners" },
+  { href: "/automation-audit", label: "Free audit" },
+] as const;
+
+const isCurrent = (pathname: string, href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [openedAt, setOpenedAt] = useState(pathname);
 
-  const [lastPath, setLastPath] = useState(pathname);
-  if (pathname !== lastPath) {
-    setLastPath(pathname);
+  // Close the mobile menu when the route changes (state adjusted during render, no effect needed).
+  if (open && openedAt !== pathname) {
     setOpen(false);
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    const panel = panelRef.current;
-    panel?.querySelector<HTMLElement>("a[href], button:not([disabled])")?.focus();
-
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
-        return;
-      }
-      if (e.key !== "Tab" || !panel) return;
-      const focusable = Array.from(
-        panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"),
-      );
-      if (!focusable.length) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-    const onClick = (e: MouseEvent) => {
-      const t = e.target as Node;
-      if (!panelRef.current?.contains(t) && !buttonRef.current?.contains(t)) setOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("click", onClick);
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("click", onClick);
+      document.body.style.overflow = "";
     };
   }, [open]);
 
   return (
-    <header
-      className="pointer-events-none fixed inset-x-0 top-0 z-40 px-4 pt-3 [view-transition-name:site-header]"
-      role="banner"
-    >
-      <div className="relative mx-auto max-w-[1200px]">
-        {/* Capsule bar */}
-        <div
-          className={`pointer-events-auto grid h-[64px] grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border px-6 pr-2.5 backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-300 motion-reduce:transition-none max-lg:grid-cols-[1fr_auto] max-[480px]:px-4 ${
-            scrolled
-              ? "border-white/[0.14] bg-night/95 shadow-[0_16px_48px_-16px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.06)]"
-              : "border-white/[0.08] bg-night/60 shadow-[0_10px_32px_-16px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04)]"
-          }`}
-        >
-          {/* Logo */}
-          <Link
-            href="/"
-            aria-label={`${SITE_NAME} — home`}
-            className="flex items-center justify-self-start"
-          >
-            <Image
-              src="/brand/ansari-pe-horizontal-color-dark.svg"
-              alt={SITE_NAME}
-              width={148}
-              height={33}
-              priority
-              className="h-[33px] w-auto max-[480px]:h-[28px]"
-            />
-          </Link>
+    <header className="hd">
+      <div className="in">
+        <Link className="logo" href="/" aria-label="Ansari Product Engineering home">
+          <LogoMark variant="light" className="lgl" />
+          <LogoMark variant="dark" className="lgd" />
+          <span>
+            Ansari <b>Product Engineering</b>
+          </span>
+        </Link>
 
-          {/* Desktop nav */}
-          <nav
-            aria-label="Main navigation"
-            className="flex items-center gap-0.5 text-[14px] font-medium text-mist max-lg:hidden"
-          >
-            {MAIN_NAV.map((item) => {
-              const current = isActive(pathname, item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={current ? "page" : undefined}
-                  className={`rounded-xl px-3.5 py-2 transition-colors duration-150 hover:text-white ${
-                    current
-                      ? "bg-white/[0.10] font-semibold text-white"
-                      : "hover:bg-white/[0.05]"
-                  }`}
+        <nav aria-label="Main">
+          <ul className="links">
+            <li className="dd">
+              <Link href="/services" className={isCurrent(pathname, "/services") ? "on" : undefined}>
+                Services
+                <svg
+                  className="chev"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right: CTA + hamburger */}
-          <div className="flex items-center gap-2 justify-self-end">
-            <Link
-              href="/contact#book"
-              className="inline-flex h-10 items-center rounded-xl bg-white px-5 text-[13px] font-semibold text-night transition-colors duration-150 hover:bg-brand-50 max-[640px]:hidden"
-            >
-              Book a call
-            </Link>
-            <button
-              ref={buttonRef}
-              type="button"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((v) => !v)}
-              className="hidden h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-white/10 text-white transition-colors duration-150 hover:border-white/25 hover:bg-white/[0.08] max-lg:flex"
-            >
-              {open ? <Close size={17} /> : <Menu size={17} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile drawer */}
-        {open && (
-          <div
-            ref={panelRef}
-            id="mobile-menu"
-            role="dialog"
-            aria-label="Navigation menu"
-            className="pointer-events-auto absolute inset-x-0 top-[calc(100%+8px)] rounded-2xl border border-edge bg-panel p-2.5 shadow-[0_28px_56px_-16px_rgba(0,0,0,0.75)] motion-safe:animate-[menu-in_200ms_ease-out]"
-          >
-            <nav aria-label="Mobile navigation" className="flex flex-col gap-0.5">
-              {MAIN_NAV.map((item) => {
-                const current = isActive(pathname, item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={current ? "page" : undefined}
-                    className={`rounded-xl px-4 py-3 text-[15px] font-medium transition-colors duration-150 ${
-                      current
-                        ? "bg-white/[0.08] font-semibold text-white"
-                        : "text-haze hover:bg-white/[0.06] hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-            <div className="mt-2 border-t border-white/[0.06] pt-2">
-              <Link
-                href="/contact#book"
-                className="flex h-12 items-center justify-center rounded-xl bg-brand text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-[#2440c4]"
-              >
-                Book a discovery call
+                  <path d="M2.5 4.5 6 8l3.5-3.5" />
+                </svg>
               </Link>
-            </div>
-          </div>
-        )}
+              <div className="mega">
+                <div className="mg">
+                  {MEGA_COLUMNS.map((column) => (
+                    <div className="col" key={column.title}>
+                      <h5>{column.title}</h5>
+                      {column.services.map((slug) => {
+                        const service = SERVICE_BY_SLUG[slug];
+                        return (
+                          <Link href={service.href} key={slug}>
+                            <b>{service.name}</b>
+                            <small>{service.summary}</small>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ))}
+                  <div className="col">
+                    <h5>Get started</h5>
+                    {GET_STARTED.map((item) => (
+                      <Link href={item.href} key={item.href}>
+                        <b>{item.title}</b>
+                        <small>{item.text}</small>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="mgf">
+                  <Link className="all" href="/services">
+                    See all services <ArrowIcon />
+                  </Link>
+                  <Link className="pr" href="/automation-audit">
+                    <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
+                      <g fill="#22D3EE" fillOpacity=".42">
+                        <path d="M96,240l16-80L48,136,160,16,144,96l64,24Z" />
+                      </g>
+                      <g fill="#A5B4FC">
+                        <path d="M213.84,118.63a6,6,0,0,0-3.73-4.25L150.88,92.17l15-75a6,6,0,0,0-10.27-5.27l-112,120a6,6,0,0,0,2.28,9.71l59.23,22.21-15,75a6,6,0,0,0,3.14,6.52A6.07,6.07,0,0,0,96,246a6,6,0,0,0,4.39-1.91l112-120A6,6,0,0,0,213.84,118.63ZM106,220.46l11.85-59.28a6,6,0,0,0-3.77-6.8l-55.6-20.85,91.46-98L138.12,94.82a6,6,0,0,0,3.77,6.8l55.6,20.85Z" />
+                      </g>
+                    </svg>
+                    <span>
+                      <b>Free automation audit</b>
+                      <small>Find out what your team could stop doing by hand.</small>
+                    </span>
+                    <em>Get your audit &rsaquo;</em>
+                  </Link>
+                </div>
+              </div>
+            </li>
+            {TOP_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={isCurrent(pathname, link.href) ? "on" : undefined}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="act">
+          <Link className="btn btn-o" href="/automation-audit">
+            Free audit
+          </Link>
+          <Link className="btn btn-p" href="/contact">
+            Discuss your project <ArrowIcon />
+          </Link>
+          <button
+            type="button"
+            className="burger"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => {
+              setOpenedAt(pathname);
+              setOpen((value) => !value);
+            }}
+          >
+            <motion.span
+              animate={open ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25, ease: EASE }}
+            />
+            <motion.span
+              animate={open ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25, ease: EASE }}
+            />
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="mobile-menu"
+            className="mnav"
+            aria-label="Mobile"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
+          >
+            <ul>
+              {MOBILE_LINKS.map((link, index) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, ease: EASE, delay: 0.05 + index * 0.05 }}
+                >
+                  <Link href={link.href} className={isCurrent(pathname, link.href) ? "on" : undefined}>
+                    {link.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: EASE, delay: 0.4 }}
+            >
+              <Link className="btn btn-p" href="/contact">
+                Discuss your project <ArrowIcon />
+              </Link>
+            </motion.div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

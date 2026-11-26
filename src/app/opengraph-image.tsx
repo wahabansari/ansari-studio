@@ -19,7 +19,7 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#070B16",
+          background: "#07080D",
           padding: "72px 80px",
           position: "relative",
         }}
@@ -32,7 +32,7 @@ export default function Image() {
             width: "820px",
             height: "620px",
             borderRadius: "9999px",
-            background: "radial-gradient(circle, rgba(46,79,227,0.55) 0%, rgba(7,11,22,0) 70%)",
+            background: "radial-gradient(circle, rgba(99,102,241,0.55) 0%, rgba(7,11,22,0) 70%)",
           }}
         />
         <div
@@ -49,7 +49,7 @@ export default function Image() {
                 width: "52px",
                 height: "52px",
                 borderRadius: "14px",
-                background: "#2E4FE3",
+                background: "#6366F1",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -65,7 +65,7 @@ export default function Image() {
               <div style={{ color: "#A3ADC2", fontSize: "18px" }}>Product Engineering</div>
             </div>
           </div>
-          <div style={{ color: "#62DCCB", fontSize: "20px", fontWeight: 600 }}>
+          <div style={{ color: "#67E8F9", fontSize: "20px", fontWeight: 600 }}>
             Build. Modernize. Integrate.
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function Image() {
           </div>
           <div
             style={{
-              color: "#8FA3FF",
+              color: "#A5B4FC",
               fontSize: "72px",
               lineHeight: 1.05,
               fontWeight: 700,
@@ -120,7 +120,7 @@ export default function Image() {
           <div style={{ color: "#A3ADC2", fontSize: "22px" }}>
             Modernization · Automation · Custom software
           </div>
-          <div style={{ color: "#62DCCB", fontSize: "22px", fontWeight: 600 }}>
+          <div style={{ color: "#67E8F9", fontSize: "22px", fontWeight: 600 }}>
             Product engineering for growing businesses
           </div>
         </div>
