@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { MaintenanceArt1 } from "@/content/art/MaintenanceArt1";
+import { MaintenanceArt2 } from "@/content/art/MaintenanceArt2";
 
 export function MaintenanceContent() {
   return (
@@ -47,23 +47,28 @@ export function MaintenanceContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">Sound familiar?</span>
-              <h2 className="h2">Problems we solve</h2>
-            </div>
-          </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <span className="num">01</span>
+            <div className="cell dk c5 r3 pin">
+              <span className="fig">Sound familiar?</span>
+              <h3>Problems we solve</h3>
+              <p>If one of these sounds like you, we should talk.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Discuss your project "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
+            </div>
+            <div className="cell prb c7">
+              <span className="big">01</span>
               <h3>You have a live product but no in-house developer</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">02</span>
+            <div className="cell prb c7">
+              <span className="big">02</span>
               <h3>Every new freelancer has to learn your code again</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">03</span>
+            <div className="cell prb c7">
+              <span className="big">03</span>
               <h3>Updates and security patches keep slipping</h3>
             </div>
           </Reveal>
@@ -78,7 +83,10 @@ export function MaintenanceContent() {
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c6">
+            <div className="cell c5 r4 dart">
+              <MaintenanceArt2 />
+            </div>
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z" />
@@ -88,8 +96,9 @@ export function MaintenanceContent() {
                 </g>
               </svg>
               <h3>Updates and security</h3>
+              <span className="n">01</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" />
@@ -99,8 +108,9 @@ export function MaintenanceContent() {
                 </g>
               </svg>
               <h3>Monitoring</h3>
+              <span className="n">02</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" />
@@ -110,8 +120,9 @@ export function MaintenanceContent() {
                 </g>
               </svg>
               <h3>Bug fixes and small features</h3>
+              <span className="n">03</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M208,88H152V32Z" />
@@ -121,6 +132,7 @@ export function MaintenanceContent() {
                 </g>
               </svg>
               <h3>A monthly report</h3>
+              <span className="n">04</span>
             </div>
           </Reveal>
         </div>
@@ -133,18 +145,21 @@ export function MaintenanceContent() {
               <h2 className="h2">How it works</h2>
             </div>
           </Reveal>
-          <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
-            <div className="st">
-              <small>01</small>
-              <h3 className="h3">{"Agree the month's priorities"}</h3>
+          <Reveal className="mb">
+            <div className="cell stc c4">
+              <span className="big">01</span>
+              <h3>{"Agree the month's priorities"}</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>02</small>
-              <h3 className="h3">Work through them, urgent issues first</h3>
+            <div className="cell stc c4">
+              <span className="big">02</span>
+              <h3>Work through them, urgent issues first</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>03</small>
-              <h3 className="h3">Report what shipped</h3>
+            <div className="cell stc c4">
+              <span className="big">03</span>
+              <h3>Report what shipped</h3>
+              <i className="bar" />
             </div>
           </Reveal>
         </div>
@@ -194,36 +209,45 @@ export function MaintenanceContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="h2">Frequently asked questions</h2>
+          <Reveal className="mb">
+            <div className="cell dk c4 pin">
+              <span className="fig">FAQ</span>
+              <h3>Questions we hear often</h3>
+              <p>Anything else? Ask us directly and you get a reply within one business day.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Ask a question "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
             </div>
-          </Reveal>
-          <Reveal className="faq">
-            <details>
-              <summary>What is included?</summary>
-              <p>
-                Updates, security patches, monitoring, bug fixes and small features, with a monthly report on
-                what shipped.
-              </p>
-            </details>
-            <details>
-              <summary>How are hours and pricing agreed?</summary>
-              <p>Flexibly, per client, and in writing before we start.</p>
-            </details>
-            <details>
-              <summary>How fast do you respond to urgent issues?</summary>
-              <p>
-                {
-                  "Urgent issues come first in the month's plan, and every message gets a reply within one business day."
-                }
-              </p>
-            </details>
-            <details>
-              <summary>Can we stop at any time?</summary>
-              <p>Yes. There is no long lock-in, and you keep the code, documentation and accounts.</p>
-            </details>
+            <div className="cell c8 fqc">
+              <div className="faq">
+                <details>
+                  <summary>What is included?</summary>
+                  <p>
+                    Updates, security patches, monitoring, bug fixes and small features, with a monthly report
+                    on what shipped.
+                  </p>
+                </details>
+                <details>
+                  <summary>How are hours and pricing agreed?</summary>
+                  <p>Flexibly, per client, and in writing before we start.</p>
+                </details>
+                <details>
+                  <summary>How fast do you respond to urgent issues?</summary>
+                  <p>
+                    {
+                      "Urgent issues come first in the month's plan, and every message gets a reply within one business day."
+                    }
+                  </p>
+                </details>
+                <details>
+                  <summary>Can we stop at any time?</summary>
+                  <p>Yes. There is no long lock-in, and you keep the code, documentation and accounts.</p>
+                </details>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

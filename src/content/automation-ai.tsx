@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, RevealLink, Up } from "@/components/motion";
 import { AutomationArt1 } from "@/content/art/AutomationArt1";
+import { AutomationArt2 } from "@/content/art/AutomationArt2";
 
 export function AutomationContent() {
   return (
@@ -47,23 +47,28 @@ export function AutomationContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">Sound familiar?</span>
-              <h2 className="h2">Problems we solve</h2>
-            </div>
-          </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <span className="num">01</span>
+            <div className="cell dk c5 r3 pin">
+              <span className="fig">Sound familiar?</span>
+              <h3>Problems we solve</h3>
+              <p>If one of these sounds like you, we should talk.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Discuss your project "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
+            </div>
+            <div className="cell prb c7">
+              <span className="big">01</span>
               <h3>Details are copied between tools by hand</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">02</span>
+            <div className="cell prb c7">
+              <span className="big">02</span>
               <h3>Enquiries wait in an inbox</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">03</span>
+            <div className="cell prb c7">
+              <span className="big">03</span>
               <h3>Someone builds the same report every week</h3>
             </div>
           </Reveal>
@@ -78,7 +83,10 @@ export function AutomationContent() {
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c6">
+            <div className="cell c5 r4 dart">
+              <AutomationArt2 />
+            </div>
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M209.94,113.94l-96,96a48,48,0,0,1-67.88-67.88l96-96a48,48,0,0,1,67.88,67.88Z" />
@@ -88,8 +96,9 @@ export function AutomationContent() {
                 </g>
               </svg>
               <h3>Lead capture and CRM updates</h3>
+              <span className="n">01</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M96,240l16-80L48,136,160,16,144,96l64,24Z" />
@@ -99,8 +108,9 @@ export function AutomationContent() {
                 </g>
               </svg>
               <h3>Automatic replies and follow-ups</h3>
+              <span className="n">02</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" />
@@ -110,8 +120,9 @@ export function AutomationContent() {
                 </g>
               </svg>
               <h3>Scheduled reports</h3>
+              <span className="n">03</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z" />
@@ -121,6 +132,7 @@ export function AutomationContent() {
                 </g>
               </svg>
               <h3>AI-assisted sorting and drafting</h3>
+              <span className="n">04</span>
             </div>
           </Reveal>
         </div>
@@ -133,18 +145,21 @@ export function AutomationContent() {
               <h2 className="h2">How it works</h2>
             </div>
           </Reveal>
-          <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
-            <div className="st">
-              <small>01</small>
-              <h3 className="h3">Map how the work moves today</h3>
+          <Reveal className="mb">
+            <div className="cell stc c4">
+              <span className="big">01</span>
+              <h3>Map how the work moves today</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>02</small>
-              <h3 className="h3">Build and test the workflow</h3>
+            <div className="cell stc c4">
+              <span className="big">02</span>
+              <h3>Build and test the workflow</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>03</small>
-              <h3 className="h3">Hand over with documentation and optional upkeep</h3>
+            <div className="cell stc c4">
+              <span className="big">03</span>
+              <h3>Hand over with documentation and optional upkeep</h3>
+              <i className="bar" />
             </div>
           </Reveal>
         </div>
@@ -179,35 +194,44 @@ export function AutomationContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="h2">Frequently asked questions</h2>
+          <Reveal className="mb">
+            <div className="cell dk c4 pin">
+              <span className="fig">FAQ</span>
+              <h3>Questions we hear often</h3>
+              <p>Anything else? Ask us directly and you get a reply within one business day.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Ask a question "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
             </div>
-          </Reveal>
-          <Reveal className="faq">
-            <details>
-              <summary>What can you automate?</summary>
-              <p>
-                Most repetitive work that follows clear rules: capturing leads, updating your CRM, sending
-                replies and follow-ups, and building regular reports.
-              </p>
-            </details>
-            <details>
-              <summary>Do we need to change our tools?</summary>
-              <p>No. We connect the tools you already use.</p>
-            </details>
-            <details>
-              <summary>Who owns the workflows and data?</summary>
-              <p>You do. Workflows, documentation and data stay with you.</p>
-            </details>
-            <details>
-              <summary>Is our data safe?</summary>
-              <p>
-                We only connect what is needed, agree access with you first, and keep a person in the loop for
-                anything important.
-              </p>
-            </details>
+            <div className="cell c8 fqc">
+              <div className="faq">
+                <details>
+                  <summary>What can you automate?</summary>
+                  <p>
+                    Most repetitive work that follows clear rules: capturing leads, updating your CRM, sending
+                    replies and follow-ups, and building regular reports.
+                  </p>
+                </details>
+                <details>
+                  <summary>Do we need to change our tools?</summary>
+                  <p>No. We connect the tools you already use.</p>
+                </details>
+                <details>
+                  <summary>Who owns the workflows and data?</summary>
+                  <p>You do. Workflows, documentation and data stay with you.</p>
+                </details>
+                <details>
+                  <summary>Is our data safe?</summary>
+                  <p>
+                    We only connect what is needed, agree access with you first, and keep a person in the loop
+                    for anything important.
+                  </p>
+                </details>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

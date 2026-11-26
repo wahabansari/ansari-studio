@@ -436,3 +436,37 @@
   pointer-events: none;
   background: linear-gradient(180deg, rgba(7, 8, 13, 0.35), transparent 40%, rgba(7, 8, 13, 0.45));
 }
+
+/* v3.8 service inner pages */
+.mb>.r2{grid-row:span 2}.mb>.r3{grid-row:span 3}.mb>.r4{grid-row:span 4}
+.pin{justify-content:center;padding:40px;gap:0;}
+.pin h3{font-size:1.6rem;letter-spacing:-.04em;margin:12px 0 10px;color:#fff;}
+.pin p{color:#B0B5CB;max-width:320px;margin-bottom:24px;}
+.pin .btn{align-self:flex-start;}
+.prb{flex-direction:row;align-items:center;gap:26px;padding:26px 34px;min-height:104px;}
+.prb .big,.stc .big{font-size:2.6rem;line-height:1;font-weight:600;letter-spacing:-.06em;background:linear-gradient(160deg,#6366F1,#22D3EE);-webkit-background-clip:text;background-clip:text;color:transparent;flex-shrink:0;}
+.prb h3{font-size:1.1rem;letter-spacing:-.025em;max-width:460px;}
+.dart{padding:0;background:linear-gradient(160deg,#F3F4FF,#fff);overflow:hidden;align-items:center;justify-content:center;}
+.dart svg{width:100%;height:auto;display:block;}
+.dr{flex-direction:row;align-items:center;gap:18px;padding:22px 30px;min-height:84px;}
+.dr .ico{width:32px;height:32px;flex-shrink:0;}
+.dr h3{font-size:1.02rem;letter-spacing:-.02em;flex:1;}
+.dr .n{font-size:.72rem;letter-spacing:.14em;color:#9AA0BA;font-weight:650;}
+.stc{padding:30px 32px 0;min-height:170px;justify-content:space-between;position:relative;}
+.stc h3{font-size:1.15rem;letter-spacing:-.03em;margin:14px 0 26px;}
+.stc .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#6366F1,#22D3EE);transform-origin:left;animation:tfill 10s ease-in-out infinite;}
+.stc:nth-child(2) .bar{animation-delay:1.2s}.stc:nth-child(3) .bar{animation-delay:2.4s}
+.fqc{padding:10px 34px;}
+.fqc .faq{max-width:none;}
+@media(max-width:900px){.prb,.dr{grid-column:span 12}.dart{display:none}
+}
+
+/* Keep the numbers in service rows the same width so the headings line up. */
+.prb .big,
+.stc .big {
+  font-variant-numeric: tabular-nums;
+  min-width: 2.1ch;
+}
+.prb .big {
+  flex: none;
+}

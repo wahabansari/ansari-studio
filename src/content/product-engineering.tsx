@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { ProductEngineeringArt1 } from "@/content/art/ProductEngineeringArt1";
+import { ProductEngineeringArt2 } from "@/content/art/ProductEngineeringArt2";
 
 export function ProductEngineeringContent() {
   return (
@@ -47,23 +47,28 @@ export function ProductEngineeringContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">Sound familiar?</span>
-              <h2 className="h2">Problems we solve</h2>
-            </div>
-          </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <span className="num">01</span>
+            <div className="cell dk c5 r3 pin">
+              <span className="fig">Sound familiar?</span>
+              <h3>Problems we solve</h3>
+              <p>If one of these sounds like you, we should talk.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Discuss your project "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
+            </div>
+            <div className="cell prb c7">
+              <span className="big">01</span>
               <h3>You have an idea but no team to build it</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">02</span>
+            <div className="cell prb c7">
+              <span className="big">02</span>
               <h3>Your product roadmap is stuck waiting for developers</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">03</span>
+            <div className="cell prb c7">
+              <span className="big">03</span>
               <h3>Past projects ran over time and budget</h3>
             </div>
           </Reveal>
@@ -78,7 +83,10 @@ export function ProductEngineeringContent() {
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c6">
+            <div className="cell c5 r4 dart">
+              <ProductEngineeringArt2 />
+            </div>
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,80l-96,56L32,80l96-56Z" />
@@ -88,8 +96,9 @@ export function ProductEngineeringContent() {
                 </g>
               </svg>
               <h3>MVPs that prove the idea with real users</h3>
+              <span className="n">01</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M208,88H152V32Z" />
@@ -99,8 +108,9 @@ export function ProductEngineeringContent() {
                 </g>
               </svg>
               <h3>New features for existing products</h3>
+              <span className="n">02</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M112,56v48a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h48A8,8,0,0,1,112,56Zm88-8H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Zm-96,96H56a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,104,144Zm96,0H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,200,144Z" />
@@ -110,8 +120,9 @@ export function ProductEngineeringContent() {
                 </g>
               </svg>
               <h3>Web applications that work on every screen</h3>
+              <span className="n">03</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M209.94,113.94l-96,96a48,48,0,0,1-67.88-67.88l96-96a48,48,0,0,1,67.88,67.88Z" />
@@ -121,6 +132,7 @@ export function ProductEngineeringContent() {
                 </g>
               </svg>
               <h3>Integrations with payments, CRMs and the tools you use</h3>
+              <span className="n">04</span>
             </div>
           </Reveal>
         </div>
@@ -133,18 +145,21 @@ export function ProductEngineeringContent() {
               <h2 className="h2">How it works</h2>
             </div>
           </Reveal>
-          <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
-            <div className="st">
-              <small>01</small>
-              <h3 className="h3">Agree the scope</h3>
+          <Reveal className="mb">
+            <div className="cell stc c4">
+              <span className="big">01</span>
+              <h3>Agree the scope</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>02</small>
-              <h3 className="h3">Build in weekly steps you can review</h3>
+            <div className="cell stc c4">
+              <span className="big">02</span>
+              <h3>Build in weekly steps you can review</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>03</small>
-              <h3 className="h3">Launch and hand over</h3>
+            <div className="cell stc c4">
+              <span className="big">03</span>
+              <h3>Launch and hand over</h3>
+              <i className="bar" />
             </div>
           </Reveal>
         </div>
@@ -194,41 +209,50 @@ export function ProductEngineeringContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="h2">Frequently asked questions</h2>
+          <Reveal className="mb">
+            <div className="cell dk c4 pin">
+              <span className="fig">FAQ</span>
+              <h3>Questions we hear often</h3>
+              <p>Anything else? Ask us directly and you get a reply within one business day.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Ask a question "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
             </div>
-          </Reveal>
-          <Reveal className="faq">
-            <details>
-              <summary>What is an MVP?</summary>
-              <p>
-                An MVP is the smallest version of your product that real users can try. It lets you test the
-                idea and learn what to build next before you invest in the full product.
-              </p>
-            </details>
-            <details>
-              <summary>Who owns the code?</summary>
-              <p>
-                You do. Code, documentation and accounts are handed over to you at the end of the project.
-              </p>
-            </details>
-            <details>
-              <summary>Can you work on our existing product?</summary>
-              <p>
-                Yes. We can add features, fix problems or take over day-to-day development of a product that
-                is already live.
-              </p>
-            </details>
-            <details>
-              <summary>{"Can you build from our designer's files?"}</summary>
-              <p>
-                {
-                  "Yes. We build from your designer's files, or we can help shape the screens with you if you do not have a designer yet."
-                }
-              </p>
-            </details>
+            <div className="cell c8 fqc">
+              <div className="faq">
+                <details>
+                  <summary>What is an MVP?</summary>
+                  <p>
+                    An MVP is the smallest version of your product that real users can try. It lets you test
+                    the idea and learn what to build next before you invest in the full product.
+                  </p>
+                </details>
+                <details>
+                  <summary>Who owns the code?</summary>
+                  <p>
+                    You do. Code, documentation and accounts are handed over to you at the end of the project.
+                  </p>
+                </details>
+                <details>
+                  <summary>Can you work on our existing product?</summary>
+                  <p>
+                    Yes. We can add features, fix problems or take over day-to-day development of a product
+                    that is already live.
+                  </p>
+                </details>
+                <details>
+                  <summary>{"Can you build from our designer's files?"}</summary>
+                  <p>
+                    {
+                      "Yes. We build from your designer's files, or we can help shape the screens with you if you do not have a designer yet."
+                    }
+                  </p>
+                </details>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { DashboardsArt1 } from "@/content/art/DashboardsArt1";
+import { DashboardsArt2 } from "@/content/art/DashboardsArt2";
 
 export function DashboardsContent() {
   return (
@@ -47,23 +47,28 @@ export function DashboardsContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">Sound familiar?</span>
-              <h2 className="h2">Problems we solve</h2>
-            </div>
-          </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <span className="num">01</span>
+            <div className="cell dk c5 r3 pin">
+              <span className="fig">Sound familiar?</span>
+              <h3>Problems we solve</h3>
+              <p>If one of these sounds like you, we should talk.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Discuss your project "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
+            </div>
+            <div className="cell prb c7">
+              <span className="big">01</span>
               <h3>Numbers live in five spreadsheets</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">02</span>
+            <div className="cell prb c7">
+              <span className="big">02</span>
               <h3>Clients email your team for every status update</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">03</span>
+            <div className="cell prb c7">
+              <span className="big">03</span>
               <h3>Your current admin panel is slow and nobody likes it</h3>
             </div>
           </Reveal>
@@ -78,7 +83,10 @@ export function DashboardsContent() {
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c6">
+            <div className="cell c5 r4 dart">
+              <DashboardsArt2 />
+            </div>
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M112,56v48a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h48A8,8,0,0,1,112,56Zm88-8H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Zm-96,96H56a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,104,144Zm96,0H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,200,144Z" />
@@ -88,8 +96,9 @@ export function DashboardsContent() {
                 </g>
               </svg>
               <h3>Admin panels</h3>
+              <span className="n">01</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M192,96a64,64,0,1,1-64-64A64,64,0,0,1,192,96Z" />
@@ -99,8 +108,9 @@ export function DashboardsContent() {
                 </g>
               </svg>
               <h3>Client portals</h3>
+              <span className="n">02</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M208,88H152V32Z" />
@@ -110,8 +120,9 @@ export function DashboardsContent() {
                 </g>
               </svg>
               <h3>Reporting dashboards</h3>
+              <span className="n">03</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" />
@@ -121,6 +132,7 @@ export function DashboardsContent() {
                 </g>
               </svg>
               <h3>Internal tools for approvals, scheduling or stock</h3>
+              <span className="n">04</span>
             </div>
           </Reveal>
         </div>
@@ -133,18 +145,21 @@ export function DashboardsContent() {
               <h2 className="h2">How it works</h2>
             </div>
           </Reveal>
-          <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
-            <div className="st">
-              <small>01</small>
-              <h3 className="h3">List the questions each role asks</h3>
+          <Reveal className="mb">
+            <div className="cell stc c4">
+              <span className="big">01</span>
+              <h3>List the questions each role asks</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>02</small>
-              <h3 className="h3">Connect the data</h3>
+            <div className="cell stc c4">
+              <span className="big">02</span>
+              <h3>Connect the data</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>03</small>
-              <h3 className="h3">Build and test with your team</h3>
+            <div className="cell stc c4">
+              <span className="big">03</span>
+              <h3>Build and test with your team</h3>
+              <i className="bar" />
             </div>
           </Reveal>
         </div>
@@ -194,38 +209,49 @@ export function DashboardsContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="h2">Frequently asked questions</h2>
+          <Reveal className="mb">
+            <div className="cell dk c4 pin">
+              <span className="fig">FAQ</span>
+              <h3>Questions we hear often</h3>
+              <p>Anything else? Ask us directly and you get a reply within one business day.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Ask a question "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
             </div>
-          </Reveal>
-          <Reveal className="faq">
-            <details>
-              <summary>What is a client portal?</summary>
-              <p>
-                A client portal is a private area where your clients sign in to see their own information,
-                such as project status, documents or invoices, without emailing your team.
-              </p>
-            </details>
-            <details>
-              <summary>Can it connect to our existing data?</summary>
-              <p>
-                Yes. We connect to the systems and files you already use, so you do not have to enter data
-                twice.
-              </p>
-            </details>
-            <details>
-              <summary>Can you redesign the dashboard we have?</summary>
-              <p>Yes. We can rebuild or improve an existing dashboard so it is faster and easier to use.</p>
-            </details>
-            <details>
-              <summary>Is client data secure?</summary>
-              <p>
-                Each person only sees what they are allowed to see, and we agree access rules with you before
-                we build.
-              </p>
-            </details>
+            <div className="cell c8 fqc">
+              <div className="faq">
+                <details>
+                  <summary>What is a client portal?</summary>
+                  <p>
+                    A client portal is a private area where your clients sign in to see their own information,
+                    such as project status, documents or invoices, without emailing your team.
+                  </p>
+                </details>
+                <details>
+                  <summary>Can it connect to our existing data?</summary>
+                  <p>
+                    Yes. We connect to the systems and files you already use, so you do not have to enter data
+                    twice.
+                  </p>
+                </details>
+                <details>
+                  <summary>Can you redesign the dashboard we have?</summary>
+                  <p>
+                    Yes. We can rebuild or improve an existing dashboard so it is faster and easier to use.
+                  </p>
+                </details>
+                <details>
+                  <summary>Is client data secure?</summary>
+                  <p>
+                    Each person only sees what they are allowed to see, and we agree access rules with you
+                    before we build.
+                  </p>
+                </details>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

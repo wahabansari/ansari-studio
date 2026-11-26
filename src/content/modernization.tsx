@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Reveal, Up } from "@/components/motion";
 import { ModernizationArt1 } from "@/content/art/ModernizationArt1";
+import { ModernizationArt2 } from "@/content/art/ModernizationArt2";
 
 export function ModernizationContent() {
   return (
@@ -47,23 +47,28 @@ export function ModernizationContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">Sound familiar?</span>
-              <h2 className="h2">Problems we solve</h2>
-            </div>
-          </Reveal>
           <Reveal className="mb">
-            <div className="cell c4">
-              <span className="num">01</span>
+            <div className="cell dk c5 r3 pin">
+              <span className="fig">Sound familiar?</span>
+              <h3>Problems we solve</h3>
+              <p>If one of these sounds like you, we should talk.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Discuss your project "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
+            </div>
+            <div className="cell prb c7">
+              <span className="big">01</span>
               <h3>Pages are slow and customers notice</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">02</span>
+            <div className="cell prb c7">
+              <span className="big">02</span>
               <h3>Small changes take weeks and break other things</h3>
             </div>
-            <div className="cell c4">
-              <span className="num">03</span>
+            <div className="cell prb c7">
+              <span className="big">03</span>
               <h3>It is hard to find developers for the old system</h3>
             </div>
           </Reveal>
@@ -78,7 +83,10 @@ export function ModernizationContent() {
             </div>
           </Reveal>
           <Reveal className="mb">
-            <div className="cell c6">
+            <div className="cell c5 r4 dart">
+              <ModernizationArt2 />
+            </div>
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M208,88H152V32Z" />
@@ -88,8 +96,9 @@ export function ModernizationContent() {
                 </g>
               </svg>
               <h3>A speed and code review with a written plan</h3>
+              <span className="n">01</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M96,240l16-80L48,136,160,16,144,96l64,24Z" />
@@ -99,8 +108,9 @@ export function ModernizationContent() {
                 </g>
               </svg>
               <h3>Performance fixes you can measure</h3>
+              <span className="n">02</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M216,128a88,88,0,1,1-88-88A88,88,0,0,1,216,128Z" />
@@ -110,8 +120,9 @@ export function ModernizationContent() {
                 </g>
               </svg>
               <h3>Step-by-step move to a modern platform</h3>
+              <span className="n">03</span>
             </div>
-            <div className="cell c6">
+            <div className="cell dr c7">
               <svg className="ico" viewBox="0 0 256 256" aria-hidden="true">
                 <g fill="#22D3EE" fillOpacity=".42">
                   <path d="M224,80l-96,56L32,80l96-56Z" />
@@ -121,6 +132,7 @@ export function ModernizationContent() {
                 </g>
               </svg>
               <h3>Documentation for your team</h3>
+              <span className="n">04</span>
             </div>
           </Reveal>
         </div>
@@ -133,18 +145,21 @@ export function ModernizationContent() {
               <h2 className="h2">How it works</h2>
             </div>
           </Reveal>
-          <Reveal className="tl" style={{ "--n": "3" } as CSSProperties}>
-            <div className="st">
-              <small>01</small>
-              <h3 className="h3">Measure and plan</h3>
+          <Reveal className="mb">
+            <div className="cell stc c4">
+              <span className="big">01</span>
+              <h3>Measure and plan</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>02</small>
-              <h3 className="h3">Fix and migrate in small releases</h3>
+            <div className="cell stc c4">
+              <span className="big">02</span>
+              <h3>Fix and migrate in small releases</h3>
+              <i className="bar" />
             </div>
-            <div className="st">
-              <small>03</small>
-              <h3 className="h3">Report before and after</h3>
+            <div className="cell stc c4">
+              <span className="big">03</span>
+              <h3>Report before and after</h3>
+              <i className="bar" />
             </div>
           </Reveal>
         </div>
@@ -194,38 +209,47 @@ export function ModernizationContent() {
       </section>
       <section className="sec">
         <div className="wrap">
-          <Reveal className="head">
-            <div>
-              <span className="eyebrow">FAQ</span>
-              <h2 className="h2">Frequently asked questions</h2>
+          <Reveal className="mb">
+            <div className="cell dk c4 pin">
+              <span className="fig">FAQ</span>
+              <h3>Questions we hear often</h3>
+              <p>Anything else? Ask us directly and you get a reply within one business day.</p>
+              <Link className="btn btn-w" href="/contact">
+                {"Ask a question "}
+                <svg className="i" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                  <path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" />
+                </svg>
+              </Link>
             </div>
-          </Reveal>
-          <Reveal className="faq">
-            <details>
-              <summary>Do we need a full rewrite?</summary>
-              <p>
-                Usually not. Most of the time we improve what you have in small steps, which costs less and
-                carries less risk than starting again.
-              </p>
-            </details>
-            <details>
-              <summary>Will the site go offline?</summary>
-              <p>No. Work happens in small releases, so your site stays live while it improves.</p>
-            </details>
-            <details>
-              <summary>How do you prove the improvement?</summary>
-              <p>
-                We measure before we start and again when we finish, then give you a short report that
-                compares the two.
-              </p>
-            </details>
-            <details>
-              <summary>How long does it take?</summary>
-              <p>
-                It depends on the size of the software. After the first review we give you a written plan with
-                a timeline you can plan around.
-              </p>
-            </details>
+            <div className="cell c8 fqc">
+              <div className="faq">
+                <details>
+                  <summary>Do we need a full rewrite?</summary>
+                  <p>
+                    Usually not. Most of the time we improve what you have in small steps, which costs less
+                    and carries less risk than starting again.
+                  </p>
+                </details>
+                <details>
+                  <summary>Will the site go offline?</summary>
+                  <p>No. Work happens in small releases, so your site stays live while it improves.</p>
+                </details>
+                <details>
+                  <summary>How do you prove the improvement?</summary>
+                  <p>
+                    We measure before we start and again when we finish, then give you a short report that
+                    compares the two.
+                  </p>
+                </details>
+                <details>
+                  <summary>How long does it take?</summary>
+                  <p>
+                    It depends on the size of the software. After the first review we give you a written plan
+                    with a timeline you can plan around.
+                  </p>
+                </details>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
